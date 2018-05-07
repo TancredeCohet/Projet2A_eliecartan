@@ -1,0 +1,150 @@
+%==========================================================================
+
+close all;
+
+% Path pour mesh2d (maillage)
+addpath 'Mesh2d_v23/' 
+addpath 'lib'
+
+tfull=tic;
+%--------------------------------------------------------------------------
+% Définition de la géométrie et parametres du maillage
+%--------------------------------------------------------------------------
+% node    : coordonnées [x;y] des noeuds du bord du domaine
+% edge    : aretes du bord définies par les numeros des noeuds [n1, n2]
+% pas_h   : pas de discretisation du maillage
+% hdata   : taille(s) du maillage
+% options : options pour le maillage (dhmax,verbose...)
+
+%------------------------------------------------------------------
+% Domaine rectangle [0,L]x[0,H]
+%------------------------------------------------------------------
+L=1; H=1;               
+
+node = [0 0; L 0; L H; 0 H];
+edge = [1 2; 2 3; 3 4; 4 1];
+
+%node = [0 0; L 0; L H; 0 H; 0 H/2.5];
+%edge = [1 2; 2 3; 3 4; 4 5; 5 1];
+
+
+% Taille du maillage
+pas_h=[0.08, 0.04, 0.02];
+erreurmax=[];
+erreurL2=[];
+sizemesh=[];
+
+hdata = [];
+optionsmesh=[];
+optionsmesh.output=false;  % pas de sortie maillage
+
+for k=1:length(pas_h)
+
+    %--------------------------------------------------------------------------
+    % Maillage P1
+    %--------------------------------------------------------------------------
+    %   v : coordonné́es des noeuds v=[x, y, label]
+    %       label : référence des noeuds :
+    %               label=0 -> noeud du domaine intérieur
+    %               label=i -> noeud sur le bord défini par edge(i), 
+    %               pour i=1,...,nbedge.
+    %
+    %   t : triangles t=[n1,n2,n3, label,aire]
+    %        - (n1,n2,n3) trois sommets des triangles
+    %        - label = 1
+    %        - aire : aire des triangles
+    %--------------------------------------------------------------------------
+    fprintf('-----------------------------------------------------------------\n');
+    fprintf('Maillage par ''mesh2d'' v2.3 (Copyright (C) 2007 Darren Engwirda)\n');
+    fprintf('-----------------------------------------------------------------\n');
+
+    hdata.hmax  = pas_h(k);   
+    outmesh=meshP1(node,edge,hdata,optionsmesh);
+
+    v1=outmesh.v1; t1=outmesh.t1; e1=outmesh.e1;
+    ibd1=outmesh.ib1; iin1=outmesh.ic1;
+
+    % nv1, nt1, ne1 : nb de noeuds, de triangles et d'aretes du maillage P1
+    nv1=size(v1,1); nt1=size(t1,1); ne1=size(e1,1);
+
+    % Taille du maillage
+    sm=sqrt(max(abs(t1(:,5))));
+    sizemesh=[sizemesh,sm];
+    
+    fprintf('Maillage P1 : nombre de noeuds    (nv) = %d\n',nv1);
+    fprintf('              nombre de triangles (nt) = %d\n',nt1);
+    fprintf('taille du maillage hmax = %e\n',sizemesh(k));
+    
+    % Affichage du maillage
+    patch('faces',t1(:,1:3),'vertices',v1(:,1:2),'facecolor','white','edgecolor','blue');
+    axis equal; 
+
+    %--------------------------------------------------------------------------
+    % Construction des matrices de masse M et de rigidité A   
+    %--------------------------------------------------------------------------
+    [A,M]=matrixP1vect(v1,t1);
+
+    fprintf('Taille de la matrice de rigidité : %d x %d (nnz = %d)\n',size(A), nnz(A));
+
+    % Terme source
+    % ------------
+    %f = @(x,y) 10*ones(size(x)); 
+    %f = @(x,y) 8*pi^2*sin(2*pi*x).*sin(2*pi*y); 
+    f = @(x,y) 2*ones(size(x));
+    b = M*f(v1(:,1),v1(:,2));
+
+    % Conditions limites
+    % ------------------
+    %g = @(x,y) zeros(size(x));
+    g = @(x,y) 0.5*(x.*(L-x)+y.*(H-y));
+    ubd = g(v1(ibd1,1),v1(ibd1,2));
+
+    % Traitement des CL
+    b=b-A(:,ibd1)*ubd;
+
+    A=A(iin1,iin1);
+    b(ibd1)=[];
+
+    % Résolution du système linéaire
+    sol=A\b;
+    
+    % Reconstruction de la solution
+    u=zeros(nv1,1);
+    u(iin1)=sol;
+    u(ibd1)=ubd;
+
+    %--------------------------------------------------------------------------
+    % Affichage solution
+    %--------------------------------------------------------------------------
+    patch('faces',t1(:,1:3),'vertices',v1(:,1:2),'FaceVertexCData',u,...
+          'facecolor','interp','edgecolor','black');
+    axis equal; 
+    colorbar;
+    drawnow
+
+    %--------------------------------------------------------------------------
+    %  solution exacte
+    %--------------------------------------------------------------------------
+    solexact = @(x,y) 0.5*(x.*(L-x)+y.*(H-y));
+
+    uexact = solexact(v1(:,1),v1(:,2));
+
+    % erreur max
+    erm=max(abs(u-uexact));
+    erreurmax=[erreurmax, erm];
+    fprintf('erreur max : %e\n',erm);
+
+    % erreur L2
+    erL2=erL2P1(solexact,u,t1,v1);
+    erreurL2=[erreurL2, erL2];
+    fprintf('erreur L2 : %e\n',erL2);
+end
+
+% Determination de l'ordre de convergence
+loglog(sizemesh,erreurL2,'x-')
+xlabel('h'); ylabel('erreur L2');
+hold on
+loglog(sizemesh,sizemesh.^2,'r-')
+legend('erreur L^2','h^2');
+[r,m,b]=regression(log(sizemesh),log(erreurL2));
+fprintf('\nordre de convergence O(h^m) avec m=%g\n',m);
