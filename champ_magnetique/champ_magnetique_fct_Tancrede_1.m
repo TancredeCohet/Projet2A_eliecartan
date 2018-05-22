@@ -32,7 +32,7 @@ t_total_2D = area_triangle(v_total_2D,t_total_2D);
 
 fnum = 3 * ones(size(t_total_2D,1),1); %fnum a 3 de base apres on cherche la cuve et l'aimant
 
-int_aimant = find(v_total_2D(:,1) >= 5 & v_total_2D(:,1) <= 5.5 & v_total_2D(:,2) >=  3.5 & v_total_2D(:,2) <= 4.5);
+int_aimant = find(v_total_2D(:,1) >= 4.75 & v_total_2D(:,1) <= 5.25 & v_total_2D(:,2) >=  3.5 & v_total_2D(:,2) <= 4.5);
 int_cuve = find(v_total_2D(:,1) >= 4.5 & v_total_2D(:,1) <= 5.5 & v_total_2D(:,2) >=  4.5 & v_total_2D(:,2) <= 5.5);
 
 for k = 1:nt
@@ -145,6 +145,7 @@ Y_total_2D = v_total_2D(:,2);
 % plot(y1,x);
 % plot(y2,x);
  title('lignes de champ magnetique dans la cuve');
+ xlabel('X'); ylabel('Y');
  hold off
 
 end

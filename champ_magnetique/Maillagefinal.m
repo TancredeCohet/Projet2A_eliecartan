@@ -10,31 +10,32 @@
 %
 %%-------------------------------------------------------------------------
 %addpath('code prof'i)
-addpath('code prof');
-addpath('code prof/Mesh2d_v23');
-addpath('code prof/Mesh2d_v23\private');
-addpath('code prof/Mesh2d_v23\lib');
+addpath('code_prof');
+addpath('code_prof\Mesh2d_v23');
+addpath('code_prof\Mesh2d_v23\private');
+addpath('code_prof\Mesh2d_v23\lib');
 
+close all;
 
 %==========================================================================
 %                     elaboration du maillage
 %==========================================================================
 
 %taille de l'aimant carre de taille a
-a = 0.75;
+a = 1;
 
 %taille de la cuve
-L = 10; %longueur
-H = 10; %hauteur
-node1 = [-a,-a; a,-a; a,a; -a, a];          %liste des noeuds intï¿½rieurs
-node2 = [-L,-H; L,-H; L,H; -L, H];          %liste des noeuds extï¿½rieurs
-edge1 = [(1:size(node1,1))',[(2:size(node1,1))'; 1]];       %liste des arï¿½tes intï¿½rieures
-edge2 = [1,2; 2,3; 3,4; 4,1];                               %liste des arï¿½tes extï¿½rieures
+L = 5; %longueur
+H = 5; %hauteur
+node1 = [-a,-a; a,-a; a,a; -a, a];          %liste des noeuds intérieurs
+node2 = [-L,-H; L,-H; L,H; -L, H];          %liste des noeuds extérieurs
+edge1 = [(1:size(node1,1))',[(2:size(node1,1))'; 1]];       %liste des arètes intérieures
+edge2 = [1,2; 2,3; 3,4; 4,1];                               %liste des arètes extérieures
 
-edge = [edge1; edge2+size(node1,1)];        %liste de toutes les arï¿½tes mises dans l'ordre
+edge = [edge1; edge2+size(node1,1)];        %liste de toutes les arètes mises dans l'ordre
 node = [node1; node2];                      %liste de tous les noeuds mises dans l'ordre
 
-pas_h=0.3;                                  %pas maximal du maillage
+pas_h=0.2;                                  %pas maximal du maillage
 hdata = [];
 hdata.hmax  = pas_h;
 face{1} = 1:size(edge1,1);                  %face de maillage interieure
@@ -45,7 +46,7 @@ face{2} = 1:size(edge,1);                   %face de maillage exterieure
 %==========================================================================
 %                              Calcul des matrices
 %
-%                       A est la matrice de rigiditï¿½
+%                       A est la matrice de rigidité
 %                       M la matrice du terme source
 %                             nv2 nombre de noeuds
 %                             ibint noeuds interieurs
@@ -68,8 +69,8 @@ sol = A1\M;
 
 
 %--------------------------------------------------------------------------
-%reconstituion de la solution avec les noeuds intï¿½rieur car la solution
-%actuelle ne porte que sur les noeuds intï¿½rieurs du maillage
+%reconstituion de la solution avec les noeuds intérieur car la solution
+%actuelle ne porte que sur les noeuds intérieurs du maillage
 %--------------------------------------------------------------------------
 close all; 
 u = zeros(nn,1);
@@ -80,13 +81,13 @@ u(ibint) = 0;
 
 
 B = gradient(u,v,t);
-%on observe que pour u = 1 sur tout le maillage le gradient calculï¿½ sur les
+%on observe que pour u = 1 sur tout le maillage le gradient calculé sur les
 %noeuds est de l'ordre de 1e-14
 
 B_X = B(:,1);
 B_Y = B(:,2);
 
-%on recupere les coordonnï¿½es de chaque point du maillage
+%on recupere les coordonnées de chaque point du maillage
 X = v(:,1);
 Y = v(:,2);
 
@@ -104,6 +105,13 @@ Y = v(:,2);
  patch('faces',t(:,1:3),'vertices',v(:,1:2),'FaceVertexCData',sqrt(B_X.^2+B_Y.^2),'facecolor','interp','edgecolor','black');
  axis equal; 
  colorbar;
+ title("norme de B")
+ figure;
+ 
+ patch('faces',t(:,1:3),'vertices',v(:,1:2),'FaceVertexCData',M2,'facecolor','interp','edgecolor','black');
+ axis equal; 
+ colorbar;
+ title("second membre")
  figure;
  
  %patch('faces',t(:,1:3),'vertices',v(:,1:2),'facecolor','red');
