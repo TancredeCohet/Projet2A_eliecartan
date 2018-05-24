@@ -1,4 +1,4 @@
-function [B_cuve_X, B_cuve_Y] = champ_magnetique_fct_Tancrede_1(v_total_2D,t_total_2D,node_aimant,edge_aimant,node_ensemble,edge_ensemble)
+function [B_cuve_X, B_cuve_Y] = champ_magnetique_fct_Tancrede_1(v_total_2D,t_total_2D,node_aimant,edge_aimant,node_ensemble,edge_ensemble,aimant_centre)
 %============================================================================================================
 % Solveur de Laplace - Elements finis P1
 %
@@ -32,7 +32,12 @@ t_total_2D = area_triangle(v_total_2D,t_total_2D);
 
 fnum = 3 * ones(size(t_total_2D,1),1); %fnum a 3 de base apres on cherche la cuve et l'aimant
 
-int_aimant = find(v_total_2D(:,1) >= 4.75 & v_total_2D(:,1) <= 5.25 & v_total_2D(:,2) >=  3.5 & v_total_2D(:,2) <= 4.5);
+if aimant_centre == true %si l'aimant est en position centree
+    int_aimant = find(v_total_2D(:,1) >= 4.75 & v_total_2D(:,1) <= 5.25 & v_total_2D(:,2) >=  3.5 & v_total_2D(:,2) <= 4.5);
+end
+if aimant_centre == false %si l'aimant est sur le coté
+    int_aimant = find(v_total_2D(:,1) >= 5 & v_total_2D(:,1) <= 5.5 & v_total_2D(:,2) >=  3.5 & v_total_2D(:,2) <= 4.5);
+end
 int_cuve = find(v_total_2D(:,1) >= 4.5 & v_total_2D(:,1) <= 5.5 & v_total_2D(:,2) >=  4.5 & v_total_2D(:,2) <= 5.5);
 
 for k = 1:nt
@@ -101,6 +106,14 @@ v_cuve = v_total_2D(numeros_noeuds_cuve,:);
 u_cuve = u(numeros_noeuds_cuve,:);
 B_cuve = B(numeros_noeuds_cuve,:);
 
+%affichage norme B pour verification
+% figure();
+% patch('faces',t_cuve(:,1:3),'vertices',v_total_2D(:,1:2),'facecolor','white','edgecolor','blue');
+% axis equal;  
+% colorbar;
+% title('maillage cuve réarrangé');
+%  
+
 B_cuve_X = B_cuve(:,1);
 B_cuve_Y = B_cuve(:,2);
 
@@ -127,12 +140,12 @@ Y_total_2D = v_total_2D(:,2);
  M2 = zeros(size(v_total_2D,1),1);
  M2(ic2) = M;
  
- %  affichage norme B pour verification
- figure();
- patch('faces',t_total_2D(:,1:3),'vertices',v_total_2D(:,1:2),'FaceVertexCData',sqrt(B_cuve_X.^2+B_cuve_Y.^2),'facecolor','interp','edgecolor','black');
- axis equal;  
- colorbar;
- title('norme de B');
+%  %  affichage norme B pour verification
+%  figure();
+%  patch('faces',t_total_2D(:,1:3),'vertices',v_total_2D(:,1:2),'FaceVertexCData',sqrt(B_cuve_X.^2+B_cuve_Y.^2),'facecolor','interp','edgecolor','black');
+%  axis equal;  
+%  colorbar;
+%  title('norme de B');
  
  figure();
  hold on;

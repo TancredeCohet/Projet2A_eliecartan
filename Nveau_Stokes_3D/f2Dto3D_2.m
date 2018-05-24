@@ -1,4 +1,4 @@
-function [fx, fy, fz, fxgd, fygd,fzgd] = f2Dto3D_2(v,t,nv1,nv2,nbquad,X,Y,Z)
+function [fx, fy, fz, fxgd, fygd,fzgd,fxy] = f2Dto3D_2(v,t,nv1,nv2,nbquad,X,Y,Z,Nx,Ny,Nz)
 %==========================================================================
 %     a partir d'un maillage donnee par les parametres f2Dto3D82 renvoit 
 %   le terme source de l'equation de navier-stokes
@@ -11,51 +11,51 @@ function [fx, fy, fz, fxgd, fygd,fzgd] = f2Dto3D_2(v,t,nv1,nv2,nbquad,X,Y,Z)
 
 
 close all;
-addpath '/lib_ALICE/mexfiles/bin'
-addpath '/lib'
 addpath('../champ_magnetique');
 
-%   parametre de la cuve
-global L P H
-L = 1;  % largeur
-P = 1;  % profondeur
-H = 1;  % hauteur
-nu = 1; % viscosite
+% %   parametre de la cuve
+% global L P H
+% L = 1;  % largeur
+% P = 1;  % profondeur
+% H = 1;  % hauteur
 
-% Nombres de points dans les directions x, y et z pour la cuve
-Nx = 11;
-Ny = 11;
-Nz = 11;
+% %generation du maillage 3D
+% [v,t,nv1,nv2,nbquad,X,Y,Z]= maillage_3D(Nx,Ny,Nz,L,P,H);
+% 
+% fprintf('*/ Maillage du cube %dx%dx%d (%f s)\n',Nx,Ny,Nz); 
+% fprintf('     nombre d''elements (cubes) = %d\n', size(t,1));
+% fprintf('     nombre de d.o.f pour la vitesse = %d\n', nv2);
+% fprintf('     nombre de d.o.f pour la pression = %d\n', nv1);
+% 
 
-
-%generation du maillage 3D
-[v,t,nv1,nv2,nbquad,X,Y,Z]= maillage_3D(Nx,Ny,Nz,L,P,H);
-
-fprintf('*/ Maillage du cube %dx%dx%d (%f s)\n',Nx,Ny,Nz); 
-fprintf('     nombre d''elements (cubes) = %d\n', size(t,1));
-fprintf('     nombre de d.o.f pour la vitesse = %d\n', nv2);
-fprintf('     nombre de d.o.f pour la pression = %d\n', nv1);
-
-% Construction du maillage triangulaire 2D pour z=0 a partir du maillage 3D
-% par des cubes.
+%--------------------------------------------------------------------------
+%   Construction du maillage triangulaire 2D pour z=0 a partir du maillage 3D
+%   par des cubes
+%--------------------------------------------------------------------------
 lz = 0;                % niveau z=0
 indz = find(v(:,3) == lz);
 xz = v(indz,1); yz = v(indz,2); vz = [xz, yz];
 tz = delaunay(xz,yz);  % triangulation de Delaunay des points du plan 
 
- %figure();
- %triplot(tz,xz,yz);   % affichage
- %title('maillage cuve initial')
+%figure();
+%triplot(tz,xz,yz);   % affichage
+%title('maillage cuve initial')
 
-%==========================================================================
+%--------------------------------------------------------------------------
 % Calcul du champ magnetique et de la force avec le maillage 2D defini par
 % (tz,vz)
-%==========================================================================
+%--------------------------------------------------------------------------
 
 %coordonnees des differents maillage
 node_ensemble = [0,0 ; 10 0; 10 10; 0 10]; %  maillage total
 node_select = [4.5 4.5;5.5 4.5; 5.5 5.5; 4.5 5.5];        %  mailage cuve cote 4
-node_aimant = [4.75 3.5; 5.25 3.5; 5.25 4.5; 4.75 4.5];        %  maillage aimant
+
+%aimant centre
+%node_aimant = [4.75 3.5; 5.25 3.5; 5.25 4.5; 4.75 4.5];        %  maillage aimant
+%aimant_centre = true;
+%aimant cote
+node_aimant = [5 3.5;5.5 3.5;5.5 4.5;5 4.5];        %  maillage aimant
+aimant_centre = false
 
 edge_aimant = [(1:size(node_aimant,1))',[(2:size(node_aimant,1))'; 1]];       %liste des aretes interieures
 edge_ensemble = [1,2; 2,3; 3,4; 4,1];                               %liste des aretes exterieures
@@ -94,23 +94,30 @@ t_total_2D = delaunay(v_total_2D(:,1),v_total_2D(:,2)); %genration maillage tria
 %  xlim([4.5 5.5]);
 %  ylim([4.5 5.5]);
 
-[B_X,B_Y] = champ_magnetique_fct_Tancrede_1(v_total_2D,t_total_2D,node_aimant,edge_aimant,node_ensemble,edge_ensemble);
+%--------------------------------------------------------------------------
+%               calcul du champ magnétique sur la couche z=0
+%--------------------------------------------------------------------------
 
-f0 = B_Y; %force magnetique pour la couche du maillage a z =0
+[B_X,B_Y] = champ_magnetique_fct_Tancrede_1(v_total_2D,t_total_2D,node_aimant,edge_aimant,node_ensemble,edge_ensemble,aimant_centre);
+
+
+f0 = B_Y; %calcul du second menbre sur le plan z=0
+
+%--------------------------------------------------------------------------
+%                 placement du second menbre dans le maillage 3D
+%--------------------------------------------------------------------------
 
 % Construction des forces 3D : fx(x,y,z)=fx(x,y,z=0)
 fx = zeros(size(v,1),1);
 fy = zeros(size(v,1),1);
 fz = zeros(size(v,1),1);
-
-%==========================================================================
-%                 placement du second menbre dans le maillage 3D
-%==========================================================================
-
 % placement des valeurs sur une matrice colonne
-for k=1:size(vz,1) 
-    iz = find(vz(k,1) == v(:,1) & vz(k,2) == v(:,2)); %on recupere tout les noeuds 'au-dessus'
-    fz(iz,:)=f0(k);                                     %les autres composantes son nulles ici
+
+% methode on cherche les noueds au-dessus
+for k=1:size(f0,1)
+    % attention sinon erreurs de comparaison flotants
+    iz = find(abs(v(:,1) - vz(k,1))<0.001 & abs(v(:,2) - vz(k,2))<0.001); %on recupere tout les noeuds 'au-dessus'
+    fz(iz,:) = f0(k);                                     %les autres composantes son nulles ici
 end
  %on verifie avec les tables de connectivité : les points sont biens placé
  
@@ -121,17 +128,19 @@ fxy=zeros(2*Ny-1,2*Nx-1);
 for yi = 1:2*Ny-1       % selon l'axe y
     for xj = 1:2*Nx-1         % selon l'axe x
         m = (2*Nx-1)*(yi-1)+xj ;
-        fxy(xj,yi) = f0(m);
+        fxy(yi,xj) = f0(m);
     end
 end
-
+% for j = 1:size(t,1)
+%     z(t(250,21))==fz(t(250,26))
+% end
 fxgd=zeros(2*Ny-1,2*Nx-1,2*Nz-1);
 fygd=zeros(2*Ny-1,2*Nx-1,2*Nz-1);
 fzgd=zeros(2*Ny-1,2*Nx-1,2*Nz-1);
 % comme la valeur selon z est l seule non-nulle on ne touche pas aux autres
 % composante ce qui serait des calculs inutiles
-for m=1:(2*Nz-1)
-    fzgd(:,:,m)=fxy;
+for p=1:(2*Nz-1)
+    fzgd(:,:,p)=fxy;
 end
     
 % Affichage de fx, juste pour vesrifier
