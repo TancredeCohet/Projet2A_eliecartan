@@ -51,11 +51,11 @@ node_ensemble = [0,0 ; 10 0; 10 10; 0 10]; %  maillage total
 node_select = [4.5 4.5;5.5 4.5; 5.5 5.5; 4.5 5.5];        %  mailage cuve cote 4
 
 %aimant centre
-%node_aimant = [4.75 3.5; 5.25 3.5; 5.25 4.5; 4.75 4.5];        %  maillage aimant
-%aimant_centre = true;
+node_aimant = [4.75 3.5; 5.25 3.5; 5.25 4.5; 4.75 4.5];        %  maillage aimant
+aimant_centre = true;
 %aimant cote
-node_aimant = [5 3.5;5.5 3.5;5.5 4.5;5 4.5];        %  maillage aimant
-aimant_centre = false
+%node_aimant = [5 3.5;5.5 3.5;5.5 4.5;5 4.5];        %  maillage aimant
+%aimant_centre = false
 
 edge_aimant = [(1:size(node_aimant,1))',[(2:size(node_aimant,1))'; 1]];       %liste des aretes interieures
 edge_ensemble = [1,2; 2,3; 3,4; 4,1];                               %liste des aretes exterieures
@@ -107,24 +107,38 @@ f0 = B_Y; %calcul du second menbre sur le plan z=0
 %                 placement du second menbre dans le maillage 3D
 %--------------------------------------------------------------------------
 
-% Construction des forces 3D : fx(x,y,z)=fx(x,y,z=0)
+% Pour Stokes3D la force magnetique doit etre sous la forme d'une matrice
+% colonne nb_noeuds * 1
+
+
 fx = zeros(size(v,1),1);
 fy = zeros(size(v,1),1);
 fz = zeros(size(v,1),1);
-% placement des valeurs sur une matrice colonne
 
-% methode on cherche les noueds au-dessus
+
+%   creation de la matrice colonne 
+%   FAUX
+%   l'idee est de recuperer les coordonnees au-dessus de chaque noeuds pour
+%   assigner les meme valeurs que la couche z=0
 for k=1:size(f0,1)
-    % attention sinon erreurs de comparaison flotants
-    iz = find(abs(v(:,1) - vz(k,1))<0.001 & abs(v(:,2) - vz(k,2))<0.001); %on recupere tout les noeuds 'au-dessus'
-    fz(iz,:) = f0(k);                                     %les autres composantes son nulles ici
+    iz = find(abs((v(:,1) - vz(k,1))/v(k,1))<0.001 & abs((v(:,2) - vz(k,2))/v(k,1))<0.001); 
+    fz(iz,:) = f0(k);                                     
 end
- %on verifie avec les tables de connectivité : les points sont biens placé
- 
- 
-% placement des valuers sur une matrice Nx*Ny*Nz
-% d'abord placement de f0 sur une matrice Nx*Ny
-fxy=zeros(2*Ny-1,2*Nx-1);
+
+
+%	codage d'un affichage 3D avec quiver
+%   cela necessite le rearrangement des donnees dans une matrice 3D
+ hx = 1/(2*(Nx-1)); hy = 1/(2*(Ny-1)); hz = 1/(2*(Nz-1));
+for m = 1:size(fz,1)
+    ind = round(v(m,:)./[hx, hy, hz])+1;
+    fzgd(ind(2),ind(1),ind(3)) = fz(m);
+end
+
+%   affichage perso
+%   placement des valuers sur une matrice Nx*Ny*Nz
+%   d'abord placement de f0 sur une matrice Nx*Ny comme les valeurs sont
+%   les meme sur chaque plan du maillage selon z
+fxy = zeros(2*Ny-1,2*Nx-1);
 for yi = 1:2*Ny-1       % selon l'axe y
     for xj = 1:2*Nx-1         % selon l'axe x
         m = (2*Nx-1)*(yi-1)+xj ;
@@ -142,7 +156,7 @@ fzgd=zeros(2*Ny-1,2*Nx-1,2*Nz-1);
 for p=1:(2*Nz-1)
     fzgd(:,:,p)=fxy;
 end
-    
+%     
 % Affichage de fx, juste pour vesrifier
 % Construction du maillage du cube [0,L]x[|O,P]x[0,H]
 % x_2D = linspace(0,L,2*Nx-1);
