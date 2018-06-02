@@ -1,6 +1,0 @@
-#C++ config
-CXX=g++
-OPENMP=-fopenmp
-CXXFLAGS=-O3 -fPIC -m64 $(OPENMP) -DNDEBUG
-LDNAME=DYLD_LIBRARY_PATH
-LIBEXT=dylib
