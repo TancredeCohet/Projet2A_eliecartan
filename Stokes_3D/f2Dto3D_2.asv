@@ -7,25 +7,40 @@ function [fx, fy, fz, fxgd, fygd,fzgd,fxy] = f2Dto3D_2(v,t,nv1,nv2,nbquad,X,Y,Z,
 %   fxgd, fygd, fzgd sont les forces dans des matrices Nx*Ny*Ny pour
 %   affichage
 %==========================================================================
-%--------------------------------------------------------------------------
-%   Construction du maillage triangulaire 2D pour z=0 a partir du maillage 3D
-%   par des cubes
-%--------------------------------------------------------------------------
+
 
 
 close all;
 addpath('../champ_magnetique');
 
-%--------- extraction d'une couche 2d et triangulation --------------------
-lz = 0;                             % niveau z=0
+% %   parametre de la cuve
+% global L P H
+% L = 1;  % largeur
+% P = 1;  % profondeur
+% H = 1;  % hauteur
+
+% %generation du maillage 3D
+% [v,t,nv1,nv2,nbquad,X,Y,Z]= maillage_3D(Nx,Ny,Nz,L,P,H);
+% 
+% fprintf('*/ Maillage du cube %dx%dx%d (%f s)\n',Nx,Ny,Nz); 
+% fprintf('     nombre d''elements (cubes) = %d\n', size(t,1));
+% fprintf('     nombre de d.o.f pour la vitesse = %d\n', nv2);
+% fprintf('     nombre de d.o.f pour la pression = %d\n', nv1);
+% 
+
+%--------------------------------------------------------------------------
+%   Construction du maillage triangulaire 2D pour z=0 a partir du maillage 3D
+%   par des cubes
+%--------------------------------------------------------------------------
+lz = 0;                % niveau z=0
 indz = find(v(:,3) == lz);
 xz = v(indz,1); yz = v(indz,2); vz = [xz, yz];
-tz = delaunay(xz,yz);               % triangulation de Delaunay des points du plan 
+tz = delaunay(xz,yz);  % triangulation de Delaunay des points du plan 
 
 figure();
 triplot(tz,xz,yz);   % affichage
 title('maillage cuve initial')
-%_________________________________________________________________________%
+%_________________________________________________________________________
 %         on voit que les point dans v ne sont pas dans l'ordre           %
 %_________________________________________________________________________%
 
@@ -124,7 +139,6 @@ end
 fxgd=zeros(2*Ny-1,2*Nx-1,2*Nz-1);
 fygd=zeros(2*Ny-1,2*Nx-1,2*Nz-1);
 fzgd=zeros(2*Ny-1,2*Nx-1,2*Nz-1);
-
 % comme la valeur selon z est l seule non-nulle on ne touche pas aux autres
 % composante ce qui serait des calculs inutiles
 for p=1:(2*Nz-1)
@@ -136,21 +150,21 @@ end
 fx = zeros(size(v,1),1);
 fy = zeros(size(v,1),1);
 fz = zeros(size(v,1),1);
-% for zi = 1:(2*Nz-1)
-%     for xi = 1:(2*Nx-1)
-%         fz((xi -1) * (2*Nx-1) + 1 + (zi -1) * ((2*Nz - 1) ^ 2):xi * (2*Nx - 1) + zi * ((2*Nz - 1) ^ 2)) = fzgd(xi,:,zi)';
-%     end
-% end
+for zi = 1:(2*Nz-1)
+    for xi = 1:(2*Nx-1)
+%        fz((xi -1) * (2*Nx-1) + 1 + (zi -1) * ((2*Nz - 1) ^ 2):xi * (2*Nx - 1) + zi * ((2*Nz - 1) ^ 2)) = fzgd(xi,:,zi)';
+    end
+end
 %--------------------------------------------------------------------------
 
 %----------- mise ne forme matrice 3D pour affichage avec quiver ----------
-%  ainsi onverifie le bon placement des donees
-%  cela necessite le rearrangement des donnees dans une matrice 3D
-hx = 1/(2*(Nx-1)); hy = 1/(2*(Ny-1)); hz = 1/(2*(Nz-1));
-for m = 1:size(fz,1)
-    ind = round(v(m,:)./[hx, hy, hz])+1;
-    fzgd(ind(2),ind(1),ind(3)) = fz(m);
-end
+%   ainsi onverifie le bon placement des donees
+%   cela necessite le rearrangement des donnees dans une matrice 3D
+%  hx = 1/(2*(Nx-1)); hy = 1/(2*(Ny-1)); hz = 1/(2*(Nz-1));
+% for m = 1:size(fz,1)
+%     ind = round(v(m,:)./[hx, hy, hz])+1;
+%     fzgd(ind(2),ind(1),ind(3)) = fz(m);
+% end
 %--------------------------------------------------------------------------
 
 

@@ -15,9 +15,9 @@ Lz=1;  % hauteur
 nu=1; % viscosité
 
 % Nombres de points dans les directions x, y et z
-Nx=10;
-Ny=10;
-Nz=10;
+Nx=11;
+Ny=11;
+Nz=11;
 
 compare = true; % comparaison avec une solution exacte
 displaysol = true;  % affichage de la solution approchée (vitesse)
@@ -137,7 +137,7 @@ if displaysol
 %   affichage du second membre de navier Stokes
     figure();
     quiver3(X2,Y2,Z2,fxgd,fygd,fzgd);
-    title('champ de vitesse');
+    title('second menbre navier stokes');
     xlabel('X'); ylabel('Y'); zlabel('Z');
     axis equal;
 
