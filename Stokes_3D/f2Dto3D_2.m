@@ -22,9 +22,9 @@ indz = find(v(:,3) == lz);
 xz = v(indz,1); yz = v(indz,2); vz = [xz, yz];
 tz = delaunay(xz,yz);               % triangulation de Delaunay des points du plan 
 
-figure();
-triplot(tz,xz,yz);   % affichage
-title('maillage cuve initial')
+% figure();
+% triplot(tz,xz,yz);   % affichage
+% title('maillage cuve initial')
 %_________________________________________________________________________%
 %         on voit que les point dans v ne sont pas dans l'ordre           %
 %_________________________________________________________________________%
@@ -67,20 +67,20 @@ v_total_2D = [v_total_2D_x(:) v_total_2D_y(:)];
 
 t_total_2D = delaunay(v_total_2D(:,1),v_total_2D(:,2)); %generation maillage triangulaire total
 
- figure();
- triplot(t_total_2D ,X_total_2D,Y_total_2D);
- xlim([4.5 5.5]);
- ylim([4.5 5.5]);
- title('maillage de resolution 2D total')
+%  figure();
+%  triplot(t_total_2D ,X_total_2D,Y_total_2D);
+%  xlim([4.5 5.5]);
+%  ylim([4.5 5.5]);
+%  title('maillage de resolution 2D total')
 
 
 %u = zeros(size(X_total_2D(:),1),1);
-
- figure();
- patch('faces',t_total_2D(:,1:3),'vertices',v_total_2D(:,1:2),'facecolor','white');
- title('avec path')
- xlim([4.5 5.5]);
- ylim([4.5 5.5]);
+% 
+%  figure();
+%  patch('faces',t_total_2D(:,1:3),'vertices',v_total_2D(:,1:2),'facecolor','white');
+%  title('avec path')
+%  xlim([4.5 5.5]);
+%  ylim([4.5 5.5]);
 
 %--------------------------------------------------------------------------
 %               calcul du champ magnétique sur la couche z=0
@@ -95,6 +95,10 @@ f0 = B_Y; %calcul du second menbre sur le plan z=0
 %                 placement du second menbre dans le maillage 3D
 %==========================================================================
 
+fx = zeros(size(v,1),1);
+fy = zeros(size(v,1),1);
+fz = zeros(size(v,1),1);
+
 % Pour Stokes3D la force magnetique doit etre sous la forme d'une matrice
 % colonne nb_noeuds * 1
 
@@ -102,9 +106,28 @@ f0 = B_Y; %calcul du second menbre sur le plan z=0
 %   l'idee est de recuperer les coordonnees au-dessus de chaque noeuds pour
 %   assigner les meme valeurs que la couche z=0
 for k=1:size(f0,1)
-    iz = find(abs((v(:,1) - vz(k,1))/v(k,1))<0.001 & abs((v(:,2) - vz(k,2))/v(k,1))<0.001); 
+    iz = find(abs((v(:,1) - vz(k,1)))<0.01 & abs((v(:,2) - vz(k,2)))<0.01);
+    if size(iz,1) ~= 21
+        lk = 1;
+    end
     fz(iz,:) = f0(k);                                     
 end
+%--------------------- test tablle de connectivite ------------------------
+test_connectivite = true;
+for ti = 1:size(t,1)
+    a = (fz(t(ti,1))==fz(t(ti,13))) && (fz(t(ti,1))==fz(t(ti,5))) && (fz(t(ti,2))==fz(t(ti,14))) && (fz(t(ti,2))==fz(t(ti,6))) && ...
+        (fz(t(ti,3))==fz(t(ti,15))) && (fz(t(ti,3))==fz(t(ti,7))) && (fz(t(ti,4))==fz(t(ti,16))) && (fz(t(ti,4))==fz(t(ti,8))) && ...
+        (fz(t(ti,9))==fz(t(ti,22))) && (fz(t(ti,9))==fz(t(ti,17))) && (fz(t(ti,10))==fz(t(ti,23))) && (fz(t(ti,10))==fz(t(ti,18))) && ...
+        (fz(t(ti,11))==fz(t(ti,24))) && (fz(t(ti,11))==fz(t(ti,19))) && (fz(t(ti,12))==fz(t(ti,25))) && (fz(t(ti,12))==fz(t(ti,20))) && ...
+        (fz(t(ti,21))==fz(t(ti,27))) && (fz(t(ti,21))==fz(t(ti,26)));
+    if a == false
+        test_connectivite = false
+    end
+end
+%   les test montre qu'il n'y pas de probleme avec les tables de
+%   connictivite
+%--------------------------------------------------------------------------
+
 %--------------------------------------------------------------------------
 
 %----------- placement des valuers de f0 dans une matrice 3D --------------
@@ -121,6 +144,7 @@ end
 % for j = 1:size(t,1)
 %     z(t(250,21))==fz(t(250,26))
 % end
+
 fxgd=zeros(2*Ny-1,2*Nx-1,2*Nz-1);
 fygd=zeros(2*Ny-1,2*Nx-1,2*Nz-1);
 fzgd=zeros(2*Ny-1,2*Nx-1,2*Nz-1);
@@ -133,9 +157,7 @@ end
 %--------------------------------------------------------------------------
 
 %--------------- placement des valeurs dans fz à partir de fzgd -----------
-fx = zeros(size(v,1),1);
-fy = zeros(size(v,1),1);
-fz = zeros(size(v,1),1);
+
 % for zi = 1:(2*Nz-1)
 %     for xi = 1:(2*Nx-1)
 %         fz((xi -1) * (2*Nx-1) + 1 + (zi -1) * ((2*Nz - 1) ^ 2):xi * (2*Nx - 1) + zi * ((2*Nz - 1) ^ 2)) = fzgd(xi,:,zi)';
