@@ -140,7 +140,7 @@ fprintf('   - au format MATLAB : %s\n',filename_mat);
 save(filename_mat,'Uxgd','Uygd','Uzgd','Pgd','X2','Y2','Z2');
 
 %--------------------------------------------------------------------------
-% Affichage
+%                               Affichage
 %--------------------------------------------------------------------------
 U_mod=sqrt(Uxgd.^2 + Uygd.^2 + Uzgd.^2);  % module de la vitesse
 
