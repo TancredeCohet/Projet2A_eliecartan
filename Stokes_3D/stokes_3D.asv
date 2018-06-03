@@ -1,7 +1,27 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=========================================================================%
 % Equations de Stokes 3D dans le cube [0,Lx]x[0,Ly]x[0,Lz]
 % Elements Finis Q2/Q1
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=========================================================================%
+%                                   :::!~!!!!!:.
+%                               .xUHWH!! !!?M88WHX:.
+%                             .X*#M@$!!  !X!M$$$$$$WWx:.
+%                            :!!!!!!?H! :!$!$$$$$$$$$$8X:
+%                           !!~  ~:~!! :~!$!#$$$$$$$$$$8X:
+%                          :!~::!H!<   ~.U$X!?R$$$$$$$$MM!
+%                          ~!~!!!!~~ .:XW$$$U!!?$$$$$$RMM!
+%                            !:~~~ .:!M"T#$$$$WX??#MRRMMM!
+%                            ~?WuxiW*`   `"#$$$$8!!!!??!!!
+%                          :X- M$$$$       `"T#$T~!8$WUXU~
+%                         :%`  ~#$$$m:        ~!~ ?$$$$$$
+%                       :!`.-   ~T$$$$8xx.  .xWW- ~""##*"
+%             .....   -~~:<` !    ~?T#$$@@W@*?$$      /`
+%             .@M!!! .!~~ !!     .:XUW$W!~ `"~:    :
+%             #"~~`.:x%`!!  !H:   !WM$$$$Ti.: .!WUn+!`
+%             :::~:!!`:X~ .: ?H.!u "$$$B$$$!W:U!T$$M~
+%             .~~   :X@!.-~   ?@WTWo("*$$$W$TH$! `
+%             Wi.~!X$?!-~    : ?$$$B$Wu("**$RM!
+%             $R@i.~~ !     :   ~$$$$$B$$en:``
+%             ?MXT@Wx.~    :     ~"##*$$$$M~
 close all
 
 addpath './lib'
@@ -15,9 +35,9 @@ Lz=1;  % hauteur
 nu=1; % viscosité
 
 % Nombres de points dans les directions x, y et z
-Nx=10;
-Ny=10;
-Nz=10;
+Nx=11;
+Ny=11;
+Nz=11;
 
 compare = true; % comparaison avec une solution exacte
 displaysol = true;  % affichage de la solution approchée (vitesse)
@@ -137,7 +157,7 @@ if displaysol
 %   affichage du second membre de navier Stokes
     figure();
     quiver3(X2,Y2,Z2,fxgd,fygd,fzgd);
-    title('champ de vitesse');
+    title('second menbre navier stokes');
     xlabel('X'); ylabel('Y'); zlabel('Z');
     axis equal;
 
