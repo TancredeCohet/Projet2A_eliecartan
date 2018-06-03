@@ -36,7 +36,7 @@ if aimant_centre == true %si l'aimant est en position centree
     int_aimant = find(v_total_2D(:,1) >= 4.75 & v_total_2D(:,1) <= 5.25 & v_total_2D(:,2) >=  3.5 & v_total_2D(:,2) <= 4.5);
 end
 if aimant_centre == false %si l'aimant est sur le coté
-    int_aimant = find(v_total_2D(:,1) >= 5 & v_total_2D(:,1) <= 5.5 & v_total_2D(:,2) >=  3.5 & v_total_2D(:,2) <= 4.5);
+    int_aimant = find(v_total_2D(:,1) >= 5.1 & v_total_2D(:,1) <= 5.6 & v_total_2D(:,2) >=  3.5 & v_total_2D(:,2) <= 4.5);
 end
 int_cuve = find(v_total_2D(:,1) >= 4.5 & v_total_2D(:,1) <= 5.5 & v_total_2D(:,2) >=  4.5 & v_total_2D(:,2) <= 5.5);
 

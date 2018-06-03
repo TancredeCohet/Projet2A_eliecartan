@@ -39,11 +39,11 @@ node_ensemble = [0,0 ; 10 0; 10 10; 0 10]; %  maillage total
 node_select = [4.5 4.5;5.5 4.5; 5.5 5.5; 4.5 5.5];        %  mailage cuve cote 4
 
 %aimant centre
-node_aimant = [4.75 3.5; 5.25 3.5; 5.25 4.5; 4.75 4.5];        %  maillage aimant
-aimant_centre = true;
+%node_aimant = [4.75 3.5; 5.25 3.5; 5.25 4.5; 4.75 4.5];        %  maillage aimant
+%aimant_centre = true;
 %aimant cote
-%node_aimant = [5 3.5;5.5 3.5;5.5 4.5;5 4.5];        %  maillage aimant
-%aimant_centre = false
+node_aimant = [5.1 3.5;5.6 3.5;5.6 4.5;5.1 4.5];        %  maillage aimant
+aimant_centre = false
 
 edge_aimant = [(1:size(node_aimant,1))',[(2:size(node_aimant,1))'; 1]];       %liste des aretes interieures
 edge_ensemble = [1,2; 2,3; 3,4; 4,1];                               %liste des aretes exterieures
@@ -102,28 +102,28 @@ fz = zeros(size(v,1),1);
 % Pour Stokes3D la force magnetique doit etre sous la forme d'une matrice
 % colonne nb_noeuds * 1
 
-%----------------- ne marche pas ------------------------------------------
+%----------------- marche ?  ------------------------------------------
 %   l'idee est de recuperer les coordonnees au-dessus de chaque noeuds pour
 %   assigner les meme valeurs que la couche z=0
-for k=1:size(f0,1)
-    iz = find(abs((v(:,1) - vz(k,1)))<0.01 & abs((v(:,2) - vz(k,2)))<0.01);
-    if size(iz,1) ~= 21
-        lk = 1;
-    end
-    fz(iz,:) = f0(k);                                     
-end
-%--------------------- test tablle de connectivite ------------------------
-test_connectivite = true;
-for ti = 1:size(t,1)
-    a = (fz(t(ti,1))==fz(t(ti,13))) && (fz(t(ti,1))==fz(t(ti,5))) && (fz(t(ti,2))==fz(t(ti,14))) && (fz(t(ti,2))==fz(t(ti,6))) && ...
-        (fz(t(ti,3))==fz(t(ti,15))) && (fz(t(ti,3))==fz(t(ti,7))) && (fz(t(ti,4))==fz(t(ti,16))) && (fz(t(ti,4))==fz(t(ti,8))) && ...
-        (fz(t(ti,9))==fz(t(ti,22))) && (fz(t(ti,9))==fz(t(ti,17))) && (fz(t(ti,10))==fz(t(ti,23))) && (fz(t(ti,10))==fz(t(ti,18))) && ...
-        (fz(t(ti,11))==fz(t(ti,24))) && (fz(t(ti,11))==fz(t(ti,19))) && (fz(t(ti,12))==fz(t(ti,25))) && (fz(t(ti,12))==fz(t(ti,20))) && ...
-        (fz(t(ti,21))==fz(t(ti,27))) && (fz(t(ti,21))==fz(t(ti,26)));
-    if a == false
-        test_connectivite = false
-    end
-end
+% for k=1:size(f0,1)
+%     iz = find(abs((v(:,1) - vz(k,1)))<0.01 & abs((v(:,2) - vz(k,2)))<0.01);
+%     if size(iz,1) ~= 21
+%         lk = 1;
+%     end
+%     fz(iz,:) = f0(k);                                     
+% end
+%--------------------- test table de connectivite ------------------------
+% test_connectivite = true;
+% for ti = 1:size(t,1)
+%     a = (fz(t(ti,1))==fz(t(ti,13))) && (fz(t(ti,1))==fz(t(ti,5))) && (fz(t(ti,2))==fz(t(ti,14))) && (fz(t(ti,2))==fz(t(ti,6))) && ...
+%         (fz(t(ti,3))==fz(t(ti,15))) && (fz(t(ti,3))==fz(t(ti,7))) && (fz(t(ti,4))==fz(t(ti,16))) && (fz(t(ti,4))==fz(t(ti,8))) && ...
+%         (fz(t(ti,9))==fz(t(ti,22))) && (fz(t(ti,9))==fz(t(ti,17))) && (fz(t(ti,10))==fz(t(ti,23))) && (fz(t(ti,10))==fz(t(ti,18))) && ...
+%         (fz(t(ti,11))==fz(t(ti,24))) && (fz(t(ti,11))==fz(t(ti,19))) && (fz(t(ti,12))==fz(t(ti,25))) && (fz(t(ti,12))==fz(t(ti,20))) && ...
+%         (fz(t(ti,21))==fz(t(ti,27))) && (fz(t(ti,21))==fz(t(ti,26)));
+%     if a == false
+%         test_connectivite = false
+%     end
+% end
 %   les test montre qu'il n'y pas de probleme avec les tables de
 %   connictivite
 %--------------------------------------------------------------------------
@@ -141,10 +141,6 @@ for yi = 1:2*Ny-1       % selon l'axe y
         fxy(yi,xj) = f0(m);
     end
 end
-% for j = 1:size(t,1)
-%     z(t(250,21))==fz(t(250,26))
-% end
-
 fxgd=zeros(2*Ny-1,2*Nx-1,2*Nz-1);
 fygd=zeros(2*Ny-1,2*Nx-1,2*Nz-1);
 fzgd=zeros(2*Ny-1,2*Nx-1,2*Nz-1);
@@ -156,11 +152,21 @@ for p=1:(2*Nz-1)
 end
 %--------------------------------------------------------------------------
 
-%--------------- placement des valeurs dans fz à partir de fzgd -----------
+%---constitution de fz a partir de fzgd en respectant la structure de v --%
+hx=1/(2*(Nx-1)); hy=1/(2*(Ny-1)); hz=1/(2*(Nz-1));
+%fzgd=zeros(2*Ny-1,2*Nx-1,2*Nz-1);
+for m = 1:size(fz,1)
+    
+    ind = round(v(m,:)./[hx, hy, hz])+1;
+    fz(m,:) = fzgd(ind(2),ind(1),ind(3));
+end
+%-------------------------------------------------------------------------%
 
+
+%--------------- placement des valeurs dans fz à partir de fzgd ----------%
 % for zi = 1:(2*Nz-1)
 %     for xi = 1:(2*Nx-1)
-%         fz((xi -1) * (2*Nx-1) + 1 + (zi -1) * ((2*Nz - 1) ^ 2):xi * (2*Nx - 1) + zi * ((2*Nz - 1) ^ 2)) = fzgd(xi,:,zi)';
+%         fz((xi -1) * (2*Nx-1) + 1 + (zi -1) * ((2*Nz - 1) ^ 2):xi * (2*Nx - 1) + (zi-1) * ((2*Nz - 1) ^ 2)) = fzgd(xi,:,zi)';
 %     end
 % end
 %--------------------------------------------------------------------------
@@ -168,11 +174,11 @@ end
 %----------- mise ne forme matrice 3D pour affichage avec quiver ----------
 %  ainsi onverifie le bon placement des donees
 %  cela necessite le rearrangement des donnees dans une matrice 3D
-hx = 1/(2*(Nx-1)); hy = 1/(2*(Ny-1)); hz = 1/(2*(Nz-1));
-for m = 1:size(fz,1)
-    ind = round(v(m,:)./[hx, hy, hz])+1;
-    fzgd(ind(2),ind(1),ind(3)) = fz(m);
-end
+ hx = 1/(2*(Nx-1)); hy = 1/(2*(Ny-1)); hz = 1/(2*(Nz-1));
+ for m = 1:size(fz,1)
+     ind = round(v(m,:)./[hx, hy, hz])+1;
+     fzgd(ind(2),ind(1),ind(3)) = fz(m);
+ end
 %--------------------------------------------------------------------------
 
 
