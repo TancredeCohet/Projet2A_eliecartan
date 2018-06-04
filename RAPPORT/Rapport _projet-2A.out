@@ -14,9 +14,11 @@
 \BOOKMARK [1][-]{subsection.3.0.1}{\311quations de Stokes}{chapter.3}% 14
 \BOOKMARK [2][-]{subsection.3.0.2}{Adimensionnement de l'\351quation de Stokes}{subsection.3.0.1}% 15
 \BOOKMARK [2][-]{subsection.3.0.3}{Formulation variationnelle}{subsection.3.0.1}% 16
-\BOOKMARK [2][-]{subsection.3.0.4}{Impl\351mentation algorithmique}{subsection.3.0.1}% 17
-\BOOKMARK [2][-]{subsection.3.0.5}{Calcul des matrices du syst\350me lin\351aire}{subsection.3.0.1}% 18
-\BOOKMARK [2][-]{subsection.3.0.6}{Raccordement \340 la mod\351lisation du champ magn\351tique}{subsection.3.0.1}% 19
-\BOOKMARK [0][-]{appendix.A}{Calcul de la matrice de rigidit\351}{}% 20
-\BOOKMARK [0][-]{appendix.B}{Codes Matlab}{}% 21
-\BOOKMARK [1][-]{subsection.B.0.1}{Mod\351lisation du champ magn\351tique}{appendix.B}% 22
+\BOOKMARK [2][-]{subsection.3.0.4}{Principe de superposition}{subsection.3.0.1}% 17
+\BOOKMARK [2][-]{subsection.3.0.5}{Impl\351mentation algorithmique}{subsection.3.0.1}% 18
+\BOOKMARK [2][-]{subsection.3.0.6}{Calcul des matrices du syst\350me lin\351aire}{subsection.3.0.1}% 19
+\BOOKMARK [2][-]{subsection.3.0.7}{Raccordement \340 la mod\351lisation du champ magn\351tique}{subsection.3.0.1}% 20
+\BOOKMARK [2][-]{subsection.3.0.8}{R\351sultats}{subsection.3.0.1}% 21
+\BOOKMARK [0][-]{appendix.A}{Calcul de la matrice de rigidit\351}{}% 22
+\BOOKMARK [0][-]{appendix.B}{Codes Matlab}{}% 23
+\BOOKMARK [1][-]{subsection.B.0.1}{Mod\351lisation du champ magn\351tique}{appendix.B}% 24

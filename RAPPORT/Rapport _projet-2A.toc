@@ -15,9 +15,11 @@
 \contentsline {subsection}{\numberline {3.0.1}\IeC {\'E}quations de Stokes}{24}{subsection.3.0.1}
 \contentsline {subsection}{\numberline {3.0.2}Adimensionnement de l'\IeC {\'e}quation de Stokes}{25}{subsection.3.0.2}
 \contentsline {subsection}{\numberline {3.0.3}Formulation variationnelle}{26}{subsection.3.0.3}
-\contentsline {subsection}{\numberline {3.0.4}Impl\IeC {\'e}mentation algorithmique}{27}{subsection.3.0.4}
-\contentsline {subsection}{\numberline {3.0.5}Calcul des matrices du syst\IeC {\`e}me lin\IeC {\'e}aire}{29}{subsection.3.0.5}
-\contentsline {subsection}{\numberline {3.0.6}Raccordement \IeC {\`a} la mod\IeC {\'e}lisation du champ magn\IeC {\'e}tique}{29}{subsection.3.0.6}
+\contentsline {subsection}{\numberline {3.0.4}Principe de superposition}{27}{subsection.3.0.4}
+\contentsline {subsection}{\numberline {3.0.5}Impl\IeC {\'e}mentation algorithmique}{29}{subsection.3.0.5}
+\contentsline {subsection}{\numberline {3.0.6}Calcul des matrices du syst\IeC {\`e}me lin\IeC {\'e}aire}{30}{subsection.3.0.6}
+\contentsline {subsection}{\numberline {3.0.7}Raccordement \IeC {\`a} la mod\IeC {\'e}lisation du champ magn\IeC {\'e}tique}{30}{subsection.3.0.7}
+\contentsline {subsection}{\numberline {3.0.8}R\IeC {\'e}sultats}{35}{subsection.3.0.8}
 \contentsline {chapter}{\numberline {A}Calcul de la matrice de rigidit\IeC {\'e}}{38}{appendix.A}
 \contentsline {chapter}{\numberline {B}Codes Matlab}{40}{appendix.B}
 \contentsline {subsection}{\numberline {B.0.1}Mod\IeC {\'e}lisation du champ magn\IeC {\'e}tique}{40}{subsection.B.0.1}

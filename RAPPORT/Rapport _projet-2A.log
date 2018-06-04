@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.4)  5 JUN 2018 01:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.4)  5 JUN 2018 01:41
 entering extended mode
 **"./Rapport _projet-2A.tex"
 ("Rapport _projet-2A.tex"
@@ -800,6 +800,9 @@ LaTeX Warning: Label `figure 1' multiply defined.
 LaTeX Warning: Label `figure 1' multiply defined.
 
 
+LaTeX Warning: Label `figure 1' multiply defined.
+
+
 LaTeX Warning: Label `figure 3 ' multiply defined.
 
 
@@ -939,12 +942,12 @@ LaTeX Info: Redefining \nameref on input line 23.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<graphes/elie_cartan.png, id=91, 332.24126pt x 152.57pt>
+<graphes/elie_cartan.png, id=99, 332.24126pt x 152.57pt>
 File: graphes/elie_cartan.png Graphic file (type png)
 <use graphes/elie_cartan.png>
 Package pdftex.def Info: graphes/elie_cartan.png  used on input line 36.
 (pdftex.def)             Requested size: 123.92097pt x 56.9055pt.
-<graphes/univ_lorraine.png, id=93, 339.2675pt x 149.55875pt>
+<graphes/univ_lorraine.png, id=101, 339.2675pt x 149.55875pt>
 File: graphes/univ_lorraine.png Graphic file (type png)
 <use graphes/univ_lorraine.png>
 Package pdftex.def Info: graphes/univ_lorraine.png  used on input line 39.
@@ -1033,13 +1036,13 @@ Chapitre 1.
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 93.
 
-<graphes/blender_cuve_champvec.png, id=136, 1284.8pt x 801.99625pt>
+<graphes/blender_cuve_champvec.png, id=146, 1284.8pt x 801.99625pt>
 File: graphes/blender_cuve_champvec.png Graphic file (type png)
 <use graphes/blender_cuve_champvec.png>
 Package pdftex.def Info: graphes/blender_cuve_champvec.png  used on input line 
 101.
 (pdftex.def)             Requested size: 319.06233pt x 199.16928pt.
-<graphes/blender_cuve_mag2.png, id=137, 1284.8pt x 803.0pt>
+<graphes/blender_cuve_mag2.png, id=147, 1284.8pt x 803.0pt>
 File: graphes/blender_cuve_mag2.png Graphic file (type png)
 <use graphes/blender_cuve_mag2.png>
 Package pdftex.def Info: graphes/blender_cuve_mag2.png  used on input line 112.
@@ -1051,18 +1054,17 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [3
 
 ] [4 <./graphes/blender_cuve_champvec.png> <./graphes/blender_cuve_mag2.png>]
-<graphes/blender_cuve_champvec2.png, id=151, 1284.8pt x 801.99625pt>
-File: graphes/blender_cuve_champvec2.png Graphic file (type png)
-<use graphes/blender_cuve_champvec2.png>
-Package pdftex.def Info: graphes/blender_cuve_champvec2.png  used on input line
- 125.
+<graphes/champvec2.png, id=161, 1284.8pt x 801.99625pt>
+File: graphes/champvec2.png Graphic file (type png)
+<use graphes/champvec2.png>
+Package pdftex.def Info: graphes/champvec2.png  used on input line 125.
 (pdftex.def)             Requested size: 455.82294pt x 284.52756pt.
 
 Overfull \hbox (37.56926pt too wide) in paragraph at lines 125--127
  [] 
  []
 
-<graphes/blender_cuve_champvec3.png, id=152, 1284.8pt x 801.99625pt>
+<graphes/blender_cuve_champvec3.png, id=162, 1284.8pt x 801.99625pt>
 File: graphes/blender_cuve_champvec3.png Graphic file (type png)
 <use graphes/blender_cuve_champvec3.png>
 Package pdftex.def Info: graphes/blender_cuve_champvec3.png  used on input line
@@ -1076,15 +1078,14 @@ Overfull \hbox (37.56926pt too wide) in paragraph at lines 140--142
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[5 <./graphes/blender_cuve_champvec2.png>] [6 <./graphes/blender_cuve_champvec3
-.png>]
+[5 <./graphes/champvec2.png>] [6 <./graphes/blender_cuve_champvec3.png>]
 Chapitre 2.
-<graphes/champ_aimant1.png, id=170, 556.32843pt x 362.10281pt>
+<graphes/champ_aimant1.png, id=180, 556.32843pt x 362.10281pt>
 File: graphes/champ_aimant1.png Graphic file (type png)
 <use graphes/champ_aimant1.png>
 Package pdftex.def Info: graphes/champ_aimant1.png  used on input line 163.
 (pdftex.def)             Requested size: 174.8539pt x 113.81102pt.
-<graphes/axes.png, id=171, 150.5625pt x 130.4875pt>
+<graphes/axes.png, id=181, 150.5625pt x 130.4875pt>
 File: graphes/axes.png Graphic file (type png)
 <use graphes/axes.png>
 Package pdftex.def Info: graphes/axes.png  used on input line 164.
@@ -1092,7 +1093,7 @@ Package pdftex.def Info: graphes/axes.png  used on input line 164.
 [7
 
  <./graphes/champ_aimant1.png> <./graphes/axes.png>]
-<graphes/Espacedetravail.png, id=179, 1836.8625pt x 1074.0125pt>
+<graphes/Espacedetravail.png, id=189, 1836.8625pt x 1074.0125pt>
 File: graphes/Espacedetravail.png Graphic file (type png)
 <use graphes/Espacedetravail.png>
 Package pdftex.def Info: graphes/Espacedetravail.png  used on input line 181.
@@ -1118,7 +1119,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 266--274
  []
 
 [10]
-<graphes/Maillage_initial.png, id=200, 551.05875pt x 502.87875pt>
+<graphes/Maillage_initial.png, id=210, 551.05875pt x 502.87875pt>
 File: graphes/Maillage_initial.png Graphic file (type png)
 <use graphes/Maillage_initial.png>
 Package pdftex.def Info: graphes/Maillage_initial.png  used on input line 286.
@@ -1129,7 +1130,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 356--358
  []
 
 [13]
-<graphes/transformation_de_maillage.png, id=217, 804.00375pt x 415.5525pt>
+<graphes/transformation_de_maillage.png, id=227, 804.00375pt x 415.5525pt>
 File: graphes/transformation_de_maillage.png Graphic file (type png)
 <use graphes/transformation_de_maillage.png>
 Package pdftex.def Info: graphes/transformation_de_maillage.png  used on input 
@@ -1151,7 +1152,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 404--411
  []
 
 [14 <./graphes/transformation_de_maillage.png>]
-<graphes/bord.png, id=224, 791.95876pt x 448.67625pt>
+<graphes/bord.png, id=234, 791.95876pt x 448.67625pt>
 File: graphes/bord.png Graphic file (type png)
 <use graphes/bord.png>
 Package pdftex.def Info: graphes/bord.png  used on input line 427.
@@ -1172,7 +1173,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 593--597
  []
 
 [18]
-<graphes/maillage_resolution_champ_magnetique.jpg, id=245, 702.625pt x 526.9687
+<graphes/maillage_resolution_champ_magnetique.jpg, id=255, 702.625pt x 526.9687
 5pt>
 File: graphes/maillage_resolution_champ_magnetique.jpg Graphic file (type jpg)
 <use graphes/maillage_resolution_champ_magnetique.jpg>
@@ -1219,12 +1220,12 @@ Overfull \hbox (13.99654pt too wide) in paragraph at lines 663--663
  []
 
 [20]
-<graphes/resultat_champ.jpg, id=257, 562.1pt x 403.5075pt>
+<graphes/resultat_champ.jpg, id=267, 562.1pt x 403.5075pt>
 File: graphes/resultat_champ.jpg Graphic file (type jpg)
 <use graphes/resultat_champ.jpg>
 Package pdftex.def Info: graphes/resultat_champ.jpg  used on input line 685.
 (pdftex.def)             Requested size: 396.35776pt x 284.52756pt.
-<graphes/norme_du_champ.jpg, id=258, 2569.6pt x 1351.0475pt>
+<graphes/norme_du_champ.jpg, id=268, 2569.6pt x 1351.0475pt>
 File: graphes/norme_du_champ.jpg Graphic file (type jpg)
 <use graphes/norme_du_champ.jpg>
 Package pdftex.def Info: graphes/norme_du_champ.jpg  used on input line 694.
@@ -1239,7 +1240,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [21 <./graphes/resultat_champ.jpg>] [22 <./graphes/norme_du_champ.jpg>]
 Chapitre 3.
-<graphes/3_tourbillons.png, id=269, 1284.8pt x 801.99625pt>
+<graphes/3_tourbillons.png, id=279, 1284.8pt x 801.99625pt>
 File: graphes/3_tourbillons.png Graphic file (type png)
 <use graphes/3_tourbillons.png>
 Package pdftex.def Info: graphes/3_tourbillons.png  used on input line 709.
@@ -1260,165 +1261,173 @@ Underfull \hbox (badness 10000) in paragraph at lines 718--731
  []
 
 [24 <./graphes/3_tourbillons.png>] [25] [26]
-<graphes/Maillage_initial1.jpg, id=289, 1124.2pt x 843.15pt>
-File: graphes/Maillage_initial1.jpg Graphic file (type jpg)
-<use graphes/Maillage_initial1.jpg>
-Package pdftex.def Info: graphes/Maillage_initial1.jpg  used on input line 871.
-
-(pdftex.def)             Requested size: 303.4866pt x 227.62204pt.
+File: graphes/champvec2.png Graphic file (type png)
+<use graphes/champvec2.png>
+Package pdftex.def Info: graphes/champvec2.png  used on input line 871.
+(pdftex.def)             Requested size: 364.64265pt x 227.62204pt.
+File: graphes/champvec2.png Graphic file (type png)
+<use graphes/champvec2.png>
+Package pdftex.def Info: graphes/champvec2.png  used on input line 878.
+(pdftex.def)             Requested size: 364.64265pt x 227.62204pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 880--886
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[27]
+
+LaTeX Warning: Text page 28 contains only floats.
+
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 887--893
 
  []
 
-[27]
-<graphes/maillage_droit.png, id=294, 406.51875pt x 391.4625pt>
+<graphes/maillage_droit.png, id=309, 406.51875pt x 391.4625pt>
 File: graphes/maillage_droit.png Graphic file (type png)
 <use graphes/maillage_droit.png>
-Package pdftex.def Info: graphes/maillage_droit.png  used on input line 899.
+Package pdftex.def Info: graphes/maillage_droit.png  used on input line 906.
 (pdftex.def)             Requested size: 236.37651pt x 227.62204pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[28 <./graphes/Maillage_initial1.jpg>] [29 <./graphes/maillage_droit.png>]
-<graphes/maillage_resolution_total_centre.jpg, id=306, 2569.6pt x 1351.0475pt>
+[29 <./graphes/maillage_droit.png>]
+<graphes/maillage_resolution_total_centre.jpg, id=316, 2569.6pt x 1351.0475pt>
 File: graphes/maillage_resolution_total_centre.jpg Graphic file (type jpg)
 <use graphes/maillage_resolution_total_centre.jpg>
 Package pdftex.def Info: graphes/maillage_resolution_total_centre.jpg  used on 
-input line 928.
+input line 935.
 (pdftex.def)             Requested size: 432.90533pt x 227.62204pt.
 
-Overfull \hbox (14.65166pt too wide) in paragraph at lines 928--929
+Overfull \hbox (14.65166pt too wide) in paragraph at lines 935--936
 [][] 
  []
 
-<graphes/maillage_resolution_total_decentre.jpg, id=307, 2569.6pt x 1351.0475pt
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<graphes/maillage_resolution_total_decentre.jpg, id=317, 2569.6pt x 1351.0475pt
 >
 File: graphes/maillage_resolution_total_decentre.jpg Graphic file (type jpg)
 <use graphes/maillage_resolution_total_decentre.jpg>
 Package pdftex.def Info: graphes/maillage_resolution_total_decentre.jpg  used o
-n input line 932.
+n input line 939.
 (pdftex.def)             Requested size: 432.90533pt x 227.62204pt.
 
-Overfull \hbox (14.65166pt too wide) in paragraph at lines 932--933
+Overfull \hbox (14.65166pt too wide) in paragraph at lines 939--940
 [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[30 <./graphes/maillage_resolution_total_centre.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 937--941
+[30]
+
+LaTeX Warning: Text page 31 contains only floats.
+
+[31 <./graphes/maillage_resolution_total_centre.jpg> <./graphes/maillage_resolu
+tion_total_decentre.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 944--948
 
  []
 
-[31 <./graphes/maillage_resolution_total_decentre.jpg>]
-Overfull \hbox (69.57156pt too wide) in paragraph at lines 947--947
+
+Overfull \hbox (69.57156pt too wide) in paragraph at lines 954--954
 []\T1/lmtt/m/n/12 indz = find(v(:,3) == z); % récupération des indices des n÷ud
 s pour le niveau 0[] 
  []
 
-<graphes/affichage_extraction_2D.jpg, id=319, 702.625pt x 526.96875pt>
+<graphes/affichage_extraction_2D.jpg, id=329, 702.625pt x 526.96875pt>
 File: graphes/affichage_extraction_2D.jpg Graphic file (type jpg)
 <use graphes/affichage_extraction_2D.jpg>
 Package pdftex.def Info: graphes/affichage_extraction_2D.jpg  used on input lin
-e 955.
+e 962.
 (pdftex.def)             Requested size: 303.49516pt x 227.62204pt.
-[32 <./graphes/affichage_extraction_2D.jpg>]
-<graphes/affichage_extraction_2D_normal.jpg, id=325, 702.625pt x 526.96875pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[32]
+<graphes/affichage_extraction_2D_normal.jpg, id=334, 702.625pt x 526.96875pt>
 File: graphes/affichage_extraction_2D_normal.jpg Graphic file (type jpg)
 <use graphes/affichage_extraction_2D_normal.jpg>
 Package pdftex.def Info: graphes/affichage_extraction_2D_normal.jpg  used on in
-put line 967.
+put line 974.
 (pdftex.def)             Requested size: 303.49516pt x 227.62204pt.
- [33 <./graphes/affichage_extraction_2D_normal.jpg>]
-<graphes/table_de_connectivite.png, id=331, 614.295pt x 441.65pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[33 <./graphes/affichage_extraction_2D.jpg>]
+<graphes/table_de_connectivite.png, id=340, 614.295pt x 441.65pt>
 File: graphes/table_de_connectivite.png Graphic file (type png)
 <use graphes/table_de_connectivite.png>
 Package pdftex.def Info: graphes/table_de_connectivite.png  used on input line 
-974.
+981.
 (pdftex.def)             Requested size: 316.60448pt x 227.62204pt.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 975.
+LaTeX Warning: Command \' invalid in math mode on input line 982.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 975.
+LaTeX Warning: Command \' invalid in math mode on input line 982.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 975.
+LaTeX Warning: Command \' invalid in math mode on input line 982.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 975.
-
-[34 <./graphes/table_de_connectivite.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 982--984
-
- []
+LaTeX Warning: Command \' invalid in math mode on input line 982.
 
 
-Overfull \hbox (73.4797pt too wide) detected at line 1008
-[] \OT1/lmr/m/n/12 = [] [] []
- []
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-<graphes/Champ_de_vitesse_selon_Y_centre.png, id=338, 1836.8625pt x 1074.0125pt
+[34 <./graphes/affichage_extraction_2D_normal.jpg>]
+<graphes/Champ_de_vitesse_selon_Y_centre.png, id=346, 1836.8625pt x 1074.0125pt
 >
 File: graphes/Champ_de_vitesse_selon_Y_centre.png Graphic file (type png)
 <use graphes/Champ_de_vitesse_selon_Y_centre.png>
 Package pdftex.def Info: graphes/Champ_de_vitesse_selon_Y_centre.png  used on i
-nput line 1015.
+nput line 992.
 (pdftex.def)             Requested size: 486.62611pt x 284.52756pt.
 
-Overfull \hbox (68.37244pt too wide) in paragraph at lines 1015--1016
+Overfull \hbox (68.37244pt too wide) in paragraph at lines 992--993
 [][] 
  []
 
-<graphes/Champ_de_vitesse_selon_Y.png, id=339, 1836.8625pt x 1074.0125pt>
+<graphes/Champ_de_vitesse_selon_Y.png, id=347, 1836.8625pt x 1074.0125pt>
 File: graphes/Champ_de_vitesse_selon_Y.png Graphic file (type png)
 <use graphes/Champ_de_vitesse_selon_Y.png>
 Package pdftex.def Info: graphes/Champ_de_vitesse_selon_Y.png  used on input li
-ne 1017.
+ne 994.
 (pdftex.def)             Requested size: 486.62611pt x 284.52756pt.
 
-Overfull \hbox (68.37244pt too wide) in paragraph at lines 1017--1018
+Overfull \hbox (68.37244pt too wide) in paragraph at lines 994--995
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 56.52489pt on input line 1021.
+LaTeX Warning: Float too large for page by 56.52489pt on input line 998.
 
-<graphes/Champ_de_vitesse_selon_Y_centre_ampli.png, id=340, 1836.8625pt x 1074.
+<graphes/Champ_de_vitesse_selon_Y_centre_ampli.png, id=348, 1836.8625pt x 1074.
 0125pt>
 File: graphes/Champ_de_vitesse_selon_Y_centre_ampli.png Graphic file (type png)
 
 <use graphes/Champ_de_vitesse_selon_Y_centre_ampli.png>
 Package pdftex.def Info: graphes/Champ_de_vitesse_selon_Y_centre_ampli.png  use
-d on input line 1024.
+d on input line 1001.
 (pdftex.def)             Requested size: 486.62611pt x 284.52756pt.
 
-Overfull \hbox (68.37244pt too wide) in paragraph at lines 1024--1025
+Overfull \hbox (68.37244pt too wide) in paragraph at lines 1001--1002
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1008--1030
-
- []
-
-
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[35] [36 <./graphes/Champ_de_vitesse_selon_Y_centre.png (PNG copy)> <./graphes/
-Champ_de_vitesse_selon_Y.png (PNG copy)>] [37 <./graphes/Champ_de_vitesse_selon
-_Y_centre_ampli.png (PNG copy)>]
+[35 <./graphes/table_de_connectivite.png>] [36 <./graphes/Champ_de_vitesse_selo
+n_Y_centre.png (PNG copy)> <./graphes/Champ_de_vitesse_selon_Y.png (PNG copy)>]
+[37 <./graphes/Champ_de_vitesse_selon_Y_centre_ampli.png (PNG copy)>]
 Annexe A.
 [38
 
@@ -1426,64 +1435,64 @@ Annexe A.
 Annexe B.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1201.
+(hyperref)                than one, level fixed on input line 1178.
 
 [40
 
 ]
 No file "Rapport _projet-2A".bbl.
 
-Overfull \hbox (2.00471pt too wide) in paragraph at lines 1324--1341
+Overfull \hbox (2.00471pt too wide) in paragraph at lines 1301--1318
 []\T1/lmr/m/n/17.28 "Introduction à l'ana-lyse nu-mé-rique"(1998), de Jacque Ra
 p-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1324--1341
+Underfull \hbox (badness 10000) in paragraph at lines 1301--1318
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1324--1341
+Underfull \hbox (badness 10000) in paragraph at lines 1301--1318
 
  []
 
 
-Overfull \hbox (12.89995pt too wide) in paragraph at lines 1324--1341
+Overfull \hbox (12.89995pt too wide) in paragraph at lines 1301--1318
 \T1/lmr/m/n/17.28 François Scheid, Cours de Mas-ter 2 Ma-thé-ma-tiques (Re-cher
 che)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1324--1341
+Underfull \hbox (badness 10000) in paragraph at lines 1301--1318
 
  []
 
 
-Overfull \hbox (2.41475pt too wide) in paragraph at lines 1324--1341
+Overfull \hbox (2.41475pt too wide) in paragraph at lines 1301--1318
 \T1/lmr/m/n/17.28 Mat-lab" de Jean-Philippe LE-BOU-CHER Ben-ja-min PAC-COU
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1349.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1326.
 [41]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1349.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1326.
  ("Rapport _projet-2A.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1349.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1349.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1326.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1326.
 
 Package rerunfilecheck Info: File `"Rapport _projet-2A".out' has not changed.
-(rerunfilecheck)             Checksum: 25F73834E184FABBA944518B53E52C07;1814.
+(rerunfilecheck)             Checksum: 2B147834E4DDCF8575DCF2B11E6F350D;1971.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1349.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1326.
  ) 
 Here is how much of TeX's memory you used:
  9841 strings out of 493305
- 151972 string characters out of 3125451
- 243949 words of memory out of 3000000
- 13102 multiletter control sequences out of 15000+200000
+ 151836 string characters out of 3125451
+ 244031 words of memory out of 3000000
+ 13100 multiletter control sequences out of 15000+200000
  62085 words of font info for 50 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,16n,40p,1075b,589s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1510,9 +1519,9 @@ AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/pi
 erre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb
 ><C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
 /lm/lmtt12.pfb>
-Output written on "Rapport _projet-2A.pdf" (42 pages, 7891624 bytes).
+Output written on "Rapport _projet-2A.pdf" (42 pages, 7707514 bytes).
 PDF statistics:
- 448 PDF objects out of 1000 (max. 8388607)
- 90 named destinations out of 1000 (max. 500000)
- 307 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 459 PDF objects out of 1000 (max. 8388607)
+ 93 named destinations out of 1000 (max. 500000)
+ 318 words of extra memory for PDF output out of 10000 (max. 10000000)
 

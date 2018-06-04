@@ -122,7 +122,7 @@ La force magnétique $\vec{f_l}=\vec{j_0}\land\vec{B}$ permet ainsi de générer
 %	\begin{subfigure}[b]{0.3\textwidth}
 %		\end{subfigure}
 %		\begin{subfigure}[b]{0.3\textwidth}
-		\includegraphics[height = 10cm, keepaspectratio]{graphes/blender_cuve_champvec2.png}
+		\includegraphics[height = 10cm, keepaspectratio]{graphes/champvec2.png}
 %		\includegraphics[height = 2cm, keepaspectratio]{graphes/axes.png}
 		\caption{liquide faiblement ionisé soumis à un champ électrique et un champ magnétique $\vec{B}$, Blender}
 %		\end{subfigure}
@@ -861,20 +861,27 @@ On peut donc écrire la formulation variationnelle sous la forme d'un problème 
   \right.
 \end{equation*}
 
-%====================== principe de superposition =======================================================\subsection{Principe de superposition}
+%====================== principe de superposition 
+\subsection{Principe de superposition}
 
 La linéarité de l'équation nous permet d'appliquer le principe de superposition est donc de décomposer la résolution du problème en deux résolutions : une pour chaque terme source et ensuite de les sommer.
 Pratiquement nous allons résoudre le problème en deux temps : d'un coté pour l'aimant centré qui donne deux tourbillons et d'autres part pour l'aimant décentré qui donne un tourbillon pour ensuite sommer les champs de vitesse après transposition.
-
 \begin{figure}[!h]
 	\begin{center}
-	\includegraphics[height = 8 cm, keepaspectratio]{graphes/Maillage_initial1.jpg}
-	\caption{affichage résolution centrée sur [-2, 2]}
+	\includegraphics[height = 8 cm, keepaspectratio]{graphes/champvec2.png}
+	\caption{résolution pour un aimant décentré}
 	\label{figure 1}
 	\end{center}
 \end{figure}
-
+\begin{figure}[!h]
+	\begin{center}
+	\includegraphics[height = 8 cm, keepaspectratio]{graphes/champvec2.png}
+	\caption{résolution pour un aimant centré après transposition du champ de vitesse pour que les tourbillons soient perpendiculaires}
+	\label{figure 1}
+	\end{center}
+\end{figure}
 %===================== implementation algorithmique =======================================
+\newpage
 \subsection{Implémentation algorithmique}
 
 Nous allons à présent mettre en place les calculs précédents de manière numérique sur Matlab en maillant le domaine de résolution qui est ici la cuve qui accueille le fluide .  
@@ -898,7 +905,7 @@ Le domaine $\Omega = [0, L_x]\times[0, L_y]\times[0, L_z]$ est ainsi discrétis�
 	\centering
 		\includegraphics[height = 8cm, keepaspectratio]{graphes/maillage_droit.png} 
 		%\includegraphics[height = 2cm, keepaspectratio]{graphes/axes.png}
-		\caption{maillage du domaine de résolution à l'aide de la fonction matlab $ndgrid$}
+		\caption{maillage du domaine de résolution de coté 1 en prenant 11 points dans les directions x, y, et z à l'aide de la fonction matlab $ndgrid$}
 	\end{center}
 \end{figure}
 
@@ -975,42 +982,12 @@ Pour comprendre la structure des données il faut alors se rapporter  aux tables
 \caption{\label{figure 3 } table de connectivité, issu du cours $Analyse$ $numérique$ $des$ $équations$ $de$ $Navier$-$Stokes$, J.-F. Scheid}
 \end{figure}
 On comprend alors que cette structure des données ératique est du à l'arrangement de la tables de coordonnées v. Cela ne pose pas de problème dans la mesure où nous prenons garde à garder la même structure de données tout de long de notre algorithme de résolution est donc d'arranger selon la même structure le second membre $f$.
-
-
-
+Et de même pour pouvoir visualiser graphiquement nos résultat nous devons passer de cette structure particulière des données à une structure compatible à l'affichage avec la fonction matlab $quiver3$.
+ 
+%================= résultats ====================================================================
 \newpage
-Prenons par exemple les 9 premiers termes de la fonction force de Laplace au niveau $z=0$ à partir de l'origine de ce plan dans le maillage de la cuve. Schématiquement si l'on se limite à la portion $[0;2/N_x].[0;2/N_y]$, on remplit le vecteur $\vec{f_z}$
-\\
-\[
-\vec{f_z}=
-\left(
-\begin{array}{ccc}
-  f_z(0,0) & f_z(1/N_x,0) & f_z(2/N_x ,0)\\
-  f_z(0,1/N_y) & f_z(1/N_x,1/N_y) & f_z(2/N_x ,1/N_y) \\
-  f_z(0,2/N_y) &  f_z(1/N_x,2/N_y) & f_z(2/N_x,2/N_y )
-\end{array}
-\right) \overset{\text{selon table de connectivité}}{\Longrightarrow}
-\left(
-\begin{array}{ccc}
-  f_z(0,0)     \\
-  f_z(2/N_x ,0)      \\
-      f_z(2/N_x,2/N_y )  \\
-     f_z(0,2/N_y)\\ 
-  ...\\
-  f_z(1/N_x,0)\\
-   f_z(2/N_x ,1/N_y)\\
-   f_z(1/N_x,2/N_y) \\
-   f_z(0,1/N_y)\\
-   ... \\
-    f_z(1/N_x,1/N_y)
-\end{array}
-\right)
-\]
-\\
-\\
-Après formatage du second membre de l'équation à l'algorithme de résolution de Navier Stokes, nous pouvons lancer l'algorithme pour un aimant décentré afin de générer le champ de vitesse dans la cuve. 
-Nous pouvons visualiser facilement le champ de vitesse produit par l'algorithme grâce au programme de visualisation physique Paraview: 
-voici d'abord le champ de vitesse selon l'axe Y, avec l'aimant centré par rapport à la cuve : 
+\subsection{Résultats}
+Nous allons étudier graphiquement les différents résultats que nous obtenus et évaluer leur justesse en les interprétants physiquement par rapport à ce que nous attenderions avec les paramètres donnés.
 \begin{figure}[!h]
 \includegraphics[height = 10cm, keepaspectratio]{graphes/Champ_de_vitesse_selon_Y_centre.png} 
 \caption{\label{figure 3 } champ de vitesse obtenue par l'algorithme Stokes3D selon Paraview pour un aimant centré au niveau Y=0}
