@@ -185,6 +185,7 @@ if options.output
       patch('faces',t(fnum==k,:),'vertices',p,'facecolor','w','edgecolor',col(colk));
    end
    patch('faces',edge,'vertices',node,'facecolor','none','edgecolor','k')
+   
    % Highlisght low q triangles in debug mode
    if options.debug
       pc = (p(t(:,1),:)+p(t(:,2),:)+p(t(:,3),:))/3.0;

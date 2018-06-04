@@ -15,4 +15,6 @@
 \BOOKMARK [2][-]{subsection.3.2.5}{Impl\351mentation algorithmique}{section.3.2}% 15
 \BOOKMARK [0][-]{chapter.4}{Application au probl\350me de Navier-Stokes 3D}{}% 16
 \BOOKMARK [1][-]{subsection.4.0.1}{Impl\351mentation algorithmique}{chapter.4}% 17
-\BOOKMARK [0][-]{appendix.A}{Calcul de la matrice de rigidit\351}{}% 18
+\BOOKMARK [2][-]{subsection.4.0.2}{Calcul intrins\350que du champ de vitesse}{subsection.4.0.1}% 18
+\BOOKMARK [2][-]{subsection.4.0.3}{Impl\351mentation algorithmique}{subsection.4.0.1}% 19
+\BOOKMARK [0][-]{appendix.A}{Calcul de la matrice de rigidit\351}{}% 20

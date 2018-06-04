@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.4)  4 JUN 2018 16:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.4)  4 JUN 2018 17:24
 entering extended mode
 **"./Rapport _version_Tancrède_Mi_Parcours 2.tex"
 ("Rapport _version_Tancrède_Mi_Parcours 2.tex"
@@ -900,12 +900,12 @@ LaTeX Info: Redefining \nameref on input line 21.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<graphes/elie_cartan.png, id=79, 332.24126pt x 152.57pt>
+<graphes/elie_cartan.png, id=83, 332.24126pt x 152.57pt>
 File: graphes/elie_cartan.png Graphic file (type png)
 <use graphes/elie_cartan.png>
 Package pdftex.def Info: graphes/elie_cartan.png  used on input line 34.
 (pdftex.def)             Requested size: 123.92097pt x 56.9055pt.
-<graphes/univ_lorraine.png, id=81, 339.2675pt x 149.55875pt>
+<graphes/univ_lorraine.png, id=85, 339.2675pt x 149.55875pt>
 File: graphes/univ_lorraine.png Graphic file (type png)
 <use graphes/univ_lorraine.png>
 Package pdftex.def Info: graphes/univ_lorraine.png  used on input line 37.
@@ -994,13 +994,13 @@ Chapitre 1.
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 91.
 
-<graphes/blender_cuve_champvec.png, id=121, 1284.8pt x 803.0pt>
+<graphes/blender_cuve_champvec.png, id=126, 1284.8pt x 803.0pt>
 File: graphes/blender_cuve_champvec.png Graphic file (type png)
 <use graphes/blender_cuve_champvec.png>
 Package pdftex.def Info: graphes/blender_cuve_champvec.png  used on input line 
 99.
 (pdftex.def)             Requested size: 318.67024pt x 199.16928pt.
-<graphes/blender_cuve_mag2.png, id=122, 1284.8pt x 803.0pt>
+<graphes/blender_cuve_mag2.png, id=127, 1284.8pt x 803.0pt>
 File: graphes/blender_cuve_mag2.png Graphic file (type png)
 <use graphes/blender_cuve_mag2.png>
 Package pdftex.def Info: graphes/blender_cuve_mag2.png  used on input line 110.
@@ -1012,13 +1012,13 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [3
 
 ] [4 <./graphes/blender_cuve_champvec.png> <./graphes/blender_cuve_mag2.png>]
-<graphes/blender_cuve_champvec2.png, id=136, 1284.8pt x 801.99625pt>
+<graphes/blender_cuve_champvec2.png, id=141, 1284.8pt x 801.99625pt>
 File: graphes/blender_cuve_champvec2.png Graphic file (type png)
 <use graphes/blender_cuve_champvec2.png>
 Package pdftex.def Info: graphes/blender_cuve_champvec2.png  used on input line
  123.
 (pdftex.def)             Requested size: 319.06233pt x 199.16928pt.
-<graphes/blender_cuve_champvec3.png, id=137, 1284.8pt x 801.99625pt>
+<graphes/blender_cuve_champvec3.png, id=142, 1284.8pt x 801.99625pt>
 File: graphes/blender_cuve_champvec3.png Graphic file (type png)
 <use graphes/blender_cuve_champvec3.png>
 Package pdftex.def Info: graphes/blender_cuve_champvec3.png  used on input line
@@ -1043,17 +1043,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 161--174
 
 ] [8] [9] [10]
 Chapitre 3.
-<graphes/champ_aimant1.png, id=176, 556.32843pt x 362.10281pt>
+<graphes/champ_aimant1.png, id=181, 556.32843pt x 362.10281pt>
 File: graphes/champ_aimant1.png Graphic file (type png)
 <use graphes/champ_aimant1.png>
 Package pdftex.def Info: graphes/champ_aimant1.png  used on input line 320.
 (pdftex.def)             Requested size: 174.8539pt x 113.81102pt.
-<graphes/axes.png, id=177, 150.5625pt x 130.4875pt>
+<graphes/axes.png, id=182, 150.5625pt x 130.4875pt>
 File: graphes/axes.png Graphic file (type png)
 <use graphes/axes.png>
 Package pdftex.def Info: graphes/axes.png  used on input line 321.
 (pdftex.def)             Requested size: 65.65956pt x 56.9055pt.
-<graphes/Espacedetravail.png, id=178, 1836.8625pt x 1074.0125pt>
+<graphes/Espacedetravail.png, id=183, 1836.8625pt x 1074.0125pt>
 File: graphes/Espacedetravail.png Graphic file (type png)
 <use graphes/Espacedetravail.png>
 Package pdftex.def Info: graphes/Espacedetravail.png  used on input line 336.
@@ -1081,7 +1081,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 428--430
 
  []
 
-<graphes/Maillage_initial.png, id=207, 551.05875pt x 502.87875pt>
+<graphes/Maillage_initial.png, id=212, 551.05875pt x 502.87875pt>
 File: graphes/Maillage_initial.png Graphic file (type png)
 <use graphes/Maillage_initial.png>
 Package pdftex.def Info: graphes/Maillage_initial.png  used on input line 442.
@@ -1092,7 +1092,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 514--516
  []
 
 [18]
-<graphes/transformation_de_maillage.png, id=223, 804.00375pt x 415.5525pt>
+<graphes/transformation_de_maillage.png, id=228, 804.00375pt x 415.5525pt>
 File: graphes/transformation_de_maillage.png Graphic file (type png)
 <use graphes/transformation_de_maillage.png>
 Package pdftex.def Info: graphes/transformation_de_maillage.png  used on input 
@@ -1114,7 +1114,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 562--569
  []
 
 [19 <./graphes/transformation_de_maillage.png>]
-<graphes/bord.png, id=230, 791.95876pt x 448.67625pt>
+<graphes/bord.png, id=235, 791.95876pt x 448.67625pt>
 File: graphes/bord.png Graphic file (type png)
 <use graphes/bord.png>
 Package pdftex.def Info: graphes/bord.png  used on input line 585.
@@ -1196,244 +1196,304 @@ Underfull \hbox (badness 10000) in paragraph at lines 820--824
 [26
 
 ]
-<graphes/equation1stokes.png, id=264, 1066.98625pt x 276.03125pt>
+<graphes/equation1stokes.png, id=269, 1066.98625pt x 276.03125pt>
 File: graphes/equation1stokes.png Graphic file (type png)
 <use graphes/equation1stokes.png>
 Package pdftex.def Info: graphes/equation1stokes.png  used on input line 844.
 (pdftex.def)             Requested size: 384.94508pt x 99.58464pt.
-<graphes/maillage_droit.png, id=265, 406.51875pt x 391.4625pt>
+<graphes/maillage_droit.png, id=270, 406.51875pt x 391.4625pt>
 File: graphes/maillage_droit.png Graphic file (type png)
 <use graphes/maillage_droit.png>
 Package pdftex.def Info: graphes/maillage_droit.png  used on input line 854.
 (pdftex.def)             Requested size: 295.4846pt x 284.52756pt.
  [27 <./graphes/equation1stokes.png>]
-<graphes/Maillage_initial1.jpg, id=272, 1124.2pt x 843.15pt>
+Underfull \hbox (badness 10000) in paragraph at lines 872--880
+
+ []
+
+[28 <./graphes/maillage_droit.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 887--890
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 910--916
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 910--916
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 910--916
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 910--916
+
+ []
+
+<graphes/Maillage_initial1.jpg, id=283, 1124.2pt x 843.15pt>
 File: graphes/Maillage_initial1.jpg Graphic file (type jpg)
 <use graphes/Maillage_initial1.jpg>
-Package pdftex.def Info: graphes/Maillage_initial1.jpg  used on input line 870.
+Package pdftex.def Info: graphes/Maillage_initial1.jpg  used on input line 930.
 
 (pdftex.def)             Requested size: 379.3754pt x 284.52756pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 863--879
+Underfull \hbox (badness 10000) in paragraph at lines 923--939
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 863--879
+Underfull \hbox (badness 10000) in paragraph at lines 923--939
 
  []
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[28 <./graphes/maillage_droit.png>]
-<graphes/table_de_connectivite.png, id=279, 614.295pt x 441.65pt>
+[29]
+<graphes/table_de_connectivite.png, id=288, 614.295pt x 441.65pt>
 File: graphes/table_de_connectivite.png Graphic file (type png)
 <use graphes/table_de_connectivite.png>
 Package pdftex.def Info: graphes/table_de_connectivite.png  used on input line 
-892.
+952.
 (pdftex.def)             Requested size: 395.77199pt x 284.52756pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 881--913
+Underfull \hbox (badness 10000) in paragraph at lines 941--973
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 881--913
+Underfull \hbox (badness 10000) in paragraph at lines 941--973
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 881--913
+Underfull \hbox (badness 10000) in paragraph at lines 941--973
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 881--913
+Underfull \hbox (badness 10000) in paragraph at lines 941--973
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 881--913
+Underfull \hbox (badness 10000) in paragraph at lines 941--973
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 881--913
+Underfull \hbox (badness 10000) in paragraph at lines 941--973
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 881--913
+Underfull \hbox (badness 10000) in paragraph at lines 941--973
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 881--913
+Underfull \hbox (badness 10000) in paragraph at lines 941--973
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 881--913
+Underfull \hbox (badness 10000) in paragraph at lines 941--973
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 881--913
+Underfull \hbox (badness 10000) in paragraph at lines 941--973
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 881--913
+Underfull \hbox (badness 10000) in paragraph at lines 941--973
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 881--913
+Underfull \hbox (badness 10000) in paragraph at lines 941--973
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 881--913
+Underfull \hbox (badness 10000) in paragraph at lines 941--973
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 881--913
+Underfull \hbox (badness 10000) in paragraph at lines 941--973
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 881--913
+Underfull \hbox (badness 10000) in paragraph at lines 941--973
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 881--913
+Underfull \hbox (badness 10000) in paragraph at lines 941--973
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 881--913
+Underfull \hbox (badness 10000) in paragraph at lines 941--973
 
  []
 
-[29 <./graphes/Maillage_initial1.jpg>]
+[30 <./graphes/Maillage_initial1.jpg>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[30]
-Overfull \hbox (73.4797pt too wide) detected at line 937
+[31]
+Overfull \hbox (73.4797pt too wide) detected at line 997
 [] \OT1/lmr/m/n/12 = [] [] []
  []
 
-[31 <./graphes/table_de_connectivite.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 937--940
+[32 <./graphes/table_de_connectivite.png>]
+<graphes/Champ_de_vitesse_selon_Y_centre.png, id=305, 1836.8625pt x 1074.0125pt
+>
+File: graphes/Champ_de_vitesse_selon_Y_centre.png Graphic file (type png)
+<use graphes/Champ_de_vitesse_selon_Y_centre.png>
+Package pdftex.def Info: graphes/Champ_de_vitesse_selon_Y_centre.png  used on i
+nput line 1004.
+(pdftex.def)             Requested size: 486.62611pt x 284.52756pt.
+
+Overfull \hbox (68.37244pt too wide) in paragraph at lines 1004--1005
+[][] 
+ []
+
+<graphes/Champ_de_vitesse_selon_Y.png, id=306, 1836.8625pt x 1074.0125pt>
+File: graphes/Champ_de_vitesse_selon_Y.png Graphic file (type png)
+<use graphes/Champ_de_vitesse_selon_Y.png>
+Package pdftex.def Info: graphes/Champ_de_vitesse_selon_Y.png  used on input li
+ne 1006.
+(pdftex.def)             Requested size: 486.62611pt x 284.52756pt.
+
+Overfull \hbox (68.37244pt too wide) in paragraph at lines 1006--1007
+[][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 56.52489pt on input line 1010.
+
+<graphes/Champ_de_vitesse_selon_Y_centre_ampli.png, id=307, 1836.8625pt x 1074.
+0125pt>
+File: graphes/Champ_de_vitesse_selon_Y_centre_ampli.png Graphic file (type png)
+
+<use graphes/Champ_de_vitesse_selon_Y_centre_ampli.png>
+Package pdftex.def Info: graphes/Champ_de_vitesse_selon_Y_centre_ampli.png  use
+d on input line 1013.
+(pdftex.def)             Requested size: 486.62611pt x 284.52756pt.
+
+Overfull \hbox (68.37244pt too wide) in paragraph at lines 1013--1014
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 997--1019
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 937--940
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
- []
 
-[32]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[33] [34 <./graphes/Champ_de_vitesse_selon_Y_centre.png (PNG copy)> <./graphes/
+Champ_de_vitesse_selon_Y.png (PNG copy)>] [35 <./graphes/Champ_de_vitesse_selon
+_Y_centre_ampli.png (PNG copy)>]
 Annexe A.
-[33
+[36
 
-] [34]
+] [37]
 No file "Rapport _version_Tancrède_Mi_Parcours 2".bbl.
 
-Overfull \hbox (2.00471pt too wide) in paragraph at lines 1218--1235
+Overfull \hbox (2.00471pt too wide) in paragraph at lines 1296--1313
 []\T1/lmr/m/n/17.28 "Introduction � l'ana-lyse nu-m�-rique"(1998), de Jacque Ra
 p-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1218--1235
+Underfull \hbox (badness 10000) in paragraph at lines 1296--1313
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1218--1235
+Underfull \hbox (badness 10000) in paragraph at lines 1296--1313
 
  []
 
 
-Overfull \hbox (12.89995pt too wide) in paragraph at lines 1218--1235
+Overfull \hbox (12.89995pt too wide) in paragraph at lines 1296--1313
 \T1/lmr/m/n/17.28 Fran�ois Scheid, Cours de Mas-ter 2 Ma-th�-ma-tiques (Re-cher
 che)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1218--1235
+Underfull \hbox (badness 10000) in paragraph at lines 1296--1313
 
  []
 
 
-Overfull \hbox (2.41475pt too wide) in paragraph at lines 1218--1235
+Overfull \hbox (2.41475pt too wide) in paragraph at lines 1296--1313
 \T1/lmr/m/n/17.28 Mat-lab" de Jean-Philippe LE-BOU-CHER Ben-ja-min PAC-COU
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1243.
-[35]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1243.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1321.
+[38]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1321.
  ("Rapport _version_Tancrède_Mi_Parcours 2.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1243.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1243.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1321.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1321.
 
+Package rerunfilecheck Info: File `"Rapport _version_Tancrède_Mi_Parcours 2".o
+ut' has not changed.
+(rerunfilecheck)             Checksum: E6197C17E4C0564B7CDE7ACE164239A6;1632.
 
-
-Package rerunfilecheck Warning: File `"Rapport _version_Tancrède_Mi_Parcours 2
-".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Rapport _version_Tancrède_Mi_Parc
-ours 2".out':
-(rerunfilecheck)             Before: B3A2CAE40765CECE3797529400AC342B;1512
-(rerunfilecheck)             After:  4633D00525B162C90AE33FFB3928163D;1440.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1243.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1321.
  ) 
 Here is how much of TeX's memory you used:
- 9703 strings out of 493305
- 148657 string characters out of 3125451
- 244308 words of memory out of 3000000
- 12998 multiletter control sequences out of 15000+200000
+ 9724 strings out of 493305
+ 149414 string characters out of 3125451
+ 244264 words of memory out of 3000000
+ 13010 multiletter control sequences out of 15000+200000
  61767 words of font info for 49 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,16n,40p,789b,511s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{appendix.B} has been referenced but does not exis
-t, replaced by a fixed one
-
-{C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/
-lm-ec.enc}{C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/enc
-/dvips/lm/lm-mathit.enc}{C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX
- 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/pierre gauthier/AppData/Local/Progr
-ams/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/pierre gauthier/AppDa
-ta/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}<C:/Users/pierre 
-gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:
-/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/
-lmcsc10.pfb><C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/t
-ype1/public/lm/lmex10.pfb><C:/Users/pierre gauthier/AppData/Local/Programs/MiKT
-eX 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Users/pierre gauthier/AppData/Local
-/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmmi6.pfb><C:/Users/pierre gauthier/
-AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Users/pie
-rre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb>
-<C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
-lm/lmr17.pfb><C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/
-type1/public/lm/lmr6.pfb><C:/Users/pierre gauthier/AppData/Local/Programs/MiKTe
-X 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Users/pierre gauthier/AppData/Local/Pr
-ograms/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Users/pierre gauthier/Ap
-pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/pier
-re gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb>
-Output written on "Rapport _version_Tancrède_Mi_Parcours 2.pdf" (36 pages, 357
-7328 bytes).
+ 42i,16n,40p,789b,513s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/l
+m/lm-ec.enc}{C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/e
+nc/dvips/lm/lm-mathit.enc}{C:/Users/pierre gauthier/AppData/Local/Programs/MiKT
+eX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/pierre gauthier/AppData/Local/Pro
+grams/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/pierre gauthier/App
+Data/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}<C:/Users/pierr
+e gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><
+C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/l
+m/lmcsc10.pfb><C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts
+/type1/public/lm/lmex10.pfb><C:/Users/pierre gauthier/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Users/pierre gauthier/AppData/Loc
+al/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmmi6.pfb><C:/Users/pierre gauthie
+r/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Users/p
+ierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pf
+b><C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
+c/lm/lmr17.pfb><C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/font
+s/type1/public/lm/lmr6.pfb><C:/Users/pierre gauthier/AppData/Local/Programs/MiK
+TeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Users/pierre gauthier/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Users/pierre gauthier/
+AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/pi
+erre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb
+>
+Output written on "Rapport _version_Tancrède_Mi_Parcours 2.pdf" (39 pages, 450
+5844 bytes).
 PDF statistics:
- 381 PDF objects out of 1000 (max. 8388607)
- 73 named destinations out of 1000 (max. 500000)
- 233 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 407 PDF objects out of 1000 (max. 8388607)
+ 79 named destinations out of 1000 (max. 500000)
+ 256 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -848,17 +848,77 @@ On pose h= $\frac{1}{N+1}$:
 %Pour modéliser ce nouvel espace, nous prenons la configuration suivante :
 Nous disposons de $3N^2$ équations . Les maillages sur $\vec{V}$ et P sont choisis de sorte que le nombre d'équations soit égal au nombre d'inconnues.
 Le maillage 3D utilisé par l'algorithme est un maillage droit , ce qui implique que les données que l'on va exporter sont calculées et configurées sur la même base  de maillage triangulaire en 2 dimensions de l'espace de calcul. 
-	\\\
+
 \begin{figure}
 \center
 \includegraphics[height = 10cm, keepaspectratio]{graphes/maillage_droit.png}
 \caption{domaines de résolution du problème}																													
 \end{figure}
+%\subsection{Calcul du champ de vitesse en 2D}
+%\textbf{-sur le plan (x,y)}
+%%
+%%Nous commençons par calculer ~u1(x,y) et P1(x,y) par une fonction Matlab qui r ́esout l’ ́equa- tion de Stokes en 2D en prenant f~ = 0 sur la moiti ́e du carr ́e consid ́er ́e et f~ = f1~ey sur l’autre moiti ́e (fy(X > (L/2)) = f1 = 1). En sortie, nous obtenons deux matrices avec les valeurs de U et P dans les nœuds de la grille (cf. fig. 5.1).
+\subsection{Calcul intrinsèque du champ de vitesse}
+Nous devons d'abord remarquer la similarité entre la résolution de l'équation de Navier-Stokes en 3 dimensions et notre étude précédente visant à déterminer le champ magnétique en deux dimensions via la méthode des éléments finis. 
+\\
+En effet, en posant la formulation mixte du système d'équations de Navier-Stokes, nous retombons sur un espace de distributions semblable à celui utilisé dans le cas $P_1$ précédent:
+\\
+Nous cherchons $(\vec{V},p) \in [H_0^1(\Omega)]^3.L^2(\Omega) $.
+\\
+Afin d’obtenir la formulation mixte, nous allons multiplier les deux première équations de notre
+système par une fonction test $\vec{v} \in [H_0^1(\Omega)]^3$ puis intégrer $\Omega$, il vient :
+\[
+%		\includegraphics [height = 2cm, keepaspectratio]{graphes/equation2stokes.png}
+\]
+si l'on reprend les notations précéd entes des éléments finis pour le champ magnétique 2D, avec $(\vec{\phi_i})_i$ une base de $X_h \in [H_0^1(\Omega)]^3$ (l'espace des distributions P1 qui va définir notre espace des vecteurs tridimensionnels pour les éléments finis) et $M_h \subset L^2(\omega)$ (l'espace des distributions P1 qui va définir notre espace des scalaires pour les éléments finis).
+\\
+Posons $\vec{V_h} =\sum_{i=1}^n\vec{\phi_i}$ et $p_h=\sum_{i=1}^n p_i*q_i$.
+\\
+%Si l'on remplace dans notre système $\vec{v_n} par $\vec{\phi_j}$ %et $q_n$ par $q_l$, on obtient :
+On obtient:
+\newline
+\[	
+  \left\{
+    \begin{aligned}
+    \sum_{i=1}^n u_i \iint_{\Omega}\vec{\bigtriangledown_{x}}{\phi_{i}} \vec{\bigtriangledown_{x}}{\phi_{j}} + \sum_{i=1}^n p_i \int_{\Omega} q_i \vec{\bigtriangledown}. \vec{\phi_i} = (\vec{f_n},\vec{\phi_j}) \forall j =1...n\\
+    \sum_{i=1}^n u_i \int_{\Omega} q_i \vec{\bigtriangledown}. \vec{\phi_i} = 0 \forall j =1...n\\
+	 \end{aligned}
+  \right.
+\]
+On traduit ce système en écriture matricielle où on fait apparaitre la matrice de Stokes :
+\\
+\[
+\left[
+\begin{array}{ccc}
+  A &  B   \\
+  B^T  & 0
+\end{array}
+\right]
+\left[
+\begin{array}{ccc}
+  U   \\
+  P
+\end{array}
+\right]
+=\left[
+\begin{array}{ccc}
+  F  \\
+  0
+\end{array}
+\right]
+\\\text{avec } U=(u_1,...,u_n)^T \text{et }P = (p_1,...,p_m)^T
+\]
+.
+\newline
+\newline
+\newline
+\newline
+
+L'objectif va être de garnir les matrices de rigidité et de masse selon la même méthode algorithmique que la méthode des éléments finis précédentes: nous bouclons sur la liste des cubes, qui est de format [(Nx-1)*Lx;27] (le 27 correspond 
 
 
-
-
-
+%================= implementation algo =============================================================
+\subsection{Implémentation algorithmique}
 
 Nous devons adapter notre maillage précédent du calcul de la force de Laplace à l'aide des éléments finis aux besoins de l'algorithme précédent: 
 \newline
@@ -937,7 +997,25 @@ Prenons par exemple les 9 premiers termes de la fonction force de Laplace au niv
 \]
 \\
 \\
+Après formatage du second membre de l'équation à l'algorithme de résolution de Navier Stokes, nous pouvons lancer l'algorithme pour un aimant décentré afin de générer le champ de vitesse dans la cuve. 
+Nous pouvons visualiser facilement le champ de vitesse produit par l'algorithme grâce au programme de visualisation physique Paraview: 
+voici d'abord le champ de vitesse selon l'axe Y, avec l'aimant centré par rapport à la cuve : 
+\begin{figure}[!h]
+\includegraphics[height = 10cm, keepaspectratio]{graphes/Champ_de_vitesse_selon_Y_centre.png} 
+\caption{\label{figure 3 } champ de vitesse obtenue par l'algorithme Stokes3D selon Paraview pour un aimant centré au niveau Y=0}
+\includegraphics[height = 10cm, keepaspectratio]{graphes/Champ_de_vitesse_selon_Y.png} 
+\caption{\label{figure 3 } champ de vitesse obtenue par l'algorithme Stokes3D selon Paraview pour un aimant décentré au niveau Y=0}
 
+
+\end{figure}
+\begin{figure}[!h]
+
+\includegraphics[height = 10cm, keepaspectratio]{graphes/Champ_de_vitesse_selon_Y_centre_ampli.png} 
+\caption{\label{figure 3 } champ de vitesse obtenue par l'algorithme Stokes3D selon Paraview pour un aimant centré au niveau Y=0}
+%\includegraphics[height = 10cm, keepaspectratio]{graphes/Champ_de_vitesse_selon_Y_decentre_ampli.png} 
+\caption{\label{figure 3 } champ de vitesse obtenue par l'algorithme Stokes3D selon Paraview pour un aimant décentré au niveau Y=0}
+\end{figure}
+nous discernons bien deux lignes de courant pour l'aimant centré, et une ligne de courant pour l'aimant excentré sur le côté selon $\vec{ox}$.
 
 
 %==========================================================================================================================================================

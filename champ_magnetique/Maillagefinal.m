@@ -43,7 +43,7 @@ face{2} = 1:size(edge,1);                   %face de maillage exterieure
  
 [v,t,fnum] = meshfaces(node,edge,face,hdata); %construction du maillage
 figure();
-patch('faces',t(:,1:3),'vertices',v(:,1:2),'facecolor','white','edgecolor','blue','red');
+patch('faces',t(:,1:3),'vertices',v(:,1:2),'facecolor','white');
 title('maillage de résolution');
 %==========================================================================
 %                              Calcul des matrices
