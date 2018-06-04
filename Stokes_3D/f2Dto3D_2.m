@@ -22,9 +22,9 @@ indz = find(v(:,3) == lz);
 xz = v(indz,1); yz = v(indz,2); vz = [xz, yz];
 tz = delaunay(xz,yz);               % triangulation de Delaunay des points du plan 
 
-% figure();
-% triplot(tz,xz,yz);   % affichage
-% title('maillage cuve initial')
+figure();
+triplot(tz,xz,yz);   % affichage
+title('couche 2D extraite du maillage 3D de la cuve')
 %_________________________________________________________________________%
 %         on voit que les point dans v ne sont pas dans l'ordre           %
 %_________________________________________________________________________%
@@ -57,7 +57,7 @@ node_total = [node_aimant; node_ensemble];                      %liste de tous l
 L_total = 10;
 H_total = 10;
 x_2D = linspace(0,L_total,2*10*(Nx-1) + 1)';
-y_2D = linspace(0,H_total,2*10*(Ny-1)+1 )';
+y_2D = linspace(0,H_total,2*10*(Ny-1) + 1 )';
 
 [X_total_2D,Y_total_2D] = meshgrid(x_2D,y_2D);
 v_total_2D_x = X_total_2D';
@@ -68,11 +68,11 @@ v_total_2D = [v_total_2D_x(:) v_total_2D_y(:)];
 
 t_total_2D = delaunay(v_total_2D(:,1),v_total_2D(:,2)); %generation maillage triangulaire total
 
-%  figure();
-%  triplot(t_total_2D ,X_total_2D,Y_total_2D);
-%  xlim([4.5 5.5]);
-%  ylim([4.5 5.5]);
-%  title('maillage de resolution 2D total')
+ figure();
+ triplot(t_total_2D ,X_total_2D,Y_total_2D);
+ xlim([4.5 5.5]);
+ ylim([4.5 5.5]);
+ title('maillage de resolution 2D total généré')
 
 
 %u = zeros(size(X_total_2D(:),1),1);

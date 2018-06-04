@@ -1,4 +1,3 @@
-
 \documentclass[a4paper,12pt,titlepage]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -15,6 +14,9 @@
 \usepackage{subcaption}
 \usepackage{setspace}
 \usepackage[intoc]{nomencl}
+%\usepackage{algorithm}
+%\usepackage{listing}
+\usepackage{verbatim}
 \makenomenclature
 \makeindex
 
@@ -43,7 +45,7 @@
 	\textsc{Tancrède Cohet et Pierre Gauthier}\\[1cm]
  
 	\begin{doublespace}
-		{ \huge \bfseries{Mélange par un écoulement stationnaire de fluide à faible Reynolds}}\\[2cm]
+		{ \huge \bfseries{Mélange par un écoulement stationnaire de fluide à faible 				Reynolds}}\\[2cm]
 	\end{doublespace}
 	\textmd{Laboratoire : Institut Élie Cartan}\\[1cm]
 	\textmd{Tuteurs : Pierre Brancher et Jean-François Scheid }\\[1cm]
@@ -55,14 +57,14 @@
 	\end{center}
 \end{titlepage}
 
-%============================================ Table des matières===========================================================================================
+%================= Table des matières =============================================================
 \tableofcontents
 
 \newpage
 
 
 
-%============================================ Introduction ================================================================================================
+%======================== Introduction ===========================================================
 
 \textbf{\Huge Introduction:}
 \\
@@ -120,7 +122,7 @@ La force magnétique $\vec{f_l}=\vec{j_0}\land\vec{B}$ permet ainsi de générer
 %	\begin{subfigure}[b]{0.3\textwidth}
 %		\end{subfigure}
 %		\begin{subfigure}[b]{0.3\textwidth}
-		\includegraphics[height = 7cm, keepaspectratio]{graphes/blender_cuve_champvec2.png}
+		\includegraphics[height = 10cm, keepaspectratio]{graphes/blender_cuve_champvec2.png}
 %		\includegraphics[height = 2cm, keepaspectratio]{graphes/axes.png}
 		\caption{liquide faiblement ionisé soumis à un champ électrique et un champ magnétique $\vec{B}$, Blender}
 %		\end{subfigure}
@@ -135,7 +137,7 @@ Une force de Laplace est générée, due a` la difference de potentiel (P1 - P0)
 \begin{figure}[!h]
 	\begin{center}
 	\centering
-		\includegraphics[height = 8cm, keepaspectratio]{graphes/blender_cuve_champvec3.png} 
+		\includegraphics[height = 10cm, keepaspectratio]{graphes/blender_cuve_champvec3.png} 
 		%\includegraphics[height = 2cm, keepaspectratio]{graphes/axes.png}
 		\caption{configuration avec 2 tourbillons, Blender}
 	\end{center}
@@ -145,168 +147,7 @@ Une force de Laplace est générée, due a` la difference de potentiel (P1 - P0)
 \subsection{hypothèses de modélisation}
 Nous devons d'abord modéliser notre système , car dans les cas de système faisant intervenir des équations à dérivées partielles , la bonne définition du système est primordiale, avec notamment les conditions aux limites.\\
 Notre système \{fluide\} sera modélisé par un fluide à faible nombre de Reynolds (visqueux) incompressible régi par les équations de Stokes que nous poserons dans le chapitre suivant. La densité de courant $\vec{j_0}$ est supposé uniforme sur le fluide.
-%=========================================================================================================================================================
-%												chapitre 2 equations de Navier_Stockes
-%=========================================================================================================================================================
-\newpage
-\chapter{Équations de  Navier Stokes} 
-D'après ce qui précédé, le fluide considéré suit les équations de Navier-Stokes dont nous allons nous servir pour modéliser le mouvement.
-Nous supposons que nous avons à notre disposition deux aimants, qui sont perpendiculaires sur les côtés de la cuve, l'un produit un champ $B_1$, l'autre produit un champ $B_2$
 
-le premier aimant va produire un tourbillon dans le fluide, le deuxième va produire deux tourbillons parallèles, qui sont orthogonaux au premier tourbillon .
-
-%===================================================== Equations de Stokes ================================================================================
-\subsection{Équations de Stokes}
-
-Le liquide est un conducteur placé dans un champ magnétique et parcouru par un courant supposé uniforme $\vec{j_0}$.
-\normalsize 
-Afin de pouvoir trouver l'équation de la trajectoire d’un point donné, on cherche tout d’abord à trouver la vitesse dans l'écoulement du fluide contenu dans un domaine $\Omega$.
-\\A partir des équations de Navier-Stokes incompressibles, on détermine simultanément la vitesse  $V$ et la pression $P$. 
-\\
-\\
-On émet les hypothèses suivantes :
-\\
-Dans un premier temps, nous pouvons négliger les forces d’inertie du fluide comme on a un faible nombre de Reynolds.
-Le fluide visqueux est en mouvement le long d’une paroi solide fixe d’où une vitesse nulle sur le bord car 
-$\vec{V_{\partial\Omega}}=\vec{V_{\text{paroi}}}=\vec{0}$
-\\	
-Finalement, on se place en régime stationnaire.
-\begin{equation*}
-  \left\{
-    \begin{aligned}
-      &\vec{0}=-\vec{\bigtriangledown}P +\mu\vec{\Delta}V +\vec{f}\;\text{dans }\Omega \\
-      &\text{div}(\vec{V})=0\;\text{dans }\Omega \\     
-      &\vec{V}=\vec{0}\;\text{sur }\partial\Omega
-    \end{aligned}
-  \right.
-\end{equation*}
-
-La force $\vec{f}$ correspond à la force de Laplace induite par le champ magnétique. La densité volumique de cette force est donnée par :
-\[
-\begin{aligned}
-	\vec{f}=\vec{j_0}\land\vec{B}&=j_0\times M_0\times \vec{j}\wedge \vec{B^*} \\
-	 \vec{B^*} =\frac{\vec{B}}{M_0}, 
-	\ &\text{et} \ j_0=\frac{\Delta E}{L}\sigma
-	\\
-\text{avec} \quad
-&\sigma : \text{la conductivité du fluide }
-\\%
-&\text{L: la longueur de base de la cuve} \\
-&\Delta E : \text{la différence de potentiel}
-\end{aligned} \\
-\]
-Ainsi on peut calculer la force magnétique pour un champ magnétique $\vec{B_1}$
-\[
-	\vec{B_1} = 
-	\begin{pmatrix}
-   		B_{1,x}\\
-  		 B _{1,y}\\
-  		 0
-	\end{pmatrix} 
-\]
-\[
-	\vec{f}=j_0\vec{e}_{x}
-	\wedge\begin{pmatrix}
-   		B_{1,x}\\
-   		B _{1,y}\\
-   		0
-\end{pmatrix}=
-j_0\times \begin{pmatrix}
-  			0\\
-   			0\\
-    		B_{1,y}
-			\end{pmatrix} 
-\]
-
-%==================================================== Adimensionnement de l'équation de Stokes ============================================================
-
-\subsection{Adimensionnement de l'équation de Stokes}
-
-\normalsize Afin de résoudre un seul système indépendamment des constantes, on adimensionne l'équation de Stokes. Le régime stationnaire sera pris en compte après adimensionnement.
-\\%
-Posons :
-\begin{equation*}
-\vec{V'}(x,t)=\frac{\vec{V}(x,t)}{V_0}\;;\vec{x'}=\frac{\vec{x}}{L_0}\; ; \vec{f'}(\vec{x'})=\frac{\vec{f}(\vec{x})}{j_0M_0}\;;P'=\frac{P}{P_0}\; ;t'=\frac{t}{\frac{L_0^2}{\mu}}\;
-\end{equation*}
-En injectant dans l'équation de Stokes d'évolution :
-\begin{equation*}
-  \left\{
-    \begin{aligned}
-    \rho\frac{\partial \vec{V}}{\partial t}=-\vec{\bigtriangledown} P + \mu \vec{\Delta}\vec{V}+\vec{f}
-        \end{aligned}
-  \right.
-\end{equation*}
-il en résulte :
-\begin{equation*}
-  \left\{
-    \begin{aligned}
-    \frac{\partial \vec{V'}}{\partial t}=-\frac{L_0 P_0}{\rho \mu V_0}\vec{\bigtriangledown} P '+  \vec{\Delta}\vec{V'}+\frac{L_0^2j_0M_0}{\mu V_0}\vec{f'}
-        \end{aligned}
-  \right.
-\end{equation*}
-On adimensionne par rapport à $V_0$ et $P_0$ de sorte que $\frac{L_0 P_0}{\rho \mu V_0}=1$ et $ \frac{L_0^2j _0M_0}{\mu V_0}=1$, le régime stationnaire étant établi:
-\[
-      \vec{0}=-\vec{\bigtriangledown}P' +\vec{\Delta}V' +\vec{f'}\;\text{dans }\Omega 
-\]
-
-%========================================================= Formulation variationnelle =====================================================================
-\subsection{Formulation variationnelle}
-
-Afin d'obtenir la formulation variationnelle de l'équation de Stokes, on passe dans l'espace des distribution de sorte que pour toute fonctions test $\varphi$ on a 
-\[
-	\int_\Omega\vec{\bigtriangledown}P'\times \vec \varphi=\int_\Omega-\mu\vec{\Delta}V'\times \vec \varphi +\int_\Omega\vec{f'}\times \vec \varphi 
-\]
-En appliquant la formule de Green, on obtient :
-
-\[
-\forall \varphi \in D(\Omega) \quad  \int_\Omega\vec{\bigtriangledown}P'. \vec \varphi + \int_{\Omega}\bigtriangledown V'. \bigtriangledown \varphi = \int_\Omega\vec{f'}. \vec \varphi
-\]
-Comme précédemment nous nous plaçons dans l'espace $V_{h}$ d'approximation polynomiale de degrés 1.
-Nous pouvons ainsi décomposer les champs de pression $P'$, la vitesse $V'$ et la force $\vec{f'}$ dans la base des $(\varphi_{i})$:
-
-\begin{equation*}
-  \left\{
-    \begin{aligned}
- &V '= \sum_{i=1}^{N_{h}}{\ V_{i}\varphi_{i}} \text{ \ \ où } V_{i} = V(P_{i}),\  i= 1,2,...,N_{h}\\
- &P '= \sum_{i=1}^{N_{h}}{\ P_{i}\varphi_{i}} \text{ \ \ où } P_{i} = P(P_{i}),\  i= 1,2,...,N_{h}\\
- &f' = \sum_{i=1}^{N_{h}}{\ f_{i}\varphi_{i}} \text{ \ \ où } f_{i} = f(P_{i}),\  i= 1,2,...,N_{h}\\
-\end{aligned}
-  \right.
-\end{equation*}$ $ \\ 
-On prend $\varphi\ =\ \varphi_{i}$ un vecteur de la base
-\begin{equation*}
-  \left\{
-    \begin{aligned}
-	&\int_{\Omega}\bigtriangledown V_{h}.\bigtriangledown \varphi\ 
-	=\ 
-	\sum_{i, j \in [1, N_{h}]^{2}} \int_{\Omega}V_{i}\bigtriangledown\varphi_{i}. \bigtriangledown\varphi_{j} 
-	= 
-	\sum_{i,j \in [1, N_{h}]^{2}} A_{ij} V_{i}\\
-	&\int_{\Omega}\bigtriangledown P_{h}.\varphi\ 
-	=\ 
-	\sum_{i, j \in [1, N_{h}]^{2}} \int_{\Omega}P_{i}\bigtriangledown\varphi_{i}. \varphi_{j} 
-	= 
-	\sum_{i,j \in [1, N_{h}]^{2}}C_{ij} u_{i}\\
-	&\int_{\Omega} f. \varphi\ 
-	=\ 
-	\sum_{i, j \in [1, N_{h}]^{2}} \int_{\Omega}f_{i}\varphi_{i}. \varphi_{j} 
-	= 
-	\sum_{i,j \in [1, N_{h}]^{2}} M_{ij} f_{i}\end{aligned}
-  \right.
-\end{equation*}
-On peut donc écrire la formulation variationnelle sous la forme d'un problème linéaire:
-\begin{equation*}
-  \left\{
-    \begin{aligned}
-	&-A\times V + C \times P = M	\times f \ \text{sur} \ \Omega\\
-	& C*V = 0 \ \text{sur} \  \partial\Omega\\
-	\end{aligned}
-  \right.
-\end{equation*}
-
-
-La linéarité de l'équation nous permet d'appliquer le principe de supperposition est donc de décomposer la résolution du problème en deux résolutions : une pour chaque terme source et ensuite de les sommer.
-Pour cela, nous allons chercher à calculer le terme source dans la suite, c'est à dire le champ magnétique.
 
 %=====================================================================================================================================
 %												CHAPITRE 1 CALCUL DU CHAMP MAGNETIQUE
@@ -314,7 +155,9 @@ Pour cela, nous allons chercher à calculer le terme source dans la suite, c'est
 \newpage
 \chapter{Modélisation du champ Magnétique de l'aimant}
 
-Nous cherchons dans cette partie à déterminer une approximation numérique du champ magnétique $\vec{B}(x,y,z)$ induit par un aimant (Figure 1). L'objectif sera d'abord de déterminer le champ magnétique dans une configuration quelconque, pour ensuite exploiter ces résultats et les employer dans la résolution numérique de Navier Stokes. 
+Nous allons nous intéresser en premier lieu à modéliser le champ magnétique d'un aimant pour pouvoir obtenir à terme les forces de Laplace s'exerçant sur le fluide pour caractériser l'écoulement.
+
+Nous cherche ainsi à modéliser le champ d'induction magnétique $\vec{B}(x,y,z)$ induit par un aimant (Figure 1). L'objectif sera d'abord de déterminer le champ magnétique dans une configuration quelconque, pour ensuite exploiter ces résultats et les employer dans la résolution numérique de Navier Stokes. \\
 \begin{figure}[h]
 \begin{center}
 \includegraphics[height =4 cm, keepaspectratio]{graphes/champ_aimant1.png} %on affiche figure aimant
@@ -323,10 +166,12 @@ Nous cherchons dans cette partie à déterminer une approximation numérique du 
 \label{figure 1}
 \end{center}
 \end{figure}
-On suppose que l'aimant à une longueur suffisante selon $\vec{z}$ pour être considéré comme infini selon $\vec{z}$.
+
+On suppose que l'aimant à une longueur suffisante selon $\vec{z}$ pour être considéré comme infini selon l'axe $\vec{z}$.
 On en déduit donc par le principe de Curie que le champ magnétique est invariant par translation selon $\vec{z}$. 
 Ainsi \[\vec{B}(x,y,z) = \vec{B}(x,y)\]
 
+On modélise donc le champ magnétique en deux-dimensions dans cette partie, dans la suite nous considérerons que le champ d'induction aura la même valeur selon la troisième dimension.
 %======================= Mise en forme du probleme ================================================== 
 \section{Mise en forme du problème}
 
@@ -423,14 +268,13 @@ On recherche une solution approchée de l'équation numériquement en passant de
 On utilise la méthode des éléments finis en recherchant une solution dans l'espace 
 $V_{h} = \{u \ | \ u \in P^{1}(\Omega^{2}), u \in H^{1}_{0}(R^{2})\}$. \\
 \\
-On introduit une triangulation $T_{h}$ en subdivisant $\overline{\Omega}$, \\ de bord $\Gamma \ = \ \partial\Omega$. 
-\newpage
+On introduit une triangulation $T_{h}$ en subdivisant $\overline{\Omega}$, de bord $\Gamma \ = \ \partial\Omega$. 
 Cette triangulation vérifie les propriétés suivantes :
 \\
 \begin{itemize}
-  \item l’intersection de deux triangles de $T_{h}$ doit être réduite à un sommet commun,\\ à une arête commune et entière ou à l'ensemble vide
+  \item l’intersection de deux triangles K de $T_{h}$ doit être réduite à un sommet commun,\\ à une arête commune et entière ou à l'ensemble vide
   \item l’aire des triangles ne doit pas être nulle
-  \item tous les coins du bord $\Gamma$ sont des sommets de triangles de $T_{h}$
+  \item tous les coins du bord $\Gamma$ sont des sommets de triangles K de $T_{h}$
 \end{itemize}
 
 Le maillage ainsi construit est tel que
@@ -449,8 +293,6 @@ On note que le maillage est caractérisé par la longueur de la plus petite arr�
 h_{min} \ = \ \min_{K \in T_{h}} h_{K}
 \]
 $h_{min}$ va notamment déterminer l'erreur entre la solution continue et la solution discrète.
-§
-
 On choisit une base de $V_{h}$, on prend la famille des fonctions de base  \\ $\varphi_{1}, \varphi_{2}, ..., \varphi_{N_{h}}$  telles qu'elles valent 1 en un sommet d’un triangle, et 0 pour tous les autres sommets. On note $P_{1},P_{2}, ..., P_{N_{h}}$ les sommets des triangles du maillage.
 Les fonctions de base sont donc définies ainsi :
 \[
@@ -517,7 +359,7 @@ On appelle A la matrice de rigidité.  \\
 %================= passage element de reference =====================================================
 \newpage
 \subsection{Passage à un élément de référence}
-Pour les calculs on utilise un maillage référence  normalisé $\hat{T}$. On passe du triangle $\Hat{T}$ à $T$ à l'aide de la transformation $F$. 
+Pour les calculer numériquement les matrices on utilise un triangle de référence normalisé $\hat{T}$. On passe du triangle $\Hat{T}$ à $T$ à l'aide de la transformation $F$. 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[height = 6cm, keepaspectratio]{graphes/transformation_de_maillage.png} 
@@ -645,13 +487,12 @@ Au final
 
 				
 
-%==================================== Calcul du gradient ==================================================================================================																																							
+%====================== Calcul du gradient =========================================================							
 \subsection{Calcul du Gradient}
 
-Ce que nous voulons obtenir à l'issue de notre étude du potentiel $u$, c'est le champ magnétique $\vec{B}$, que l'on peut calculer en tout point du maillage par la même méthode numérique, que l'on a utilisé pour calculer le potentiel u.
-\newline On pose donc  $\vec{B}= \bigtriangledown u$.
+Les calculs précédents nous permettent de trouver après résolution le potentielle $u$, ce que nous voulons obtenir à l'issue de notre étude est le champ d'induction magnétique $\vec{B}$ que l'on trouve par $\vec{B}= \bigtriangledown u$.
 \\
-\newline  On écrit la forme variationnelle dans $V_{h}$ (ainsi B suit une décomposition dans $V_h$, tel que $B=\sum_{i} B_{xi}\varphi_i:$
+\newline  On écrit la forme variationnelle dans $V_{h}$ (ainsi $\vec{B}$ suit une décomposition dans $V_h$, tel que $\vec{B}=\sum_{i} B_{xi}\varphi_i:$
 
 \[
 \begin{aligned}
@@ -659,22 +500,22 @@ Ce que nous voulons obtenir à l'issue de notre étude du potentiel $u$, c'est l
 		\sum_{i,j}\;  \sum_{T \in \text{Supp}(\varphi_{i})\times \text{Supp}(\varphi_{j})}B_{i}\int_{T} \varphi_i\varphi_j & =  \sum_{i}  \sum_{T \in \text{Supp}(\varphi_{i})\times \text{Supp}(\varphi_{j})} u_i \int_{T}\bigtriangledown\varphi_i\varphi_j  
 \end{aligned}
 \]
-On peut donc réécrire l'équation précédente comme un problème linéaire sous forme matricielle  $M \times B=C \times U $
-
-Nous pouvons écrire l'équation ci dessus sous forme matricielle, en introduisant M et C, définit de la façon suivante :
+Nous pouvons écrire l'équation ci dessus sous forme matricielle, en introduisant les matrices M et C, définit de la façon suivante :
 \[
 		M_{ij}=\int_{T} \varphi_i.\varphi_j \ \text{appellé la matrice de masse}
 \]
 \[
 		C_{ij}=\int_{T} \bigtriangledown\varphi_i.\varphi_j 
 \]
+L'équation devient ainsi un problème linéaire sous forme matricielle  
+\[
+	M \times B=C \times U
+\] 
+
 Soit 
 \[
 	\boxed{B =M\up{-1}\times C \times U}
 \]
-
-On va donc comme la matrice de rigidité, remplir les matrices M et C à l'aide de matrices élémentaires. 
-\\
 Calculons ainsi les termes de la matrice C:
 \[
 \begin{aligned}
@@ -685,6 +526,9 @@ C_{ij} &= \iint_{\Omega}\bigtriangledown\varphi_i\varphi_j dx
 \end{aligned}
 \]
 \[\boxed{C_{ij} =  \sum_{K\in supp\varphi_j}(J\up{-1}_K)^{T}|J_K| (\bigtriangledown_{\hat{K} }\hat{\varphi_i})\iint_{\hat{K}}  \hat{\varphi_j}\hat{dx}} \]
+
+Nous allons calculer pour l'implémentation algorithmique des matrice élémentaires qui vont regrouper sur chaque triangle les contributions croisés des trois nœuds, soit neuf termes dans chaque matrice élémentaire.
+\newline
 Calculons une matrice élémentaire de C sur un triangle K du maillage qui aura donc pour composantes (si on se place selon la composante x du gradient ) 
 
 \[
@@ -707,6 +551,7 @@ Calculons les intégrales :
     \end{aligned}
   \right.
 \]
+\newpage
 On a ainsi a matrice élémentaire du terme C sur un triangle K:
 
 \[
@@ -719,7 +564,8 @@ On a ainsi a matrice élémentaire du terme C sur un triangle K:
     	\bigtriangledown_{K}{\varphi_3}_{|x} & \bigtriangledown_{K}{\varphi_3}_{|x} & \bigtriangledown_{K}{\varphi_3}_{|x} \\ 
     \end{pmatrix} 
 \]
-Calcul de la matrice M
+\newline
+Calculons également directement les matrices élémentaires pour la matrice de masse M définis par :
 \[
 M_{ij}=\iint_\Omega \varphi_i \varphi_j
 \]
@@ -765,12 +611,12 @@ La résolution est effectué sur un maillage $5\times 5$ avec en son centre un a
 
 \begin{figure}[h]
 	\begin{center}
-	\includegraphics[height = 5cm, keepaspectratio]{graphes/blender_cuve_mag2.png} 
-	\caption{\label{figure 3 } maillage effectué sur matlab à l'aide de mesh2D pour la résolution du 		problème}
+	\includegraphics[height = 7cm, keepaspectratio]{graphes/maillage_resolution_champ_magnetique.jpg} 
+	\caption{\label{figure 3 } maillage effectué sur matlab à l'aide de mesh2D dans la configuration décrite pour un pas h = 0.1}
 	\end{center}
 \end{figure}
-\newpage
-Pour le calcul nécessaire des différentes matrice afin de résoudre le problème linéaire $A\times U = F$, les algorithmes reposent sur la méthodologie suivante :
+
+Pour le calcul nécessaire des différentes matrice afin de résoudre le problème linéaire $A\times U = F$, les algorithmes reposent sur la même méthodologie de calcul :
 Par exemple pour le calcul de la matrice A : 
 \[
 \begin{aligned}
@@ -787,7 +633,7 @@ A_{ij} =
 	\bigtriangledown_{\hat{x}} \hat{\varphi_{j}}
 \end{aligned}
 \]
-Le principe consiste à ne pas recherche le support croisé des fonctions $\varphi_i$ et $\varphi_j$ (ce qui donnerait une complexité trop importante) mais à boucler sur les triangles et placer dans la matrice les contributions correspondantes à chacun de leurs nœuds avec leur indices. Notamment avec l'outil matriciel $sparce$ de matlab qui permet d'exploiter en temps de calcul et d'espace mémoire le fait que la matrice de rigidité A est creuse, comme pour deux fonction $\varphi_{i}$ et $\varphi_{j}$ l'intersection de leurs support se réduit à deux triangle.
+Le principe consiste à ne pas recherche le support croisé des fonctions $\varphi_i$ et $\varphi_j$ (ce qui donnerait une complexité trop importante) mais à boucler sur les triangles et placer dans la matrice les contributions correspondantes à chacun de leurs nœuds avec leur indices. Notamment avec l'outil matriciel $sparse$ de matlab qui permet d'exploiter en temps de calcul et d'espace mémoire le fait que la matrice de rigidité A est creuse, comme pour deux fonction $\varphi_{i}$ et $\varphi_{j}$ l'intersection de leurs support se réduit à deux triangle.
 \\
 \\
 Ainsi pour le calcul de A chaque triangle engendre une matrice élémentaire $ 3\times 3$ (car 3 nœuds pour chaque triangle donc 9 termes croisés) symétrique vu le calcul du terme $A_{ij}$ dont on place les terme dans la matrice A à chaque itération sur les triangles.
@@ -800,174 +646,339 @@ Ainsi pour le calcul de A chaque triangle engendre une matrice élémentaire $ 3
 \\
 \\
 Et de même également pour le calcul des matrices M et C pour le gradient, dont nous avons explicité les matrices élémentaires.	
-%===============================================================================================================================										% Application à Navier Stokes  3D																															
-%================================================================================================================================================================
-\chapter{Application au problème de Navier-Stokes 3D}		
-Après l'implantation d'une méthode pour calculer le champ magnétique en 2 dimensions , il nous est nécessaire de nous replacer dans le cas de Navier-Stokes en 3 dimensions.
-\\ 
-\\ 
-En effet nous avons effectué l'étude précédente dans le cas d'un milieu neutre de longueur L , et de largeur H, avec les lignes de champ magnétique issue d'un aimant au milieu de l'espace. 
-L'objectif est d'abord d'extraire de cet espace le champ magnétique qui se trouve dans la cuve apposée à l'aimant. 
-\\
-Avant toute chose, il est important de comprendre quelle configuration préalable de modélisation numérique ,  nous devons prendre pour notre cuve, car l'algorithme de calcul numérique de l'équation de Navier-Stokes 3D vers lequel nous allons devoir exporter les valeurs du champ magnétique prend les valeurs de forces magnétiques  de Laplace uniquement sous un certain format.  Nous devons donc préalablement présenter l'algorithme de calcul de l'équation de Navier-Stokes 3D sous lequel nous travaillons. 
-\\
-\\
 
-%=================================
+Voici une présentation succinte de l'algorithme de résolution, les fonctions utilisés sont détaillé dans l'annexe \ref{annexe_2}.
 
+Pour la génération du maillage, on tulise la fonction meshfaces fournis par la bibliothèque Mesh2D par Darren Engwirda
+\begin{verbatim}
+ [v,t,fnum] = meshfaces(node,edge,face,hdata); %construction du maillage
+ 
+ v : vecteur colonne regroupant les coordonnées des nœuds
+ t : table de connectivité des triangle
+ fnum : numéros de face des triangles du maillages (1 ou 2), 
+ si sur le domaine des l'aimant ou de la cuve
+\end{verbatim}
+Calcul de la matrice de rigidité A et de la matrice de masse M : 
+\begin{verbatim}
+[M, nn, ibint, ic2] = matrixP1final(v,t,fnum,node1,edge1,node2,edge2);
+[A]= matrixP1vect(v,t);
+\end{verbatim}
+
+On enlève les noeuds sur le bord du domaine de résolution comme la condition aux limite impose que $\Delta u = 0$ sur le bord, que nous considerons équivalente à $u = 0$ 
+\begin{verbatim}
+A1 = A1(ic2,ic2);	%ic2 sont les noeuds intérieurs du maillage
+sol = A1\M;			%résolution linéaire
+\end{verbatim}
+Calcul du gradient de $u$ :
+\begin{verbatim}
+B = gradient(u,v,t);
+ quiver(X,Y,B_X,B_Y);		%affichage du résultat final
+\end{verbatim}
+
+%====================== resultats  ===========================================================================
+ 
+\subsection{Résultats de la simulation}
+
+Voici les résultats de la simulation pour un maillage de pas 0.2 et de taille $5 \times 5$ pour un aimant de taille $1 \times 1$
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[height = 10cm, keepaspectratio]{graphes/resultat_champ.jpg}
+\caption{affichage résolution centrée sur [-2, 2]}
+\label{figure 1}
+\end{center}
+\end{figure}
+On voit que les vecteurs suivent les dessin des lignes de champ que l'on peut attendre d'un aimant.
+On peut s'inquiéter de la discontinuité des valeurs au bord de l'aimant mais ce la est en accord avec la formulation du champ d'induction comme la somme d'un champ d'excitation et d'une aimantation, nulle en dehors de l'aimant $\vec{B}=\mu _{0}(\vec{H}+\vec{M})$, d'où cette discontinuité que l'on observe.
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[height = 8 cm, keepaspectratio]{graphes/norme_du_champ.jpg}
+\caption{affichage résolution centrée sur [-2, 2]}
+\label{figure 1}
+\end{center}
+\end{figure}
+%=========================================================================================================================================================
+%												chapitre 2 equations de Navier_Stockes
+%=========================================================================================================================================================
+\newpage
+\chapter{Équations de  Navier Stokes} 
+Nous allons à présent nous intéresser à la modélisation de l'écoulement, qui suit les équations de Navier-Stokes d'après les hypothèses que nous avons émis précédemment. 
+Nous supposons que nous avons à notre disposition deux aimants, qui sont perpendiculaires sur les côtés de la cuve, l'un produit un champ $B_1$, l'autre produit un champ $B_2$
+Le premier aimant va produire un tourbillon dans le fluide, le deuxième va produire deux tourbillons parallèles, qui sont orthogonaux au premier tourbillon . Tout cela dans le but d'obtenir un écoulement tourbillonnaire. 
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[height = 8 cm, keepaspectratio]{graphes/3_tourbillons.png}
+\caption{les trois tourbillons que nous souhaitons obtenir avec notre dispositif expérimental}
+\label{figure 1}
+\end{center}
+\end{figure}
+%======================== Equations de Navier-stokes==========================================================
+\newpage
+\subsection{Équations de Stokes}
+
+Le liquide est un conducteur placé dans un champ magnétique et parcouru par un courant supposé uniforme $\vec{j_0}$.
+\normalsize 
+Afin de pouvoir trouver l'équation de la trajectoire d’un point donné, on cherche tout d’abord à trouver la vitesse dans l'écoulement du fluide contenu dans un domaine $\Omega$.
+\\A partir des équations de Navier-Stokes incompressibles, on détermine simultanément la vitesse  $V$ et la pression $P$. 
+\\
+\\
+On émet les hypothèses suivantes :
+\\
+Dans un premier temps, nous pouvons négliger les forces d’inertie du fluide comme on a un faible nombre de Reynolds.
+Le fluide visqueux est en mouvement le long d’une paroi solide fixe d’où une vitesse nulle sur le bord car 
+$\vec{V_{\partial\Omega}}=\vec{V_{\text{paroi}}}=\vec{0}$
+\\	
+Finalement, on se place en régime stationnaire.
+\begin{equation*}
+  \left\{
+    \begin{aligned}
+      &\vec{0}=-\vec{\bigtriangledown}P +\mu\vec{\Delta}V +\vec{f}\;\text{dans }\Omega \\
+      &\text{div}(\vec{V})=0\;\text{dans }\Omega \\     
+      &\vec{V}=\vec{0}\;\text{sur }\partial\Omega
+    \end{aligned}
+  \right.
+\end{equation*}
+
+La force $\vec{f}$ correspond à la force de Laplace induite par le champ magnétique. La densité volumique de cette force est donnée par :
+\[
+\begin{aligned}
+	\vec{f}=\vec{j_0}\land\vec{B}&=j_0\times M_0\times \vec{j}\wedge \vec{B^*} \\
+	 \vec{B^*} =\frac{\vec{B}}{M_0}, 
+	\ &\text{et} \ j_0=\frac{\Delta E}{L}\sigma
+	\\
+\text{avec} \quad
+&\sigma : \text{la conductivité du fluide }
+\\%
+&\text{L: la longueur de base de la cuve} \\
+&\Delta E : \text{la différence de potentiel}
+\end{aligned} \\
+\]
+Ainsi on peut calculer la force magnétique pour un champ magnétique $\vec{B_1}$
+\[
+	\vec{B_1} = 
+	\begin{pmatrix}
+   		B_{1,x}\\
+  		 B _{1,y}\\
+  		 0
+	\end{pmatrix} 
+\]
+\[
+	\vec{f}=j_0\vec{e}_{x}
+	\wedge\begin{pmatrix}
+   		B_{1,x}\\
+   		B _{1,y}\\
+   		0
+\end{pmatrix}=
+j_0\times \begin{pmatrix}
+  			0\\
+   			0\\
+    		B_{1,y}
+			\end{pmatrix} 
+\]
+
+%==================================================== Adimensionnement de l'équation de Stokes ============================================================
+
+\subsection{Adimensionnement de l'équation de Stokes}
+
+\normalsize Afin de résoudre un seul système indépendamment des constantes, on adimensionne l'équation de Stokes. Le régime stationnaire sera pris en compte après adimensionnement.
+\\%
+Posons :
+\begin{equation*}
+\vec{V'}(x,t)=\frac{\vec{V}(x,t)}{V_0}\;;\vec{x'}=\frac{\vec{x}}{L_0}\; ; \vec{f'}(\vec{x'})=\frac{\vec{f}(\vec{x})}{j_0M_0}\;;P'=\frac{P}{P_0}\; ;t'=\frac{t}{\frac{L_0^2}{\mu}}\;
+\end{equation*}
+En injectant dans l'équation de Stokes d'évolution :
+\begin{equation*}
+  \left\{
+    \begin{aligned}
+    \rho\frac{\partial \vec{V}}{\partial t}=-\vec{\bigtriangledown} P + \mu \vec{\Delta}\vec{V}+\vec{f}
+        \end{aligned}
+  \right.
+\end{equation*}
+il en résulte :
+\begin{equation*}
+  \left\{
+    \begin{aligned}
+    \frac{\partial \vec{V'}}{\partial t}=-\frac{L_0 P_0}{\rho \mu V_0}\vec{\bigtriangledown} P '+  \vec{\Delta}\vec{V'}+\frac{L_0^2j_0M_0}{\mu V_0}\vec{f'}
+        \end{aligned}
+  \right.
+\end{equation*}
+On adimensionne par rapport à $V_0$ et $P_0$ de sorte que $\frac{L_0 P_0}{\rho \mu V_0}=1$ et $ \frac{L_0^2j _0M_0}{\mu V_0}=1$, le régime stationnaire étant établi:
+\[
+      \vec{0}=-\vec{\bigtriangledown}P' +\vec{\Delta}V' +\vec{f'}\;\text{dans }\Omega 
+\]
+
+%================= Formulation variationnelle =========================================================
+\subsection{Formulation variationnelle}
+
+Afin d'obtenir la formulation variationnelle de l'équation de Stokes, on passe dans l'espace des distribution de sorte que pour toute fonctions test $\varphi$ on a 
+\[
+	\int_\Omega\vec{\bigtriangledown}P'\times \vec \varphi=\int_\Omega-\mu\vec{\Delta}V'\times \vec \varphi +\int_\Omega\vec{f'}\times \vec \varphi 
+\]
+En appliquant la formule de Green, on obtient :
+
+\[
+\forall \varphi \in D(\Omega) \quad  \int_\Omega\vec{\bigtriangledown}P'. \vec \varphi + \int_{\Omega}\bigtriangledown V'. \bigtriangledown \varphi = \int_\Omega\vec{f'}. \vec \varphi
+\]
+Comme précédemment nous nous plaçons dans l'espace $V_{h}$ d'approximation polynomiale.
+Nous pouvons ainsi décomposer les champs de pression $P'$, la vitesse $V'$ et la force $\vec{f'}$ dans la base des $(\varphi_{i})$:
+
+\begin{equation*}
+  \left\{
+    \begin{aligned}
+ &V '= \sum_{i=1}^{N_{h}}{\ V_{i}\varphi_{i}} \text{ \ \ où } V_{i} = V(P_{i}),\  i= 1,2,...,N_{h}\\
+ &P '= \sum_{i=1}^{N_{h}}{\ P_{i}\varphi_{i}} \text{ \ \ où } P_{i} = P(P_{i}),\  i= 1,2,...,N_{h}\\
+ &f' = \sum_{i=1}^{N_{h}}{\ f_{i}\varphi_{i}} \text{ \ \ où } f_{i} = f(P_{i}),\  i= 1,2,...,N_{h}\\
+\end{aligned}
+  \right.
+\end{equation*}$ $ \\ 
+On prend $\varphi\ =\ \varphi_{i}$ un vecteur de la base
+\begin{equation*}
+  \left\{
+    \begin{aligned}
+	&\int_{\Omega}\bigtriangledown V_{h}.\bigtriangledown \varphi\ 
+	=\ 
+	\sum_{i, j \in [1, N_{h}]^{2}} \int_{\Omega}V_{i}\bigtriangledown\varphi_{i}. \bigtriangledown\varphi_{j} 
+	= 
+	\sum_{i,j \in [1, N_{h}]^{2}} A_{ij} V_{i}\\
+	&\int_{\Omega}\bigtriangledown P_{h}.\varphi\ 
+	=\ 
+	\sum_{i, j \in [1, N_{h}]^{2}} \int_{\Omega}P_{i}\bigtriangledown\varphi_{i}. \varphi_{j} 
+	= 
+	\sum_{i,j \in [1, N_{h}]^{2}}C_{ij} u_{i}\\
+	&\int_{\Omega} f. \varphi\ 
+	=\ 
+	\sum_{i, j \in [1, N_{h}]^{2}} \int_{\Omega}f_{i}\varphi_{i}. \varphi_{j} 
+	= 
+	\sum_{i,j \in [1, N_{h}]^{2}} M_{ij} f_{i}\end{aligned}
+  \right.
+\end{equation*}
+On peut donc écrire la formulation variationnelle sous la forme d'un problème linéaire:
+\begin{equation*}
+  \left\{
+    \begin{aligned}
+	&-A\times V + C \times P = M	\times f \ \text{sur} \ \Omega\\
+	& C\times V = 0 \ \text{sur} \  \partial\Omega\\
+	\end{aligned}
+  \right.
+\end{equation*}
+
+%====================== principe de superposition =======================================================\subsection{Principe de superposition}
+
+La linéarité de l'équation nous permet d'appliquer le principe de superposition est donc de décomposer la résolution du problème en deux résolutions : une pour chaque terme source et ensuite de les sommer.
+Pratiquement nous allons résoudre le problème en deux temps : d'un coté pour l'aimant centré qui donne deux tourbillons et d'autres part pour l'aimant décentré qui donne un tourbillon pour ensuite sommer les champs de vitesse après transposition.
+
+\begin{figure}[!h]
+	\begin{center}
+	\includegraphics[height = 8 cm, keepaspectratio]{graphes/Maillage_initial1.jpg}
+	\caption{affichage résolution centrée sur [-2, 2]}
+	\label{figure 1}
+	\end{center}
+\end{figure}
+
+%===================== implementation algorithmique =======================================
 \subsection{Implémentation algorithmique}
 
-Sous Matlab, nous avons utilisé un algorithme de résolution d'équations dérivées partielles avec la méthode 3D de différences finies :  elle consiste à discrétiser le domaine en grille et approcher les opérateurs par des différences, ce qui nous permet d’obtenir une approximation de la vitesse et la pression en chaque nœud de la grille.  
-\\ \\
-Le domaine $\Omega = ]0;L_x[ . ]0;L_y[.]0;L_z[$ est discrétisé par un maillage uniforme défini par les points : 
+Nous allons à présent mettre en place les calculs précédents de manière numérique sur Matlab en maillant le domaine de résolution qui est ici la cuve qui accueille le fluide .  
+\\ 
+On pose $ L_x,  L_y,  L_z$ les dimensions de la cuve selon x, y, et z.
+\newline
+Le domaine $\Omega = [0, L_x]\times[0, L_y]\times[0, L_z]$ est ainsi discrétisé par un maillage uniforme défini par les points : 
 \\
 
 \[
 \left\{
 \begin{array}{ccc}
-  x_{ij} = (\frac{i*L_x}{N+1} ,\frac{j*L_x}{N+1}),    i,j=0,1,......,N+1\\
-  y_{ij} = (\frac{i*L_y}{N+1} ,\frac{j*L_y}{N+1}),    i,j=0,1,......,N+1  \\
- z_{ij} = (\frac{i*L_z}{N+1} ,\frac{j*L_z}{N+1}),    i,j=0,1,......,N+1  
+  x_{ij} = (\frac{i\times L_x}{N+1} ,\frac{j\times L_x}{N+1}),    i,j=0,1,......,N+1\\
+  y_{ij} = (\frac{i\times L_y}{N+1} ,\frac{j\times L_y}{N+1}),    i,j=0,1,......,N+1  \\
+ z_{ij} = (\frac{i\times L_z}{N+1} ,\frac{j\times L_z}{N+1}),    i,j=0,1,......,N+1  
 \end{array}
 \right.
 \]
-On cherche les approximations :
-\[
-u_{ij}^{(1)} \approx u_1(x_{ij}) \\\\\ \text{et} \\\ u_{ij}^{(2)} \approx u_2(x_{ij}) 
-\]
-\\
-avec $u^(1)$ et $u^(2)$ les deux composantes de la vitesse exacte $V^{~}$en 2D.
-Pour discrétiser le système d'équations 4.1, nous utilisons la méthode de différences finies centrée.
-On pose h= $\frac{1}{N+1}$: 
-\begin{figure}[h]
-	\center
-	\includegraphics [height = 3.5cm, keepaspectratio]{graphes/equation1stokes.png}
+\begin{figure}[!h]
+	\begin{center}
+	\centering
+		\includegraphics[height = 8cm, keepaspectratio]{graphes/maillage_droit.png} 
+		%\includegraphics[height = 2cm, keepaspectratio]{graphes/axes.png}
+		\caption{maillage du domaine de résolution à l'aide de la fonction matlab $ndgrid$}
+	\end{center}
 \end{figure}
 
+%============================= calcul champ de vitesse =====================================
+\newpage
+\subsection{Calcul des matrices du système linéaire}
 
-%Pour modéliser ce nouvel espace, nous prenons la configuration suivante :
-Nous disposons de $3N^2$ équations . Les maillages sur $\vec{V}$ et P sont choisis de sorte que le nombre d'équations soit égal au nombre d'inconnues.
-Le maillage 3D utilisé par l'algorithme est un maillage droit , ce qui implique que les données que l'on va exporter sont calculées et configurées sur la même base  de maillage triangulaire en 2 dimensions de l'espace de calcul. 
-
-\begin{figure}
-\center
-\includegraphics[height = 10cm, keepaspectratio]{graphes/maillage_droit.png}
-\caption{domaines de résolution du problème}																													
-\end{figure}
-%\subsection{Calcul du champ de vitesse en 2D}
-%\textbf{-sur le plan (x,y)}
-%%
-%%Nous commençons par calculer ~u1(x,y) et P1(x,y) par une fonction Matlab qui r ́esout l’ ́equa- tion de Stokes en 2D en prenant f~ = 0 sur la moiti ́e du carr ́e consid ́er ́e et f~ = f1~ey sur l’autre moiti ́e (fy(X > (L/2)) = f1 = 1). En sortie, nous obtenons deux matrices avec les valeurs de U et P dans les nœuds de la grille (cf. fig. 5.1).
-\subsection{Calcul intrinsèque du champ de vitesse}
-Nous devons d'abord remarquer la similarité entre la résolution de l'équation de Navier-Stokes en 3 dimensions et notre étude précédente visant à déterminer le champ magnétique en deux dimensions via la méthode des éléments finis. 
-\\
-En effet, en posant la formulation mixte du système d'équations de Navier-Stokes, nous retombons sur un espace de distributions semblable à celui utilisé dans le cas $P_1$ précédent:
-\\
-Nous cherchons $(\vec{V},p) \in [H_0^1(\Omega)]^3.L^2(\Omega) $.
-\\
-Afin d’obtenir la formulation mixte, nous allons multiplier les deux première équations de notre
-système par une fonction test $\vec{v} \in [H_0^1(\Omega)]^3$ puis intégrer $\Omega$, il vient :
-\[
-%		\includegraphics [height = 2cm, keepaspectratio]{graphes/equation2stokes.png}
-\]
-si l'on reprend les notations précéd entes des éléments finis pour le champ magnétique 2D, avec $(\vec{\phi_i})_i$ une base de $X_h \in [H_0^1(\Omega)]^3$ (l'espace des distributions P1 qui va définir notre espace des vecteurs tridimensionnels pour les éléments finis) et $M_h \subset L^2(\omega)$ (l'espace des distributions P1 qui va définir notre espace des scalaires pour les éléments finis).
-\\
-Posons $\vec{V_h} =\sum_{i=1}^n\vec{\phi_i}$ et $p_h=\sum_{i=1}^n p_i*q_i$.
-\\
-%Si l'on remplace dans notre système $\vec{v_n} par $\vec{\phi_j}$ %et $q_n$ par $q_l$, on obtient :
-On obtient:
-\newline
-\[	
-  \left\{
-    \begin{aligned}
-    \sum_{i=1}^n u_i \iint_{\Omega}\vec{\bigtriangledown_{x}}{\phi_{i}} \vec{\bigtriangledown_{x}}{\phi_{j}} + \sum_{i=1}^n p_i \int_{\Omega} q_i \vec{\bigtriangledown}. \vec{\phi_i} = (\vec{f_n},\vec{\phi_j}) \forall j =1...n\\
-    \sum_{i=1}^n u_i \int_{\Omega} q_i \vec{\bigtriangledown}. \vec{\phi_i} = 0 \forall j =1...n\\
-	 \end{aligned}
-  \right.
-\]
-On traduit ce système en écriture matricielle où on fait apparaitre la matrice de Stokes :
-\\
-\[
-\left[
-\begin{array}{ccc}
-  A &  B   \\
-  B^T  & 0
-\end{array}
-\right]
-\left[
-\begin{array}{ccc}
-  U   \\
-  P
-\end{array}
-\right]
-=\left[
-\begin{array}{ccc}
-  F  \\
-  0
-\end{array}
-\right]
-\\\text{avec } U=(u_1,...,u_n)^T \text{et }P = (p_1,...,p_m)^T
-\]
-.
-\newline
-\newline
-\newline
-\newline
-
-L'objectif va être de garnir les matrices de rigidité et de masse selon la même méthode algorithmique que la méthode des éléments finis précédentes: nous bouclons sur la liste des cubes, qui est de format [(Nx-1)*Lx;27] (le 27 correspond 
+Pareil qu'avant
 
 
 %================= implementation algo =============================================================
-\subsection{Implémentation algorithmique}
+\subsection{Raccordement à la modélisation du champ magnétique}
 
-Nous devons adapter notre maillage précédent du calcul de la force de Laplace à l'aide des éléments finis aux besoins de l'algorithme précédent: 
+Pour résoudre le système linéaire qui découle des équation de Navier-Stokes, nous devons reprendre notre travail précédent pour former le second terme $f$, matrice colonne regroupant les valeurs scalaires de la force magnétique aux différents point du maillage.
+
+Nous devons donc faire le liens entre le maillage de résolution en trois dimension pour la résolutions des équations régissant l'écoulement et le maillage en deux dimensions sur lequel on calcule le champ magnétique. 
+
+Comme nous l'avons énoncé, nous supposons que le champ magnétique est invariant selon le troisième dimensions, il est donc inutile de le recalculer pour chaque 'couche' du maillage 3D, d'autant plus que le maillage 3D est uniforme. 
+La méthodologie que nous allons donc appliquer consiste à calculer une unique fois le champ magnétique sur une seule couche de maillage (la couche z = 0 en partique dans l'algorithme) et reprendre les valeurs du champ sur les autres couches.
+
+Ce que nous faisons en pratique est de générer un grand maillage de résolutions 2D pour calculer le champ magnétique, ce qui permet d'atténuer les effets de bord subit par le champ magnétique. 
 \newline
-\newline
-tout d'abord nous devons travailler sur un maillage triangulaire droit dont les dimensions coincident avec le maillage de la base de l'espace de travail précédent. Nous prenons une largeur L , un profondeur P, et une hauteur H pour la cuve avec un nombre de points Nx*Ny pour le maillage.  Afin d'avoir un maillage qui colle à ces contraintes, nous allons utiliser la fonction delaunay de Matlab, qui prend en argument les coordonnées x et y des points de l'espace que nous allons mailler. 
-\newline
-ci dessous le maillage de l'espace de travail  initial sur laquelle nous allons calculer notre fonction champ magnétique:
+Nous utilisons ensuite la fonction Matlab $delaunay$ qui permet à partir du maillage rectangulaire, de définir un maillage triangulaire (comme nous avons travaillé auparavant sur un maillage de type triangulaire quelconque auparavant pour le calcul du champ magnétique).
+Nous identifions ensuite sur ce maillage de résolution 2D un domaine correspondant à la cuve est un domaine correspondant à l'aimant, en fonction de la configuration choisie. Le maillage sur le domaine assigné à la cuve doit bien sur correspondre à une couche du maillage de résolution 3D utilisé pour la résolution des équations de Navier-Stokes.
+
 \begin{figure}[!h]
-\includegraphics[height = 10cm, keepaspectratio]{graphes/Maillage_initial1.jpg}
-\caption{\label{figure 3 } maillage effectué sur matlab à l'aide de mesh2D pour la résolution du problème}
-
+	\includegraphics[height = 8cm, keepaspectratio]{graphes/maillage_resolution_total_centre.jpg}
+	\caption{\label{figure 3 } configuration dans le cas de la résolution pour la configuration avec l'aimant centré}
 \end{figure}
-\newline
-Néanmoins nous devons auparavant nous replacer dans le contexte initial : le maillage précédent ne servirait qu'à calculer le champ magnétique sur tout l'espace avec  l'aimant au milieu de l'espace et avec approximation de quasi nullité de la fonction aux bords de l'espace de travail. 
-\\
-Or ce qui nous intéresse est le calcul du champ magnétique uniquement dans la cuve, qui est accolée à l'aimant. Il y a donc un travail préalable de redécoupage de l'espace après calcul du champ magnétique en dimensionnant l'aimant selon des coordonnées particulières. 
-\newline
+\begin{figure}[!h]
+	\includegraphics[height = 8cm, keepaspectratio]{graphes/maillage_resolution_total_decentre.jpg}
+	\caption{\label{figure 3 } configuration dans le cas de la résolution pour la configuration avec l'aimant décentré}
+\end{figure}
 
-
-L'objectif est d'extraire les noeuds, triangles et valeurs de champ magnétique associés à cette espace. Il faut donc dans les programmes précédents inclure des commandes supplémentaires afin d'assigner à chaque objet précédent un nouvel attribut entre  $\{0,1,2\}$ qui détermine si l'on est soit dans l'aimant , soit dans la cuve, soit dans l'espace environnant (notamment avec l'attribut fnum, utilisé dans le calcul du second membre des éléments finis). 
+\newpage
+Algorithmiquement, pour assigner les différents domaines du maillage de résolution 2D généré, nous utilisons le vecteur label $fnum$ qui prend sur chaque triangle la valeur 1, 2, ou 3 en fonction du domaine qui lui a été assigné.
 \newline
 Maintenant  notre objectif est de pouvoir adapter les données extraites à l'algorithme de Stokes 3D. Le premier obstacle est de réindexer le numéro des triangles pour qu'il y ait une bonne consistance des données lorsque l'algorithme va les utiliser: il faut renuméroter les triangles dans l'ordre. 
-\newline 
-\newline
-Un autre obstacle est la structure de calcul sur les cubes du champ de vitesse par l'algorithme qui se base sur l'équation de Navier Stokes: 
-\newline
-l'algorithme de Navier Stokes calcule le champ de vitesse dans le maillage cubique de l'espace, avec par cellule de calcul de 8 cubes , une connectivité de 27 points répartis avec une indexation particulière qu'il faudra prendre en compte lors du transfert des résultats du champ magnétique vers cette algo. On notera la présence par arête de 3 points , et non pas 2 (un de plus au milieu) : en effet l'algorithme utilisé pour résoudre numérique de Navier Stokes est  la méthode de différences finies centrée.
-\newline
-Cette algorithme prend en argument comme vu précedemment la matrice de rigidité A  , et le second membre se rapportant à la force électromagnétique de Laplace. Lorsque l'on veut programmer le second membre dans l'algorithme à partir des coordonnées f(x,y) dans l'espace 3D pour le mettre au format vectoriel demander par l'algorithme, on remplit le second membre selon la table de connectivité ci dessous.
+\newline  	
+
+Un autre point important est le degré d'interpolation des espace polynomiaux sur lessquels nous travaillons. En effet nous avons résolu les équations du champ magnétique avec des éléments finis de degrés d'interpolation polynomiales 1 (éléments P1), alors que la résolution des équations de Navier-stokes nécessite des éléments finis P2. Il faut donc doubler le nombre de points d'interpolations du champ magnétique avant d'injecter le second membre $f$ dans l'algorithme de résolution des équations de Navier Stokes. Les données prennent alors une nouvelle structure suite à ce dédoublement des point, les matrices ne suivent plus le sens de parcourt des données fixé avec la fonctions de génération de maillage $ngrid$(qui est une généralisation sur la troisième dimension  de $meshgrid$). Ce doublement de point du maillage avec la génération des tables nouvelles tables de descriptions du maillage t et v sont faite par la fonction $mesh_3D$ fournis par M. Scheid que nous utilisons comme une boite noire.
+
+On le voit tout de suite avec un affichage avec un affiche $triplot$ après avoir appliqué $delaunay$ sur les données de la couche 2D du maillage 3D dont on a doublé les points.
+\begin{verbatim}
+z = 0;   % niveau z = 0
+indz = find(v(:,3) == z);		% récupération des indices des nœuds pour le niveau 0
+xz = v(indz,1); yz = v(indz,2); vz = [xz, yz];
+tz = delaunay(xz,yz);               % triangulation de Delaunay 
+triplot(tz,xz,yz);   				% affichage
+\end{verbatim}
+
 \begin{figure}[!h]
-\includegraphics[height = 10cm, keepaspectratio]{graphes/table_de_connectivite.png} 
-\caption{\label{figure 3 } table de connectivité pour le remplissage du second membre dans l'algorithme de résolution de l'équation de Navier Stokes}
+	\center
+	\includegraphics[height = 8cm, keepaspectratio]{graphes/affichage_extraction_2D.jpg}
+	\caption{\label{figure 3 } affichage avec $triplot$ du maillage extrait}
 \end{figure}
-\newline
-\newline
-\newline
-\newline
-\newline
-\newline
-\newline
-\newline
-\newline
-\newline
-\newline
-\newline
-\newline
-\newline
-\newline
-\newline
+Si on compare à une structure de données classiques généré avec $meshgrid$ ou $linspace$:
+\begin{verbatim}
+t_total_2D = delaunay(v_total_2D(:,1),v_total_2D(:,2)); 
+triplot(t_total_2D ,X_total_2D,Y_total_2D);
+xlim([4.5 5.5]);
+ylim([4.5 5.5]);
+\end{verbatim} 
+\begin{figure}[!h]
+	\center
+	\includegraphics[height = 8cm, keepaspectratio]{graphes/affichage_extraction_2D_normal.jpg}
+	\caption{\label{figure 3 } affichage avec $triplot$ du maillage extrait}
+\end{figure}
+\newpage
+Pour comprendre la structure des données il faut alors se rapporter  aux tables de connectivité pour le type de maillage 3D généré.
+\begin{figure}[h]
+\center
+\includegraphics[height = 8cm, keepaspectratio]{graphes/table_de_connectivite.png} 
+\caption{\label{figure 3 } table de connectivité, issu du cours $Analyse$ $numérique$ $des$ $équations$ $de$ $Navier$-$Stokes$, J.-F. Scheid}
+\end{figure}
+On comprend alors que cette structure des données ératique est du à l'arrangement de la tables de coordonnées v. Cela ne pose pas de problème dans la mesure où nous prenons garde à garder la même structure de données tout de long de notre algorithme de résolution est donc d'arranger selon la même structure le second membre $f$.
+
+
+
+\newpage
 Prenons par exemple les 9 premiers termes de la fonction force de Laplace au niveau $z=0$ à partir de l'origine de ce plan dans le maillage de la cuve. Schématiquement si l'on se limite à la portion $[0;2/N_x].[0;2/N_y]$, on remplit le vecteur $\vec{f_z}$
 \\
 \[
@@ -1023,6 +1034,8 @@ nous discernons bien deux lignes de courant pour l'aimant centré, et une ligne 
 %==========================================================================================================================================================
 
 \begin{appendix}
+
+%================================ matrice de rigidité ====================================================================
 \chapter{Calcul de la matrice de rigidité}
 \label{annexe_1}
 
@@ -1179,6 +1192,21 @@ Et le calcul du terme $A_{ij}$ de la matrice de rigidité, on obtient ainsi avec
 	\bigtriangledown_{\hat{x}} \hat{\varphi_{j}}
 \end{aligned}
 \]
+
+%================================= CODE MATLAB ===========================================================================
+
+\chapter{Codes Matlab}
+\label{annexe_2}
+
+\subsection{Modélisation du champ magnétique}
+
+
+
+
+
+
+
+
 
 \iffalse
 %==========================================================================================================================================================	

@@ -2,20 +2,22 @@
 \contentsline {chapter}{\numberline {1}Position du probl\IeC {\`e}me}{3}{chapter.1}
 \contentsline {subsection}{\numberline {1.0.1}dispositif exp\IeC {\'e}rimental}{3}{subsection.1.0.1}
 \contentsline {subsection}{\numberline {1.0.2}hypoth\IeC {\`e}ses de mod\IeC {\'e}lisation}{6}{subsection.1.0.2}
-\contentsline {chapter}{\numberline {2}\IeC {\'E}quations de Navier Stokes}{7}{chapter.2}
-\contentsline {subsection}{\numberline {2.0.1}\IeC {\'E}quations de Stokes}{7}{subsection.2.0.1}
-\contentsline {subsection}{\numberline {2.0.2}Adimensionnement de l'\IeC {\'e}quation de Stokes}{8}{subsection.2.0.2}
-\contentsline {subsection}{\numberline {2.0.3}Formulation variationnelle}{9}{subsection.2.0.3}
-\contentsline {chapter}{\numberline {3}Mod\IeC {\'e}lisation du champ Magn\IeC {\'e}tique de l'aimant}{11}{chapter.3}
-\contentsline {section}{\numberline {3.1}Mise en forme du probl\IeC {\`e}me}{12}{section.3.1}
-\contentsline {section}{\numberline {3.2}M\IeC {\'e}thode des \IeC {\'e}l\IeC {\'e}ments finis}{14}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Le maillage}{14}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Mise en \IeC {\'e}quation}{17}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Passage \IeC {\`a} un \IeC {\'e}l\IeC {\'e}ment de r\IeC {\'e}f\IeC {\'e}rence}{19}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Calcul du Gradient}{21}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {3.2.5}Impl\IeC {\'e}mentation algorithmique}{23}{subsection.3.2.5}
-\contentsline {chapter}{\numberline {4}Application au probl\IeC {\`e}me de Navier-Stokes 3D}{26}{chapter.4}
-\contentsline {subsection}{\numberline {4.0.1}Impl\IeC {\'e}mentation algorithmique}{27}{subsection.4.0.1}
-\contentsline {subsection}{\numberline {4.0.2}Calcul intrins\IeC {\`e}que du champ de vitesse}{28}{subsection.4.0.2}
-\contentsline {subsection}{\numberline {4.0.3}Impl\IeC {\'e}mentation algorithmique}{29}{subsection.4.0.3}
-\contentsline {chapter}{\numberline {A}Calcul de la matrice de rigidit\IeC {\'e}}{36}{appendix.A}
+\contentsline {chapter}{\numberline {2}Mod\IeC {\'e}lisation du champ Magn\IeC {\'e}tique de l'aimant}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Mise en forme du probl\IeC {\`e}me}{8}{section.2.1}
+\contentsline {section}{\numberline {2.2}M\IeC {\'e}thode des \IeC {\'e}l\IeC {\'e}ments finis}{10}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Le maillage}{10}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Mise en \IeC {\'e}quation}{12}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Passage \IeC {\`a} un \IeC {\'e}l\IeC {\'e}ment de r\IeC {\'e}f\IeC {\'e}rence}{14}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Calcul du Gradient}{16}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Impl\IeC {\'e}mentation algorithmique}{19}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}R\IeC {\'e}sultats de la simulation}{21}{subsection.2.2.6}
+\contentsline {chapter}{\numberline {3}\IeC {\'E}quations de Navier Stokes}{23}{chapter.3}
+\contentsline {subsection}{\numberline {3.0.1}\IeC {\'E}quations de Stokes}{24}{subsection.3.0.1}
+\contentsline {subsection}{\numberline {3.0.2}Adimensionnement de l'\IeC {\'e}quation de Stokes}{25}{subsection.3.0.2}
+\contentsline {subsection}{\numberline {3.0.3}Formulation variationnelle}{26}{subsection.3.0.3}
+\contentsline {subsection}{\numberline {3.0.4}Impl\IeC {\'e}mentation algorithmique}{27}{subsection.3.0.4}
+\contentsline {subsection}{\numberline {3.0.5}Calcul des matrices du syst\IeC {\`e}me lin\IeC {\'e}aire}{29}{subsection.3.0.5}
+\contentsline {subsection}{\numberline {3.0.6}Raccordement \IeC {\`a} la mod\IeC {\'e}lisation du champ magn\IeC {\'e}tique}{29}{subsection.3.0.6}
+\contentsline {chapter}{\numberline {A}Calcul de la matrice de rigidit\IeC {\'e}}{38}{appendix.A}
+\contentsline {chapter}{\numberline {B}Codes Matlab}{40}{appendix.B}
+\contentsline {subsection}{\numberline {B.0.1}Mod\IeC {\'e}lisation du champ magn\IeC {\'e}tique}{40}{subsection.B.0.1}
