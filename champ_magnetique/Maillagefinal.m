@@ -42,7 +42,9 @@ face{1} = 1:size(edge1,1);                  %face de maillage interieure
 face{2} = 1:size(edge,1);                   %face de maillage exterieure
  
 [v,t,fnum] = meshfaces(node,edge,face,hdata); %construction du maillage
-
+figure();
+patch('faces',t(:,1:3),'vertices',v(:,1:2),'facecolor','white','edgecolor','blue','red');
+title('maillage de résolution');
 %==========================================================================
 %                              Calcul des matrices
 %
@@ -105,13 +107,13 @@ Y = v(:,2);
  patch('faces',t(:,1:3),'vertices',v(:,1:2),'FaceVertexCData',sqrt(B_X.^2+B_Y.^2),'facecolor','interp','edgecolor','black');
  axis equal; 
  colorbar;
- title("norme de B")
+ title('norme de B');
  figure;
  
  patch('faces',t(:,1:3),'vertices',v(:,1:2),'FaceVertexCData',M2,'facecolor','interp','edgecolor','black');
  axis equal; 
  colorbar;
- title("second membre")
+ title('second membre')
  figure;
  
  %patch('faces',t(:,1:3),'vertices',v(:,1:2),'facecolor','red');

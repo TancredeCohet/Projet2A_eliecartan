@@ -17,4 +17,3 @@
 \contentsline {chapter}{\numberline {4}Application au probl\IeC {\`e}me de Navier-Stokes 3D}{26}{chapter.4}
 \contentsline {subsection}{\numberline {4.0.1}Impl\IeC {\'e}mentation algorithmique}{27}{subsection.4.0.1}
 \contentsline {chapter}{\numberline {A}Calcul de la matrice de rigidit\IeC {\'e}}{33}{appendix.A}
-\contentsline {chapter}{\numberline {B}D\IeC {\'e}monstration \IeC {\'e}quation (1)}{35}{appendix.B}
