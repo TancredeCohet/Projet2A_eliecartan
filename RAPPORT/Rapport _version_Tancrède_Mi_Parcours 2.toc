@@ -1,19 +1,20 @@
-\select@language {french}
+\babel@toc {french}{}
 \contentsline {chapter}{\numberline {1}Position du probl\IeC {\`e}me}{3}{chapter.1}
 \contentsline {subsection}{\numberline {1.0.1}dispositif exp\IeC {\'e}rimental}{3}{subsection.1.0.1}
 \contentsline {subsection}{\numberline {1.0.2}hypoth\IeC {\`e}ses de mod\IeC {\'e}lisation}{6}{subsection.1.0.2}
 \contentsline {chapter}{\numberline {2}\IeC {\'E}quations de Navier Stokes}{7}{chapter.2}
-\contentsline {subsection}{\numberline {2.0.1}\IeC {\'E}quations de Stokes}{8}{subsection.2.0.1}
-\contentsline {subsection}{\numberline {2.0.2}Adimensionnement de l'\IeC {\'e}quation de Stokes}{9}{subsection.2.0.2}
-\contentsline {subsection}{\numberline {2.0.3}Formulation variationnelle}{10}{subsection.2.0.3}
-\contentsline {chapter}{\numberline {3}Mod\IeC {\'e}lisation du champ Magn\IeC {\'e}tique de l'aimant}{12}{chapter.3}
-\contentsline {section}{\numberline {3.1}Mise en forme du probl\IeC {\`e}me}{13}{section.3.1}
-\contentsline {section}{\numberline {3.2}M\IeC {\'e}thode des \IeC {\'e}l\IeC {\'e}ments finis}{16}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Le maillage}{16}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Mise en \IeC {\'e}quation}{18}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Passage \IeC {\`a} un \IeC {\'e}l\IeC {\'e}ment de r\IeC {\'e}f\IeC {\'e}rence}{20}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}Calcul du Gradient}{22}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {3.2.5}Impl\IeC {\'e}mentation algorithmique}{24}{subsection.3.2.5}
-\contentsline {chapter}{\numberline {4}Application au probl\IeC {\`e}me de Navier-Stokes 3D}{27}{chapter.4}
-\contentsline {subsection}{\numberline {4.0.1}Impl\IeC {\'e}mentation algorithmique}{28}{subsection.4.0.1}
-\contentsline {chapter}{\numberline {A}Calcul de la matrice de rigidit\IeC {\'e}}{34}{appendix.A}
+\contentsline {subsection}{\numberline {2.0.1}\IeC {\'E}quations de Stokes}{7}{subsection.2.0.1}
+\contentsline {subsection}{\numberline {2.0.2}Adimensionnement de l'\IeC {\'e}quation de Stokes}{8}{subsection.2.0.2}
+\contentsline {subsection}{\numberline {2.0.3}Formulation variationnelle}{9}{subsection.2.0.3}
+\contentsline {chapter}{\numberline {3}Mod\IeC {\'e}lisation du champ Magn\IeC {\'e}tique de l'aimant}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Mise en forme du probl\IeC {\`e}me}{12}{section.3.1}
+\contentsline {section}{\numberline {3.2}M\IeC {\'e}thode des \IeC {\'e}l\IeC {\'e}ments finis}{14}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Le maillage}{14}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Mise en \IeC {\'e}quation}{17}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Passage \IeC {\`a} un \IeC {\'e}l\IeC {\'e}ment de r\IeC {\'e}f\IeC {\'e}rence}{19}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Calcul du Gradient}{21}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}Impl\IeC {\'e}mentation algorithmique}{23}{subsection.3.2.5}
+\contentsline {chapter}{\numberline {4}Application au probl\IeC {\`e}me de Navier-Stokes 3D}{26}{chapter.4}
+\contentsline {subsection}{\numberline {4.0.1}Impl\IeC {\'e}mentation algorithmique}{27}{subsection.4.0.1}
+\contentsline {chapter}{\numberline {A}Calcul de la matrice de rigidit\IeC {\'e}}{33}{appendix.A}
+\contentsline {chapter}{\numberline {B}D\IeC {\'e}monstration \IeC {\'e}quation (1)}{35}{appendix.B}

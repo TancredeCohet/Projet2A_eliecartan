@@ -21,14 +21,14 @@
 \begin{document}
 
 
-%==================================== Page de Garde =======================================================================================================
+%==================================== Page de Garde ================================================ =======================================================================================================
 \begin{titlepage}
  
 	\begin{center}
 	\begin{figure}[!h]
 	\centering	
 		\begin{subfigure}[b]{0.3\textwidth}
-		\includegraphics[height = 2cm, keepaspectratio]{graphes/mines_nancy.png}
+%		\includegraphics[height = 2cm, keepaspectratio]{graphes/mines_nancy.png}
 		\end{subfigure}
 		\begin{subfigure}[b]{0.3\textwidth}
 		\includegraphics[height = 2cm, keepaspectratio]{graphes/elie_cartan.png}
@@ -74,7 +74,9 @@ Le but de ce projet est d'étudier des écoulement chaotiques à faible nombre d
 \newline
 \newline
 L'approche numérique eulérienne d'un mélange par advection chaotique traite du problème stationnaire avec champ de vitesse sinusoïdale qui correspond à un système de tourbillons orthogonaux, dont le modèle académique analytique a été étudié dans le cadre de la thèse de Valérie Toussaint, que nous allons reprendre avec deux tourbillons d'axes parallèles et un tourbillon qui leur est perpendiculaire.
-Dans la première partie de notre étude, nous allons présenter le problème, puis le mettre en équation et calculer le champ magnétique d'un aimant afin de calculer le terme source de l'équation de Navier-Stokes.
+
+Cette étude se fait dans la continuité d'un travail effectué par Ismail Mebsout et Oumaima Hammami durant l'année scolaire 2016-2017 où le but sera d'étudier les écoulement en s'affranchissant de certaines simplifications.
+Dans la première partie de notre étude, nous allons présenter le problème, puis le mettre en équation et calculer la force magnétique composant le terme source de l'équation de Navier-Stokes, pour résoudre numériquement le problème et étudier les résultats.
 
 %\end{onehalfspace}
 
@@ -83,148 +85,80 @@ Dans la première partie de notre étude, nous allons présenter le problème, p
 %==========================================================================================================================================================
 \chapter{Position du problème}
 
-Nous devons simuler l'écoulement de fluides non visqueux dans une cuve sous influence d'aimants ferromagnétiques : le fluide est chargé en éléments ferromagnétiques, qui présente un moment magnétique. Chaque particule va se mouvoir sous l'influence du champ magnétique, par le biais des forces de Laplace, qui se font mouvoir les particules de fluide, qui suivent un mouvement d'advection chaotique . On définit l'advection chaotique comme un écoulement dans un fluide dont la trajectoire des point passe par tous les point du domaine.
-C'est à dire que si on observe le passage d'une particule à travers une section du fluide au bout d'un temps infinis, les points d'impact de la particule recouvreront de manière continue toute la section.
-\begin{figure}
+Pour générer l'écoulement que nous souhaitons étudier nous allons utiliser les forces de Laplace. Le fluide (de l'eau) considéré non visqueux dans une cuve est ionisé et placé sous influence d'aimants ferromagnétiques. Chaque particule du fluide va se mouvoir sous l'influence du champ magnétique. Notre but est de configurer correctement les champs magnétiques pour obtenir un écoulement chaotique. On peut définir l'advection chaotique comme un écoulement dans un fluide dont la trajectoire des point passe par tous les point du domaine, ou de manière mathématique avec les écoulements de Liapounov.
+C'est à dire que théoriquement si on observe le passage d'une particule à travers une section du fluide au bout d'un temps infinis, les points d'impact de la particule recouvreront de manière continue toute la section.
+
+\subsection{dispositif expérimental} 
+
+Expérimentalement, il est possible de réaliser cet écoulement à l’aide d’une distribution adéquate des forces. Pour cela, on utilise un système composé d'un parallélépipède, d’aimants permanents et d’électrodes pour génerer un vecteur densité de courant. Le parallélépipède est un mélangeur dans lequel se trouve un liquide faiblement conducteur.
+Afin de générer un tourbillon, on place deux aimants l’un en face de l’autre sur une moitié du parallélépipède pour créer un champ $\vec{B}$ vertical sur cette moitié. On place deux électrodes sur les deux autres faces opposées du parallélépipède pour créer un courant uniforme de densité $\vec{j}$.
+\begin{figure}[!h]
 	\begin{center}
 	\centering	
 %	\begin{subfigure}[b]{0.3\textwidth}
-		\includegraphics[height = 6cm, keepaspectratio]{graphes/blender_cuve_champvec.png}
-		\includegraphics[height = 2cm, keepaspectratio]{graphes/axes.png}
-		\caption{liquide faiblement ionisé soumis à un champ électrique $\vec{E}$}
+		\includegraphics[height = 7cm, keepaspectratio]{graphes/blender_cuve_champvec.png}
+%		\includegraphics[height = 2cm, keepaspectratio]{graphes/axes.png}
+		\caption{liquide faiblement ionisé soumis à un champ électrique $\vec{E}$, Blender}
+		%		\end{subfigure}
+	\end{center}
+\end{figure}
+\newline
+On place un aimant de telle manière à générer un champ magnétique plus important sur une moitié du cube que l'autre.
+\begin{figure}[!h]
+	\begin{center}
+	\centering
+		\includegraphics[height = 8cm, keepaspectratio]{graphes/blender_cuve_mag2.png} 
+		%\includegraphics[height = 2cm, keepaspectratio]{graphes/axes.png}
+		\caption{lignes de champ magnétique, Blender}
+	\end{center}
+\end{figure}
+\newpage
+La force magnétique $\vec{f_l}=\vec{j_0}\land\vec{B}$ permet ainsi de générer un tourbillon.\newline
+\begin{figure}[h]
+	\begin{center}
+	\centering	
+%	\begin{subfigure}[b]{0.3\textwidth}
 %		\end{subfigure}
 %		\begin{subfigure}[b]{0.3\textwidth}
-		\includegraphics[height = 8cm, keepaspectratio]{graphes/blender_cuve_champvec2.png}
-		\includegraphics[height = 2cm, keepaspectratio]{graphes/axes.png}
-		\caption{liquide faiblement ionisé soumis à un champ électrique et un champ magnétique $\vec{B}$}
+		\includegraphics[height = 7cm, keepaspectratio]{graphes/blender_cuve_champvec2.png}
+%		\includegraphics[height = 2cm, keepaspectratio]{graphes/axes.png}
+		\caption{liquide faiblement ionisé soumis à un champ électrique et un champ magnétique $\vec{B}$, Blender}
 %		\end{subfigure}
 	\end{center}
 \end{figure}
-\subsection{dispositif expérimental} 
-
-
-
-Expérimentalement, il est possible de réaliser cet écoulement à l’aide d’une distribution adéquate des forces. Pour cela, on utilise un système composé de parallélépipède, d’aimants permanents et d’électrodes. Le parallélépipède est un mélangeur dans lequel se trouve un liquide faiblement conducteur.Afin de générer un tourbillon, on place deux aimants l’un en face de l’autre sur une moitié du parallélépipède pour créer un champ $\vec{B}$ vertical sur cette moitié. On place aussi deux électrodes sur les deux autres faces opposées du parallélépipède pour créer un courant uniforme de densité $\vec{j}$. Afin de générer deux tourbillons, on place deux aimants l’un en face de l’autre sur le deuxième tiers du parallélépipède pour créer un champ B~ vertical sur le tiers au milieu.On place aussi deux électrodes sur les faces opposées du parallélépipède pour créer un courant uniforme de densité $\vec{j}$.Une force de Laplace est générée, due a` la difference de potentiel (P1 - P0) en présence d’un champ magnétique $\vec{B}$, deux tourbillons sont alors générés dans le parallélépipède
+Afin de générer deux tourbillons, on place deux aimants l'un en face de l’autre sur le deuxième tiers du parallélépipède pour créer un champ B~ vertical sur le tiers au milieu.
+On place aussi deux électrodes sur les faces opposées du parallélépipède pour créer un courant uniforme de densité $\vec{j}$.
+Une force de Laplace est générée, due a` la difference de potentiel (P1 - P0) en présence d’un champ magnétique $\vec{B}$, deux tourbillons sont alors générés dans le parallélépipède
 %Pour obtenir la situation de 3 tourbillon dans une cuve avec 2 parallèles er le dernier perpendiculaires aux 2 autres, nous allons utiliser un liquide faiblement conducteur soumis à un champ électrique est à des champs magnétiques pour créer les tourbillon : On place trois aimants pour générer les trois tourbillons créant ainsi un mouvement d'advection chaotique.
 
 
 \begin{figure}[!h]
-\begin{center}
-%\centering
-\includegraphics[height = 8cm, keepaspectratio]{graphes/blender_cuve_champvec3.png} 
-\includegraphics[height = 2cm, keepaspectratio]{graphes/axes.png}
-\caption{advection chaotique avec trois tourbillons}
-\end{center}
+	\begin{center}
+	\centering
+		\includegraphics[height = 8cm, keepaspectratio]{graphes/blender_cuve_champvec3.png} 
+		%\includegraphics[height = 2cm, keepaspectratio]{graphes/axes.png}
+		\caption{configuration avec 2 tourbillons, Blender}
+	\end{center}
 \end{figure}
-
-
 \newpage
+
 \subsection{hypothèses de modélisation}
-Nous devons d'abord modéliser notre système , car dans les cas de système faisant intervenir des équations à dérivées partielles , la bonne définition du système est primordiale, avec notamment la prédominance des conditions aux limites dans la catégorie de problèmes que nous traitons. \\Notre système sera modélisé par un fluide visqueux incompressible régi par les équations de Stokes qu’on verra dans le chapitre suivant. Les forces électromagnétiques seront aussi modélisées par des forces constantes dans une certaine région du domaine et générant ainsi les trois tourbillons souhaités. Nous allons nous intéresser tout d’abord aux équations du système.
+Nous devons d'abord modéliser notre système , car dans les cas de système faisant intervenir des équations à dérivées partielles , la bonne définition du système est primordiale, avec notamment les conditions aux limites.\\
+Notre système \{fluide\} sera modélisé par un fluide à faible nombre de Reynolds (visqueux) incompressible régi par les équations de Stokes que nous poserons dans le chapitre suivant. La densité de courant $\vec{j_0}$ est supposé uniforme sur le fluide.
 %=========================================================================================================================================================
 %												chapitre 2 equations de Navier_Stockes
 %=========================================================================================================================================================
 \newpage
 \chapter{Équations de  Navier Stokes} 
-D'après ce qui précéde, le fluide considéré suit les équations de Navier-Stokes dont nous allons nous servir pour modéliser le mouvement.
+D'après ce qui précédé, le fluide considéré suit les équations de Navier-Stokes dont nous allons nous servir pour modéliser le mouvement.
 Nous supposons que nous avons à notre disposition deux aimants, qui sont perpendiculaires sur les côtés de la cuve, l'un produit un champ $B_1$, l'autre produit un champ $B_2$
-\begin{figure}[!h]
-\begin{center}
-\centering
-\includegraphics[height = 6cm, keepaspectratio]{graphes/cuveaimant4.png} 
-\includegraphics[height = 2cm, keepaspectratio]{graphes/axes.png}
-\caption{advection chaotique avec trois tourbillons}
-\end{center}
-\end{figure}
-\newpage
-le premier aimant va produire un tourbillon dans le fluide, le deuxième va produire deux tourbillons parallèles, qui sont orthogonaux au premier tourbillon  : 
-\[
-	B_1 = 
-	\begin{pmatrix}
-   		B_{1,x}\\
-  		 B _{1,y}\\
-  		 0
-	\end{pmatrix} \
-	\text{et} \
-	B_2 = \begin{pmatrix}
-  			 0\\
-   			B _{2,y}\\
-   			B_{2,z}
-			\end{pmatrix}
-\]
-\\
 
-Ainsi on peut calculer la force magnétique \\%
-\[
-	\vec{f_1}=j_0\vec{e}_{x}
-	\wedge\begin{pmatrix}
-   		B_{1,x}\\
-   		B _{1,y}\\
-   		0
-\end{pmatrix}=
-j_0\times \begin{pmatrix}
-  			0\\
-   			0\\
-    		B_{1,y}
-			\end{pmatrix} 
-\]
-\\%
- et 
-\[
-	\vec{f_2}=j_0\vec{e}_x\wedge\begin{pmatrix}
-   					0\\
-   					B _{2,y}\\
-   					B_{2,z}
-					\end{pmatrix}
-	=
-	j_0\times \begin{pmatrix}
-   				0\\
-   				-B _{2,z}\\
-   				B_{2,y}
-		\end{pmatrix} 
-\]
-\\%
-
-On peut donc écrire pour la force magnétique totale $\vec{f}$
-\[
-	\vec{f}=\vec{f_1}+\vec{f_2}=\begin{pmatrix}
-   B_1,x\\
-   B _1,y\\
-   0
-\end{pmatrix} 
-\]
-\\%
+le premier aimant va produire un tourbillon dans le fluide, le deuxième va produire deux tourbillons parallèles, qui sont orthogonaux au premier tourbillon .
 
 %===================================================== Equations de Stokes ================================================================================
 \subsection{Équations de Stokes}
 
-Le liquide est un conducteur placé dans un champ magnétique et parcouru par un courant uniforme $\vec{J_0}$. Une force de Laplace $\vec{f_l}$ est alors créée. La densité volumique de cette force est donnée par :
-\[
-	\vec{f_l}=\vec{j_0}\land\vec{B}=j_0\times M_0\times \vec{j}\wedge \vec{B^*}
-\]
-%mec est-ce qu'on a droit aux docs demain ?
-
-\[
-	 \vec{B^*} =\frac{\vec{B}}{M_0}, 
-	\ \text{et} \ j_0=\frac{\Delta P}{L}\sigma
-\]
-
-%																	ajouter figure graphe
-\begin{figure}[h]
-\begin{center}
-%&\includegraphics[height =4 cm, keepaspectratio]{graphes/graphe_forces_laplace} 
-\caption{}
-\label{figure 1}
-\end{center}
-\end{figure}
-Avec :
-\[-
-\begin{aligned}
-&-\sigma : \text{la conductivité du fluide }
-\\%
-&\text{-L: la longueur de base de la cuve}
-\end{aligned}
-\]
+Le liquide est un conducteur placé dans un champ magnétique et parcouru par un courant supposé uniforme $\vec{j_0}$.
 \normalsize 
 Afin de pouvoir trouver l'équation de la trajectoire d’un point donné, on cherche tout d’abord à trouver la vitesse dans l'écoulement du fluide contenu dans un domaine $\Omega$.
 \\A partir des équations de Navier-Stokes incompressibles, on détermine simultanément la vitesse  $V$ et la pression $P$. 
@@ -246,6 +180,43 @@ Finalement, on se place en régime stationnaire.
     \end{aligned}
   \right.
 \end{equation*}
+
+La force $\vec{f}$ correspond à la force de Laplace induite par le champ magnétique. La densité volumique de cette force est donnée par :
+\[
+\begin{aligned}
+	\vec{f}=\vec{j_0}\land\vec{B}&=j_0\times M_0\times \vec{j}\wedge \vec{B^*} \\
+	 \vec{B^*} =\frac{\vec{B}}{M_0}, 
+	\ &\text{et} \ j_0=\frac{\Delta E}{L}\sigma
+	\\
+\text{avec} \quad
+&\sigma : \text{la conductivité du fluide }
+\\%
+&\text{L: la longueur de base de la cuve} \\
+&\Delta E : \text{la différence de potentiel}
+\end{aligned} \\
+\]
+Ainsi on peut calculer la force magnétique pour un champ magnétique $\vec{B_1}$
+\[
+	\vec{B_1} = 
+	\begin{pmatrix}
+   		B_{1,x}\\
+  		 B _{1,y}\\
+  		 0
+	\end{pmatrix} 
+\]
+\[
+	\vec{f}=j_0\vec{e}_{x}
+	\wedge\begin{pmatrix}
+   		B_{1,x}\\
+   		B _{1,y}\\
+   		0
+\end{pmatrix}=
+j_0\times \begin{pmatrix}
+  			0\\
+   			0\\
+    		B_{1,y}
+			\end{pmatrix} 
+\]
 
 %==================================================== Adimensionnement de l'équation de Stokes ============================================================
 
@@ -343,7 +314,7 @@ Pour cela, nous allons chercher à calculer le terme source dans la suite, c'est
 \newpage
 \chapter{Modélisation du champ Magnétique de l'aimant}
 
-Nous cherchons dans cette partie à déterminer une approximation du champ magnétique $\vec{B}(x,y,z)$ induit par un aimant (Figure 1). L'objectif sera d'abord de déterminer le champ magnétique dans un milieu quelconque, pour ensuite exploiter ces résultats pour les employer dans la résolution numérique de Navier Stokes. 
+Nous cherchons dans cette partie à déterminer une approximation numérique du champ magnétique $\vec{B}(x,y,z)$ induit par un aimant (Figure 1). L'objectif sera d'abord de déterminer le champ magnétique dans une configuration quelconque, pour ensuite exploiter ces résultats et les employer dans la résolution numérique de Navier Stokes. 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[height =4 cm, keepaspectratio]{graphes/champ_aimant1.png} %on affiche figure aimant
@@ -352,26 +323,18 @@ Nous cherchons dans cette partie à déterminer une approximation du champ magn�
 \label{figure 1}
 \end{center}
 \end{figure}
-\newline
-\begin{figure}[!h]
-\begin{center}
-\centering
-\includegraphics[height = 8cm, keepaspectratio]{graphes/blender_cuve_mag2.png} 
-\caption{advection chaotique avec trois tourbillons}
-\end{center}
-\end{figure}
 On suppose que l'aimant à une longueur suffisante selon $\vec{z}$ pour être considéré comme infini selon $\vec{z}$.
 On en déduit donc par le principe de Curie que le champ magnétique est invariant par translation selon $\vec{z}$. 
 Ainsi \[\vec{B}(x,y,z) = \vec{B}(x,y)\]
 
-%============================================== Mise en forme du probleme =================================================================================
+%======================= Mise en forme du probleme ================================================== 
 \section{Mise en forme du problème}
 
 Nous allons rechercher une solution du champ magnétique dans le domaine de résolution $\Omega$ (figure 2), $\Omega \subset R^{2}$. \\
 \begin{figure}[h]
 \begin{center}
 \includegraphics[height = 8cm, keepaspectratio]{graphes/Espacedetravail.png} 
-\caption{domaines de résolution du problème}
+\caption{domaines de résolution du problème, Blender}
 \label{figure 2}
 \end{center}
 \end{figure}
@@ -499,9 +462,10 @@ Ainsi toute fonction g dans $V_{h}$ peut s'écrire comme une combinaisons linéa
 \[
 g = \sum_{i=1}^{N_{h}}{\ g_{i}\varphi_{i}} \text{ \ \ où } g_{i} = g(P_{i}),\  i= 1,2,...,N_{h}
 \]
- 
-\subsection{Mise en équation}
 
+%=====================================================================================================
+\subsection{Mise en équation}
+%=======================================================================================================
 
 Réécrivons (1.2) dans $V_{h}$ : 
 
@@ -550,7 +514,7 @@ A_{ij}  = \int_{\Omega}\bigtriangledown \varphi_{i}. \bigtriangledown \varphi_{j
 \]
 On appelle A la matrice de rigidité.  \\
 
-%============================================= passage element de reference ==============================================================================
+%================= passage element de reference =====================================================
 \newpage
 \subsection{Passage à un élément de référence}
 Pour les calculs on utilise un maillage référence  normalisé $\hat{T}$. On passe du triangle $\Hat{T}$ à $T$ à l'aide de la transformation $F$. 
@@ -793,17 +757,17 @@ On en déduit la matrice de masse élémentaire sur un triangle de maillage
 	\end{pmatrix}}
 \]
 
-%======================================== Algorithme Matlab ===============================================================================================
+%====================== Algorithme Matlab ======================================================= 
 \subsection{Implémentation algorithmique}
 
 Pour la résolution du problème nous utiliserons matlab avec la bibliothèque Mesh2D par Darren Engwirda pour la création du maillage 2D.
-La résolution est effectué sur un maillage $5\times 5$cm avec en son centre un aimant de taille $1\times 1$cm.
+La résolution est effectué sur un maillage $5\times 5$ avec en son centre un aimant de taille $1\times 1$cm.
 
 \begin{figure}[h]
-\begin{center}
-\includegraphics[height = 5cm, keepaspectratio]{graphes/sheme.jpg} 
-\caption{\label{figure 3 } maillage effectué sur matlab à l'aide de mesh2D pour la résolution du problème}
-\end{center}
+	\begin{center}
+	\includegraphics[height = 5cm, keepaspectratio]{graphes/blender_cuve_mag2.png} 
+	\caption{\label{figure 3 } maillage effectué sur matlab à l'aide de mesh2D pour la résolution du 		problème}
+	\end{center}
 \end{figure}
 \newpage
 Pour le calcul nécessaire des différentes matrice afin de résoudre le problème linéaire $A\times U = F$, les algorithmes reposent sur la méthodologie suivante :
@@ -823,19 +787,19 @@ A_{ij} =
 	\bigtriangledown_{\hat{x}} \hat{\varphi_{j}}
 \end{aligned}
 \]
-Le principe consiste à ne pas recherche le support croisé des fonctions phi (ce qui donnerait une complexité trop importante) mais à boucler sur les triangles et placer dans la matrice les contributions correspondantes à chacun de leurs nœuds avec leur indices. Notamment avec l'outil matriciel $sparce$ de matlab qui permet d'exploiter en temps de calcul et d'espace mémoire le fait que la matrice A est creuse, comme pour deux fonction $\varphi_{i}$ et $\varphi_{j}$ l'intersection de leurs support se réduit à deux triangles. 
+Le principe consiste à ne pas recherche le support croisé des fonctions $\varphi_i$ et $\varphi_j$ (ce qui donnerait une complexité trop importante) mais à boucler sur les triangles et placer dans la matrice les contributions correspondantes à chacun de leurs nœuds avec leur indices. Notamment avec l'outil matriciel $sparce$ de matlab qui permet d'exploiter en temps de calcul et d'espace mémoire le fait que la matrice de rigidité A est creuse, comme pour deux fonction $\varphi_{i}$ et $\varphi_{j}$ l'intersection de leurs support se réduit à deux triangle.
 \\
 \\
-Ainsi pour le calcul de A chaque triangle engendre une matrice $ 3\times 3$ symétrique vu le calcul du terme $A_{ij}$ dont on place les terme dans la matrice A.
+Ainsi pour le calcul de A chaque triangle engendre une matrice élémentaire $ 3\times 3$ (car 3 nœuds pour chaque triangle donc 9 termes croisés) symétrique vu le calcul du terme $A_{ij}$ dont on place les terme dans la matrice A à chaque itération sur les triangles.
 \\
-\\Le principe est le même pour le terme source, pour chaque triangle appartenant au bord de l'aimant avec comme noeuds sur le bord les nœuds $\text{p}_{i}$ et  $\text{p}_{j}$ on place deux fois le même terme $\frac{|e|}{2}\begin{pmatrix}
+\\Le principe est le même pour le terme source, pour chaque triangle appartenant au bord de l'aimant avec comme noeuds sur le bord les nœuds $\text{p}_{i}$ et  $\text{p}_{j}$ on place deux fois le même terme $\frac{|e|}{2}\begin{pmatrix} 
    									0 & 1\\
 								\end{pmatrix}^{T}.
 								\vec{\text{n}}_{e}$ 
-aux indices $\text{p}_{i}$ et  $\text{p}_{j}$ dans la matrice du terme source.
+(que l'on à calculé p.21) aux indices $\text{p}_{i}$ et  $\text{p}_{j}$ dans la matrice du terme source.
 \\
 \\
-Et de même également pour le calcul des matrices M et C pour le gradient.		
+Et de même également pour le calcul des matrices M et C pour le gradient, dont nous avons explicité les matrices élémentaires.	
 %===============================================================================================================================										% Application à Navier Stokes  3D																															
 %================================================================================================================================================================
 \chapter{Application au problème de Navier-Stokes 3D}		
@@ -1264,7 +1228,8 @@ Et comme $\vec{M}$ est nul en dehors du domaine $\Omega_{\text{int}}$ de l'aiman
 \mdseries "Analyse numérique des équations de Navier-Stokes",de Jean-François Scheid,  Cours de Master 2 Mathématiques (Recherche) - Université de Lorraine, Nancy.
 \\
 \\
-\mdseries "Projet de deuxième Année : Génération de maillages 2D avec Matlab" de Jean-Philippe LEBOUCHER Benjamin PACCOU avec comme chef de Projet Jonas KOKO, InstitutSupérieur d’ Informatique, de Modélisation et de leurs Applications
+\mdseries "Projet de deuxième Année : Génération de maillages 2D avec Matlab" de Jean-Philippe LEBOUCHER Benjamin PACCOU avec comme chef de Projet Jonas KOKO, Institut
+Supérieur d’ Informatique, de Modélisation et de leurs Applications
 \bibliographystyle{plain}
 \bibliography{bibli}
 

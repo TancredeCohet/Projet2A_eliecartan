@@ -1,3 +1,4 @@
+function [X2,Y2,Z2,Uxgd,Uygd,Uzgd,Pgd] = Stokes3D(aimant_centre)
 %=========================================================================%
 % Equations de Stokes 3D dans le cube [0,Lx]x[0,Ly]x[0,Lz]
 % Elements Finis Q2/Q1
@@ -22,6 +23,7 @@
 %             Wi.~!X$?!-~    : ?$$$B$Wu("**$RM!
 %             $R@i.~~ !     :   ~$$$$$B$$en:``
 %             ?MXT@Wx.~    :     ~"##*$$$$M~
+% si aimant _centre = true l'aimant est centre, sinon non
 close all
 
 addpath './lib'
@@ -79,7 +81,7 @@ A=[nu*(2*DxDx+DyDy+DzDz),              nu*DxDy',              nu*DxDz',         
 fprintf('%g s\n',toc(tstart1)); 
 
 % Construction du second membre (RHS)
-[fx, fy, fz, fxgd, fygd,fzgd,fxy] = f2Dto3D_2(v,t,nv1,nv2,nbquad,X,Y,Z,Nx,Ny,Nz); 
+[fx, fy, fz, fxgd, fygd,fzgd,fxy] = f2Dto3D_2(v,t,nv1,nv2,nbquad,X,Y,Z,Nx,Ny,Nz,aimant_centre); 
 %   fx, fy, fz sont les forces dans des vecteurs colonnes 1*size(v,1)
 %   fxgd, fygd, fzgd sont les forces dans des matrices Nx*Ny*Ny pour
 %   affichage
@@ -160,7 +162,14 @@ if displaysol
     title('second menbre navier stokes');
     xlabel('X'); ylabel('Y'); zlabel('Z');
     axis equal;
-
+    
+    [fxt,fyt,fzt] = transposition_champ(fxgd,fygd,fzgd);
+    figure();
+    quiver3(X2,Y2,Z2,fxt,fyt,fzt);
+    title('test de la transposition sur second menbre navier stokes');
+    xlabel('X'); ylabel('Y'); zlabel('Z');
+    axis equal;
+    
     % Affichage Q2 du module de la vitesse
     U_mod=sqrt(Uxgd.^2 + Uygd.^2 + Uzgd.^2);
     figure()
@@ -178,4 +187,4 @@ if displaysol
     axis equal
 
 end
-
+end
