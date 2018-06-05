@@ -129,7 +129,7 @@ Y_total_2D = v_total_2D(:,2);
 %==========================================================================
 %                        affichage de la solution
 %==========================================================================
- 
+%  
 % figure();
 % quiver(X_total_2D,Y_total_2D,B_total_X,B_total_Y);
 % xlim([0 10]);
@@ -147,19 +147,19 @@ M2(ic2) = M;
 %  colorbar;
 %  title('norme de B');
 
-% figure();
-% hold on;
-% quiver(X_cuve_2D,Y_cuve_2D,B_cuve_X,B_cuve_Y);
-% xlim([4.5 5.5]);
-% ylim([4.5 5.5]);
+figure();
+hold on;
+quiver(X_cuve_2D,Y_cuve_2D,B_cuve_X,B_cuve_Y);
+xlim([4.5 5.5]);
+ylim([4.5 5.5]);
 % % x = linspace(0,10,100);
 % % y1 = afficher_aimant_sup(x);
 % % y2 = afficher_aimant_inf(x);
 % % plot(y1,x);
 % % plot(y2,x);
-% title('lignes de champ magnetique dans la cuve');
-% xlabel('X'); ylabel('Y');
-% hold off
+title('lignes de champ magnetique dans la cuve');
+xlabel('X'); ylabel('Y');
+hold off
 
 end
  

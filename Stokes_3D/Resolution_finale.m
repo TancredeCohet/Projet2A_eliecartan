@@ -4,7 +4,7 @@
 %=========================================================================%
 
 %   resolution dans la configuration aimant centre
-%[X2,Y2,Z2,Uxgd_centre,Uygd_centre,Uzgd_centre,Pgd_centre] = stokes_3D(true);
+[X2,Y2,Z2,Uxgd_centre,Uygd_centre,Uzgd_centre,Pgd_centre] = stokes_3D(true);
 
 %   resolution dans la configuration aimant de cote
 [X2,Y2,Z2,Uxgd_cote,Uygd_cote,Uzgd_cote,Pgd_cote] = stokes_3D(false);
