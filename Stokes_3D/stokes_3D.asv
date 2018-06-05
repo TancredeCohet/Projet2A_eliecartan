@@ -1,4 +1,4 @@
-function [X2,Y2,Z2,Uxgd,Uygd,Uzgd,Pgd] = Stokes3D(aimant_centre)
+function [X2,Y2,Z2,Uxgd,Uygd,Uzgd,Pgd] = Stokes3D(aimant_centre,R,norm_f_2)
 %=========================================================================%
 % Equations de Stokes 3D dans le cube [0,Lx]x[0,Ly]x[0,Lz]
 % Elements Finis Q2/Q1
@@ -85,8 +85,15 @@ fprintf('%g s\n',toc(tstart1));
 %   fx, fy, fz sont les forces dans des vecteurs colonnes 1*size(v,1)
 %   fxgd, fygd, fzgd sont les forces dans des matrices Nx*Ny*Ny pour
 %   affichage
-
-
+norm_f_2 = norm(fz);
+%==========================================================================
+%       prise en compte du rapport R
+%==========================================================================
+if aimant_centre == false %alors on est a la deuxieme itération
+    norm_f_1 = norm(fz);
+    R_i = norm_f_1/norm_f_2;
+    fz = (R / R_i) .* fz;     
+end
 % terme source f sans pression
 
 F=[fx; fy; fz; sparse(nv1,1)];
@@ -157,16 +164,13 @@ if displaysol
    
     
 %   affichage du second membre de navier Stokes
-    fygd = 0.2 * ones(2*Ny-1,2*Nx-1,2*Nz-1);
     figure();
     quiver3(X2,Y2,Z2,fxgd,fygd,fzgd);
     title('second menbre navier stokes');
     xlabel('X'); ylabel('Y'); zlabel('Z');
     axis equal;
-
-    fxt = transposition_champ(fxgd);
-    fyt = transposition_champ(fygd);
-    fzt = transposition_champ(fzgd);
+    
+    [fxt,fyt,fzt] = transposition_champ(fxgd,fygd,fzgd);
     figure();
     quiver3(X2,Y2,Z2,fxt,fyt,fzt);
     title('test de la transposition sur second menbre navier stokes');

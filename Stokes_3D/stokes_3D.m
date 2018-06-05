@@ -1,4 +1,4 @@
-function [X2,Y2,Z2,Uxgd,Uygd,Uzgd,Pgd] = Stokes3D(aimant_centre)
+function [X2,Y2,Z2,Uxgd,Uygd,Uzgd,Pgd] = Stokes3D(aimant_centre,R)
 %=========================================================================%
 % Equations de Stokes 3D dans le cube [0,Lx]x[0,Ly]x[0,Lz]
 % Elements Finis Q2/Q1
