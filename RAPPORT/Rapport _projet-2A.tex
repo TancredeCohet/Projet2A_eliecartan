@@ -865,10 +865,10 @@ On peut donc écrire la formulation variationnelle sous la forme d'un problème 
 \subsection{Principe de superposition}
 
 La linéarité de l'équation nous permet d'appliquer le principe de superposition est donc de décomposer la résolution du problème en deux résolutions : une pour chaque terme source et ensuite de les sommer.
-Pratiquement nous allons résoudre le problème en deux temps : d'un coté pour l'aimant centré qui donne deux tourbillons et d'autres part pour l'aimant décentré qui donne un tourbillon pour ensuite sommer les champs de vitesse après transposition.
+Pratiquement nous allons résoudre le problème en deux temps : d'un coté pour l'aimant centré qui donne deux tourbillons et d'autres part pour l'aimant décentré qui donne un tourbillon pour ensuite sommer les champs de vitesse après transposition du champ pour l'aimant décentré pour se retrouver dans la configuration où les tourbillons sont perpendiculaires.
 \begin{figure}[!h]
 	\begin{center}
-	\includegraphics[height = 8 cm, keepaspectratio]{graphes/champvec2.png}
+	\includegraphics[height = 8 cm, keepaspectratio]{graphes/config_centre.png}
 	\caption{résolution pour un aimant décentré}
 	\label{figure 1}
 	\end{center}
@@ -988,22 +988,22 @@ Et de même pour pouvoir visualiser graphiquement nos résultat nous devons pass
 \newpage
 \subsection{Résultats}
 Nous allons étudier graphiquement les différents résultats que nous obtenus et évaluer leur justesse en les interprétants physiquement par rapport à ce que nous attenderions avec les paramètres donnés.
+\newline
+Tout d'abord dans la configuration pour un aimant centré nous observons sur la coupe clairement deux tourbillons symétrique de part et d'autres de l'aimant, ce qui est logique comme la configuration est symetrique selon le même plan de symétrie, ce qui valide le bon placement des données dans la résolution du problème.
 \begin{figure}[!h]
-\includegraphics[height = 10cm, keepaspectratio]{graphes/Champ_de_vitesse_selon_Y_centre.png} 
-\caption{\label{figure 3 } champ de vitesse obtenue par l'algorithme Stokes3D selon Paraview pour un aimant centré au niveau Y=0}
-\includegraphics[height = 10cm, keepaspectratio]{graphes/Champ_de_vitesse_selon_Y.png} 
-\caption{\label{figure 3 } champ de vitesse obtenue par l'algorithme Stokes3D selon Paraview pour un aimant décentré au niveau Y=0}
-
-
+\center
+\includegraphics[height = 8cm, keepaspectratio]{graphes/Paraview/coupe_aimant_centre.png} 
+\caption{\label{figure 3 } coupe du champ de vitesse selon le plan XZ, pour Y petit (on est proche de l'aimant)}
 \end{figure}
+
+Ensuite pour l'aimant décentré (avant la transposition du champ de vitesse) on observe
+sur le plan de coupe près de l'aimant un tourbillon centré dans la cuve.
 \begin{figure}[!h]
-
-\includegraphics[height = 10cm, keepaspectratio]{graphes/Champ_de_vitesse_selon_Y_centre_ampli.png} 
-\caption{\label{figure 3 } champ de vitesse obtenue par l'algorithme Stokes3D selon Paraview pour un aimant centré au niveau Y=0}
-%\includegraphics[height = 10cm, keepaspectratio]{graphes/Champ_de_vitesse_selon_Y_decentre_ampli.png} 
-\caption{\label{figure 3 } champ de vitesse obtenue par l'algorithme Stokes3D selon Paraview pour un aimant décentré au niveau Y=0}
+\center
+\includegraphics[height = 8cm, keepaspectratio]{graphes/Paraview/coupe_aimant_decentre.png} 
+\caption{\label{figure 3 } coupe du champ de vitesse selon le plan XZ, pour Y petit (on est proche de l'aimant)}
 \end{figure}
-nous discernons bien deux lignes de courant pour l'aimant centré, et une ligne de courant pour l'aimant excentré sur le côté selon $\vec{ox}$.
+
 
 
 %==========================================================================================================================================================
