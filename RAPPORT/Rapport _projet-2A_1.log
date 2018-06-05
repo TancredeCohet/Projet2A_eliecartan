@@ -1,0 +1,1873 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.4)  5 JUN 2018 13:40
+entering extended mode
+**"./Rapport _projet-2A_1.tex"
+("Rapport _projet-2A_1.tex"
+LaTeX2e <2017-04-15>
+Babel <3.18> and hyphenation patterns for 75 language(s) loaded.
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\rep
+ort.cls"
+Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\siz
+e12.clo"
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\inp
+utenc.sty"
+Package: inputenc 2015/03/17 v1.2c Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf
+8.def"
+File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
+Now handling font encoding OML ...
+... no UTF-8 mapping file for font encoding OML
+Now handling font encoding T1 ...
+... processing UTF-8 mapping file for font encoding T1
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1e
+nc.dfu"
+File: t1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+   defining Unicode char U+00A0 (decimal 160)
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00AD (decimal 173)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C0 (decimal 192)
+   defining Unicode char U+00C1 (decimal 193)
+   defining Unicode char U+00C2 (decimal 194)
+   defining Unicode char U+00C3 (decimal 195)
+   defining Unicode char U+00C4 (decimal 196)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00C7 (decimal 199)
+   defining Unicode char U+00C8 (decimal 200)
+   defining Unicode char U+00C9 (decimal 201)
+   defining Unicode char U+00CA (decimal 202)
+   defining Unicode char U+00CB (decimal 203)
+   defining Unicode char U+00CC (decimal 204)
+   defining Unicode char U+00CD (decimal 205)
+   defining Unicode char U+00CE (decimal 206)
+   defining Unicode char U+00CF (decimal 207)
+   defining Unicode char U+00D0 (decimal 208)
+   defining Unicode char U+00D1 (decimal 209)
+   defining Unicode char U+00D2 (decimal 210)
+   defining Unicode char U+00D3 (decimal 211)
+   defining Unicode char U+00D4 (decimal 212)
+   defining Unicode char U+00D5 (decimal 213)
+   defining Unicode char U+00D6 (decimal 214)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00D9 (decimal 217)
+   defining Unicode char U+00DA (decimal 218)
+   defining Unicode char U+00DB (decimal 219)
+   defining Unicode char U+00DC (decimal 220)
+   defining Unicode char U+00DD (decimal 221)
+   defining Unicode char U+00DE (decimal 222)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E0 (decimal 224)
+   defining Unicode char U+00E1 (decimal 225)
+   defining Unicode char U+00E2 (decimal 226)
+   defining Unicode char U+00E3 (decimal 227)
+   defining Unicode char U+00E4 (decimal 228)
+   defining Unicode char U+00E5 (decimal 229)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00E7 (decimal 231)
+   defining Unicode char U+00E8 (decimal 232)
+   defining Unicode char U+00E9 (decimal 233)
+   defining Unicode char U+00EA (decimal 234)
+   defining Unicode char U+00EB (decimal 235)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F0 (decimal 240)
+   defining Unicode char U+00F1 (decimal 241)
+   defining Unicode char U+00F2 (decimal 242)
+   defining Unicode char U+00F3 (decimal 243)
+   defining Unicode char U+00F4 (decimal 244)
+   defining Unicode char U+00F5 (decimal 245)
+   defining Unicode char U+00F6 (decimal 246)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+00F9 (decimal 249)
+   defining Unicode char U+00FA (decimal 250)
+   defining Unicode char U+00FB (decimal 251)
+   defining Unicode char U+00FC (decimal 252)
+   defining Unicode char U+00FD (decimal 253)
+   defining Unicode char U+00FE (decimal 254)
+   defining Unicode char U+00FF (decimal 255)
+   defining Unicode char U+0100 (decimal 256)
+   defining Unicode char U+0101 (decimal 257)
+   defining Unicode char U+0102 (decimal 258)
+   defining Unicode char U+0103 (decimal 259)
+   defining Unicode char U+0104 (decimal 260)
+   defining Unicode char U+0105 (decimal 261)
+   defining Unicode char U+0106 (decimal 262)
+   defining Unicode char U+0107 (decimal 263)
+   defining Unicode char U+0108 (decimal 264)
+   defining Unicode char U+0109 (decimal 265)
+   defining Unicode char U+010A (decimal 266)
+   defining Unicode char U+010B (decimal 267)
+   defining Unicode char U+010C (decimal 268)
+   defining Unicode char U+010D (decimal 269)
+   defining Unicode char U+010E (decimal 270)
+   defining Unicode char U+010F (decimal 271)
+   defining Unicode char U+0110 (decimal 272)
+   defining Unicode char U+0111 (decimal 273)
+   defining Unicode char U+0112 (decimal 274)
+   defining Unicode char U+0113 (decimal 275)
+   defining Unicode char U+0114 (decimal 276)
+   defining Unicode char U+0115 (decimal 277)
+   defining Unicode char U+0116 (decimal 278)
+   defining Unicode char U+0117 (decimal 279)
+   defining Unicode char U+0118 (decimal 280)
+   defining Unicode char U+0119 (decimal 281)
+   defining Unicode char U+011A (decimal 282)
+   defining Unicode char U+011B (decimal 283)
+   defining Unicode char U+011C (decimal 284)
+   defining Unicode char U+011D (decimal 285)
+   defining Unicode char U+011E (decimal 286)
+   defining Unicode char U+011F (decimal 287)
+   defining Unicode char U+0120 (decimal 288)
+   defining Unicode char U+0121 (decimal 289)
+   defining Unicode char U+0122 (decimal 290)
+   defining Unicode char U+0123 (decimal 291)
+   defining Unicode char U+0124 (decimal 292)
+   defining Unicode char U+0125 (decimal 293)
+   defining Unicode char U+0128 (decimal 296)
+   defining Unicode char U+0129 (decimal 297)
+   defining Unicode char U+012A (decimal 298)
+   defining Unicode char U+012B (decimal 299)
+   defining Unicode char U+012C (decimal 300)
+   defining Unicode char U+012D (decimal 301)
+   defining Unicode char U+012E (decimal 302)
+   defining Unicode char U+012F (decimal 303)
+   defining Unicode char U+0130 (decimal 304)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0132 (decimal 306)
+   defining Unicode char U+0133 (decimal 307)
+   defining Unicode char U+0134 (decimal 308)
+   defining Unicode char U+0135 (decimal 309)
+   defining Unicode char U+0136 (decimal 310)
+   defining Unicode char U+0137 (decimal 311)
+   defining Unicode char U+0139 (decimal 313)
+   defining Unicode char U+013A (decimal 314)
+   defining Unicode char U+013B (decimal 315)
+   defining Unicode char U+013C (decimal 316)
+   defining Unicode char U+013D (decimal 317)
+   defining Unicode char U+013E (decimal 318)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0143 (decimal 323)
+   defining Unicode char U+0144 (decimal 324)
+   defining Unicode char U+0145 (decimal 325)
+   defining Unicode char U+0146 (decimal 326)
+   defining Unicode char U+0147 (decimal 327)
+   defining Unicode char U+0148 (decimal 328)
+   defining Unicode char U+014A (decimal 330)
+   defining Unicode char U+014B (decimal 331)
+   defining Unicode char U+014C (decimal 332)
+   defining Unicode char U+014D (decimal 333)
+   defining Unicode char U+014E (decimal 334)
+   defining Unicode char U+014F (decimal 335)
+   defining Unicode char U+0150 (decimal 336)
+   defining Unicode char U+0151 (decimal 337)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0154 (decimal 340)
+   defining Unicode char U+0155 (decimal 341)
+   defining Unicode char U+0156 (decimal 342)
+   defining Unicode char U+0157 (decimal 343)
+   defining Unicode char U+0158 (decimal 344)
+   defining Unicode char U+0159 (decimal 345)
+   defining Unicode char U+015A (decimal 346)
+   defining Unicode char U+015B (decimal 347)
+   defining Unicode char U+015C (decimal 348)
+   defining Unicode char U+015D (decimal 349)
+   defining Unicode char U+015E (decimal 350)
+   defining Unicode char U+015F (decimal 351)
+   defining Unicode char U+0160 (decimal 352)
+   defining Unicode char U+0161 (decimal 353)
+   defining Unicode char U+0162 (decimal 354)
+   defining Unicode char U+0163 (decimal 355)
+   defining Unicode char U+0164 (decimal 356)
+   defining Unicode char U+0165 (decimal 357)
+   defining Unicode char U+0168 (decimal 360)
+   defining Unicode char U+0169 (decimal 361)
+   defining Unicode char U+016A (decimal 362)
+   defining Unicode char U+016B (decimal 363)
+   defining Unicode char U+016C (decimal 364)
+   defining Unicode char U+016D (decimal 365)
+   defining Unicode char U+016E (decimal 366)
+   defining Unicode char U+016F (decimal 367)
+   defining Unicode char U+0170 (decimal 368)
+   defining Unicode char U+0171 (decimal 369)
+   defining Unicode char U+0172 (decimal 370)
+   defining Unicode char U+0173 (decimal 371)
+   defining Unicode char U+0174 (decimal 372)
+   defining Unicode char U+0175 (decimal 373)
+   defining Unicode char U+0176 (decimal 374)
+   defining Unicode char U+0177 (decimal 375)
+   defining Unicode char U+0178 (decimal 376)
+   defining Unicode char U+0179 (decimal 377)
+   defining Unicode char U+017A (decimal 378)
+   defining Unicode char U+017B (decimal 379)
+   defining Unicode char U+017C (decimal 380)
+   defining Unicode char U+017D (decimal 381)
+   defining Unicode char U+017E (decimal 382)
+   defining Unicode char U+01CD (decimal 461)
+   defining Unicode char U+01CE (decimal 462)
+   defining Unicode char U+01CF (decimal 463)
+   defining Unicode char U+01D0 (decimal 464)
+   defining Unicode char U+01D1 (decimal 465)
+   defining Unicode char U+01D2 (decimal 466)
+   defining Unicode char U+01D3 (decimal 467)
+   defining Unicode char U+01D4 (decimal 468)
+   defining Unicode char U+01E2 (decimal 482)
+   defining Unicode char U+01E3 (decimal 483)
+   defining Unicode char U+01E6 (decimal 486)
+   defining Unicode char U+01E7 (decimal 487)
+   defining Unicode char U+01E8 (decimal 488)
+   defining Unicode char U+01E9 (decimal 489)
+   defining Unicode char U+01EA (decimal 490)
+   defining Unicode char U+01EB (decimal 491)
+   defining Unicode char U+01F0 (decimal 496)
+   defining Unicode char U+01F4 (decimal 500)
+   defining Unicode char U+01F5 (decimal 501)
+   defining Unicode char U+0218 (decimal 536)
+   defining Unicode char U+0219 (decimal 537)
+   defining Unicode char U+021A (decimal 538)
+   defining Unicode char U+021B (decimal 539)
+   defining Unicode char U+0232 (decimal 562)
+   defining Unicode char U+0233 (decimal 563)
+   defining Unicode char U+1E02 (decimal 7682)
+   defining Unicode char U+1E03 (decimal 7683)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2010 (decimal 8208)
+   defining Unicode char U+2011 (decimal 8209)
+   defining Unicode char U+2012 (decimal 8210)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2015 (decimal 8213)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201A (decimal 8218)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+201E (decimal 8222)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+2039 (decimal 8249)
+   defining Unicode char U+203A (decimal 8250)
+   defining Unicode char U+2423 (decimal 9251)
+   defining Unicode char U+1E20 (decimal 7712)
+   defining Unicode char U+1E21 (decimal 7713)
+)
+Now handling font encoding OT1 ...
+... processing UTF-8 mapping file for font encoding OT1
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ot1
+enc.dfu"
+File: ot1enc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+   defining Unicode char U+00A0 (decimal 160)
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AD (decimal 173)
+   defining Unicode char U+00B8 (decimal 184)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0174 (decimal 372)
+   defining Unicode char U+0175 (decimal 373)
+   defining Unicode char U+0176 (decimal 374)
+   defining Unicode char U+0177 (decimal 375)
+   defining Unicode char U+0218 (decimal 536)
+   defining Unicode char U+0219 (decimal 537)
+   defining Unicode char U+021A (decimal 538)
+   defining Unicode char U+021B (decimal 539)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+)
+Now handling font encoding OMS ...
+... processing UTF-8 mapping file for font encoding OMS
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\oms
+enc.dfu"
+File: omsenc.dfu 2017/01/28 v1.1t UTF-8 support for inputenc
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+)
+Now handling font encoding OMX ...
+... no UTF-8 mapping file for font encoding OMX
+Now handling font encoding U ...
+... no UTF-8 mapping file for font encoding U
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+02C6 (decimal 710)
+   defining Unicode char U+02DC (decimal 732)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2026 (decimal 8230)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2423 (decimal 9251)
+))
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fon
+tenc.sty"
+Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1e
+nc.def"
+File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+))
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\lmode
+rn.sty"
+Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry
+\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics
+\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdi
+ek\ifpdf.sty"
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdi
+ek\ifvtex.sty"
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ifxete
+x\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count88
+\Gm@cntv=\count89
+\c@Gm@tempcnt=\count90
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks17
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry
+\geometry.cfg"))
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\
+babel.sty"
+Package: babel 2018/02/14 3.18 The Babel package
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\
+switch.def"
+File: switch.def 2018/02/14 3.18 Babel switching mechanism
+)
+*************************************
+* Local config file bblopts.cfg used
+*
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\arabi\bb
+lopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel-
+french\french.ldf"
+Language: french 2018/02/04 v3.4b French support from the babel system
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\
+babel.def"
+File: babel.def 2018/02/14 3.18 Babel common definitions
+\babel@savecnt=\count91
+\U@D=\dimen111
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\
+txtbabel.def")
+\bbl@dirlevel=\count92
+)
+\l@acadian = a dialect from \language\l@french 
+\FB@nonchar=\count93
+Package babel Info: Making : an active character on input line 411.
+Package babel Info: Making ; an active character on input line 412.
+Package babel Info: Making ! an active character on input line 413.
+Package babel Info: Making ? an active character on input line 414.
+\FBguill@level=\count94
+\FB@everypar=\toks18
+\FB@Mht=\dimen112
+\mc@charclass=\count95
+\mc@charfam=\count96
+\mc@charslot=\count97
+\std@mcc=\count98
+\dec@mcc=\count99
+\c@FBcaption@count=\count100
+\listindentFB=\skip43
+\descindentFB=\skip44
+\labelwidthFB=\skip45
+\leftmarginFB=\skip46
+\parindentFFN=\dimen113
+\FBfnindent=\skip47
+))
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\carlisle
+\scalefnt.sty")
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\
+amsmath.sty"
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip48
+
+For additional information on amsmath, use the `?' option.
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\
+amstext.sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\
+amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks19
+\ex@=\dimen114
+))
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\
+amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen115
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\
+amsopn.sty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count101
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count102
+\leftroot@=\count103
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count104
+\DOTSCASE@=\count105
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen116
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count106
+\c@MaxMatrixCols=\count107
+\dotsspace@=\muskip10
+\c@parentequation=\count108
+\dspbrk@lvl=\count109
+\tag@help=\toks20
+\row@=\count110
+\column@=\count111
+\maxfields@=\count112
+\andhelp@=\toks21
+\eqnshift@=\dimen117
+\alignsep@=\dimen118
+\tagshift@=\dimen119
+\tagwidth@=\dimen120
+\totwidth@=\dimen121
+\lineht@=\dimen122
+\@envbody=\toks22
+\multlinegap=\skip49
+\multlinetaggap=\skip50
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\bosisio\
+mathcmd.sty"
+Package: mathcmd 1997/12/20 v2.2 Extensions to math environments (FB)
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts
+\amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts
+\amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\jknappen
+\mathrsfs.sty"
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup6
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics
+\graphicx.sty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics
+\graphics.sty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics
+\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics
+-cfg\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics
+-def\pdftex.def"
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen123
+\Gin@req@width=\dimen124
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\appendix
+\appendix.sty"
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count113
+\c@@ppsavesec=\count114
+\c@@ppsaveapp=\count115
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref
+\hyperref.sty"
+Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdi
+ek\hobsub-hyperref.sty"
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdi
+ek\hobsub-generic.sty"
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek
+\auxhook.sty"
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek
+\kvoptions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen125
+\Hy@linkcounter=\count116
+\Hy@pagecounter=\count117
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref
+\pd1enc.def"
+File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+\Hy@SavedSpaceFactor=\count118
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex
+\hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4509.
+Package hyperref Info: Link nesting OFF on input line 4514.
+Package hyperref Info: Hyper index ON on input line 4517.
+Package hyperref Info: Plain pages OFF on input line 4524.
+Package hyperref Info: Backreferencing OFF on input line 4529.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4762.
+\c@Hy@tempcnt=\count119
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.
+sty"
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5115.
+\XeTeXLinkMargin=\dimen126
+\Fld@menulength=\count120
+\Field@Width=\dimen127
+\Fld@charsize=\dimen128
+Package hyperref Info: Hyper figures OFF on input line 6369.
+Package hyperref Info: Link nesting OFF on input line 6374.
+Package hyperref Info: Hyper index ON on input line 6377.
+Package hyperref Info: backreferencing OFF on input line 6384.
+Package hyperref Info: Link coloring OFF on input line 6389.
+Package hyperref Info: Link coloring with OCG OFF on input line 6394.
+Package hyperref Info: PDF/A mode OFF on input line 6399.
+LaTeX Info: Redefining \ref on input line 6439.
+LaTeX Info: Redefining \pageref on input line 6443.
+\Hy@abspage=\count121
+\c@Item=\count122
+\c@Hfootnote=\count123
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref
+\hpdftex.def"
+File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
+\Fld@listcount=\count124
+\c@bookmark@seq@number=\count125
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek
+\rerunfilecheck.sty"
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip51
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\
+subcaption.sty"
+Package: subcaption 2018/05/01 v1.1-162 Sub-captions (AR)
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\
+caption.sty"
+Package: caption 2018/05/01 v3.3-147 Customizing captions (AR)
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\
+caption3.sty"
+Package: caption3 2018/05/27 v1.8a caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 64.
+\captionmargin=\dimen129
+\captionmargin@=\dimen130
+\captionwidth=\dimen131
+\caption@tempdima=\dimen132
+\caption@indent=\dimen133
+\caption@parindent=\dimen134
+\caption@hangindent=\dimen135
+)
+\c@ContinuedFloat=\count126
+Package caption Info: hyperref package is loaded.
+)
+\c@subfigure=\count127
+\c@subtable=\count128
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\setspace
+\setspace.sty"
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\nomencl\
+nomencl.sty"
+Package: nomencl 2005/09/22 v4.2 Nomenclature package (LN)
+\nomlabelwidth=\dimen136
+\nom@tempdim=\dimen137
+\nomitemsep=\skip52
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\ve
+rbatim.sty"
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks24
+\verbatim@line=\toks25
+\verbatim@in@stream=\read1
+)
+\@nomenclaturefile=\write3
+\openout3 = `"Rapport _projet-2A_1.nlo"'.
+
+
+Writing nomenclature file "Rapport _projet-2A_1".nlo
+\@indexfile=\write4
+\openout4 = `"Rapport _projet-2A_1.idx"'.
+
+Writing index file "Rapport _projet-2A_1".idx
+("Rapport _projet-2A_1.aux"
+
+LaTeX Warning: Label `A' multiply defined.
+
+
+LaTeX Warning: Label `figure 1' multiply defined.
+
+
+LaTeX Warning: Label `figure 3 ' multiply defined.
+
+
+LaTeX Warning: Label `figure 1' multiply defined.
+
+
+LaTeX Warning: Label `figure 1' multiply defined.
+
+
+LaTeX Warning: Label `figure 1' multiply defined.
+
+
+LaTeX Warning: Label `figure 3 ' multiply defined.
+
+
+LaTeX Warning: Label `figure 3 ' multiply defined.
+
+
+LaTeX Warning: Label `figure 3 ' multiply defined.
+
+)
+\openout1 = `"Rapport _projet-2A_1.aux"'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 23.
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmr
+.fd"
+File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(89.62709pt, 418.25368pt, 89.6271pt)
+* v-part:(T,H,B)=(101.40665pt, 591.5302pt, 152.11pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=418.25368pt
+* \textheight=591.5302pt
+* \oddsidemargin=17.3571pt
+* \evensidemargin=17.3571pt
+* \topmargin=-7.86334pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Info: Redefining \degres on input line 23.
+LaTeX Info: Redefining \dots on input line 23.
+LaTeX Info: Redefining \up on input line 23.
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\s
+upp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count129
+\scratchdimen=\dimen138
+\scratchbox=\box28
+\nofMPsegments=\count130
+\nofMParguments=\count131
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count132
+\MPscratchDim=\dimen139
+\MPnumerator=\count133
+\makeMPintoPDFobject=\count134
+\everyMPtoPDFconversion=\toks27
+)
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek
+\epstopdf-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek
+\grfext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+)
+\AtBeginShipoutBox=\box29
+Package hyperref Info: Link coloring OFF on input line 23.
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref
+\nameref.sty"
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdi
+ek\gettitlestring.sty"
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count135
+)
+LaTeX Info: Redefining \ref on input line 23.
+LaTeX Info: Redefining \pageref on input line 23.
+LaTeX Info: Redefining \nameref on input line 23.
+ ("Rapport _projet-2A_1.out") ("Rapport _projet-2A_1.out")
+\@outlinefile=\write5
+\openout5 = `"Rapport _projet-2A_1.out"'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+<graphes/elie_cartan.png, id=111, 332.24126pt x 152.57pt>
+File: graphes/elie_cartan.png Graphic file (type png)
+<use graphes/elie_cartan.png>
+Package pdftex.def Info: graphes/elie_cartan.png  used on input line 36.
+(pdftex.def)             Requested size: 123.92097pt x 56.9055pt.
+<graphes/univ_lorraine.png, id=113, 339.2675pt x 149.55875pt>
+File: graphes/univ_lorraine.png Graphic file (type png)
+<use graphes/univ_lorraine.png>
+Package pdftex.def Info: graphes/univ_lorraine.png  used on input line 39.
+(pdftex.def)             Requested size: 129.08864pt x 56.9055pt.
+
+Overfull \hbox (3.61127pt too wide) in paragraph at lines 39--40
+[][] 
+ []
+
+[1
+
+{C:/Users/pierre gauthier/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <.
+/graphes/elie_cartan.png> <./graphes/univ_lorraine.png>]
+("Rapport _projet-2A_1.toc"
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 3.
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ot1lm
+r.fd"
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 3.
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omllm
+m.fd"
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 3.
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omslm
+sy.fd"
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 3.
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omxlm
+ex.fd"
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 3.
+LaTeX Font Info:    Try loading font information for U+msa on input line 3.
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts
+\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 3.
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts
+\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 3.
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\jknappen
+\ursfs.fd"
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+))
+\tf@toc=\write6
+\openout6 = `"Rapport _projet-2A_1.toc"'.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.63 \newpage
+              [1
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 69--79
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--79
+
+ []
+
+[2]
+Chapitre 1.
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 92.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--114
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--114
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--114
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--114
+
+ []
+
+[3
+
+] [4]
+<graphes/blender_cuve_champvec.png, id=173, 1284.8pt x 801.99625pt>
+File: graphes/blender_cuve_champvec.png Graphic file (type png)
+<use graphes/blender_cuve_champvec.png>
+Package pdftex.def Info: graphes/blender_cuve_champvec.png  used on input line 
+124.
+(pdftex.def)             Requested size: 319.06233pt x 199.16928pt.
+<graphes/blender_cuve_mag2.png, id=174, 1284.8pt x 803.0pt>
+File: graphes/blender_cuve_mag2.png Graphic file (type png)
+<use graphes/blender_cuve_mag2.png>
+Package pdftex.def Info: graphes/blender_cuve_mag2.png  used on input line 135.
+
+(pdftex.def)             Requested size: 364.19176pt x 227.62204pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[5 <./graphes/blender_cuve_champvec.png>]
+<graphes/champvec2.png, id=181, 1284.8pt x 801.99625pt>
+File: graphes/champvec2.png Graphic file (type png)
+<use graphes/champvec2.png>
+Package pdftex.def Info: graphes/champvec2.png  used on input line 148.
+(pdftex.def)             Requested size: 364.64265pt x 227.62204pt.
+<graphes/config_centre.png, id=182, 770.88pt x 481.8pt>
+File: graphes/config_centre.png Graphic file (type png)
+<use graphes/config_centre.png>
+Package pdftex.def Info: graphes/config_centre.png  used on input line 160.
+(pdftex.def)             Requested size: 364.19568pt x 227.62204pt.
+<graphes/blender_cuve_champvec3.png, id=183, 1284.8pt x 801.99625pt>
+File: graphes/blender_cuve_champvec3.png Graphic file (type png)
+<use graphes/blender_cuve_champvec3.png>
+Package pdftex.def Info: graphes/blender_cuve_champvec3.png  used on input line
+ 170.
+(pdftex.def)             Requested size: 364.64265pt x 227.62204pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--176
+
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6 <./graphes/blender_cuve_mag2.png>]
+
+LaTeX Warning: Text page 7 contains only floats.
+
+[7 <./graphes/champvec2.png> <./graphes/config_centre.png>] [8 <./graphes/blend
+er_cuve_champvec3.png>]
+Chapitre 2.
+<graphes/champ_aimant1.png, id=206, 556.32843pt x 362.10281pt>
+File: graphes/champ_aimant1.png Graphic file (type png)
+<use graphes/champ_aimant1.png>
+Package pdftex.def Info: graphes/champ_aimant1.png  used on input line 194.
+(pdftex.def)             Requested size: 174.8539pt x 113.81102pt.
+<graphes/axes.png, id=207, 150.5625pt x 130.4875pt>
+File: graphes/axes.png Graphic file (type png)
+<use graphes/axes.png>
+Package pdftex.def Info: graphes/axes.png  used on input line 195.
+(pdftex.def)             Requested size: 65.65956pt x 56.9055pt.
+[9
+
+ <./graphes/champ_aimant1.png> <./graphes/axes.png>]
+<graphes/Espacedetravail.png, id=215, 1836.8625pt x 1074.0125pt>
+File: graphes/Espacedetravail.png Graphic file (type png)
+<use graphes/Espacedetravail.png>
+Package pdftex.def Info: graphes/Espacedetravail.png  used on input line 212.
+(pdftex.def)             Requested size: 389.28407pt x 227.62204pt.
+ [10 <./graphes/Espacedetravail.png>] [11]
+Underfull \hbox (badness 10000) in paragraph at lines 291--293
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--305
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--305
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--305
+
+ []
+
+[12]
+<graphes/Maillage_initial.png, id=237, 551.05875pt x 502.87875pt>
+File: graphes/Maillage_initial.png Graphic file (type png)
+<use graphes/Maillage_initial.png>
+Package pdftex.def Info: graphes/Maillage_initial.png  used on input line 317.
+(pdftex.def)             Requested size: 249.4288pt x 227.62204pt.
+ [13 <./graphes/Maillage_initial.png>] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 387--389
+
+ []
+
+[15]
+<graphes/transformation_de_maillage.png, id=253, 804.00375pt x 415.5525pt>
+File: graphes/transformation_de_maillage.png Graphic file (type png)
+<use graphes/transformation_de_maillage.png>
+Package pdftex.def Info: graphes/transformation_de_maillage.png  used on input 
+line 396.
+(pdftex.def)             Requested size: 330.29388pt x 170.71652pt.
+
+Overfull \hbox (33.34259pt too wide) detected at line 435
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 435--442
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 435--442
+
+ []
+
+[16 <./graphes/transformation_de_maillage.png>]
+<graphes/bord.png, id=260, 791.95876pt x 448.67625pt>
+File: graphes/bord.png Graphic file (type png)
+<use graphes/bord.png>
+Package pdftex.def Info: graphes/bord.png  used on input line 458.
+(pdftex.def)             Requested size: 200.87735pt x 113.81102pt.
+ [17 <./graphes/bord.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 524--527
+
+ []
+
+[18] [19]
+Underfull \hbox (badness 10000) in paragraph at lines 620--622
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 624--628
+
+ []
+
+[20]
+<graphes/maillage_resolution_champ_magnetique.jpg, id=281, 702.625pt x 526.9687
+5pt>
+File: graphes/maillage_resolution_champ_magnetique.jpg Graphic file (type jpg)
+<use graphes/maillage_resolution_champ_magnetique.jpg>
+Package pdftex.def Info: graphes/maillage_resolution_champ_magnetique.jpg  used
+ on input line 645.
+(pdftex.def)             Requested size: 265.56363pt x 199.16928pt.
+
+Overfull \hbox (26.5426pt too wide) detected at line 666
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 666--680
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 666--680
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 666--680
+
+ []
+
+[21 <./graphes/maillage_resolution_champ_magnetique.jpg>]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 684.
+
+
+("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmt
+t.fd"
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Overfull \hbox (26.34654pt too wide) in paragraph at lines 685--685
+[] \T1/lmtt/m/n/12 [v,t,fnum] = meshfaces(node,edge,face,hdata); %construction 
+du maillage 
+ []
+
+
+Overfull \hbox (13.99654pt too wide) in paragraph at lines 694--694
+[]\T1/lmtt/m/n/12 [M, nn, ibint, ic2] = matrixP1final(v,t,fnum,node1,edge1,node
+2,edge2); 
+ []
+
+[22]
+<graphes/resultat_champ.jpg, id=293, 562.1pt x 403.5075pt>
+File: graphes/resultat_champ.jpg Graphic file (type jpg)
+<use graphes/resultat_champ.jpg>
+Package pdftex.def Info: graphes/resultat_champ.jpg  used on input line 716.
+(pdftex.def)             Requested size: 396.35776pt x 284.52756pt.
+<graphes/norme_du_champ.jpg, id=294, 2569.6pt x 1351.0475pt>
+File: graphes/norme_du_champ.jpg Graphic file (type jpg)
+<use graphes/norme_du_champ.jpg>
+Package pdftex.def Info: graphes/norme_du_champ.jpg  used on input line 725.
+(pdftex.def)             Requested size: 432.90533pt x 227.62204pt.
+
+Overfull \hbox (14.65166pt too wide) in paragraph at lines 725--726
+ [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[23 <./graphes/resultat_champ.jpg>] [24 <./graphes/norme_du_champ.jpg>]
+Chapitre 3.
+<graphes/3_tourbillons.png, id=306, 1284.8pt x 801.99625pt>
+File: graphes/3_tourbillons.png Graphic file (type png)
+<use graphes/3_tourbillons.png>
+Package pdftex.def Info: graphes/3_tourbillons.png  used on input line 740.
+(pdftex.def)             Requested size: 364.64265pt x 227.62204pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[25
+
+]
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 747.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 749--762
+
+ []
+
+[26 <./graphes/3_tourbillons.png>] [27] [28]
+File: graphes/config_centre.png Graphic file (type png)
+<use graphes/config_centre.png>
+Package pdftex.def Info: graphes/config_centre.png  used on input line 902.
+(pdftex.def)             Requested size: 364.19568pt x 227.62204pt.
+File: graphes/champvec2.png Graphic file (type png)
+<use graphes/champvec2.png>
+Package pdftex.def Info: graphes/champvec2.png  used on input line 909.
+(pdftex.def)             Requested size: 364.64265pt x 227.62204pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[29]
+
+LaTeX Warning: Text page 30 contains only floats.
+
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 918--924
+
+ []
+
+<graphes/maillage_droit.png, id=336, 406.51875pt x 391.4625pt>
+File: graphes/maillage_droit.png Graphic file (type png)
+<use graphes/maillage_droit.png>
+Package pdftex.def Info: graphes/maillage_droit.png  used on input line 937.
+(pdftex.def)             Requested size: 236.37651pt x 227.62204pt.
+[31 <./graphes/maillage_droit.png>]
+
+LaTeX Warning: Command \l invalid in math mode on input line 956.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 961--967
+
+ []
+
+[32] [33]
+Overfull \hbox (20.17154pt too wide) in paragraph at lines 998--998
+[]\T1/lmtt/m/n/12 AddMatElem(A,indice+nv2,indice+nv2,nu*DxDxval+2*nu*DyDyval+nu
+*DzDzval);[] 
+ []
+
+
+Overfull \hbox (44.87155pt too wide) in paragraph at lines 999--999
+[]\T1/lmtt/m/n/12 AddMatElem(A,indice+2*nv2,indice+2*nv2,nu*DxDxval+nu*DyDyval+
+2*nu*DzDzval);[] 
+ []
+
+<graphes/maillage_resolution_total_centre.jpg, id=351, 2569.6pt x 1351.0475pt>
+File: graphes/maillage_resolution_total_centre.jpg Graphic file (type jpg)
+<use graphes/maillage_resolution_total_centre.jpg>
+Package pdftex.def Info: graphes/maillage_resolution_total_centre.jpg  used on 
+input line 1017.
+(pdftex.def)             Requested size: 432.90533pt x 227.62204pt.
+
+Overfull \hbox (14.65166pt too wide) in paragraph at lines 1017--1018
+[][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<graphes/maillage_resolution_total_decentre.jpg, id=352, 2569.6pt x 1351.0475pt
+>
+File: graphes/maillage_resolution_total_decentre.jpg Graphic file (type jpg)
+<use graphes/maillage_resolution_total_decentre.jpg>
+Package pdftex.def Info: graphes/maillage_resolution_total_decentre.jpg  used o
+n input line 1021.
+(pdftex.def)             Requested size: 432.90533pt x 227.62204pt.
+
+Overfull \hbox (14.65166pt too wide) in paragraph at lines 1021--1022
+[][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[34]
+
+LaTeX Warning: Text page 35 contains only floats.
+
+[35 <./graphes/maillage_resolution_total_centre.jpg> <./graphes/maillage_resolu
+tion_total_decentre.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1026--1030
+
+ []
+
+
+Overfull \hbox (69.57156pt too wide) in paragraph at lines 1036--1036
+[]\T1/lmtt/m/n/12 indz = find(v(:,3) == z); % récupération des indices des n÷ud
+s pour le niveau 0[] 
+ []
+
+<graphes/affichage_extraction_2D.jpg, id=363, 702.625pt x 526.96875pt>
+File: graphes/affichage_extraction_2D.jpg Graphic file (type jpg)
+<use graphes/affichage_extraction_2D.jpg>
+Package pdftex.def Info: graphes/affichage_extraction_2D.jpg  used on input lin
+e 1044.
+(pdftex.def)             Requested size: 303.49516pt x 227.62204pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[36]
+<graphes/affichage_extraction_2D_normal.jpg, id=369, 702.625pt x 526.96875pt>
+File: graphes/affichage_extraction_2D_normal.jpg Graphic file (type jpg)
+<use graphes/affichage_extraction_2D_normal.jpg>
+Package pdftex.def Info: graphes/affichage_extraction_2D_normal.jpg  used on in
+put line 1056.
+(pdftex.def)             Requested size: 303.49516pt x 227.62204pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[37 <./graphes/affichage_extraction_2D.jpg>]
+<graphes/table_de_connectivite.png, id=375, 614.295pt x 441.65pt>
+File: graphes/table_de_connectivite.png Graphic file (type png)
+<use graphes/table_de_connectivite.png>
+Package pdftex.def Info: graphes/table_de_connectivite.png  used on input line 
+1063.
+(pdftex.def)             Requested size: 316.60448pt x 227.62204pt.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 1064.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 1064.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 1064.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 1064.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[38 <./graphes/affichage_extraction_2D_normal.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1072--1079
+
+ []
+
+<graphes/Paraview/coupe_aimant_centre.png, id=381, 1619.04875pt x 1186.4325pt>
+File: graphes/Paraview/coupe_aimant_centre.png Graphic file (type png)
+<use graphes/Paraview/coupe_aimant_centre.png>
+Package pdftex.def Info: graphes/Paraview/coupe_aimant_centre.png  used on inpu
+t line 1082.
+(pdftex.def)             Requested size: 310.61172pt x 227.62204pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<graphes/Paraview/flux_aimant_centre_100pt_length4.png, id=382, 1870.99pt x 118
+6.4325pt>
+File: graphes/Paraview/flux_aimant_centre_100pt_length4.png Graphic file (type 
+png)
+<use graphes/Paraview/flux_aimant_centre_100pt_length4.png>
+Package pdftex.def Info: graphes/Paraview/flux_aimant_centre_100pt_length4.png 
+ used on input line 1091.
+(pdftex.def)             Requested size: 269.2168pt x 170.71652pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[39 <./graphes/table_de_connectivite.png>]
+<graphes/Paraview/differents_flux_centre_100pt_lenght4_rad05.png, id=389, 1870.
+99pt x 1186.4325pt>
+File: graphes/Paraview/differents_flux_centre_100pt_lenght4_rad05.png Graphic f
+ile (type png)
+<use graphes/Paraview/differents_flux_centre_100pt_lenght4_rad05.png>
+Package pdftex.def Info: graphes/Paraview/differents_flux_centre_100pt_lenght4_
+rad05.png  used on input line 1100.
+(pdftex.def)             Requested size: 358.94623pt x 227.62204pt.
+ [40 <./graphes/Paraview/coupe_aimant_centre.png (PNG copy)> <./graphes/Paravie
+w/flux_aimant_centre_100pt_length4.png (PNG copy)>]
+<graphes/coupe_2D_champ_centre.jpg, id=396, 702.625pt x 526.96875pt>
+File: graphes/coupe_2D_champ_centre.jpg Graphic file (type jpg)
+<use graphes/coupe_2D_champ_centre.jpg>
+Package pdftex.def Info: graphes/coupe_2D_champ_centre.jpg  used on input line 
+1109.
+(pdftex.def)             Requested size: 303.49516pt x 227.62204pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1113--1114
+
+ []
+
+<graphes/Paraview/coupe_aimant_decentre.png, id=398, 1619.04875pt x 1186.4325pt
+>
+File: graphes/Paraview/coupe_aimant_decentre.png Graphic file (type png)
+<use graphes/Paraview/coupe_aimant_decentre.png>
+Package pdftex.def Info: graphes/Paraview/coupe_aimant_decentre.png  used on in
+put line 1117.
+(pdftex.def)             Requested size: 310.61172pt x 227.62204pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<graphes/Paraview/differents_flux_decentre_100pt_lenght4_rad05.png, id=399, 924
+.45375pt x 1176.395pt>
+File: graphes/Paraview/differents_flux_decentre_100pt_lenght4_rad05.png Graphic
+ file (type png)
+<use graphes/Paraview/differents_flux_decentre_100pt_lenght4_rad05.png>
+Package pdftex.def Info: graphes/Paraview/differents_flux_decentre_100pt_lenght
+4_rad05.png  used on input line 1125.
+(pdftex.def)             Requested size: 178.8642pt x 227.62204pt.
+
+Underfull \hbox (badness 4060) in paragraph at lines 1126--1126
+[]\T1/lmr/m/sc/12 Figure \T1/lmr/m/n/12 3.15  |[] dif-fé-rents flux pour un ai
+-mant cen-tré uti-li-sa-tion de
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1130--1132
+
+ []
+
+<graphes/coupe_2D_champ_decentre.jpg, id=400, 2569.6pt x 1351.0475pt>
+File: graphes/coupe_2D_champ_decentre.jpg Graphic file (type jpg)
+<use graphes/coupe_2D_champ_decentre.jpg>
+Package pdftex.def Info: graphes/coupe_2D_champ_decentre.jpg  used on input lin
+e 1137.
+(pdftex.def)             Requested size: 432.90533pt x 227.62204pt.
+
+Overfull \hbox (14.65166pt too wide) in paragraph at lines 1137--1138
+ [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[41 <./graphes/Paraview/differents_flux_centre_100pt_lenght4_rad05.png (PNG cop
+y)>]
+
+LaTeX Warning: Text page 42 contains only floats.
+
+[42 <./graphes/coupe_2D_champ_centre.jpg> <./graphes/Paraview/coupe_aimant_dece
+ntre.png (PNG copy)>] [43 <./graphes/Paraview/differents_flux_decentre_100pt_le
+nght4_rad05.png (PNG copy)>]
+<graphes/Paraview/total_coupe_pret_aimant_decentre.png, id=418, 1870.99pt x 118
+6.4325pt>
+File: graphes/Paraview/total_coupe_pret_aimant_decentre.png Graphic file (type 
+png)
+<use graphes/Paraview/total_coupe_pret_aimant_decentre.png>
+Package pdftex.def Info: graphes/Paraview/total_coupe_pret_aimant_decentre.png 
+ used on input line 1147.
+(pdftex.def)             Requested size: 358.94623pt x 227.62204pt.
+<graphes/Paraview/total_coupe_pret_aimant_centre.png, id=419, 1870.99pt x 1186.
+4325pt>
+File: graphes/Paraview/total_coupe_pret_aimant_centre.png Graphic file (type pn
+g)
+<use graphes/Paraview/total_coupe_pret_aimant_centre.png>
+Package pdftex.def Info: graphes/Paraview/total_coupe_pret_aimant_centre.png  u
+sed on input line 1153.
+(pdftex.def)             Requested size: 358.94623pt x 227.62204pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<graphes/Paraview/total_3_flux.png, id=420, 1870.99pt x 1186.4325pt>
+File: graphes/Paraview/total_3_flux.png Graphic file (type png)
+<use graphes/Paraview/total_3_flux.png>
+Package pdftex.def Info: graphes/Paraview/total_3_flux.png  used on input line 
+1159.
+(pdftex.def)             Requested size: 358.94623pt x 227.62204pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[44 <./graphes/coupe_2D_champ_decentre.jpg> <./graphes/Paraview/total_coupe_pre
+t_aimant_decentre.png (PNG copy)>]
+
+LaTeX Warning: Text page 45 contains only floats.
+
+[45 <./graphes/Paraview/total_coupe_pret_aimant_centre.png (PNG copy)> <./graph
+es/Paraview/total_3_flux.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 1167--1174
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1174--1180
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1180--1187
+
+ []
+
+[46]
+Overfull \hbox (63.39656pt too wide) in paragraph at lines 1201--1201
+[]\T1/lmtt/m/n/12 [X2,Y2,Z2,Uxgd_centre,Uygd_centre,Uzgd_centre,Pgd_centre] = s
+tokes_3D(true,R);[] 
+ []
+
+
+Overfull \hbox (20.17154pt too wide) in paragraph at lines 1204--1204
+[]\T1/lmtt/m/n/12 [X2,Y2,Z2,Uxgd_cote,Uygd_cote,Uzgd_cote,Pgd_cote] = stokes_3D
+(false,R);[] 
+ []
+
+
+Overfull \hbox (236.29665pt too wide) in paragraph at lines 1207--1207
+[]\T1/lmtt/m/n/12 [Uxgd_cote_transp,Uygd_cote_transp,Uzgd_cote_transp] = transp
+osition_champ(Uxgd_cote,Uygd_cote,Uzgd_cote);[] 
+ []
+
+
+Overfull \hbox (149.8466pt too wide) in paragraph at lines 1210--1210
+[]\T1/lmtt/m/n/12 % prise en compte du rapport R, comme les équation sont linéa
+ire cela revient à appliquer le[] 
+ []
+
+[47]
+Overfull \hbox (57.22156pt too wide) in paragraph at lines 1221--1221
+[]\T1/lmtt/m/n/12 fprintf('   - au format VTK (''VTK STRUCTURED_GRID'') : %s\n'
+,filename2_vtk);[] 
+ []
+
+
+Overfull \hbox (63.39656pt too wide) in paragraph at lines 1222--1222
+[]\T1/lmtt/m/n/12 writevtk3D(X2,Y2,Z2,Uxgd_total,Uygd_total,Uzgd_total,Pgd_tota
+l,filename2_vtk);[] 
+ []
+
+<graphes/Paraview/section_pioncarre_R_15.png, id=441, 1870.99pt x 1186.4325pt>
+File: graphes/Paraview/section_pioncarre_R_15.png Graphic file (type png)
+<use graphes/Paraview/section_pioncarre_R_15.png>
+Package pdftex.def Info: graphes/Paraview/section_pioncarre_R_15.png  used on i
+nput line 1231.
+(pdftex.def)             Requested size: 224.33781pt x 142.26378pt.
+
+Overfull \hbox (31.93832pt too wide) in paragraph at lines 1231--1232
+ [][] 
+ []
+
+<graphes/Paraview/section_pioncarre_R_20.png, id=442, 1870.99pt x 1186.4325pt>
+File: graphes/Paraview/section_pioncarre_R_20.png Graphic file (type png)
+<use graphes/Paraview/section_pioncarre_R_20.png>
+Package pdftex.def Info: graphes/Paraview/section_pioncarre_R_20.png  used on i
+nput line 1237.
+(pdftex.def)             Requested size: 224.33781pt x 142.26378pt.
+
+Overfull \hbox (31.93832pt too wide) in paragraph at lines 1237--1238
+ [][] 
+ []
+
+<graphes/Paraview/section_pioncarre_R_10.png, id=443, 1870.99pt x 1186.4325pt>
+File: graphes/Paraview/section_pioncarre_R_10.png Graphic file (type png)
+<use graphes/Paraview/section_pioncarre_R_10.png>
+Package pdftex.def Info: graphes/Paraview/section_pioncarre_R_10.png  used on i
+nput line 1244.
+(pdftex.def)             Requested size: 224.33781pt x 142.26378pt.
+
+Overfull \hbox (31.93832pt too wide) in paragraph at lines 1244--1245
+ [][] 
+ []
+
+<graphes/Paraview/section_pioncarre_R_8_maillage_double.png, id=444, 1870.99pt 
+x 1186.4325pt>
+File: graphes/Paraview/section_pioncarre_R_8_maillage_double.png Graphic file (
+type png)
+<use graphes/Paraview/section_pioncarre_R_8_maillage_double.png>
+Package pdftex.def Info: graphes/Paraview/section_pioncarre_R_8_maillage_double
+.png  used on input line 1250.
+(pdftex.def)             Requested size: 224.33781pt x 142.26378pt.
+
+Overfull \hbox (31.93832pt too wide) in paragraph at lines 1250--1251
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<graphes/Paraview/section_pioncarre_R_5.png, id=445, 1870.99pt x 1186.4325pt>
+File: graphes/Paraview/section_pioncarre_R_5.png Graphic file (type png)
+<use graphes/Paraview/section_pioncarre_R_5.png>
+Package pdftex.def Info: graphes/Paraview/section_pioncarre_R_5.png  used on in
+put line 1257.
+(pdftex.def)             Requested size: 224.33781pt x 142.26378pt.
+
+Overfull \hbox (31.93832pt too wide) in paragraph at lines 1257--1258
+ [][] 
+ []
+
+<graphes/Paraview/section_pioncarre_R_2_double.png, id=446, 1870.99pt x 1186.43
+25pt>
+File: graphes/Paraview/section_pioncarre_R_2_double.png Graphic file (type png)
+
+<use graphes/Paraview/section_pioncarre_R_2_double.png>
+Package pdftex.def Info: graphes/Paraview/section_pioncarre_R_2_double.png  use
+d on input line 1263.
+(pdftex.def)             Requested size: 224.33781pt x 142.26378pt.
+
+Overfull \hbox (31.93832pt too wide) in paragraph at lines 1263--1264
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<graphes/Paraview/section_pioncarre_R_01.png, id=447, 1870.99pt x 1186.4325pt>
+File: graphes/Paraview/section_pioncarre_R_01.png Graphic file (type png)
+<use graphes/Paraview/section_pioncarre_R_01.png>
+Package pdftex.def Info: graphes/Paraview/section_pioncarre_R_01.png  used on i
+nput line 1270.
+(pdftex.def)             Requested size: 224.33781pt x 142.26378pt.
+
+Overfull \hbox (31.93832pt too wide) in paragraph at lines 1270--1271
+ [][] 
+ []
+
+File: graphes/Paraview/section_pioncarre_R_01.png Graphic file (type png)
+<use graphes/Paraview/section_pioncarre_R_01.png>
+Package pdftex.def Info: graphes/Paraview/section_pioncarre_R_01.png  used on i
+nput line 1276.
+(pdftex.def)             Requested size: 224.33781pt x 142.26378pt.
+
+Overfull \hbox (31.93832pt too wide) in paragraph at lines 1276--1277
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<graphes/Paraview/section_pioncarre_R_001_double.png, id=448, 1870.99pt x 1186.
+4325pt>
+File: graphes/Paraview/section_pioncarre_R_001_double.png Graphic file (type pn
+g)
+<use graphes/Paraview/section_pioncarre_R_001_double.png>
+Package pdftex.def Info: graphes/Paraview/section_pioncarre_R_001_double.png  u
+sed on input line 1283.
+(pdftex.def)             Requested size: 224.33781pt x 142.26378pt.
+
+Overfull \hbox (31.93832pt too wide) in paragraph at lines 1283--1284
+ [][] 
+ []
+
+<graphes/Paraview/section_pioncarre_R_005_double.png, id=449, 1870.99pt x 1186.
+4325pt>
+File: graphes/Paraview/section_pioncarre_R_005_double.png Graphic file (type pn
+g)
+<use graphes/Paraview/section_pioncarre_R_005_double.png>
+Package pdftex.def Info: graphes/Paraview/section_pioncarre_R_005_double.png  u
+sed on input line 1289.
+(pdftex.def)             Requested size: 224.33781pt x 142.26378pt.
+
+Overfull \hbox (31.93832pt too wide) in paragraph at lines 1289--1290
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<graphes/Paraview/section_pioncarre_R_0005_double.png, id=450, 1870.99pt x 1186
+.4325pt>
+File: graphes/Paraview/section_pioncarre_R_0005_double.png Graphic file (type p
+ng)
+<use graphes/Paraview/section_pioncarre_R_0005_double.png>
+Package pdftex.def Info: graphes/Paraview/section_pioncarre_R_0005_double.png  
+used on input line 1296.
+(pdftex.def)             Requested size: 224.33781pt x 142.26378pt.
+
+Overfull \hbox (31.93832pt too wide) in paragraph at lines 1296--1297
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1302--1306
+
+ []
+
+[48 <./graphes/Paraview/section_pioncarre_R_15.png (PNG copy)> <./graphes/Parav
+iew/section_pioncarre_R_20.png (PNG copy)>] [49 <./graphes/Paraview/section_pio
+ncarre_R_10.png (PNG copy)> <./graphes/Paraview/section_pioncarre_R_8_maillage_
+double.png (PNG copy)> <./graphes/Paraview/section_pioncarre_R_5.png (PNG copy)
+> <./graphes/Paraview/section_pioncarre_R_2_double.png (PNG copy)> <./graphes/P
+araview/section_pioncarre_R_01.png (PNG copy)>] [50 <./graphes/Paraview/section
+_pioncarre_R_001_double.png (PNG copy)> <./graphes/Paraview/section_pioncarre_R
+_005_double.png (PNG copy)> <./graphes/Paraview/section_pioncarre_R_0005_double
+.png (PNG copy)>] [51]
+Underfull \hbox (badness 10000) in paragraph at lines 1309--1312
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1313--1321
+
+ []
+
+[52]
+Annexe A.
+[53
+
+] [54]
+Annexe B.
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 1487.
+
+[55
+
+] ("Rapport _projet-2A_1.bbl"
+Overfull \hbox (2.00471pt too wide) in paragraph at lines 1610--1
+[]\T1/lmr/m/n/17.28 "Introduction à l'ana-lyse nu-mé-rique"(1998), de Jacque Ra
+p-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1610--1
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1610--1
+
+ []
+
+
+Overfull \hbox (12.89995pt too wide) in paragraph at lines 1610--1
+\T1/lmr/m/n/17.28 François Scheid, Cours de Mas-ter 2 Ma-thé-ma-tiques (Re-cher
+che)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1610--1
+
+ []
+
+
+Overfull \hbox (2.41475pt too wide) in paragraph at lines 1610--1
+\T1/lmr/m/n/17.28 Mat-lab" de Jean-Philippe LE-BOU-CHER Ben-ja-min PAC-COU
+ []
+
+[56]
+
+LaTeX Warning: Empty `thebibliography' environment on input line 3.
+
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1627.
+ [57
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1627.
+ ("Rapport _projet-2A_1.aux")
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1627.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1627.
+
+Package rerunfilecheck Info: File `"Rapport _projet-2A_1".out' has not changed.
+
+(rerunfilecheck)             Checksum: 4863E8E178219E53FD99F6752B50582B;2280.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1627.
+ ) 
+Here is how much of TeX's memory you used:
+ 9986 strings out of 493305
+ 156889 string characters out of 3125451
+ 246789 words of memory out of 3000000
+ 13189 multiletter control sequences out of 15000+200000
+ 62085 words of font info for 50 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 42i,16n,40p,1201b,591s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/l
+m/lm-ec.enc}{C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/e
+nc/dvips/lm/lm-rm.enc}{C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2
+.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/pierre gauthier/AppData/Local/Pro
+grams/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/pierre gauthier/App
+Data/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}<C:/Users/pierr
+e gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><
+C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/l
+m/lmcsc10.pfb><C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts
+/type1/public/lm/lmex10.pfb><C:/Users/pierre gauthier/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/lm/lmmi12.pfb><C:/Users/pierre gauthier/AppData/Loc
+al/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmmi6.pfb><C:/Users/pierre gauthie
+r/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Users/p
+ierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pf
+b><C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
+c/lm/lmr17.pfb><C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/font
+s/type1/public/lm/lmr6.pfb><C:/Users/pierre gauthier/AppData/Local/Programs/MiK
+TeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Users/pierre gauthier/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Users/pierre gauthier/
+AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/pi
+erre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy8.pfb
+><C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
+/lm/lmtt12.pfb>
+Output written on "Rapport _projet-2A_1.pdf" (58 pages, 23493087 bytes).
+PDF statistics:
+ 584 PDF objects out of 1000 (max. 8388607)
+ 128 named destinations out of 1000 (max. 500000)
+ 432 words of extra memory for PDF output out of 10000 (max. 10000000)
+

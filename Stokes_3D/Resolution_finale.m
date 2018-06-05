@@ -6,12 +6,9 @@
 %   rapport R entre les forces magnetique
 % R = f_1_touribillon / f_2_tourbillon
 % on fait donc f_1 = R/R_t * f_2 où R_t = norm(f_1)/norm(f_2);
-R = 6;
-% a la premiere resolution on sort la norme f_é que l'on réutilise dans la
-% résolution suivante
+R = 0.005;
 
 %   resolution dans la configuration aimant centre
-norm_f_2 = 1; %il faut initialiser
 [X2,Y2,Z2,Uxgd_centre,Uygd_centre,Uzgd_centre,Pgd_centre] = stokes_3D(true,R);
 
 
@@ -30,13 +27,13 @@ writevtk3D(X2,Y2,Z2,Uxgd_cote_transp,Uygd_cote_transp,Uzgd_cote_transp,Pgd_cote,
 
 % prise en compte du rapport R
 R_i = norm(Uxgd_centre(:)) / norm(Uxgd_cote_transp(:));
-Uxgd_cote_transp = (R / R_i) .* Uxgd_cote_transp
+Uxgd_cote_transp = (R / R_i) .* Uxgd_cote_transp;
 Uxgd_total = Uxgd_centre + Uxgd_cote_transp;
 Uygd_total = Uygd_centre + Uygd_cote_transp;
 Uzgd_total = Uzgd_centre + Uzgd_cote_transp;
 Pgd_total = Pgd_centre + Pgd_cote;
 
-filename2_vtk='total.vtk';
+filename2_vtk='total_R_0005.vtk';
 fprintf('   - au format VTK (''VTK STRUCTURED_GRID'') : %s\n',filename2_vtk);
 writevtk3D(X2,Y2,Z2,Uxgd_total,Uygd_total,Uzgd_total,Pgd_total,filename2_vtk);
 

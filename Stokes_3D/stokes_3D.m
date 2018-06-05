@@ -37,9 +37,9 @@ Lz=1;  % hauteur
 nu=1; % viscosité
 
 % Nombres de points dans les directions x, y et z
-Nx=11;
-Ny=11;
-Nz=11;
+Nx=21;
+Ny=21;
+Nz=21;
 
 compare = true; % comparaison avec une solution exacte
 displaysol = true;  % affichage de la solution approchée (vitesse)
