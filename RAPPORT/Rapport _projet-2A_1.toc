@@ -1,28 +1,29 @@
 \babel@toc {french}{}
-\contentsline {chapter}{\numberline {1}Position du probl\IeC {\`e}me}{3}{chapter.1}
-\contentsline {subsection}{\numberline {1.0.1}D\IeC {\'e}finition de l'advection chaotique}{3}{subsection.1.0.1}
-\contentsline {subsection}{\numberline {1.0.2}dispositif exp\IeC {\'e}rimental}{5}{subsection.1.0.2}
-\contentsline {subsection}{\numberline {1.0.3}hypoth\IeC {\`e}ses de mod\IeC {\'e}lisation}{8}{subsection.1.0.3}
-\contentsline {chapter}{\numberline {2}Mod\IeC {\'e}lisation du champ Magn\IeC {\'e}tique de l'aimant}{9}{chapter.2}
-\contentsline {section}{\numberline {2.1}Mise en forme du probl\IeC {\`e}me}{10}{section.2.1}
-\contentsline {section}{\numberline {2.2}M\IeC {\'e}thode des \IeC {\'e}l\IeC {\'e}ments finis}{12}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Le maillage}{12}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Mise en \IeC {\'e}quation}{14}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Passage \IeC {\`a} un \IeC {\'e}l\IeC {\'e}ment de r\IeC {\'e}f\IeC {\'e}rence}{16}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Calcul du Gradient}{18}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}Impl\IeC {\'e}mentation algorithmique}{21}{subsection.2.2.5}
-\contentsline {subsection}{\numberline {2.2.6}R\IeC {\'e}sultats de la simulation}{23}{subsection.2.2.6}
-\contentsline {chapter}{\numberline {3}\IeC {\'E}quations de Navier Stokes}{25}{chapter.3}
-\contentsline {subsection}{\numberline {3.0.1}\IeC {\'E}quations de Stokes}{26}{subsection.3.0.1}
-\contentsline {subsection}{\numberline {3.0.2}Adimensionnement de l'\IeC {\'e}quation de Stokes}{27}{subsection.3.0.2}
-\contentsline {subsection}{\numberline {3.0.3}Formulation variationnelle}{28}{subsection.3.0.3}
-\contentsline {subsection}{\numberline {3.0.4}Principe de superposition}{29}{subsection.3.0.4}
-\contentsline {subsection}{\numberline {3.0.5}Impl\IeC {\'e}mentation algorithmique}{31}{subsection.3.0.5}
-\contentsline {subsection}{\numberline {3.0.6}Calcul des matrices du syst\IeC {\`e}me lin\IeC {\'e}aire en trois dimensions}{32}{subsection.3.0.6}
-\contentsline {subsection}{\numberline {3.0.7}Raccordement \IeC {\`a} la mod\IeC {\'e}lisation du champ magn\IeC {\'e}tique}{34}{subsection.3.0.7}
-\contentsline {subsection}{\numberline {3.0.8}R\IeC {\'e}sultats}{39}{subsection.3.0.8}
-\contentsline {subsection}{\numberline {3.0.9}Les sections de Poincar\IeC {\'e}}{46}{subsection.3.0.9}
-\contentsline {subsection}{\numberline {3.0.10}A la recherche d'un \IeC {\'e}coulement chaotique}{47}{subsection.3.0.10}
-\contentsline {chapter}{\numberline {A}Calcul de la matrice de rigidit\IeC {\'e}}{53}{appendix.A}
-\contentsline {chapter}{\numberline {B}Codes Matlab}{55}{appendix.B}
-\contentsline {subsection}{\numberline {B.0.1}Mod\IeC {\'e}lisation du champ magn\IeC {\'e}tique}{55}{subsection.B.0.1}
+\contentsline {chapter}{\numberline {1}Position du probl\IeC {\`e}me}{4}{chapter.1}
+\contentsline {subsection}{\numberline {1.0.1}D\IeC {\'e}finition de l'advection chaotique}{4}{subsection.1.0.1}
+\contentsline {subsection}{\numberline {1.0.2}dispositif exp\IeC {\'e}rimental}{6}{subsection.1.0.2}
+\contentsline {subsection}{\numberline {1.0.3}hypoth\IeC {\`e}ses de mod\IeC {\'e}lisation}{9}{subsection.1.0.3}
+\contentsline {chapter}{\numberline {2}Mod\IeC {\'e}lisation du champ Magn\IeC {\'e}tique de l'aimant}{10}{chapter.2}
+\contentsline {section}{\numberline {2.1}Mise en forme du probl\IeC {\`e}me}{11}{section.2.1}
+\contentsline {section}{\numberline {2.2}M\IeC {\'e}thode des \IeC {\'e}l\IeC {\'e}ments finis}{13}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Le maillage}{13}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Mise en \IeC {\'e}quation}{15}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Passage \IeC {\`a} un \IeC {\'e}l\IeC {\'e}ment de r\IeC {\'e}f\IeC {\'e}rence}{17}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Calcul du Gradient}{19}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Impl\IeC {\'e}mentation algorithmique}{22}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}R\IeC {\'e}sultats de la simulation}{24}{subsection.2.2.6}
+\contentsline {chapter}{\numberline {3}\IeC {\'E}quations de Navier Stokes}{26}{chapter.3}
+\contentsline {subsection}{\numberline {3.0.1}\IeC {\'E}quations de Stokes}{27}{subsection.3.0.1}
+\contentsline {subsection}{\numberline {3.0.2}Adimensionnement de l'\IeC {\'e}quation de Stokes}{28}{subsection.3.0.2}
+\contentsline {subsection}{\numberline {3.0.3}Formulation variationnelle}{29}{subsection.3.0.3}
+\contentsline {subsection}{\numberline {3.0.4}Principe de superposition}{30}{subsection.3.0.4}
+\contentsline {subsection}{\numberline {3.0.5}Impl\IeC {\'e}mentation algorithmique}{32}{subsection.3.0.5}
+\contentsline {subsection}{\numberline {3.0.6}Calcul des matrices du syst\IeC {\`e}me lin\IeC {\'e}aire en trois dimensions}{33}{subsection.3.0.6}
+\contentsline {subsection}{\numberline {3.0.7}Raccordement \IeC {\`a} la mod\IeC {\'e}lisation du champ magn\IeC {\'e}tique}{35}{subsection.3.0.7}
+\contentsline {subsection}{\numberline {3.0.8}R\IeC {\'e}sultats}{40}{subsection.3.0.8}
+\contentsline {subsection}{\numberline {3.0.9}Les sections de Poincar\IeC {\'e}}{47}{subsection.3.0.9}
+\contentsline {subsection}{\numberline {3.0.10}A la recherche d'un \IeC {\'e}coulement chaotique}{48}{subsection.3.0.10}
+\contentsline {chapter}{\numberline {A}Calcul de la matrice de rigidit\IeC {\'e}}{54}{appendix.A}
+\contentsline {chapter}{\numberline {B}Codes Matlab}{56}{appendix.B}
+\contentsline {subsection}{\numberline {B.0.1}Mod\IeC {\'e}lisation du champ magn\IeC {\'e}tique}{56}{subsection.B.0.1}
+\contentsline {subsection}{\numberline {B.0.2}R\IeC {\'e}solution des Equations de Navier Stokes}{61}{subsection.B.0.2}

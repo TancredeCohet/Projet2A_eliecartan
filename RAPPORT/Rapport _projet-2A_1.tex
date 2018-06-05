@@ -1312,7 +1312,7 @@ Nous réesayerons néanmoins d'ici la soutenance d'arriver à faire tourner une 
 
 L'objectif de ce projet a été, en partant de la thèse de Valérie Toussaint, de pousser l'étude des écoulement chaotiques avec un dispositif expérimental à 3 tourbillons. \\
 \\
-La valeur ajouté que nous devions apporter est une simulation se rapprochant plus du réel en ne supposant pas le champ magnétique uniforme sur une moitié de la cuve. Nous avons put voir des modification intéressante sur les  tourbillons en supprimant cette hypothèse.\\
+La valeur ajouté que nous devions apporter est une simulation se rapprochant plus du réel en ne supposant pas le champ magnétique uniforme sur une moitié de la cuve. Nous avons put voir des modifications intéressantes sur les  tourbillons en supprimant cette hypothèse.\\
 Cependant en utilisant les sections de Poincarré de manière empirique nous n'avons pas identifié "la plage du chaos" qui permet en modulant selon un rapport R les forces des deux aimant d'arriver à un écoulement chaotique sur une portion majoritaire du fluide. \\
 Un autre objectif de ce projet était la caractérisation mathématique de l'advection chaotique en calculant les exposant de Lyapunov et en étudiant l'évolution de la distance entre deux particule se trouvant à une distance $\delta x$ l'une de l'autre à l'instant initial. Le but de cette étude mathématique aurait été la recherche plus précise du rapport R optimal pour générer le choaos face à l'approche des section de Poincaré qui est empirique.
 %==========================================================================================================================================================
@@ -1485,15 +1485,483 @@ Et le calcul du terme $A_{ij}$ de la matrice de rigidité, on obtient ainsi avec
 \label{annexe_2}
 
 \subsection{Modélisation du champ magnétique}
+\small
+
+\begin{verbatim}
+%==========================================================================
+%         Calcul (exact) des matrices P1 de masse et de rigidite
+%==========================================================================
+function [A, M, nn, ibint, ic2] = matrixP1final(vz,tz,fnum,node1,edge1,node2,edge2)
+%-------------------------- initialisation ----------------------------------
+nt = size(tz,1);                     %nombre de triangle
+nn = size(vz,1);                     %nombre de noeuds
+v1 = [vz findedge(vz,node1,edge1,0.001)];%calcul label des noeuds,
+										% si il sont sur un bord
+%matrices elementaire des gradients dans le triangle de reference
+grad_elem = [-1 1 0;
+             -1 0 1];
+   ind_ligne = 1;              %initialisation premiere ligne
+%-------------------------- boucle ---------------------------------------   
+for k = 1:nt				% on boucle sur les triangles du maillage
+        Tk = tz(k,1:3);    %on recupere les noeuds definisant le triangle k  [n1 n2 n3]
+%--------------------------------------------------------------------------   
+%                        calcul du terme source M
+%--------------------------------------------------------------------------
+    if fnum(k) == 1      %on teste si le triangle est sur le maillage de l'aimant                                    
+		l = v1(Tk,3);    %l regroupe les valeurs des labels
+	    vN1 = v1(Tk,1:3); %coordonees des noeuds du triangle
+	    if (size(l(ismember(l,0))) == [1 1]) | (size(l(ismember(l,0))) == [0 1])
+    		compter = sum(l == l');
+        	z = vN1(:,3) ~= l(compter == 1);
+			if size(z(ismember(z,0))) == [1 1]       %on elimine le cas d'un 
+			%triangle bizarre a cheval sur 2 bords
+        		Nb = vN1(z,1:2);  %on recupere les coordonnees des noeuds du 
+        		%triangles qui sont sur le bord 
+            	NNb = Tk(z);    %on recupere les numeros des triangles sur le bord
+           		Ni = vN1(vN1(:,3)==l(compter==1),1:2);  %noeuds interieurs
+           		%on calcule la norme de l'arete
+          	  	norme_e = sqrt((Nb(1,2) - Nb(2,2))^2 + (Nb(1,1) - Nb(2,1))^2);  
+           		n_normal = [Nb(2,2)-Nb(1,2); Nb(1,1)-Nb(2,1)];  %vecteur normal a l'arete
+            	n_test = [Ni(1,1)-Nb(1,1); Ni(1,2)-Nb(1,2)];
+   	        	if n_normal'*n_test < 0       %on teste si le vecteur normal 
+   	        	%que l'on a calcule est dans le bon sens
+            	n_normal = -n_normal;         %dans ce cas on le prend dans 
+            	%l'autre sens pour qu'il soit sortant
+         		end
+     			M_inter =  (norme_e / 2).*[0 ; 1]'*n_normal;%[0;1] correspond au vecteur ey
+    			M(NNb,:) =  M(NNb,:) + M_inter;  %on place la valeur corespondant
+    			% a l'arete dans la matrice du terme source 
+        	end                                                              
+        end
+    end
+%--------------------------------------------------------------------------
+%                             matrice de rigidite
+%--------------------------------------------------------------------------                     
+
+	pk = vz(Tk,1:2);     %3*2 coordonnees des noeuds triangle k 
+    indice=Tk'*ones(1,3);%3*3 chaque colonne [n1 n1 n1 ;n2 n2 n2;n3 n3 n3] 
+    %noeuds du triangle i
+    ligne(ind_ligne:ind_ligne+8) = indice(:); %on stocke sous la forme de colonne
+    indice=indice';                                 
+   	colonne(ind_ligne:ind_ligne+8) = indice(:); %[n1;n1;n1;n2;n2;n2;n3;n3;n3]
+       
+    %implementation de A
+    A_inter matrice elementaire 3*3 des gradients dans le triangle k
+    terme_jacobien = (airek^2)/4 .* ([pk(3,2)-pk(2,1) pk(1,1)-pk(3,1) ;..
+    pk(2,1)-pk(2,2) pk(2,1)-pk(1,1)]^2);
+    A_inter = zeros(3,3);
+    A_inter(1,1) = (terme_jacobien*grad_elem(:,1))'*grad_elem(:,1);
+    A_inter(2,2) = (terme_jacobien*grad_elem(:,2))'*grad_elem(:,2);
+    A_inter(3,3) = (terme_jacobien*grad_elem(:,3))'*grad_elem(:,3);
+    A_inter(1,2) = (terme_jacobien*grad_elem(:,1))'*grad_elem(:,2);
+    A_inter(1,3) = (terme_jacobien*grad_elem(:,1))'*grad_elem(:,3);
+    A_inter(2,3) = (terme_jacobien*grad_elem(:,2))'*grad_elem(:,3);
+    A_inter(2,1) = A_inter(1,2); 
+    A_inter(3,1) = A_inter(1,3); 
+    A_inter(3,2) = A_inter(2,3);        
+    A_inter = A_inter(:);
+    A_val(ind_ligne:ind_ligne + 8) = A_inter;
+           
+    ind_ligne = ind_ligne + 9;      %iteration
+end
+%on place les valeurs calcules avec les valeurs des noeuds
+        A = sparse(ligne,colonne,A_val);   %on place les valeurs calcules 
+        %avec les valeurs des noeuds
+%----------- On ne retient que les noeuds interieurs ----------------------------
+ic2 = (1:nn)';  
+ibint = v2(:,3)~= 0;  %noeuds du bord de la face 2_exterieure
+ic2(ibint) = [];      %liste des noeuds interieur au maillage total
+A = A(ic2,ic2);   %on ne garde que les noeuds interieurs
+M = ones(nn,1); 
+end
+\end{verbatim}
+
+\begin{verbatim}
+%=========================================================================
+%                       Calcul du gradient du potentiel U
+%=========================================================================
+function [B] = gradient(u,v,t);
+%           retourne B matrice n*2 [B_x B_y]
+%           u matrice colonne des potentiels u
+%           v matrice colonne des coordonées des noeuds
+%           t table de connectivité
+%---------------- initialisation -------------------------------------------------
+nt = size(t,1);   %nombre de triangle
+nn = size(v,1);   %nombre de noeuds
+grad_elem_ref = [-1 1 0;   %gradients sur le triangle de référence
+                 -1 0 1];
+ind_ligne = 1;  %initialisation premiere ligne
+M_elem = [ 2 1 1;        %matrice de masse elementaire
+	       1 2 1;
+	       1 1 2]/12;
+M_elem = M_elem(:);
+M_val = zeros(nt*9,1);
+%-------------------- boucle sur les triangles ---------------------------------
+for k = 1:nt
+	Tk = t(k,1:3);  %on recupere les noeuds definisant le triangle k  [n1 n2 n3]
+    vk = v(Tk,1:2); %coordonnées des noeuds du triangle k   
+    airek = t(k,5); %aire du triangle k
+%on recupere les indices des neuds pour ensuite placer les 9
+%contributions du triangle k dans la matrice C
+    indice=Tk'*ones(1,3); %3*3 chaque colonne [n1 n1 n1 ;n2 n2 n2;n3 n3 n3] 
+    ligne(ind_ligne:ind_ligne+8)=indice(:); %on stocke sous la forme de colonne
+    indice=indice';                                 
+    colonne(ind_ligne:ind_ligne+8)=indice(:);  %[n1;n1;n1;n2;n2;n2;n3;n3;n3]
+%---------------------- Calcul matrice C ------------------------------------------------
+%Jacobien
+	Jk = [vk(3,2)-vk(1,2) vk(1,1)-vk(3,1); vk(1,2)-vk(2,2) vk(2,1)-vk(1,1)];
+	grad_elem = Jk' * grad_elem_ref;  %Calcule le gradient dans triangle a 
+	%partir triangle de reference
+	C_elem_x1 = (1/6) * [ grad_elem(1,1)*ones(1,3);
+                      grad_elem(1,2)*ones(1,3);
+                      grad_elem(1,3)*ones(1,3)];
+	C_elem_x1 = C_elem_x1(:);
+	C_val_x1(ind_ligne:ind_ligne + 8) = C_elem_x1;
+	C_elem_x2 = (1/6) * [ grad_elem(2,1)*ones(1,3);
+                      grad_elem(2,2)*ones(1,3);
+                      grad_elem(2,3)*ones(1,3)];
+	C_elem_x2 = C_elem_x2(:);
+	C_val_x2(ind_ligne:ind_ligne + 8) = C_elem_x2;
+%----------------------- Calcul matrice M -----------------------------------------------
+	M_val(ind_ligne:ind_ligne+8) = airek*M_elem;
+	ind_ligne = ind_ligne + 9;      %itération
+end
+C_x1 = sparse(ligne,colonne,C_val_x1);     %on place les valeurs avec les nums des noeuds
+C_x2 = sparse(ligne,colonne,C_val_x2);
+M = sparse(ligne,colonne,M_val);
+%------------------------  Resolution du systeme lineaire----------------------------------
+B_x1 = M\(C_x1'*u);
+B_x2 = M\(C_x2'*u);
+B = [B_x1 B_x2];
+end
+\end{verbatim}
+
+\begin{verbatim}
+%===========================================================================
+%			Résolution champ magnétique avec éléments finis P1
+%===========================================================================
+%------------------  elaboration du maillage ---------------------------------------------------------
+a = 1; %taille de l'aimant carre de taille a
+%taille de la cuve
+L = 5; %longueur
+H = 5; %hauteur
+node1 = [-a,-a; a,-a; a,a; -a, a];    %liste des noeuds intérieurs
+node2 = [-L,-H; L,-H; L,H; -L, H];    %liste des noeuds extérieurs
+edge1 = [(1:size(node1,1))',[(2:size(node1,1))'; 1]];  %liste des arètes intérieures
+edge2 = [1,2; 2,3; 3,4; 4,1];                          %liste des arètes extérieures
+edge = [edge1; edge2+size(node1,1)];   %liste de toutes les arètes mises dans l'ordre
+node = [node1; node2];                 %liste de tous les noeuds mises dans l'ordre
+pas_h=0.2;                             %pas maximal du maillage
+hdata = [];
+hdata.hmax  = pas_h;
+face{1} = 1:size(edge1,1);             %face de maillage interieure
+face{2} = 1:size(edge,1);              %face de maillage exterieure
+[v,t,fnum] = meshfaces(node,edge,face,hdata); %construction du maillage
+;
+%------------------ calcul matrices ---------------------------------------
+[A, M, nn, ibint, ic2] = matrixP1final(v,t,fnum,node1,edge1,node2,edge2);
+%------------------   résolution du systeme lineaire ---------------------------------------
+A = A(ic2,ic2); %on ne resout que sur les noeuds interieurs
+sol = A\M;
+u = zeros(nn,1);
+u(ic2) = sol;
+u(ibint) = 0;  
+B = gradient(u,v,t);
+B_X = B(:,1);
+B_Y = B(:,2);
+%on recupere les coordonnées de chaque point du maillage
+X = v(:,1);
+Y = v(:,2);
+end
+\end{verbatim}
 
 
+\subsection{Résolution des Equations de Navier Stokes}
+\begin{verbatim}
+%=========================================================================% 
+%  Résolution finale avec superposition des deux tourbillons
+%=========================================================================%
+%--------------- initialisation -------------------------------------------
+% rapport R entre les forces magnetique
+R = 0.005;
+
+%------- resolution dans la configuration aimant centre -------------------
+[X2,Y2,Z2,Uxgd_centre,Uygd_centre,Uzgd_centre,Pgd_centre] = stokes_3D(true,R);
 
 
+%----------- resolution dans la configuration aimant de cote --------------
+[X2,Y2,Z2,Uxgd_cote,Uygd_cote,Uzgd_cote,Pgd_cote] = stokes_3D(false,R);
+
+%----- transposition du champ de vitesse et somme ------------------------
+[Uxgd_cote_transp,Uygd_cote_transp,Uzgd_cote_transp] = transposition_champ(Uxgd_cote,Uygd_cote,Uzgd_cote);
+% prise en compte du rapport R
+R_i = norm(Uxgd_centre(:)) / norm(Uxgd_cote_transp(:));
+Uxgd_cote_transp = (R / R_i) .* Uxgd_cote_transp;
+Uxgd_total = Uxgd_centre + Uxgd_cote_transp;
+Uygd_total = Uygd_centre + Uygd_cote_transp;
+Uzgd_total = Uzgd_centre + Uzgd_cote_transp;
+\end{verbatim}
+\begin{verbatim}
+%=========================================================================%
+% 	Résolution Equations de Stokes 3D dans le cube [0,Lx]x[0,Ly]x[0,Lz]
+% 						Elements Finis Q2/Q1
+%=========================================================================%
+function [X2,Y2,Z2,Uxgd,Uygd,Uzgd,Pgd] = Stokes3D(aimant_centre,R)
+% si aimant _centre = true l'aimant est centre, sinon non
+%-------------- initialisation --------------------------------------------
+global Lx Ly Lz %dimensions cuve
+Lx=1;  % largeur
+Ly=1;  % profondeur
+Lz=1;  % hauteur
+nu=1; % viscositÃ©
+% Nombres de points dans les directions x, y et z
+Nx=21;
+Ny=21;
+Nz=21;
+%----------- generation mailleur 3D ---------------------------------------
+[v,t,nv1,nv2,nbquad,X,Y,Z] = mesh_3D(Lx,Ly,Lz,Nx,Ny,Nz);
+% Recherche des points du bord pour le traitement des conditions aux 
+% limites de Dirichlet
+ind_bd=find(v(:,1)==0|v(:,1)==Lx|v(:,2)==0|v(:,2)==Ly|v(:,3)==0|v(:,3)==Lz);
+ind_bd=unique(ind_bd);
+%--------------------------------------------------------------------------
+% Construction des matrices de Stokes 
+%   A = [ a  b
+%         b' 0]
+%   Masse : matrice de masse
+%--------------------------------------------------------------------------
+[DxDx,DyDy,DzDz,DxDy,DxDz,DyDz,DxW,DyW,DzW,Masse]=matrix_3D(v,t);
+A=[nu*(2*DxDx+DyDy+DzDz),              nu*DxDy',              nu*DxDz',             -DxW;
+                  nu*DxDy, nu*(DxDx+2*DyDy+DzDz),              nu*DyDz',             -DyW;
+                  nu*DxDz,               nu*DyDz, nu*(DxDx+DyDy+2*DzDz),             -DzW;
+                    -DxW',                 -DyW',                 -DzW', sparse(nv1,nv1)];
+% Construction du second membre
+[fx, fy, fz, fxgd, fygd,fzgd,fxy] = f2Dto3D_2(v,t,nv1,nv2,nbquad,X,Y,Z,Nx,Ny,Nz,aimant_centre); 
+%   fx, fy, fz sont les forces dans des vecteurs colonnes 1*size(v,1)
+%   fxgd, fygd, fzgd sont les forces dans des matrices Nx*Ny*Ny pour
+%   affichage
+F=[fx; fy; fz; sparse(nv1,1)];
+% Traitement de la pression a moyenne nulle par multiplicateur de Lagrange.
+[A,F,nv1] = tmtpression(Nx,Ny,Nz,nv1,nv2,t,A,F);
+% Traitement des CL
+ibT=[ind_bd;ind_bd+nv2;ind_bd+2*nv2];
+icT=(1:3*nv2+nv1);
+icT(ibT)=[];
+F(ibT)=[];
+A = A(icT,icT);
+%-------------------- Resolution du systeme lineaire Ax=F -----------------
+[sol,residu,iter]=linsolver(A,F,nv1,nv2-length(ind_bd));
+UP=zeros(3*nv2+nv1-1,1);
+UP(icT)=sol;
+% Vitesse
+Ux=UP(1:nv2); Uy=UP(nv2+1:2*nv2); Uz=UP(2*nv2+1:3*nv2);
+% Pression
+Pr=UP((3*nv2+1):end);
+% Interpolation de la pression sur le maillage Q2
+nt1= (Nx-1)*(Ny-1)*(Nz-1); % nb de cubes Q1
+Pr2 = build_Q2Pressure(t(1:nt1,:),Pr,nv2);
+
+% Construction du maillage Q1-isoQ2
+tQ1isoQ2 = meshQ1isoQ2(t); 
+[X2,Y2,Z2,Uxgd,Uygd,Uzgd,Pgd] = gridformat(Lx,Ly,Lz,Nx,Ny,Nz,v,Ux,Uy,Uz,Pr2);
+end
+\end{verbatim}
+
+\begin{verbatim}
+%==========================================================================
+%     		a partir d'un maillage donne f2Dto3D82 renvoit 
+%   			le terme source f de l'equation de navier-stokes
+%==========================================================================
+function [fx, fy, fz, fxgd, fygd,fzgd,fxy] = f2Dto3D_2(v,t,nv1,nv2,nbquad,X,Y,Z,Nx,Ny,Nz,aimant_centre)
+%   fx, fy, fz sont les forces dans des vecteurs colonnes 1*size(v,1)
+%   fxgd, fygd, fzgd sont les forces dans des matrices Nx*Ny*Ny pour
+%   affichage
+%--------- extraction d'une couche 2d et triangulation --------------------
+lz = 0;                             % niveau z=0
+indz = find(v(:,3) == lz);
+xz = v(indz,1); yz = v(indz,2); vz = [xz, yz];
+tz = delaunay(xz,yz);              % triangulation de Delaunay des points du plan 
+
+figure();
+triplot(tz,xz,yz);   % affichage
+title('couche 2D extraite du maillage 3D de la cuve')
+%on voit que les point dans v ne sont pas dans l'ordre avec triplot         
+%-------------------- coordonnées des differents maillage ------------------
+node_ensemble = [0,0 ; 10 0; 10 10; 0 10]; %  maillage total
+node_select = [4.5 4.5;5.5 4.5; 5.5 5.5; 4.5 5.5]; %  mailage cuve 
+%---------- configuration aimant ------------------------------------------
+if aimant_centre == true
+    node_aimant = [4.75 3.5; 5.25 3.5; 5.25 4.5; 4.75 4.5]; 
+end
+if aimant_centre == false
+    node_aimant = [5.1 3.5;5.6 3.5;5.6 4.5;5.1 4.5];       
+end
+edge_aimant = [(1:size(node_aimant,1))',[(2:size(node_aimant,1))'; 1]];       
+edge_ensemble = [1,2; 2,3; 3,4; 4,1];                               
+edge_total = [edge_aimant; edge_ensemble+size(node_aimant,1)];       
+node_total = [node_aimant; node_ensemble];                      
+%-------- generation maillage total de resolution du probleme 2D ------------
+L_total = 10;
+H_total = 10;
+x_2D = linspace(0,L_total,2*10*(Nx-1) + 1)';
+y_2D = linspace(0,H_total,2*10*(Ny-1) + 1 )';
+[X_total_2D,Y_total_2D] = meshgrid(x_2D,y_2D);
+v_total_2D_x = X_total_2D';
+v_total_2D_x = v_total_2D_x(:);
+v_total_2D_y = Y_total_2D';
+v_total_2D_y = v_total_2D_y(:);
+v_total_2D = [v_total_2D_x(:) v_total_2D_y(:)];
+t_total_2D = delaunay(v_total_2D(:,1),v_total_2D(:,2)); %generation maillage triangulaire total
+%---------- calcul du champ magnétique sur la couche z=0 ----------------- 
+[B_X,B_Y] = champ_magnetique_fct_Tancrede_1(v_total_2D,t_total_2D,...
+node_aimant,edge_aimant,node_ensemble,edge_ensemble,aimant_centre);
+f0 = B_Y; %calcul du second menbre sur le plan z=0
+%----------  placement du second menbre dans le maillage 3D --------------
+%----------------- ne marche pas  ------------------------------------------
+%   l'idee est de recuperer les coordonnees au-dessus de chaque noeuds pour
+%   assigner les meme valeurs que la couche z=0
+% for k=1:size(f0,1)
+%     iz = find(abs((v(:,1) - vz(k,1)))<0.01 & abs((v(:,2) - vz(k,2)))<0.01);
+%     if size(iz,1) ~= 21
+%         lk = 1;
+%     end
+%     fz(iz,:) = f0(k);                                     
+% end
+%--------------------- test table de connectivite ------------------------
+% test_connectivite = true;
+% for ti = 1:size(t,1)
+%     a = (fz(t(ti,1))==fz(t(ti,13))) && (fz(t(ti,1))==fz(t(ti,5))) && ...
+%         (fz(t(ti,3))==fz(t(ti,15))) && (fz(t(ti,3))==fz(t(ti,7))) && ....
+%         (fz(t(ti,9))==fz(t(ti,22))) && (fz(t(ti,9))==fz(t(ti,17))) && ...
+%         (fz(t(ti,21))==fz(t(ti,27))) && (fz(t(ti,21))==fz(t(ti,26)));
+%     if a == false
+%         test_connectivite = false
+%     end
+% end
+%   les test montre que les valeur ne suivent pas les tables connectivite
+%----------- placement des valuers de f0 dans une matrice 3D --------------
+%   placement des valuers sur une matrice Nx*Ny*Nz
+%   d'abord placement de f0 sur une matrice Nx*Ny comme les valeurs sont
+%   les meme sur chaque plan du maillage selon z
+fxy = zeros(2*Ny-1,2*Nx-1);
+for yi = 1:2*Ny-1       % selon l'axe y
+    for xj = 1:2*Nx-1         % selon l'axe x
+        m = (2*Nx-1)*(yi-1)+xj ;
+        fxy(yi,xj) = f0(m);
+    end
+end
+fxgd=zeros(2*Ny-1,2*Nx-1,2*Nz-1);
+fygd=zeros(2*Ny-1,2*Nx-1,2*Nz-1);
+fzgd=zeros(2*Ny-1,2*Nx-1,2*Nz-1);
+% comme la valeur selon z est l seule non-nulle on ne touche pas aux autres
+% composante ce qui serait des calculs inutiles
+for p=1:(2*Nz-1)
+    fzgd(:,:,p)=fxy;
+end
+%---constitution de fz a partir de fzgd en respectant la structure de v --%
+hx=1/(2*(Nx-1)); hy=1/(2*(Ny-1)); hz=1/(2*(Nz-1));
+%fzgd=zeros(2*Ny-1,2*Nx-1,2*Nz-1);
+for m = 1:size(fz,1)
+    ind = round(v(m,:)./[hx, hy, hz])+1;
+    fz(m,:) = fzgd(ind(2),ind(1),ind(3));
+end
+%--------- mise ne forme matrice 3D pour affichage avec quiver ----------
+%  ainsi on verifie le bon placement des donnees
+%  cela necessite le rearrangement des donnees dans une matrice 3D
+hx = 1/(2*(Nx-1)); hy = 1/(2*(Ny-1)); hz = 1/(2*(Nz-1));
+ for m = 1:size(fz,1)
+     ind = round(v(m,:)./[hx, hy, hz])+1;
+     fzgd(ind(2),ind(1),ind(3)) = fz(m);
+ end
+
+end
+\end{verbatim}
 
 
+\begin{verbatim}
+%============================================================================================================
+% 			adaptation du code de résolution du champ magnétique précedent
+%	champ_magnetique_fct_Tancrede_1 renvoit le champ magnétique pour lmes données du maillage
+%============================================================================================================
+function [B_cuve_X, B_cuve_Y] = champ_magnetique_fct_Tancrede_1(v_total_2D,t_total_2D,node_aimant,...
+edge_aimant,node_ensemble,edge_ensemble,aimant_centre)
+-%------------------------------------------------------------------------------------------------------------
+%                   définition de fnum pour situer pour chaque triangle du maillage 
+%------------------------------------------------------------------------------------------------------------
+% face 1 = aimant
+% face 2 = cuve
+% face 3 = le reste avec le maillage de résolution total
+fnum = 3 * ones(size(t_total_2D,1),1); %fnum a 3 de base apres on cherche la cuve et l'aimant
+if aimant_centre == true %si l'aimant est en position centree
+    int_aimant = find(v_total_2D(:,1) >= 4.75 & v_total_2D(:,1) <= 5.25 & v_total_2D(:,2) >=  3.5 & v_total_2D(:,2) <= 4.5);
+end
+if aimant_centre == false %si l'aimant est sur le coté
+    int_aimant = find(v_total_2D(:,1) >= 5.1 & v_total_2D(:,1) <= 5.6 & v_total_2D(:,2) >=  3.5 & v_total_2D(:,2) <= 4.5);
+end
+int_cuve = find(v_total_2D(:,1) >= 4.5 & v_total_2D(:,1) <= 5.5 & v_total_2D(:,2) >=  4.5 & v_total_2D(:,2) <= 5.5);
+for k = 1:nt
+	if ismember(t_total_2D(k,1),int_aimant) && ismember(t_total_2D(k,2),int_aimant) && ismember(t_total_2D(k,3),int_aimant);
+    	fnum(k) = 1; %aimant
+    end
+   	if ismember(t_total_2D(k,1),int_cuve) && ismember(t_total_2D(k,2),int_cuve) && ismember(t_total_2D(k,3),int_cuve);
+        fnum(k) = 2; %cuve
+    end
+end
+%---------------------------- Calcul des matrices --------------------------------------------------
+ 							%même code que précédemment 
 
+%------------------------- récupération de la solution sur la cuve ----------------------------------
+j = 1;
+for k = 1:nt
+	if fnum(k) == 2
+		t_cuve(j,:) = t_total_2D(k,1:3);
+            j = j + 1;
+        end
+end
+numeros_noeuds_cuve = unique(sort(t_cuve(:)));
+v_cuve = v_total_2D(numeros_noeuds_cuve,:);
+u_cuve = u(numeros_noeuds_cuve,:);
+B_cuve = B(numeros_noeuds_cuve,:);
+B_cuve_X = B_cuve(:,1);
+B_cuve_Y = B_cuve(:,2);
+X_cuve_2D = v_cuve(:,1);
+Y_cuve_2D = v_cuve(:,2);
+X_total_2D = v_total_2D(:,1);
+Y_total_2D = v_total_2D(:,2);
+end
+\end{verbatim}
 
-
+\begin{verbatim}
+%==========================================================================
+%           transpose le champ par couche de telles manière 
+%               a pouvoir sommer les champs de vitesses
+%==========================================================================
+function [Ux_transp,Uy_transp,Uz_transp] = transposition_champ(Ux,Uy,Uz)
+% prend en argument les champs sous forme de matrice de taille Nx * Ny * Nz
+%------------------------ initialisation ----------------------------------
+Ux_transp = zeros(size(Ux));
+Uy_transp = zeros(size(Uy));
+Uz_transp = zeros(size(Uz));
+%------------ pour Uz -----------------------------------------------------
+for z = 1:size(Uz,3)
+    for x = 1:size(Uz,1)
+        Uz_transp(:,size(Uz,1) + 1 - x,z) = Uz(x,:,z)'; 
+    end
+end
+%------------ pour Ux -----------------------------------------------------
+for z = 1:size(Ux,3)
+    for x = 1:size(Uz,1)
+        Ux_transp(:,size(Uz,1) + 1 - x,z) = - Uy(x,:,z)'; 
+    end
+end
+%------------ pour Uy -----------------------------------------------------
+for z = 1:size(Uy,3)
+    for x = 1:size(Uz,1)
+        Uy_transp(:,size(Uz,1) + 1 - x,z) = Ux(x,:,z)'; 
+    end
+end
+\end{verbatim}
+Nous n'explicitons pas les fonctions fournis par les tuteurs que nous n'avons pas modifiés.
 \iffalse
 %==========================================================================================================================================================	
 \chapter{Démonstration de l'existence d'une solution u}
