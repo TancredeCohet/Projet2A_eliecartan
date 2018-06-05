@@ -70,14 +70,14 @@
 \\
 \\
 \begin{onehalfspace}
-La résolution d'équations à dérivées partielles sont la clé de voute de la modélisation de systèmes physiques et financiers avec des conditions aux limites des systèmes. Cette problématique est particulièrement vraie en mécanique des fluides avec l'utilisation prépondérante de l'équation de Navier Stokes. Il est donc primordial d'avoir des moyens de résolution/simulation numérique de ce genre d'équation, qui respecte les différentes contraintes que posent la théorie des équations à dérivées partielles ( fonctions modélisées respectant les espaces de Sobolev). Une des méthodes numériques de résolution de Navier-Stokes est par exemple la méthode des éléments finis, sur maillage triangulaire. 
+La résolution d'équations à dérivées partielles est la clé de voute de la modélisation de systèmes physiques et financiers avec des conditions aux limites des systèmes. Cette problématique est particulièrement vraie en mécanique des fluides avec l'utilisation prépondérante de l'équation de Navier Stokes. Il est donc primordial d'avoir des moyens de résolution et de simulation numérique de ce genre d'équation, qui respectent les différentes contraintes que posent la théorie des équations à dérivées partielles. Une des méthodes numériques de résolution de Navier-Stokes est par exemple la méthode des éléments finis, sur maillage triangulaire. 
 \newline
 Le but de ce projet est d'étudier des écoulement chaotiques à faible nombre de Reynolds, c'est à dire des écoulements dont les forces visqueuses sont prépondérantes, qui sont présents typiquement dans l'industrie métallurgique ou dans l'industrie hydro-électrique. Cette problématique de résolution d'équations numériques à dérivées partielles est au cœur des enjeux du projet.
 \newline
 \newline
 L'approche numérique eulérienne d'un mélange par advection chaotique traite du problème stationnaire avec champ de vitesse sinusoïdale qui correspond à un système de tourbillons orthogonaux, dont le modèle académique analytique a été étudié dans le cadre de la thèse de Valérie Toussaint, que nous allons reprendre avec deux tourbillons d'axes parallèles et un tourbillon qui leur est perpendiculaire.
 
-Cette étude se fait dans la continuité d'un travail effectué par Ismail Mebsout et Oumaima Hammami durant l'année scolaire 2016-2017 où le but sera d'étudier les écoulement en s'affranchissant de certaines simplifications.
+Cette étude se fait dans la continuité d'un travail effectué par Ismail Mebsout et Oumaima Hammami durant l'année scolaire 2016-2017 où le but sera d'étudier les écoulements en s'affranchissant de certaines simplifications.
 Dans la première partie de notre étude, nous allons présenter le problème, puis le mettre en équation et calculer la force magnétique composant le terme source de l'équation de Navier-Stokes, pour résoudre numériquement le problème et étudier les résultats.
 
 %\end{onehalfspace}
@@ -88,7 +88,7 @@ Dans la première partie de notre étude, nous allons présenter le problème, p
 \chapter{Position du problème}
 
 Pour générer l'écoulement que nous souhaitons étudier nous allons utiliser les forces de Laplace. Le fluide (de l'eau) considéré non visqueux dans une cuve est ionisé et placé sous influence d'aimants ferromagnétiques. Chaque particule du fluide va se mouvoir sous l'influence du champ magnétique. Notre but est de configurer correctement les champs magnétiques pour obtenir un écoulement chaotique. On peut définir l'advection chaotique comme un écoulement dans un fluide dont la trajectoire des point passe par tous les point du domaine, ou de manière mathématique avec les écoulements de Liapounov.
-C'est à dire que théoriquement si on observe le passage d'une particule à travers une section du fluide au bout d'un temps infinis, les points d'impact de la particule recouvreront de manière continue toute la section.
+C'est à dire que théoriquement si on observe le passage d'une particule à travers une section du fluide au bout d'un temps infinis, les points d'impacts de la particule recouvreront de manière continue toute la section.
 \subsection{Définition de l'advection chaotique}
 Pour la définiton d'un écoulement chaotique nous allons considérer la différence entre les approches eulériennes et lagrangienne d'un écoulement. 
  Rappelons  d'abord en se plaçant en eulérien , les variables indépendantes à considérer sont le temps t et la position $\vec{x}$ d'une particule fluide à l'instant t. \\
@@ -98,7 +98,7 @@ Pour la définiton d'un écoulement chaotique nous allons considérer la différ
 \]
 où D est la diffusivité moléculaire et $\vec{u}$ est le champ de vitesse advectant, incompressible et connu. \\
 \\
-Dans le cas où l'écoulement est laminaire, c'est à dire quand l'advection est prépondérante à la diffusion, l'écoulement étant complètement déterministe, le champ de vitesse $\vec{u}$ est une fonction régulière des coordonnées spatiales, et éventuellement du temps. 
+Dans le cas où l'écoulement est laminaire, c'est à dire quand l'advection est prépondérante à la diffusion, l'écoulement étant complètement déterministe, le champ de vitesse $\vec{v}$ est une fonction régulière des coordonnées spatiales, et éventuellement du temps. 
 \\ 
 \\
 En revanche, en se plaçant d'un point de vue lagrangien, les variables indépendantes sont alors le temps t et la position initiale $\vec{x_0}$ de la particule à l'instant $t_0$. Un tel système est un système dynamique à 3 degrés de liberté (nécessaire à un écoulement chaotique, il n'y a pas d'advection chaotique en 2D pour des écoulement stationnaire ce qui sera notre cadre d'étude), non autonome(si le champ de vitesse $\vec{v}$ dépend explicitement du temps, et généralement non linéaire à travers la dépendance spatiale du champ de vitesse, et pour lequel on différencie types de stabilité la où on ne le fait pas pour un systeme autonome). \\
@@ -110,7 +110,7 @@ Dans les autres cas (notamment le notre) un tel système a de fortes chances d'�
 Ainsi on peut se trouver dans la situation d'un écoulement régulier dans la représentation eulérienne conduisant à une réponse essentiellement erratique si l'on considère l'advection d'un traceur d'un point de vue lagrangien : cette situation est appelée advection chaotique, ou chaos lagrangien.\\
 L' écoulement chaotique va ainsi notament s'illustrer par une instabilité, notament dans le cas de deux particules séparé par un écart $\delta x$, cet écart va croitre exponentiellement selon la théorie des exposants de Lyapunov. 
 \\
-Le chaos lagrangien est particulièrement intéressant lors de mélange laminaire, car il est bien plus intéressant que l'écoulement turbulent, il permet d'effectuer des mélages pour un moindre cout d'énergie. En théorie à partir d'un temps infini, chaque particule aura parcouru l'intégralité des points de l'espace de référence.  On mettra en exergue cette assertion avec les sections de Poincaré, dont l'on explicitera les propriétés plus tard dans le rapport. 
+Le chaos lagrangien est particulièrement intéressant lors de mélange laminaire, car il est bien plus intéressant que l'écoulement turbulent, il permet d'effectuer des mélanges pour un moindre cout d'énergie. En théorie à partir d'un temps infini, chaque particule aura parcouru l'intégralité des points de l'espace de référence.  On mettra en exergue cette assertion avec les sections de Poincaré, dont l'on explicitera les propriétés plus tard dans le rapport. 
 
 \subsection{dispositif expérimental} 
 
@@ -638,7 +638,7 @@ On en déduit la matrice de masse élémentaire sur un triangle de maillage
 \subsection{Implémentation algorithmique}
 
 Pour la résolution du problème nous utiliserons matlab avec la bibliothèque Mesh2D par Darren Engwirda pour la création du maillage 2D.
-La résolution est effectué sur un maillage $5\times 5$ avec en son centre un aimant de taille $1\times 1$cm.
+La résolution est effectué sur un maillage $5\times 5$ avec en son centre un aimant de taille $1\times 1$.
 
 \begin{figure}[h]
 	\begin{center}
@@ -647,7 +647,7 @@ La résolution est effectué sur un maillage $5\times 5$ avec en son centre un a
 	\end{center}
 \end{figure}
 
-Pour le calcul nécessaire des différentes matrice afin de résoudre le problème linéaire $A\times U = F$, les algorithmes reposent sur la même méthodologie de calcul :
+Pour le calcul nécessaire des différentes matrices afin de résoudre le problème linéaire $A\times U = F$, les algorithmes reposent sur la même méthodologie de calcul :
 Par exemple pour le calcul de la matrice A : 
 \[
 \begin{aligned}
@@ -664,7 +664,7 @@ A_{ij} =
 	\bigtriangledown_{\hat{x}} \hat{\varphi_{j}}
 \end{aligned}
 \]
-Le principe consiste à ne pas recherche le support croisé des fonctions $\varphi_i$ et $\varphi_j$ (ce qui donnerait une complexité trop importante) mais à boucler sur les triangles et placer dans la matrice les contributions correspondantes à chacun de leurs nœuds avec leur indices. Notamment avec l'outil matriciel $sparse$ de matlab qui permet d'exploiter en temps de calcul et d'espace mémoire le fait que la matrice de rigidité A est creuse, comme pour deux fonction $\varphi_{i}$ et $\varphi_{j}$ l'intersection de leurs support se réduit à deux triangle.
+Le principe consiste à ne pas rechercher le support croisé des fonctions $\varphi_i$ et $\varphi_j$ (ce qui donnerait une complexité trop importante) mais à boucler sur les triangles et placer dans la matrice les contributions correspondantes à chacun de leurs nœuds avec leur indices. Notamment avec l'outil matriciel $sparse$ de matlab qui permet d'exploiter en temps de calcul et d'espace mémoire le fait que la matrice de rigidité A est creuse, comme pour deux fonction $\varphi_{i}$ et $\varphi_{j}$ l'intersection de leurs support se réduit à deux triangles.
 \\
 \\
 Ainsi pour le calcul de A chaque triangle engendre une matrice élémentaire $ 3\times 3$ (car 3 nœuds pour chaque triangle donc 9 termes croisés) symétrique vu le calcul du terme $A_{ij}$ dont on place les terme dans la matrice A à chaque itération sur les triangles.
@@ -680,7 +680,7 @@ Et de même également pour le calcul des matrices M et C pour le gradient, dont
 
 Voici une présentation succinte de l'algorithme de résolution, les fonctions utilisés sont détaillé dans l'annexe \ref{annexe_2}.
 
-Pour la génération du maillage, on tulise la fonction meshfaces fournis par la bibliothèque Mesh2D par Darren Engwirda
+Pour la génération du maillage, on utilise la fonction meshfaces fournis par la bibliothèque Mesh2D par Darren Engwirda
 \begin{verbatim}
  [v,t,fnum] = meshfaces(node,edge,face,hdata); %construction du maillage
  
@@ -718,7 +718,7 @@ Voici les résultats de la simulation pour un maillage de pas 0.2 et de taille $
 \label{figure 1}
 \end{center}
 \end{figure}
-On voit que les vecteurs suivent les dessin des lignes de champ que l'on peut attendre d'un aimant.
+On voit que les vecteurs suivent les trajectoires des lignes de champs que l'on peut attendre d'un aimant.
 On peut s'inquiéter de la discontinuité des valeurs au bord de l'aimant mais ce la est en accord avec la formulation du champ d'induction comme la somme d'un champ d'excitation et d'une aimantation, nulle en dehors de l'aimant $\vec{B}=\mu _{0}(\vec{H}+\vec{M})$, d'où cette discontinuité que l'on observe.
 \begin{figure}[!h]
 \begin{center}
@@ -900,14 +900,14 @@ Pratiquement nous allons résoudre le problème en deux temps : d'un coté pour 
 \begin{figure}[!h]
 	\begin{center}
 	\includegraphics[height = 8 cm, keepaspectratio]{graphes/config_centre.png}
-	\caption{résolution pour un aimant décentré}
+	\caption{résolution pour un aimant centré}
 	\label{figure 1k}
 	\end{center}
 \end{figure}
 \begin{figure}[!h]
 	\begin{center}
 	\includegraphics[height = 8 cm, keepaspectratio]{graphes/champvec2.png}
-	\caption{résolution pour un aimant centré après transposition du champ de vitesse pour que les tourbillons soient perpendiculaires}
+	\caption{résolution pour seux aimants decentrés après transposition du champ de vitesse pour que les tourbillons soient perpendiculaires}
 	\label{figure 1h}
 	\end{center}
 \end{figure}
@@ -953,10 +953,10 @@ Les éléments de la matrice élementaire pour la matrice de rigidité sur un é
 \[
 W_{i,j}^{k,l}=\int_K \frac{\partial l^{(i)}}{\partial x_k} \times \frac{\partial l^{(j)}}{\partial x_l}dx
 \]
-où les  $\l^{(i)}$ sont les fonctions de base de l'espace d'interpolation $V_h$ comme précédemment dans ma partie 2D. \\
+où les  $\l^{(i)}$ sont les fonctions de base des élements du maillage comme précédemment dans la partie 2D. \\
 Et pour la matrice de masse la matrice élémentaire sur un élément K est
 \[
-M_i,j=\int_K l^{(i)}\times l^{(j)}dx
+M_{i,j}=\int_K l^{(i)}\times l^{(j)}dx
 _K 
 \]
  Pour déterminer ces intégrales, on se ramène à l'élément de référence $\hat{K}$ avec la transformation affine
@@ -967,18 +967,18 @@ De la même manière que les travaux précédents pour les transformations entre
 \[
 \hat{\bigtriangledown}\hat{v}(\hat{x})= [DF_K(\hat{x})]^T\times \bigtriangledown v(x)
 \]
-avec $[DF_K(\hat{x})]$ la matrice jacobienne de $F_K$ dont on note les éléments $J_i,j$, et ainsi on a $\bigtriangledown v(x) = [B_K^{-1}]^T\hat{\bigtriangledown} \hat{v}(\hat{x})$.
+avec $[DF_K(\hat{x})]$ la matrice jacobienne de $F_K$ dont on note les éléments $J_{i,j}$, et ainsi on a $\bigtriangledown v(x) = [B_K^{-1}]^T\hat{\bigtriangledown} \hat{v}(\hat{x})$.
 
 On obtient l'expression des éléments de la matrice élementaire en fonction des valeurs sur l'éléments de référence $\hat{K}$.
 \[
 W^{k,l} = \frac{1}{|\text{det} \ B_K|}\sum_{m,n=1}^{N} J_{km}\ J_{ln}\ \hat{W}^{m,n}
 \]
 En regardant la construction des éléments avec les tables de connectivité on voit que les matrices élémentaire de réference sont de taille $9\times 9$ que l'on sait calculer explicitement.
-Dans notre algorithme on calcule la matrice de rigidité à l'aide du script $matrix3D$ qui réunit dans des matrice $27\times 27$ les termes croisé des matrices élémentaires ce qui permet de calculer directement en une affectation la matrice de rigidité en utilisant ses propriétés de symétries par blocs.
+Dans notre algorithme on calcule la matrice de rigidité à l'aide du script $matrix3D$ qui réunit dans des matrice $27\times 27$ les termes croisés des matrices élémentaires ce qui permet de calculer directement en une affectation la matrice de rigidité en utilisant ses propriétés de symétries par blocs.
 
 Pour la matrice élémentaire de masse nous pouvons développer des calculs similaire à ceux menés dans le cas 2D pour trouver une matrice élémentaire $M_{i, j} = |\text{det} J| \times PhiPhi$ où $|\text{det} J|$ est le déterminant du Jacobien et $PhiPhi$ une matrice déterminé qui reste la même à chaque itération.
 
-On utilise ainsi dans les script de calculs une méthodologie similaire consistant à stoker les indices des valeurs comprises dans les matrices élémentaire et à construire la matrice complète à la fin des itérations sur les éléments en assignant les valeurs dans la matrices aux indices justement indiqués par les nœuds que l'on a gardé en mémoire en une seule affectation.
+On utilise ainsi dans les scripts de calculs une méthodologie similaire consistant à stoker les indices des valeurs comprises dans les matrices élémentaires et à construire la matrice complète à la fin des itérations sur les éléments en assignant les valeurs dans la matrices aux indices justement indiqués par les nœuds que l'on a gardé en mémoire en une seule affectation.
 
 \begin{verbatim}
 point=t(k,:);
@@ -1001,7 +1001,7 @@ AddMatElem(A,indice+2*nv2,indice+2*nv2,nu*DxDxval+nu*DyDyval+2*nu*DzDzval);
 %================= implementation algo =============================================================
 \subsection{Raccordement à la modélisation du champ magnétique}
 
-Pour résoudre le système linéaire qui découle des équation de Navier-Stokes, nous devons reprendre notre travail précédent pour former le second terme $f$, matrice colonne regroupant les valeurs scalaires de la force magnétique aux différents point du maillage.
+Pour résoudre le système linéaire qui découle des équations de Navier-Stokes, nous devons reprendre notre travail précédent pour former le second terme $f$, matrice colonne regroupant les valeurs scalaires de la force magnétique aux différents point du maillage.
 
 Nous devons donc faire le liens entre le maillage de résolution en trois dimension pour la résolutions des équations régissant l'écoulement et le maillage en deux dimensions sur lequel on calcule le champ magnétique. 
 
@@ -1010,7 +1010,7 @@ La méthodologie que nous allons donc appliquer consiste à calculer une unique 
 
 Ce que nous faisons en pratique est de générer un grand maillage de résolutions 2D pour calculer le champ magnétique, ce qui permet d'atténuer les effets de bord subit par le champ magnétique. 
 \newline
-Nous utilisons ensuite la fonction Matlab $delaunay$ qui permet à partir du maillage rectangulaire, de définir un maillage triangulaire (comme nous avons travaillé auparavant sur un maillage de type triangulaire quelconque auparavant pour le calcul du champ magnétique).
+Nous utilisons ensuite la fonction Matlab $delaunay$ qui permet à partir du maillage rectangulaire, de définir un maillage triangulaire (comme nous avons travaillé sur un maillage de type triangulaire quelconque auparavant pour le calcul du champ magnétique).
 Nous identifions ensuite sur ce maillage de résolution 2D un domaine correspondant à la cuve est un domaine correspondant à l'aimant, en fonction de la configuration choisie. Le maillage sur le domaine assigné à la cuve doit bien sur correspondre à une couche du maillage de résolution 3D utilisé pour la résolution des équations de Navier-Stokes.
 
 \begin{figure}[!h]
@@ -1023,14 +1023,14 @@ Nous identifions ensuite sur ce maillage de résolution 2D un domaine correspond
 \end{figure}
 
 \newpage
-Algorithmiquement, pour assigner les différents domaines du maillage de résolution 2D généré, nous utilisons le vecteur label $fnum$ qui prend sur chaque triangle la valeur 1, 2, ou 3 en fonction du domaine qui lui a été assigné.
+Algorithmiquement, pour assigner les différents domaines du maillage de résolution 2D générés, nous utilisons le vecteur label $fnum$ qui prend sur chaque triangle la valeur 1, 2, ou 3 en fonction du domaine qui lui a été assigné.
 \newline
 Maintenant  notre objectif est de pouvoir adapter les données extraites à l'algorithme de Stokes 3D. Le premier obstacle est de réindexer le numéro des triangles pour qu'il y ait une bonne consistance des données lorsque l'algorithme va les utiliser: il faut renuméroter les triangles dans l'ordre. 
 \newline  	
 
-Un autre point important est le degré d'interpolation des espace polynomiaux sur lessquels nous travaillons. En effet nous avons résolu les équations du champ magnétique avec des éléments finis de degrés d'interpolation polynomiales 1 (éléments P1), alors que la résolution des équations de Navier-stokes nécessite des éléments finis P2. Il faut donc doubler le nombre de points d'interpolations du champ magnétique avant d'injecter le second membre $f$ dans l'algorithme de résolution des équations de Navier Stokes. Les données prennent alors une nouvelle structure suite à ce dédoublement des point, les matrices ne suivent plus le sens de parcourt des données fixé avec la fonctions de génération de maillage $ngrid$(qui est une généralisation sur la troisième dimension  de $meshgrid$). Ce doublement de point du maillage avec la génération des tables nouvelles tables de descriptions du maillage t et v sont faite par la fonction $mesh_3D$ fournis par M. Scheid que nous utilisons comme une boite noire.
+Un autre point important est le degré d'interpolation des espace polynomiaux sur lesquels nous travaillons. En effet nous avons résolu les équations du champ magnétique avec des éléments finis de degrés d'interpolation polynomiales 1 (éléments P1), alors que la résolution des équations de Navier-stokes nécessite des éléments finis P2. Il faut donc doubler le nombre de points d'interpolations du champ magnétique avant d'injecter le second membre $f$ dans l'algorithme de résolution des équations de Navier Stokes. Les données prennent alors une nouvelle structure suite à ce dédoublement des point, les matrices ne suivent plus le sens de parcourt des données fixé avec la fonctions de génération de maillage $ngrid$(qui est une généralisation sur la troisième dimension  de $meshgrid$). Ce doublement de point du maillage avec la génération des tables nouvelles tables de descriptions du maillage t et v sont faite par la fonction $mesh_3D$ fournis par M. Scheid que nous utilisons comme une boite noire.
 
-On le voit tout de suite avec un affichage avec un affiche $triplot$ après avoir appliqué $delaunay$ sur les données de la couche 2D du maillage 3D dont on a doublé les points.
+On le voit tout de suite un affiche $triplot$ après avoir appliqué $delaunay$ sur les données de la couche 2D du maillage 3D dont on a doublé les points.
 \begin{verbatim}
 z = 0;   % niveau z = 0
 indz = find(v(:,3) == z);		% récupération des indices des nœuds pour le niveau 0
@@ -1044,7 +1044,7 @@ triplot(tz,xz,yz);   				% affichage
 	\includegraphics[height = 8cm, keepaspectratio]{graphes/affichage_extraction_2D.jpg}
 	\caption{\label{figure 3 } affichage avec $triplot$ du maillage extrait}
 \end{figure}
-Si on compare à une structure de données classiques généré avec $meshgrid$ ou $linspace$:
+Si on compare à une structure de données classique généré avec $meshgrid$ ou $linspace$:
 \begin{verbatim}
 t_total_2D = delaunay(v_total_2D(:,1),v_total_2D(:,2)); 
 triplot(t_total_2D ,X_total_2D,Y_total_2D);
@@ -1063,13 +1063,13 @@ Pour comprendre la structure des données il faut alors se rapporter  aux tables
 \includegraphics[height = 8cm, keepaspectratio]{graphes/table_de_connectivite.png} 
 \caption{\label{figure 38 } table de connectivité, issu du cours $Analyse$ $numérique$ $des$ $équations$ $de$ $Navier$-$Stokes$, J.-F. Scheid}
 \end{figure}
-On comprend alors que cette structure des données ératique est du à l'arrangement de la tables de coordonnées v. Cela ne pose pas de problème dans la mesure où nous prenons garde à garder la même structure de données tout de long de notre algorithme de résolution est donc d'arranger selon la même structure le second membre $f$.
+On comprend alors que cette structure des données ératique est du à l'arrangement de la tables de coordonnées v. Cela ne pose pas de problème dans la mesure où nous prenons garde à garder la même structure de données tout de long de notre algorithme de résolution et donc d'arranger selon la même structure le second membre $f$.
 Et de même pour pouvoir visualiser graphiquement nos résultat nous devons passer de cette structure particulière des données à une structure compatible à l'affichage avec la fonction matlab $quiver3$.
  
 %================= résultats ====================================================================
 \newpage
 \subsection{Résultats}
-Nous allons étudier graphiquement les différents résultats que nous obtenus et évaluer leur justesse en les interprétants physiquement par rapport à ce que nous attenderions avec les paramètres donnés.
+Nous allons étudier graphiquement les différents résultats que nous avons obtenus et évaluer leur justesse en les interprétants physiquement par rapport à ce que nous attendrions avec les paramètres donnés.
 \newline
 \\
 Tout d'abord dans la configuration pour un aimant centré nous observons sur la coupe clairement deux tourbillons symétrique de part et d'autres de l'aimant, ce qui est logique comme la configuration est symétrique selon le même plan de symétrie, ce qui valide le bon placement des données dans la résolution du problème.
@@ -1122,7 +1122,7 @@ Nous apercevons sur la figure \ref{figure 34} que la déformation du tourbillon 
 
 \begin{figure}[!h]
 \begin{center} 
-\includegraphics[height = 8cm, keepaspectratio]{graphes/Paraview/differents_flux_decentre_100pt_lenght4_rad05.png} 
+\includegraphics[height = 10cm, keepaspectratio]{graphes/Paraview/differents_flux_decentre_100pt_lenght4_rad05.png} 
 \caption{\label{figure 36 }  différents flux pour un aimant centré utilisation de $StreamTracer$pour des sphères de rayon 0.05 contenant 100 particules et pour un max $StreamLine$ $FLux$ de 3}
 \end{center}
 \end{figure}
@@ -2073,25 +2073,26 @@ Et comme $\vec{M}$ est nul en dehors du domaine $\Omega_{\text{int}}$ de l'aiman
 \end{onehalfspace}
 
 \newpage
-\Large \bf Bibliographie
+\normalsize \bf Bibliographie
 
-\mdseries  "Introduction à l'analyse numérique"(1998), de Jacque Rappaz et Marco Picasso, publié par les Presses polytechniques et universitaires romandes.
+
+\bibliographystyle{plain}
+\bibliography{bibli}
+ [1] "Introduction à l'analyse numérique"(1998), de Jacque Rappaz et Marco Picasso, publié par les Presses polytechniques et universitaires romandes.
 \\
 \\
-"Méthode des éléments finis : élasticité plane" par Yves Dabard, Institut Universitaire de Technologie du Mans Département Génie Mécanique et Productique
+[2] "Méthode des éléments finis : élasticité plane" par Yves Dabard, Institut Universitaire de Technologie du Mans Département Génie Mécanique et Productique
 , http://iut.univ-lemans.fr/ydlogi/index.html, 24 mars 2006 – 29 mars 2011
 %
 %" par un écoulement stationnaire de ﬂuide à faible Reynolds", par Ismail Mebsout et Oumaima Hammami, 2017,  Institut ´ Elie Cartan de Lorraine.
 %
 \\
 \\
-\mdseries "Analyse numérique des équations de Navier-Stokes",de Jean-François Scheid,  Cours de Master 2 Mathématiques (Recherche) - Université de Lorraine, Nancy.
+[3] "Analyse numérique des équations de Navier-Stokes",de Jean-François Scheid,  Cours de Master 2 Mathématiques (Recherche) - Université de Lorraine, Nancy.
 \\
 \\
-\mdseries "Projet de deuxième Année : Génération de maillages 2D avec Matlab" de Jean-Philippe LEBOUCHER Benjamin PACCOU avec comme chef de Projet Jonas KOKO, Institut
+[4] "Projet de deuxième Année : Génération de maillages 2D avec Matlab" de Jean-Philippe LEBOUCHER Benjamin PACCOU avec comme chef de Projet Jonas KOKO, Institut
 Supérieur d’ Informatique, de Modélisation et de leurs Applications
-\bibliographystyle{plain}
-\bibliography{bibli}
 \end{document}
 
 
