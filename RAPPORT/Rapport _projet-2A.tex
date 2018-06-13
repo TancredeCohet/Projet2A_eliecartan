@@ -704,7 +704,7 @@ Voici les résultats de la simulation pour un maillage de pas 0.2 et de taille $
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[height = 10cm, keepaspectratio]{graphes/resultat_champ.jpg}
-\caption{affichage avec matlab du champ magnétique, fenêtre centrée sur [-2, 2]}
+\caption{affichage avec matlab du champ magnétique avec quiver avec un auto, fenêtre centrée sur [-2, 2]}
 \label{figure 1}
 \end{center}
 \end{figure}
@@ -1105,11 +1105,13 @@ On utilise l'outil $StreamTracer$ de Paraview pour tracer la trajectoire de part
 \end{center}
 \end{figure}
 
-Ces résultats sont en lien avec nos résultats de champ magnétique : contrairement aux hypothèses du projet 
-précédent, le champ magnétique n'est effectivement pas constant dans la cuve,et s'évase vers les extrémités, on 
-le remarque aussi d'ailleurs pour les autres lignes de flux, qui ont tendance à être courbées vis à vis des 
-lignes 
-de champ magnétique issues de l'aimant. Ensuite pour l'aimant décentré selon l'axe x dans le plan xy (avant la transposition du champ de 
+Ces résultats sont en lien avec nos résultats sur le champ magnétique : contrairement aux hypothèses du projet 
+précédent, le champ magnétique n'est pas constant sur une partie de la cuve et nul sur l'autre partie.
+
+On remarque que les lignes de flux ont tendance à être courbées vis à vis des 
+lignes de champ magnétique issues de l'aimant sur les figures \ref{figure 33} et \ref{figure 3pp}. \\
+\\
+Ensuite pour l'aimant décentré selon l'axe x dans le plan xy (avant la transposition du champ de 
 vitesse) on observe sur le plan de coupe près de l'aimant décentré un tourbillon centré selon z dans la cuve, et 
 respectivement 2 tourbillons selon y pour l'aimant centré.
  \begin{figure}[!h]
@@ -1141,12 +1143,13 @@ Nous pouvons comparer à la coupe sur le plan XY du champ magnétique pour cette
 \begin{figure}[!h]
 \begin{center} 
 \includegraphics[height = 10cm, keepaspectratio]{graphes/Paraview/differents_flux_decentre_100pt_lenght4_rad05.png} 
-\caption{\label{figure 36 }  différents flux pour un aimant centré utilisation de $StreamTracer$pour des sphères de rayon 0.05 contenant 100 particules et pour un max $Maximum$ $Streamline$ $Length$  de 3}
+\caption{différents flux pour un aimant centré utilisation de $StreamTracer$pour des sphères de rayon 0.05 contenant 100 particules et pour un max $Maximum$ $Streamline$ $Length$  de 3}
+\label{figure 3pp}
 \end{center}
 \end{figure}
 
 Ensuite de même pour l'aimant décentré (avant la transposition du champ de vitesse) on observe
-sur le plan de coupe près de l'aimant décentré un tourbillon centré selon z dans la cuve, et les observations des flux de particules montrent que le tourbillon suit la forme des lignes de champs. \\
+sur le plan de coupe près de l'aimant décentré un tourbillon centré selon z dans la cuve. On voit avec les différents flux au fur et à mesure que l'on s'éloigne de l'aimant sur la figure \ref{figure 3pp} qui sont déformé par la prise en compte des lignes de champs de l'aimant.
 
 
 
@@ -1158,7 +1161,7 @@ sur le plan de coupe près de l'aimant décentré un tourbillon centré selon z 
 \end{figure}
 
 \newpage
-Enfin pour le champ de vitesse qui est la sommes des deux précedents nous observons les champ de vitesses sur les coupes 2D selon YZ, et XZ proches des aimants.  On voit que proche des aimants les tourbillons sont peut perturbés (Ici le rapport nentre les forces magnétiques pour les deux forces est 1).
+Enfin pour le champ de vitesse qui est la somme des deux précedents nous observons les champs de vitesses sur les coupes 2D selon YZ, et XZ proches des aimants.  On voit que proche des aimants les tourbillons sont peu perturbés (Ici le rapport entre les forces magnétiques pour les deux forces est 1).
 \newpage
 \begin{figure}[!h]
 \center 
@@ -1181,7 +1184,7 @@ Enfin pour le champ de vitesse qui est la sommes des deux précedents nous obser
 \end{figure}
 
 Enfin nous avons ici 2 coupes (une selon YZ, et une selon XZ) (figures \ref{figure 322} et \ref{figure 3a} très 
-proches des extrémités de la cuve. On remarque que effectivement, si l'on se place du côté d'un aimant ou d'un autre, la prédominance de l'effet de l'aimant se fait sentir.
+proches des extrémités de la cuve avec le champ de vecteur total obtenu au terme de la modélisation. On remarque que si l'on se place du côté d'un aimant ou d'un autre, la prédominance de l'effet de l'aimant se fait sentir.
 
 
 %================== sections de Poincarré ==========================================================
@@ -1190,7 +1193,7 @@ proches des extrémités de la cuve. On remarque que effectivement, si l'on se p
 \subsection{Les sections de Poincaré}
 Pour caractériser les propriétés chaotiques des trajectoires associées à ce champ de vitesse, nous allons utiliser l'outil classique de la théorie des systèmes dynamiques qu'est la section de Poincaré, dont l'un des atouts est qu'elle permet de diminuer la complexité des problèmes par une réduction du nombre de dimensions. 
 \\
-En mathématiques, particulièrement en système dynamique, une application de Poincaré est une application liée à une orbite périodique dans l'espace des états d’un système dynamique et un certain sous-espace de dimension moindre, appelé la section de Poincaré, transverse au  flot système.\\
+En mathématiques, particulièrement en système dynamique, une application de Poincaré est une application liée à une orbite périodique dans l'espace des états d'un système dynamique et un certain sous-espace de dimension moindre, appelé la section de Poincaré, transverse au  flot système.\\
  Plus précisément, on considère une orbite suffisamment proche d'une orbite périodique, avec une condition initiale sur la section de Poincaré, et on observe le point auquel cette orbite revient à la section pour la première fois, d'où son autre nom, application de récurrence.
 \\
 En fait, les intersections successives avec S notées Pn d'une trajectoire donnée peuvent être vues comme les itérées d'une condition initiale P0 par une application de S dans S:
@@ -1324,9 +1327,26 @@ Nous utilisons la méthode d'interpolation définie par défaut : Runge Kutta 4-
 \end{figure}
 
 On voit en comparant aux sections de Poincaré réalisées l'année dernière que les zones sombres correspondants à des points dispersés, c'est à dire des zones chaotiques, ont tendance à être courbées alors qu'elles avaient tendance à être droites dans l'hypothèse du champ magnétique uniforme sur une partie de la cuve et nul ailleurs.
-Nous n'observons pas cette "plage du chaos" correspondant à un élargissement de ces zones sombre en fonction de la valeur du coefficient R.
-Malheureusement, malgrè notre tâtonnement sur la valeur de R nous ne sommes pas arrivé à cerner la plage de valeurs pour laquelle l'écoulement est chaotique, malgré également que nous ayant divisé par deux le pas de maillage. Cela nécessite sans aucun doute des simulations plus poussés mais nous avons malheureusement tardé à avoir ces résultats ce qui ne nous à pas permis d'avoir le temps de lancer une série de simulations plus complètes déjà que les simulations actuelles entre la résolution du système linéaire et l'interpolation sous Paraview peuvent prendre un temps non négligeable. Ce que nous aurions du notamment faire est de prendre un paramètre $Maximum$ $StreamLine$ $Length$ beaucoup plus important comme l'année dernière. De manière générales les simulations réalisé l'année dernière en terme de pas de pas de maillage, de nombre de point, et de $Maximum$ $StreamLine$ $Length$ sont beaucoups plus poussées que celle que nous avons réalisés. Nous avons tenté des simulations sous Paraview avec le même paramètrage que l'année dernière mais nous nous confrontons à un problème de stabilité du logiciel.
-Nous réesayerons néanmoins d'ici la soutenance d'arriver à faire tourner une simulation plus fine qui pourrait être intéressante.\\
+Nous n'observons pas cette "plage du chaos" qui correspont à un élargissement de ces zones sombres en fonction de la valeur du coefficient R.
+Malheureusement, malgré notre tâtonnement sur la valeur de R nous ne sommes pas arrivé à cerner la plage de valeurs pour laquelle l'écoulement est chaotique, malgré également que nous ayant divisé par deux le pas de maillage. Cela nécessite sans aucun doute des simulations plus poussées mais nous avons malheureusement tardé à avoir ces résultats ce qui ne nous à pas permis d'avoir le temps de lancer une série de simulations plus complètes déjà que les simulations actuelles entre la résolution du système linéaire et l'interpolation sous Paraview peuvent prendre un temps non négligeable. Ce que nous aurions du notamment faire est de prendre un paramètre $Maximum$ $StreamLine$ $Length$ beaucoup plus important comme l'année dernière.
+
+Nous avons essayé alors de réaliser des simulation sous Paraview (exemple avec les figures \ref{figure zaz} et \ref{figure pepe} )avec un nombre limité de points (50) mais avec un paramètre $Maximum$ $StreamLine$ $Length$ très important (100000).
+Cependant nous n'arrivions pas à obtenir des trajectoire chaotique ce qui fait que nos points ne laissent que quelques marques de passage sur les sections de Poincaré et rendent ces résultats inexploitable.
+
+\begin{figure}[!h]
+   \begin{center}
+	       \includegraphics[height = 5cm, keepaspectratio]{graphes/Paraview/new_results/R_5_length_1000000.png}
+        \caption{R = 5, $Maximum$ $StreamLine$ $Length$ = 1000000}
+        \label{figure pepe}
+    \end{center}
+\end{figure}
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[height = 5cm, keepaspectratio]{graphes/Paraview/new_results/R_787.png}
+        \caption{R = 7.89, $Maximum$ $StreamLine$ $Length$ = 1000000}
+        \label{figure zaz}
+      \end{center}
+\end{figure}
 \newpage
 %======================== Conclusion ================================================================
 \newpage
@@ -1334,11 +1354,11 @@ Nous réesayerons néanmoins d'ici la soutenance d'arriver à faire tourner une 
 \normalsize
 \\
 
-L'objectif de ce projet a été, en partant de la thèse de Valérie Toussaint$^{[1]}$, de pousser l'étude des écoulement chaotiques avec un dispositif expérimental à 3 tourbillons. \\
+L'objectif de ce projet a été, en partant de la thèse de Valérie Toussaint$^{[1]}$, de pousser l'étude des écoulemenst chaotiques avec un dispositif expérimental à 3 tourbillons. \\
 \\
-La valeur ajouté que nous devions apporter est une simulation se rapprochant plus du réel en ne supposant pas le champ magnétique uniforme sur une moitié de la cuve. Nous avons put voir des modifications intéressantes sur les  tourbillons en supprimant cette hypothèse.\\
-Cependant en utilisant les sections de Poincarré de manière empirique nous n'avons pas identifié "la plage du chaos" qui permet en modulant selon un rapport R les forces des deux aimant d'arriver à un écoulement chaotique sur une portion majoritaire du fluide. \\
-Un autre objectif de ce projet était la caractérisation mathématique de l'advection chaotique en calculant les exposants de Lyapunov et en étudiant l'évolution de la distance entre deux particules se trouvants à une distance $\delta x$ l'une de l'autre à l'instant initial. Le but de cette étude mathématique aurait été la recherche plus précise du rapport R optimal pour générer le chaos face à l'approche des sections de Poincaré qui est empirique.
+La valeur ajouté que nous devions apporter est une simulation se rapprochant plus du réel en ne supposant pas le champ magnétique uniforme sur une moitié de la cuve. Nous avons pu voir des modifications intéressantes sur les  tourbillons en supprimant cette hypothèse.\\
+Cependant en utilisant les sections de Poincaré de manière empirique nous n'avons pas identifié "la plage du chaos" qui permet en modulant selon un rapport R les forces des deux aimant d'arriver à un écoulement chaotique sur une portion majoritaire du fluide. \\
+Un autre objectif de ce projet était la caractérisation mathématique de l'advection chaotique en calculant les exposants de Lyapunov et en étudiant l'évolution de la distance entre deux particules se trouvant à une distance $\delta x$ l'une de l'autre à l'instant initial. Le but de cette étude mathématique aurait été la recherche plus précise du rapport R optimal pour générer le chaos face à l'approche des sections de Poincaré qui est empirique.
 %==========================================================================================================================================================
 %														Annexe
 %==========================================================================================================================================================

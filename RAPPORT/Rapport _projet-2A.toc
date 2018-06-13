@@ -1,4 +1,4 @@
-\babel@toc {french}{}
+\select@language {french}
 \contentsline {chapter}{\numberline {1}Position du probl\IeC {\`e}me}{4}{chapter.1}
 \contentsline {subsection}{\numberline {1.0.1}D\IeC {\'e}finition de l'advection chaotique}{4}{subsection.1.0.1}
 \contentsline {subsection}{\numberline {1.0.2}Dispositif exp\IeC {\'e}rimental}{5}{subsection.1.0.2}
