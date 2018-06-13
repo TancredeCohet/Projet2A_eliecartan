@@ -1,4 +1,4 @@
-function [B_cuve_X, B_cuve_Y] = champ_magnetique_fct_Tancrede_1(v_total_2D,t_total_2D,node_aimant,edge_aimant,node_ensemble,edge_ensemble,aimant_centre)
+function [B_cuve_X, B_cuve_Y] = champ_magnetique_fct_Tancrede_1(v_total_2D,t_total_2D,node_aimant,edge_aimant,node_ensemble,edge_ensemble,aimant_centre,h)
 %============================================================================================================
 % Solveur de Laplace - Elements finis P1
 %
@@ -71,7 +71,7 @@ end
 %==========================================================================
 A1 = A1(ic2,ic2);
 
-sol = A1\M;
+sol = A1\((1/h) .* M);
 
 
 %--------------------------------------------------------------------------
@@ -146,17 +146,17 @@ M2(ic2) = M;
 %  axis equal;  
 %  colorbar;
 %  title('norme de B');
-
+% 
 figure();
 hold on;
 quiver(X_cuve_2D,Y_cuve_2D,B_cuve_X,B_cuve_Y);
 xlim([4.5 5.5]);
 ylim([4.5 5.5]);
-% % x = linspace(0,10,100);
-% % y1 = afficher_aimant_sup(x);
-% % y2 = afficher_aimant_inf(x);
-% % plot(y1,x);
-% % plot(y2,x);
+% x = linspace(0,10,100);
+% y1 = afficher_aimant_sup(x);
+% y2 = afficher_aimant_inf(x);
+% plot(y1,x);
+% plot(y2,x);
 title('lignes de champ magnetique dans la cuve');
 xlabel('X'); ylabel('Y');
 hold off

@@ -1,4 +1,4 @@
-function [X2,Y2,Z2,Uxgd,Uygd,Uzgd,Pgd] = Stokes3D(aimant_centre,R)
+function [X2,Y2,Z2,Uxgd,Uygd,Uzgd,Pgd] = stokes_3D(aimant_centre1,R)
 %=========================================================================%
 % Equations de Stokes 3D dans le cube [0,Lx]x[0,Ly]x[0,Lz]
 % Elements Finis Q2/Q1
@@ -29,7 +29,7 @@ close all
 addpath './lib'
 
 tstart0=tic;
-
+aimant_centre = aimant_centre1;
 global Lx Ly Lz
 Lx=1;  % largeur
 Ly=1;  % profondeur
@@ -37,10 +37,10 @@ Lz=1;  % hauteur
 nu=1; % viscosité
 
 % Nombres de points dans les directions x, y et z
-Nx=21;
-Ny=21;
-Nz=21;
-
+Nx=2*11;
+Ny=2*11;
+Nz=2*11;
+h = 1/Nx;
 compare = true; % comparaison avec une solution exacte
 displaysol = true;  % affichage de la solution approchée (vitesse)
 
@@ -71,17 +71,17 @@ ind_bd=unique(ind_bd);
 %   Masse : matrice de masse
 %--------------------------------------------------------------------------
 tstart1=tic;
-fprintf('*/ Assemblage des matrices : ');
+%fprintf('*/ Assemblage des matrices : ');
 [DxDx,DyDy,DzDz,DxDy,DxDz,DyDz,DxW,DyW,DzW,Masse]=matrix_3D(v,t);
 
 A=[nu*(2*DxDx+DyDy+DzDz),              nu*DxDy',              nu*DxDz',             -DxW;
                   nu*DxDy, nu*(DxDx+2*DyDy+DzDz),              nu*DyDz',             -DyW;
                   nu*DxDz,               nu*DyDz, nu*(DxDx+DyDy+2*DzDz),             -DzW;
                     -DxW',                 -DyW',                 -DzW', sparse(nv1,nv1)];
-fprintf('%g s\n',toc(tstart1)); 
+%fprintf('%g s\n',toc(tstart1)); 
 
 % Construction du second membre (RHS)
-[fx, fy, fz, fxgd, fygd,fzgd,fxy] = f2Dto3D_2(v,t,nv1,nv2,nbquad,X,Y,Z,Nx,Ny,Nz,aimant_centre); 
+[fx, fy, fz, fxgd, fygd,fzgd,fxy] = f2Dto3D_2(v,t,nv1,nv2,nbquad,X,Y,Z,Nx,Ny,Nz,aimant_centre,h); 
 %   fx, fy, fz sont les forces dans des vecteurs colonnes 1*size(v,1)
 %   fxgd, fygd, fzgd sont les forces dans des matrices Nx*Ny*Ny pour
 %   affichage
@@ -117,10 +117,10 @@ Ux=UP(1:nv2); Uy=UP(nv2+1:2*nv2); Uz=UP(2*nv2+1:3*nv2);
 % Pression
 Pr=UP((3*nv2+1):end);
 
-fprintf('---------------------------------\n');
-fprintf('Temps total de calcul : %g s\n',toc(tstart0));
-fprintf('---------------------------------\n');
-fprintf('*/ Sauvegarde (vitesse/pression)\n');
+% fprintf('---------------------------------\n');
+% fprintf('Temps total de calcul : %g s\n',toc(tstart0));
+% fprintf('---------------------------------\n');
+% fprintf('*/ Sauvegarde (vitesse/pression)\n');
 %--------------------------------------------------------------------------
 % Construction du format VTK et sauvegarde
 %--------------------------------------------------------------------------
@@ -133,13 +133,13 @@ tQ1isoQ2 = meshQ1isoQ2(t);
 [X2,Y2,Z2,Uxgd,Uygd,Uzgd,Pgd] = gridformat(Lx,Ly,Lz,Nx,Ny,Nz,v,Ux,Uy,Uz,Pr2);
 
 % Sauvegarde de la vitesse et de la pression
-filename_vtk='UP3D.vtk';
-fprintf('   - au format VTK (''VTK STRUCTURED_GRID'') : %s\n',filename_vtk);
-writevtk3D(X2,Y2,Z2,Uxgd,Uygd,Uzgd,Pgd,filename_vtk);
+% filename_vtk='UP3D.vtk';
+% fprintf('   - au format VTK (''VTK STRUCTURED_GRID'') : %s\n',filename_vtk);
+% writevtk3D(X2,Y2,Z2,Uxgd,Uygd,Uzgd,Pgd,filename_vtk);
 
-filename_mat='UP3D.mat';
-fprintf('   - au format MATLAB : %s\n',filename_mat);
-save(filename_mat,'Uxgd','Uygd','Uzgd','Pgd','X2','Y2','Z2');
+% filename_mat='UP3D.mat';
+% fprintf('   - au format MATLAB : %s\n',filename_mat);
+% save(filename_mat,'Uxgd','Uygd','Uzgd','Pgd','X2','Y2','Z2');
 
 %--------------------------------------------------------------------------
 %                               Affichage
@@ -157,34 +157,34 @@ if displaysol
    
     
 %   affichage du second membre de navier Stokes
-    figure();
-    quiver3(X2,Y2,Z2,fxgd,fygd,fzgd);
-    title('second menbre navier stokes');
-    xlabel('X'); ylabel('Y'); zlabel('Z');
-    axis equal;
-    
-    [fxt,fyt,fzt] = transposition_champ(fxgd,fygd,fzgd);
-    figure();
-    quiver3(X2,Y2,Z2,fxt,fyt,fzt);
-    title('test de la transposition sur second menbre navier stokes');
-    xlabel('X'); ylabel('Y'); zlabel('Z');
-    axis equal;
-    
-    % Affichage Q2 du module de la vitesse
-    U_mod=sqrt(Uxgd.^2 + Uygd.^2 + Uzgd.^2);
-    figure()
-    xslice = [0,Lx/2,Lx]; yslice = Ly/2; zslice = [0,Lz/2,Lz];
-    slice(X2,Y2,Z2,U_mod,xslice,yslice,zslice,'linear')
-
-    colorbar; title('Solution approchée');
-    xlabel('X'); ylabel('Y'); zlabel('Z');
-    axis equal
-
-    figure()
-    quiver3(X2,Y2,Z2,Uxgd,Uygd,Uzgd)
-    title('champ de vitesse')
-    xlabel('X'); ylabel('Y'); zlabel('Z');
-    axis equal
+%     figure();
+%     quiver3(X2,Y2,Z2,fxgd,fygd,fzgd);
+%     title('second menbre navier stokes');
+%     xlabel('X'); ylabel('Y'); zlabel('Z');
+%     axis equal;
+%     
+%     [fxt,fyt,fzt] = transposition_champ(fxgd,fygd,fzgd);
+%     figure();
+%     quiver3(X2,Y2,Z2,fxt,fyt,fzt);
+%     title('test de la transposition sur second menbre navier stokes');
+%     xlabel('X'); ylabel('Y'); zlabel('Z');
+%     axis equal;
+%     
+%     % Affichage Q2 du module de la vitesse
+%     U_mod=sqrt(Uxgd.^2 + Uygd.^2 + Uzgd.^2);
+%     figure()
+%     xslice = [0,Lx/2,Lx]; yslice = Ly/2; zslice = [0,Lz/2,Lz];
+%     slice(X2,Y2,Z2,U_mod,xslice,yslice,zslice,'linear')
+% 
+%     colorbar; title('Solution approchée');
+%     xlabel('X'); ylabel('Y'); zlabel('Z');
+%     axis equal
+% 
+%     figure()
+%     quiver3(X2,Y2,Z2,Uxgd,Uygd,Uzgd)
+%     title('champ de vitesse')
+%     xlabel('X'); ylabel('Y'); zlabel('Z');
+%     axis equal
 
 end
 end

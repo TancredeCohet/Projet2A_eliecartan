@@ -52,7 +52,7 @@
  
 	% Bottom of the page
 	\vfill
-	{\textit{{\large 21 Mars 2018}}}
+	{\textit{{\large 13 Juin 2018}}}
  
 	\end{center}
 \end{titlepage}
@@ -70,12 +70,12 @@
 \\
 \\
 \begin{onehalfspace}
-La résolution d'équations à dérivées partielles est la clé de voute de la modélisation de systèmes physiques et financiers avec des conditions aux limites des systèmes. Cette problématique est particulièrement vraie en mécanique des fluides avec l'utilisation prépondérante de l'équation de Navier Stokes. Il est donc primordial d'avoir des moyens de résolution et de simulation numérique de ce genre d'équation, qui respectent les différentes contraintes que posent la théorie des équations à dérivées partielles. Une des méthodes numériques de résolution de Navier-Stokes est par exemple la méthode des éléments finis, sur maillage triangulaire. 
+La résolution d'équations à dérivées partielles sont la clé de voûte de la modélisation de systèmes physiques et financiers avec des conditions aux limites des systèmes. Cette problématique est particulièrement vraie en mécanique des fluides avec l'utilisation prépondérante de l'équation de Navier Stokes. Il est donc primordial d'avoir des moyens de résolution/simulation numérique de ce genre d'équation, qui respecte les différentes contraintes que posent la théorie des équations à dérivées partielles ( fonctions modélisées respectant les espaces de Sobolev). Une des méthodes numériques de résolution de Navier-Stokes est par exemple la méthode des éléments finis, sur maillage triangulaire. 
 \newline
 Le but de ce projet est d'étudier des écoulement chaotiques à faible nombre de Reynolds, c'est à dire des écoulements dont les forces visqueuses sont prépondérantes, qui sont présents typiquement dans l'industrie métallurgique ou dans l'industrie hydro-électrique. Cette problématique de résolution d'équations numériques à dérivées partielles est au cœur des enjeux du projet.
 \newline
 \newline
-L'approche numérique eulérienne d'un mélange par advection chaotique traite du problème stationnaire avec champ de vitesse sinusoïdale qui correspond à un système de tourbillons orthogonaux, dont le modèle académique analytique a été étudié dans le cadre de la thèse de Valérie Toussaint, que nous allons reprendre avec deux tourbillons d'axes parallèles et un tourbillon qui leur est perpendiculaire.
+Une approche possible de ce problème est l'approche numérique eulérienne, dont le modèle académique analytique a été étudié dans le cadre de la thèse de Valérie Toussaint$^{[1]}$, que nous allons reprendre avec deux tourbillons d'axes parallèles et un tourbillon qui leur est perpendiculaire.
 
 Cette étude se fait dans la continuité d'un travail effectué par Ismail Mebsout et Oumaima Hammami durant l'année scolaire 2016-2017 où le but sera d'étudier les écoulements en s'affranchissant de certaines simplifications.
 Dans la première partie de notre étude, nous allons présenter le problème, puis le mettre en équation et calculer la force magnétique composant le terme source de l'équation de Navier-Stokes, pour résoudre numériquement le problème et étudier les résultats.
@@ -87,58 +87,54 @@ Dans la première partie de notre étude, nous allons présenter le problème, p
 %==========================================================================================================================================================
 \chapter{Position du problème}
 
-Pour générer l'écoulement que nous souhaitons étudier nous allons utiliser les forces de Laplace. Le fluide (de l'eau) considéré non visqueux dans une cuve est ionisé et placé sous influence d'aimants ferromagnétiques. Chaque particule du fluide va se mouvoir sous l'influence du champ magnétique. Notre but est de configurer correctement les champs magnétiques pour obtenir un écoulement chaotique. On peut définir l'advection chaotique comme un écoulement dans un fluide dont la trajectoire des point passe par tous les point du domaine, ou de manière mathématique avec les écoulements de Liapounov.
-C'est à dire que théoriquement si on observe le passage d'une particule à travers une section du fluide au bout d'un temps infinis, les points d'impacts de la particule recouvreront de manière continue toute la section.
+Nous allons dans cette partie définir la notion d'écoulement chaotique et décrire le dispositif expérimental que l'on souhaite étudier.
+
 \subsection{Définition de l'advection chaotique}
-Pour la définiton d'un écoulement chaotique nous allons considérer la différence entre les approches eulériennes et lagrangienne d'un écoulement. 
+Pour la définition d'un écoulement chaotique nous allons considérer la différence entre les approches eulérienne et lagrangienne d'un écoulement. 
  Rappelons  d'abord en se plaçant en eulérien , les variables indépendantes à considérer sont le temps t et la position $\vec{x}$ d'une particule fluide à l'instant t. \\
- L'étude de l'advection revient alors à étudier l'évolution au cours du temps du champ vectoriel passif diffusif $\vec{v}(\vec{x},t)$ régie par l'équation de convection-diffusion: 
+ L'étude de l'advection revient alors à étudier l'évolution au cours du temps du champ de vitesse $\vec{v}(\vec{x},t)$ régie par l'équation: 
  \[
- \frac{\partial \vec{x}}{\partial t} + \vec{u} \times \vec{\bigtriangledown}\vec{v}= D \vec{\Delta} v
+ \frac{\partial \vec{x}}{\partial t}= \vec{v}
 \]
-où D est la diffusivité moléculaire et $\vec{u}$ est le champ de vitesse advectant, incompressible et connu. \\
 \\
 Dans le cas où l'écoulement est laminaire, c'est à dire quand l'advection est prépondérante à la diffusion, l'écoulement étant complètement déterministe, le champ de vitesse $\vec{v}$ est une fonction régulière des coordonnées spatiales, et éventuellement du temps. 
 \\ 
 \\
-En revanche, en se plaçant d'un point de vue lagrangien, les variables indépendantes sont alors le temps t et la position initiale $\vec{x_0}$ de la particule à l'instant $t_0$. Un tel système est un système dynamique à 3 degrés de liberté (nécessaire à un écoulement chaotique, il n'y a pas d'advection chaotique en 2D pour des écoulement stationnaire ce qui sera notre cadre d'étude), non autonome(si le champ de vitesse $\vec{v}$ dépend explicitement du temps, et généralement non linéaire à travers la dépendance spatiale du champ de vitesse, et pour lequel on différencie types de stabilité la où on ne le fait pas pour un systeme autonome). \\
+En revanche, en se plaçant d'un point de vue lagrangien, les variables indépendantes sont alors le temps t et la position initiale $\vec{x_0}$ de la particule à l'instant $t_0$. Un tel système est un système dynamique à 3 degrés de liberté, non autonome(si le champ de vitesse $\vec{v}$ dépend explicitement du temps, et généralement non linéaire à travers la dépendance spatiale du champ de vitesse, et pour lequel on différencie types de stabilité la où on ne le fait pas pour un systeme autonome). \\
 \\
-Dans le cas où le champ de vitesse est bi-dimensionnel et stationnaire , toutes les trajectoires de particules  fluides dérivent d'une fonction de courant régulière, on dit alors que le système est intégrable dans la terminologie des systèmes dynamiques. 
-Dans les autres cas (notamment le notre) un tel système a de fortes chances d'être non intégrable, autrement dit de conduire à des trajectoires chaotiques. 
+Dans le cas d'une advection chaotique la trajectoire du système n'est pas intégrale car extrêmement sensible aux conditions initiales.
 \\
 \\
 Ainsi on peut se trouver dans la situation d'un écoulement régulier dans la représentation eulérienne conduisant à une réponse essentiellement erratique si l'on considère l'advection d'un traceur d'un point de vue lagrangien : cette situation est appelée advection chaotique, ou chaos lagrangien.\\
-L' écoulement chaotique va ainsi notament s'illustrer par une instabilité, notament dans le cas de deux particules séparé par un écart $\delta x$, cet écart va croitre exponentiellement selon la théorie des exposants de Lyapunov. 
+L' écoulement chaotique va s'illustrer par une instabilité, notamment dans le cas de deux particules séparées par un écart $\delta x$, cet écart va croitre exponentiellement selon la théorie des exposants de Lyapunov. 
 \\
 Le chaos lagrangien est particulièrement intéressant lors de mélange laminaire, car il est bien plus intéressant que l'écoulement turbulent, il permet d'effectuer des mélanges pour un moindre cout d'énergie. En théorie à partir d'un temps infini, chaque particule aura parcouru l'intégralité des points de l'espace de référence.  On mettra en exergue cette assertion avec les sections de Poincaré, dont l'on explicitera les propriétés plus tard dans le rapport. 
 
 \subsection{dispositif expérimental} 
 
-Expérimentalement, il est possible de réaliser cet écoulement à l'aide du dispositif expérimental décrit dans la thèse de Valérie Toussaint qui repose sur un écoulement à trois tourbillons. \\
-Pour cela, on utilise un système composé d'un parallélépipède, d’aimants permanents et d’électrodes pour génerer un vecteur densité de courant. Le parallélépipède est un mélangeur dans lequel se trouve un liquide faiblement conducteur.
-Afin de générer un tourbillon, on place deux aimants l’un en face de l’autre sur une moitié du parallélépipède pour créer un champ $\vec{B}$ vertical sur cette moitié. On place deux électrodes sur les deux autres faces opposées du parallélépipède pour créer un courant uniforme de densité $\vec{j}$.
+Pour générer l'écoulement que l'on souhaite étudier, on utilise un système composé d'un parallélépipède, d'aimants permanents et d’électrodes pour générer un vecteur densité de courant. Le parallélépipède est un mélangeur dans lequel se trouve un liquide faiblement ionisé.
+On place deux aimants l’un en face de l’autre sur une moitié du parallélépipède pour créer un champ $\vec{B}$ plus intense sur la moitié du parallélépipède où se trouve l'aimant. On place deux électrodes sur les deux autres faces opposées du parallélépipède pour créer un courant uniforme de densité $\vec{j}$.
 \begin{figure}[!h]
 	\begin{center}
 	\centering	
 %	\begin{subfigure}[b]{0.3\textwidth}
 		\includegraphics[height = 7cm, keepaspectratio]{graphes/blender_cuve_champvec.png}
 %		\includegraphics[height = 2cm, keepaspectratio]{graphes/axes.png}
-		\caption{liquide faiblement ionisé soumis à un champ électrique $\vec{E}$, Blender}
+		\caption{liquide faiblement ionisé soumis à un champ électrique $\vec{E}$}
 		%		\end{subfigure}
 	\end{center}
 \end{figure}
-\newline
-On place un aimant de telle manière à générer un champ magnétique plus important sur une moitié du cube que l'autre.
+\newline 
+%Une force de Laplace est ainsi générée par la différence de potentiel et par le champ magnétique, cette force est plus %force sur une moitié du parallélépipède du au placement de l'aimant ce qui engendre un tourbillon.
 \begin{figure}[!h]
 	\begin{center}
 	\centering
 		\includegraphics[height = 8cm, keepaspectratio]{graphes/blender_cuve_mag2.png} 
 		%\includegraphics[height = 2cm, keepaspectratio]{graphes/axes.png}
-		\caption{lignes de champ magnétique, Blender}
+		\caption{lignes de champ magnétique}
 	\end{center}
 \end{figure}
 \newpage
-La force magnétique $\vec{f_l}=\vec{j_0}\land\vec{B}$ permet ainsi de générer un tourbillon.\newline
 \begin{figure}[h]
 	\begin{center}
 	\centering	
@@ -147,37 +143,35 @@ La force magnétique $\vec{f_l}=\vec{j_0}\land\vec{B}$ permet ainsi de générer
 %		\begin{subfigure}[b]{0.3\textwidth}
 		\includegraphics[height = 8cm, keepaspectratio]{graphes/champvec2.png}
 %		\includegraphics[height = 2cm, keepaspectratio]{graphes/axes.png}
-		\caption{liquide faiblement ionisé soumis à un champ électrique et un champ magnétique $\vec{B}$, Blender}
+		\caption{liquide faiblement ionisé soumis à un champ électrique et un champ magnétique $\vec{B}$}
 %		\end{subfigure}
 	\end{center}
 \end{figure}
-Afin de générer un tourbillon, on place deux aimants l'un en face de l’autre sur le deuxième tiers du parallélépipède pour créer un champ B~ vertical sur le tiers au milieu.
-On place aussi deux électrodes sur les faces opposées du parallélépipède pour créer un courant uniforme de densité $\vec{j}$.
-Une force de Laplace est générée sur une partie du fluide, due à la densité de courant en présence d’un champ magnétique $\vec{B}$, ce qui génère un tourbillon. \\
+Une force de Laplace est générée, due à la densité de courant en présence d’un champ magnétique $\vec{B}$. Comme cette force de Laplace est plus forte sur une partie du fluide par la position des aimants, un tourbillon est créé
 \begin{figure}[!h]
 	\begin{center}
 	\centering
 		\includegraphics[height = 8cm, keepaspectratio]{graphes/config_centre.png} 
 		%\includegraphics[height = 2cm, keepaspectratio]{graphes/axes.png}
-		\caption{configuration avec 2 tourbillons pour un aimant, Blender}
+		\caption{configuration avec 2 tourbillons pour un aimant}
 	\end{center}
 \end{figure}
 On ajoute ensuite un autre aimant centré sur la cuve qui va lui induire des forces de Laplace de part et d'autres du parallélépipède de telle manière à générer deux tourbillons symétriques.\\
-Puis en sommant les configurations, on arrive à un dispositif expérimental à trois tourbillons. \\
+Puis en sommant les deux configurations, on arrive à un dispositif expérimental à trois tourbillons. \\
 \begin{figure}[!h]
 	\begin{center}
 	\centering
 		\includegraphics[height = 8cm, keepaspectratio]{graphes/blender_cuve_champvec3.png} 
 		%\includegraphics[height = 2cm, keepaspectratio]{graphes/axes.png}
-		\caption{dispositif expérimental, Blender}
+		\caption{dispositif expérimental}
 	\end{center}
 \end{figure}
 \\
 \newpage
 \newpage
 \subsection{hypothèses de modélisation}
-Nous devons d'abord modéliser notre système , car dans les cas de système faisant intervenir des équations à dérivées partielles , la bonne définition du système est primordiale, avec notamment les conditions aux limites.\\
-Notre système \{fluide\} sera modélisé par un fluide à faible nombre de Reynolds (visqueux) incompressible régi par les équations de Stokes que nous poserons dans le chapitre suivant. La densité de courant $\vec{j_0}$ est supposé uniforme sur le fluide.
+
+Notre système \{fluide\} sera modélisé par un fluide à faible nombre de Reynolds (visqueux) incompressible régi par les équations de Stokes que nous poserons dans le chapitre suivant. La densité de courant $\vec{j_0}$ est supposé uniforme sur le fluide. On suppose également que le champ magnétique est invariant selon l'axe $z$.
 
 
 %=====================================================================================================================================
@@ -185,10 +179,10 @@ Notre système \{fluide\} sera modélisé par un fluide à faible nombre de Reyn
 %==========================================================================================================================================================
 \newpage
 \chapter{Modélisation du champ Magnétique de l'aimant}
+\subsection{Introduction}
+Nous allons nous intéresser en premier lieu à modéliser le champ magnétique d'un aimant pour pouvoir obtenir ensuite les forces de Laplace s'exerçant sur le fluide pour caractériser l'écoulement.
 
-Nous allons nous intéresser en premier lieu à modéliser le champ magnétique d'un aimant pour pouvoir obtenir à terme les forces de Laplace s'exerçant sur le fluide pour caractériser l'écoulement.
-
-Nous cherche ainsi à modéliser le champ d'induction magnétique $\vec{B}(x,y,z)$ induit par un aimant (Figure 1). L'objectif sera d'abord de déterminer le champ magnétique dans une configuration quelconque, pour ensuite exploiter ces résultats et les employer dans la résolution numérique de Navier Stokes. \\
+Nous cherchons ainsi à modéliser le champ d'induction magnétique $\vec{B}(x,y,z)$ induit par un aimant (Figure 1). L'objectif sera d'abord de déterminer le champ magnétique dans une configuration quelconque, pour ensuite exploiter ces résultats et les employer dans la résolution numérique des équations de Stokes. \\
 \begin{figure}[h]
 \begin{center}
 \includegraphics[height =4 cm, keepaspectratio]{graphes/champ_aimant1.png} %on affiche figure aimant
@@ -198,39 +192,39 @@ Nous cherche ainsi à modéliser le champ d'induction magnétique $\vec{B}(x,y,z
 \end{center}
 \end{figure}
 
-On suppose que l'aimant à une longueur suffisante selon $\vec{z}$ pour être considéré comme infini selon l'axe $\vec{z}$.
-On en déduit donc par le principe de Curie que le champ magnétique est invariant par translation selon $\vec{z}$. 
+On suppose que l'aimant à une longueur suffisante selon $z$ pour être considéré comme infini selon l'axe $z$.
+On en déduit donc par le principe de symétrie de Pierre Curie qui affirme que « Lorsque certaines causes produisent certains effets, les éléments de symétrie des causes doivent se retrouver dans les effets produits », que le champ magnétique  $\vec{B}$ est invariant selon $z$.
 Ainsi \[\vec{B}(x,y,z) = \vec{B}(x,y)\]
 
 On modélise donc le champ magnétique en deux-dimensions dans cette partie, dans la suite nous considérerons que le champ d'induction aura la même valeur selon la troisième dimension.
 %======================= Mise en forme du probleme ================================================== 
-\section{Mise en forme du problème}
+\section{Mise en équation du problème}
 
-Nous allons rechercher une solution du champ magnétique dans le domaine de résolution $\Omega$ (figure 2), $\Omega \subset R^{2}$. \\
+Nous allons rechercher une solution du champ magnétique dans le domaine de résolution $\Omega$ (figure 2), $\Omega \subset R^{3}$. Pour les calculs, nous prendrons $\Omega = [0,1]^3$, et $\Omega_{int}$ le cube d'arête 0.5.\\
 \begin{figure}[h]
 \begin{center}
 \includegraphics[height = 8cm, keepaspectratio]{graphes/Espacedetravail.png} 
-\caption{domaines de résolution du problème, Blender}
+\caption{domaines de résolution du problème}
 \label{figure 2}
 \end{center}
 \end{figure}
 On définit $\Omega_{int}$ le domaine de l'aimant, et $\Omega_{e}$ le domaine extérieur à l'aimant. 
-\[\Omega_{e} = \Omega_{int} - \Omega\]
+\[\Omega_{e} = \Omega_{int} \setminus \overline{\Omega}\]
 
 \newpage
-On se place dans le régime stationnaire comme il n'y a pas de mouvements de l'aimant. \\
-Le champ d'induction magnétique $\vec{B}$ est la somme du champs magnétique $\vec{H}$.
+On se place en régime stationnaire comme il n'y a pas de mouvements de l'aimant. \\
+Le champ d'induction magnétique $\vec{B}$ est la somme du champs magnétique $\vec{H}$ et de l'aimantation $\vec{M}$.
 
 \[\vec{B}=\mu _{0}(\vec{H}+\vec{M})\]
 $\mu _{0}$ est la perméabilité magnétique du vide. \\
-L'aimantation $\vec{M}$ est nulle en dehors de l'aimant.
+L'aimantation $\vec{M}$ est nulle en dehors de l'aimant, et on la suppose uniforme dans l'aimant orienté selon $+\vec{e}_y$
  
 \[ 
 \left\{
 \begin{array}{ccc}
 \begin{aligned}
 	\vec{M} &= \vec{0} \  \text{dans} \ \Omega_{e} \\ 
-	\vec{M} &= \vec{M_{0}} = \text{constante}  \ \text{dans}  \  \Omega_{\text{int}}
+	\vec{M} &= \vec{M_{0}} = M_0 \vec{e}_y
 \end{aligned}
 \end{array}
 \right.
@@ -253,7 +247,7 @@ Le domaine étant simplement connexe, $\vec{H}$ dérive d'un potentiel $u$	.
 	\left\{
 	\begin{array}{ccc}		
 	\begin{aligned}
-		\vec{H} &= \Grad{\vec{u}} \\
+		\vec{H} &= \Grad{u} \\
 		\vec{B} &= \mu_{0}\times(\vec{\Grad{u}}+\vec{M})
 	\end{aligned}
 	\end{array}
@@ -262,42 +256,36 @@ Le domaine étant simplement connexe, $\vec{H}$ dérive d'un potentiel $u$	.
 
 Au sens des distributions pour toute fonction $\varphi\ $  dans $D(\Omega)$	
 \[<\Div\vec{B},\varphi> \ = \ <-\vec{B},\vec{\Grad{\varphi}}>\]
-On suppose $\vec{B} \in L^{3}_{1}(\Omega)$
+On suppose $\vec{B} \in [L_{1}(\Omega)]^2$
 \[<\Div\vec{B},\varphi> \ = \  -\int_{\Omega}\vec{B}. \vec{\Grad{\varphi}}\]
 \[<\Div\vec{B},\varphi> \ = \ -\int_{\Omega}\mu_{0}(\vec{\Grad{u}}+\vec{M}) .{\Grad{\varphi}} = 0\]
 Ainsi
 \[\int_{\Omega}(\vec{\Grad{u}}+\vec{M}) . \vec{\Grad{\varphi}} = 0\]
-Et comme $\vec{M}$ est nul en dehors du domaine $\Omega_{\text{int}}$ de l'aimant, on obtient (1)
-
-On reconnait un problème de Dirichlet homogène qui admet une unique solution dans $H_{0}^{1}(\Omega)$ d'après le théorème de Lax-Migram.
+Et comme $\vec{M}$ est nul en dehors du domaine $\Omega_{\text{int}}$ de l'aimant, on obtient \ref{E}.
+On reconnait la formulation variationnelle d'un problème de Dirichlet homogène qui admet une unique solution dans $H_{0}^{1}(\Omega)$ d'après le théorème de Lax-Migram.
 \begin{equation}
 \label{E}
-\forall \varphi\ \in \Omega, \ \int_{\Omega}\bigtriangledown u .\bigtriangledown{\varphi} = -\vec{M_{0}}. \int_{\Omega_{int}}\bigtriangledown\varphi
+\forall \varphi\ \in H_{0}^{1}(\Omega), \ \int_{\Omega}\bigtriangledown u .\bigtriangledown{\varphi} = -\vec{M_{0}}. \int_{\Omega_{int}}\bigtriangledown\varphi
 \end{equation}
 
-Adimensionnons (1)				:
+Adimensionnons \ref{E}:
 \[
-	\forall \varphi\  \in \Omega,\  \frac{1}{|\vec{M}_{0}|}\int_{\Omega}\bigtriangledown u.\bigtriangledown \varphi
+	\forall \varphi\  \in H_{0}^{1}(\Omega),\  \frac{1}{|\vec{M}_{0}|}\int_{\Omega}\bigtriangledown u.\bigtriangledown \varphi
 	= -\vec{e}_{y}.\int_{\Omega_{int}}\bigtriangledown \varphi
 \]
 On prend pour la suite \[U =  \frac{u}{|\vec{M}_{0}|}  \] ce qui nous donne \[\vec{H^*} =\frac{\vec{H}}{M_0} \]
-On établit ainsi \label{A}
-
+On établit ainsi que trouver le champ magnétique $\vec{B}$ revient à trouver $U \in H_{0}^{1}(\Omega)$ tel que
 \begin{equation}
-\boxed{
 \label{A}
+\boxed{
 	\forall \varphi\  \in \Omega,\ \int_{\Omega}\bigtriangledown U.\bigtriangledown \varphi
 	=- \vec{e}_{y}.\int_{\Omega_{int}}\bigtriangledown \varphi}
 \end{equation}
-\\
-
+\\\
 \section{Méthode des éléments finis}
 
 \subsection{Le maillage}
-On recherche une solution approchée de l'équation numériquement en passant de l'espace continu à un espace discret. \\
-\\
-On utilise la méthode des éléments finis en recherchant une solution dans l'espace 
-$V_{h} = \{u \ | \ u \in P^{1}(\Omega^{2}), u \in H^{1}_{0}(R^{2})\}$. \\
+On recherche une solution approchée de l'équation numériquement \ref{A} en passant de l'espace continu à un espace discret. \\
 \\
 On introduit une triangulation $T_{h}$ en subdivisant $\overline{\Omega}$, de bord $\Gamma \ = \ \partial\Omega$. 
 Cette triangulation vérifie les propriétés suivantes :
@@ -319,16 +307,20 @@ Le maillage ainsi construit est tel que
 \end{center}
 \end{figure}
 
-On note que le maillage est caractérisé par la longueur de la plus petite arrête $h_{min}$ telle que 
+On note que le maillage est caractérisé par la longueur de la plus petite arrête $h$ telle que 
 \[
-h_{min} \ = \ \min_{K \in T_{h}} h_{K}
+h \ = \ \min_{K \in T_{h}} h_{K}
 \]
-$h_{min}$ va notamment déterminer l'erreur entre la solution continue et la solution discrète.
+$h$ va notamment déterminer l'erreur entre la solution continue et la solution discrète.
+Nous allons ainsi rechercher des solutions dans un espace d'interpolation polynomiale qui s'appuie sur cette triangulation
+\newline
+$V_{h} = \{u \in C^0(\overline{\Omega})\ |\ \forall K \in T_h \ u_{|K} \in P^{1}(R^{2}), u = 0 \ \text{sur} \ \partial \Omega \}$, où $P^{1}(R^{2})$ désigne l'ensemble des polynômes de degré inférieur ou égal à 1 sur $R^{2}$.\\
+
 On choisit une base de $V_{h}$, on prend la famille des fonctions de base  \\ $\varphi_{1}, \varphi_{2}, ..., \varphi_{N_{h}}$  telles qu'elles valent 1 en un sommet d’un triangle, et 0 pour tous les autres sommets. On note $P_{1},P_{2}, ..., P_{N_{h}}$ les sommets des triangles du maillage.
 Les fonctions de base sont donc définies ainsi :
 \[
-\forall i,j \in [1, N_{h}]^{2} \ \varphi_{i} \in L^{2}(\Omega),\ \varphi_{i}(P_{j}) \ = \ \delta_{ij} \ \
-\varphi_{i} \ = \ 0 \ sur \ \Gamma \]
+\forall i,j \in [1, N_{h}]^{2} \ \varphi_{i} \in V_{h} et\ \varphi_{i}(P_{j}) \ = \ \delta_{ij} \ \
+\]
 Le support de $ \varphi_{i}$ est la réunion de tous les triangles ayant pour sommet $P_{i}$.\\
 On vérifie que la famille ($\varphi_{1}, \varphi_{2}, ..., \varphi_{N_{h}}$) est une base de $V_{h}$.
 Ainsi toute fonction g dans $V_{h}$ peut s'écrire comme une combinaisons linéaire des $\varphi_{i}$
@@ -337,7 +329,7 @@ g = \sum_{i=1}^{N_{h}}{\ g_{i}\varphi_{i}} \text{ \ \ où } g_{i} = g(P_{i}),\  
 \]
 
 %=====================================================================================================
-\subsection{Mise en équation}
+\subsection{Système linéaire}
 %=======================================================================================================
 
 Réécrivons (1.2) dans $V_{h}$ : 
@@ -345,14 +337,14 @@ Réécrivons (1.2) dans $V_{h}$ :
 \[
 	\forall \varphi \in V_{h} , \ \int_{\Omega}\bigtriangledown u_{h}. \bigtriangledown \varphi = -\vec{M_{0}}. \int_{\Omega_{int}}\bigtriangledown \varphi
 \]
-Nous pouvons écrire $u_{h} = \sum_{i=1}^{N_{h}}{\ U_{i}\varphi_{i}} \text{ \ \ où } U_{i} = U(P_{i}),\  i= 1,2,...,N_{h}$ \\ et choisir $\varphi\ =\ \varphi_{i}$
+Nous pouvons écrire $u_{h} = \sum_{i=1}^{N_{h}}{\ U_{i}\varphi_{i}} \text{ \ \ où } U_{i} = u_h(P_{i}),\  i= 1,2,...,N_{h}$ \\ et prendre comme fonction $\varphi$ les fonctions de base $(\varphi_1,\ ...,\ \varphi_n)$.
 ainsi
 \[
-	\int_{\Omega}\bigtriangledown u_{h}.\bigtriangledown \varphi\ 
+	\int_{\Omega}\bigtriangledown u_{h}.\bigtriangledown \varphi_j\ 
 	=\ 
-	\sum_{i, j \in [1, N_{h}]^{2}} \int_{\Omega}u_{i}\bigtriangledown\varphi_{i}. \bigtriangledown\varphi_{j} 
+	\sum_{i \in [1, N_{h}]} \int_{\Omega}u_{i}\bigtriangledown\varphi_{i}. \bigtriangledown\varphi_{j} 
 	= 
-	\sum_{i,j \in [1, N_{h}]^{2}} A_{ij} u_{i}
+	\sum_{i \in [1, N_{h}]} A_{ij} u_{i}
 \]
 avec A la matrice $N_{h} \times N_{h}$ de coefficients
 \[
@@ -390,14 +382,15 @@ On appelle A la matrice de rigidité.  \\
 %================= passage element de reference =====================================================
 \newpage
 \subsection{Passage à un élément de référence}
-Pour les calculer numériquement les matrices on utilise un triangle de référence normalisé $\hat{T}$. On passe du triangle $\Hat{T}$ à $T$ à l'aide de la transformation $F$. 
+Pour calculer numériquement les matrices on utilise un triangle de référence normalisé $\hat{T}$. On passe du triangle $\Hat{T}$ à $T$ à l'aide d'une transformation affine $F$. \\
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[height = 6cm, keepaspectratio]{graphes/transformation_de_maillage.png} 
-\caption{\label{figure 4 } passage à un maillage de référence}
+\caption{\label{figure 4 } passage à un triangle de référence}
 \end{center}
 \end{figure}
-On a pour le calcul du gradient de $\varphi_{i}$
+\newline
+On a pour le calcul du gradient de $\varphi$
 \[ \bigtriangledown_{\hat{x}} \hat{\varphi} = (J)^{T} \bigtriangledown_{x} \varphi  \]
 où J est la matrice Jacobienne de la transformation.
 Calculons la matrice Jacobienne qui va dépendre des coordonnées $(x_{i},y_{i})$ des sommets pour chaque triangle.
@@ -421,16 +414,13 @@ On obtient ainsi à l'aide d'un changement de variable le calcul de la matrice d
 \boxed{
 \begin{aligned}
 A_{ij} = 
-	\iint_{\Omega}\bigtriangledown_{x}{\varphi_{i}} \bigtriangledown_{x}{\varphi_{j}} &= 
-	\sum_{T \in \text{Supp}(\varphi_{i})\times \text{Supp}(\varphi_{j})}	
-	\frac{\text{aire}(T)^{2}}{4}
-	\begin{pmatrix}
-   		y_{3}-y_{1} &  	x_{1}-x_{3}\\
-   		y_{1}-y_{2} &  x_{2}-x_{1}
-	\end{pmatrix}
-	^{2}
-	\bigtriangledown_{\hat{x}} \hat{\varphi_{i}}
-	\bigtriangledown_{\hat{x}} \hat{\varphi_{j}}
+	\sum_{T \in \text{Supp}(\varphi_{i})\times \text{Supp}(\varphi_{j})}
+	\iint_{(i,j) \in T} |J|(J^{-1})^{T}
+	\cdot
+	\bigtriangledown_{\hat{x}} \hat{\varphi_{i}} \cdot
+	|J| (J^{-1})^{T} 
+	\cdot
+	\bigtriangledown_{\hat{x}} \hat{\varphi_{j}} \\
 \end{aligned}}
 \]
 \\
@@ -441,18 +431,17 @@ Calculons à présent le terme source $f_{j} =  -\vec{e_{y}}.\int_{\Omega} \bigt
 D'après Green-Ostrogradsky
 \[
 	\iint_{\Omega}\bigtriangledown_{x}{\varphi_{i}} =\ 
-	\int_{\partial\Omega_{\text{int}}}\varphi_{i}.\vec{\text{n}} \ \partial s
+	\int_{\partial\Omega_{\text{int}}}\varphi_{i}.\vec{\text{n}} \ \text{d} \sigma
 \]
-
 Ainsi	
 \[
 	\begin{aligned}
-		\int_{\partial\Omega_{\text{int}}}\varphi_{i}.\vec{\text{n}}\ \partial s &= 
-		\sum_{e \in \partial\Omega_{\text{int}}}\ \int_{e}\varphi_{i}.\vec{\text{n}}_{e}\ \partial s \\ &=  
-		\sum_{e \in \partial\text{supp}(\varphi_{i})}\ \int_{e}\varphi_{i}.\vec{\text{n}}_{e}\ \partial s
+		\int_{\partial\Omega_{\text{int}}}\varphi_{i}.\vec{\text{n}}\ \text{d} \sigma &= 
+		\sum_{e \in \partial\Omega_{\text{int}}}\ \int_{e}\varphi_{i}.\vec{\text{n}}_{e}\ \text{d} \sigma \\ &=  
+		\sum_{e \in \partial\text{supp}(\varphi_{i})}\ \int_{e}\varphi_{i}.\vec{\text{n}}_{e}\ \text{d} \sigma
 	\end{aligned}
 \]
-où $\vec{\text{n}}_{e}$ est le vecteur unitaire normal sortant à l'arête e. \\
+où $\vec{\text{n}}_{e}$ est le vecteur unitaire normal sortant à l'arête e = $[P_i,P_j]$. \\
 \begin{figure}[h]
 \begin{center}
 \includegraphics[height = 4cm, keepaspectratio]{graphes/bord.png}
@@ -470,18 +459,18 @@ où $\vec{\text{n}}_{e}$ est le vecteur unitaire normal sortant à l'arête e. \
 \]
 avec le changement de variable $x = s\times \text{Pi} + (1-s)\times \text{Pj}$,\ \ $s \in [0;1]$
 \[
-	\int_{e}\varphi_{i}.\vec{\text{n}}_{e}\ \partial s = |e|(\int_{0}^{1}\varphi_{i}\ \partial x ).\vec{\text{n}}_{e}
+	\int_{e}\varphi_{i}.\vec{\text{n}}_{e}\ \text{d} \sigma = |e|(\int_{0}^{1}\varphi_{i}(sP_i + (1-s)P_j)\ \text{d} s).\vec{\text{n}}_{e}
 \]
 avec 
 \[
-	\int_{0}^{1}\varphi_{i}\ \partial s  = \text{aire du triangle rectangle de coté |e| et de hauteur 1} = \frac{|e|}{2}
+	\int_{0}^{1}\varphi_{i}\ \text{d} \sigma  = 1/2
 \]
 d'où
 \[
-	\int_{e}\varphi_{i}.\vec{\text{n}}_{e}\ \partial s =
+	\int_{e}\varphi_{i}.\vec{\text{n}}_{e}\ \text{d} \sigma =
 	|e|(\int_{0}^{1}\varphi_{i}\ \partial x ).\vec{\text{n}}_{e} =
 	\frac{|e|}{2}.\vec{\text{n}}_{e} = 
-	\frac{|e|^{2}}{2}
+	\frac{1}{2}
 	\begin{pmatrix}
 		y_{2}-y_{1} \\
 		x_{1}-x_{2}
@@ -490,29 +479,29 @@ d'où
 Au final
 \[
 	\iint_{\Omega}\bigtriangledown_{x}{\varphi_{i}} =
-	\sum_{e \in \partial \text{supp}(\varphi_{i})}\ \int_{e}\varphi_{i}.\vec{\text{n}}_{e}\ \partial s =
+	\sum_{e \in \partial \text{supp}(\varphi_{i})}\ \int_{e}\varphi_{i}.\vec{\text{n}}_{e}\ \text{d} \sigma =
 	\sum_{e \in \partial\text{supp}(\varphi_{i})}
-	\frac{|e|}{2}
+	\frac{1}{2}
 	\begin{pmatrix}
-		y_{2}-y_{1} \\
-		x_{1}-x_{2}
+		y_{j}-y_{i} \\
+		x_{i}-x_{j}
 	\end{pmatrix}
 \]
 \[
 	\iint_{\Omega}\bigtriangledown_{x}{\varphi_{i}} =
 	\sum_{e \in \partial \text{supp}(\varphi_{i})}
-	\frac{|e|}{2}
+	\frac{1}{2}
 	\begin{pmatrix}
-		x_{2}-x_{1} \\
-		y_{1}-y_{2}
+		x_{j}-x_{i} \\
+		y_{i}-y_{j}
 	\end{pmatrix}
 \]
 Au final 
 \[\boxed{f_{j} =  -\vec{e_{y}}.\sum_{e \in \partial \text{supp}(\varphi_{i})}
-	\frac{|e|}{2}
+	\frac{1}{2}
 	\begin{pmatrix}
-		x_{2}-x_{1} \\
-		y_{1}-y_{2}
+		x_{j}-x_{i} \\
+		y_{i}-y_{j}
 	\end{pmatrix}}
 \]
 
@@ -523,12 +512,15 @@ Au final
 
 Les calculs précédents nous permettent de trouver après résolution le potentielle $u$, ce que nous voulons obtenir à l'issue de notre étude est le champ d'induction magnétique $\vec{B}$ que l'on trouve par $\vec{B}= \bigtriangledown u$.
 \\
-\newline  On écrit la forme variationnelle dans $V_{h}$ (ainsi $\vec{B}$ suit une décomposition dans $V_h$, tel que $\vec{B}=\sum_{i} B_{xi}\varphi_i:$
+Cependant $\vec{B}$ est un vecteur à deux composante : une selon x et l'autre selon y ce qui nécessite la résolution pour les deux composantes de manière séparée.
+On prend pour la suite des calculs la composante selon x, mais les calculs restent les même pour la composante selon y.
+\newline  On écrit la forme variationnelle dans $V_{h}$ ($B_x$ suit une décomposition dans $V_h$, $B_x=\sum_{i} B_{x}^{i}\ \varphi_i)$:
 
 \[
 \begin{aligned}
-		\forall \varphi \in V_{h} , \ \int_{\Omega}B.  \varphi &= \int_{\Omega}\bigtriangledown u.\varphi  \\
-		\sum_{i,j}\;  \sum_{T \in \text{Supp}(\varphi_{i})\times \text{Supp}(\varphi_{j})}B_{i}\int_{T} \varphi_i\varphi_j & =  \sum_{i}  \sum_{T \in \text{Supp}(\varphi_{i})\times \text{Supp}(\varphi_{j})} u_i \int_{T}\bigtriangledown\varphi_i\varphi_j  
+		\forall \varphi \in V_{h} , \ \int_{\Omega}B_x.  \varphi &= \int_{\Omega}\bigtriangledown u .\varphi  \\
+		\text{en prenant comme fonction test }&\varphi_j \text{ et en décomposant }B_x : \\
+		\sum_{i,j}\;  \sum_{T \in \text{Supp}(\varphi_{i})}B_{x}^{i}\int_{T} \varphi_i\varphi_j & =  \sum_{i}  \sum_{T \in \text{Supp}(\varphi_{i})} u_i \int_{T}\bigtriangledown\varphi_i\varphi_j  
 \end{aligned}
 \]
 Nous pouvons écrire l'équation ci dessus sous forme matricielle, en introduisant les matrices M et C, définit de la façon suivante :
@@ -540,12 +532,12 @@ Nous pouvons écrire l'équation ci dessus sous forme matricielle, en introduisa
 \]
 L'équation devient ainsi un problème linéaire sous forme matricielle  
 \[
-	M \times B=C \times U
+	M \times B_x=C_x \times U
 \] 
 
 Soit 
 \[
-	\boxed{B =M\up{-1}\times C \times U}
+	\boxed{B_x =M\up{-1}\times C_x \times U}
 \]
 Calculons ainsi les termes de la matrice C:
 \[
@@ -558,16 +550,16 @@ C_{ij} &= \iint_{\Omega}\bigtriangledown\varphi_i\varphi_j dx
 \]
 \[\boxed{C_{ij} =  \sum_{K\in supp\varphi_j}(J\up{-1}_K)^{T}|J_K| (\bigtriangledown_{\hat{K} }\hat{\varphi_i})\iint_{\hat{K}}  \hat{\varphi_j}\hat{dx}} \]
 
-Nous allons calculer pour l'implémentation algorithmique des matrice élémentaires qui vont regrouper sur chaque triangle les contributions croisés des trois nœuds, soit neuf termes dans chaque matrice élémentaire.
+Nous allons calculer pour l'implémentation algorithmique des matrice élémentaires qui vont regrouper sur chaque triangle les contributions croisées des trois nœuds, soit neuf termes dans chaque matrice élémentaire.
 \newline
-Calculons une matrice élémentaire de C sur un triangle K du maillage qui aura donc pour composantes (si on se place selon la composante x du gradient ) 
-
+Calculons une matrice élémentaire de $C_x$ sur un triangle K du maillage qui aura donc pour composantes (si on se place selon la composante x du gradient). \\ 
+On note $\bigtriangledown_{\hat{K} }{\hat{\varphi_1}}$ la valeur du gradient selon x.
 \[
 |J_K| \times
 \begin{pmatrix}
-   	\bigtriangledown_{\hat{K} }{\varphi_1}_{|x}\iint_{\hat{K}}  \hat{\varphi_1}&\bigtriangledown_{K}{\varphi_1}_{|x}\iint_{\hat{K} } \hat{\varphi_2} &\bigtriangledown_{K}{\varphi_1}_{|x}\iint_{\hat{K} } \hat{\varphi_3}\\ 
-  \bigtriangledown_{K }{\varphi_2}_{|x}\iint_{\hat{K }} \hat{\varphi_1} & \bigtriangledown_{K }{\varphi_2}_{|x}\iint_{\hat{K} }\hat{\varphi_2} & \bigtriangledown_{K }{\varphi_2}_{|x}\iint_	{\hat{K} } \hat{\varphi_3} \\
-  \bigtriangledown_{K }{\varphi_3}_{|x}\iint_{\hat{K} } \hat{\varphi_1}&\bigtriangledown_{K }{\varphi_3}_{|x}\iint_{\hat{K} } \hat{\varphi_2} & \bigtriangledown_{K}{\varphi_3}_{|x}\iint_{\hat{K} } \hat{\varphi_3}
+   	\bigtriangledown_{\hat{K} }{\hat{\varphi_1}}_{|x}\iint_{\hat{K}}  \hat{\varphi_1}&\bigtriangledown_{\hat{K}}{\hat{\varphi_1}}_{|x}\iint_{\hat{K} } \hat{\varphi_2} &\bigtriangledown_{\hat{K}}{\hat{\varphi_1}}_{|x}\iint_{\hat{K} } \hat{\varphi_3}\\ 
+   	    	\bigtriangledown_{\hat{K} }{\hat{\varphi_2}}_{|x}\iint_{\hat{K}}  \hat{\varphi_1}&\bigtriangledown_{\hat{K}}{\hat{\varphi_2}}_{|x}\iint_{\hat{K} } \hat{\varphi_2} &\bigtriangledown_{\hat{K}}{\hat{\varphi_2}}_{|x}\iint_{\hat{K} } \hat{\varphi_3}\\ 
+     	\bigtriangledown_{\hat{K} }{\hat{\varphi_3}}_{|x}\iint_{\hat{K}}  \hat{\varphi_1}&\bigtriangledown_{\hat{K}}{\hat{\varphi_3}}_{|x}\iint_{\hat{K} } \hat{\varphi_2} &\bigtriangledown_{\hat{K}}{\hat{\varphi_3}}_{|x}\iint_{\hat{K} } \hat{\varphi_3}
 \end{pmatrix} 
 \]
 Calculons les intégrales :
@@ -583,7 +575,7 @@ Calculons les intégrales :
   \right.
 \]
 \newpage
-On a ainsi a matrice élémentaire du terme C sur un triangle K:
+On a ainsi a matrice élémentaire du terme $C_x$ sur un triangle K:
 
 \[
 \frac{1}{6}\times
@@ -637,13 +629,14 @@ On en déduit la matrice de masse élémentaire sur un triangle de maillage
 %====================== Algorithme Matlab ======================================================= 
 \subsection{Implémentation algorithmique}
 
-Pour la résolution du problème nous utiliserons matlab avec la bibliothèque Mesh2D par Darren Engwirda pour la création du maillage 2D.
-La résolution est effectué sur un maillage $5\times 5$ avec en son centre un aimant de taille $1\times 1$.
+Pour la résolution du problème nous utiliserons matlab avec la bibliothèque Mesh2D par Darren Engwirda$^{[2]}$ pour la création du maillage 2D.
+La résolution est effectuée sur un maillage $5\times 5$ avec en son centre un aimant de taille $1\times 1$, figure \ref{prout}.
 
 \begin{figure}[h]
 	\begin{center}
 	\includegraphics[height = 7cm, keepaspectratio]{graphes/maillage_resolution_champ_magnetique.jpg} 
 	\caption{\label{figure 3 } maillage effectué sur matlab à l'aide de mesh2D dans la configuration décrite pour un pas h = 0.1}
+	\label{prout}
 	\end{center}
 \end{figure}
 
@@ -652,35 +645,32 @@ Par exemple pour le calcul de la matrice A :
 \[
 \begin{aligned}
 A_{ij} = 
-	\iint_{\Omega}\bigtriangledown_{x}{\varphi_{i}} \bigtriangledown_{x}{\varphi_{j}} &= 
-	\sum_{T \in \text{Supp}(\varphi_{i})\times \text{Supp}(\varphi_{j})}	
-	\frac{\text{aire}(T)^{2}}{4}
-	\begin{pmatrix}
-   		y_{3}-y_{1} &  	x_{1}-x_{3}\\
-   		y_{1}-y_{2} &  x_{2}-x_{1}
-	\end{pmatrix}
-	^{2}
-	\bigtriangledown_{\hat{x}} \hat{\varphi_{i}}
-	\bigtriangledown_{\hat{x}} \hat{\varphi_{j}}
+	\sum_{T \in \text{Supp}(\varphi_{i})\times \text{Supp}(\varphi_{j})}
+	\iint_{(i,j) \in T} |J|(J^{-1})^{T}
+	\cdot
+	\bigtriangledown_{\hat{x}} \hat{\varphi_{i}} \cdot
+	|J| (J^{-1})^{T} 
+	\cdot
+	\bigtriangledown_{\hat{x}} \hat{\varphi_{j}} \\
 \end{aligned}
 \]
-Le principe consiste à ne pas rechercher le support croisé des fonctions $\varphi_i$ et $\varphi_j$ (ce qui donnerait une complexité trop importante) mais à boucler sur les triangles et placer dans la matrice les contributions correspondantes à chacun de leurs nœuds avec leur indices. Notamment avec l'outil matriciel $sparse$ de matlab qui permet d'exploiter en temps de calcul et d'espace mémoire le fait que la matrice de rigidité A est creuse, comme pour deux fonction $\varphi_{i}$ et $\varphi_{j}$ l'intersection de leurs support se réduit à deux triangles.
+Le principe consiste à ne pas rechercher le support croisé des fonctions $\varphi_i$ et $\varphi_j$ (ce qui donnerait une complexité trop importante) mais à boucler sur les triangles et placer dans la matrice les contributions correspondantes à chacun de leurs nœuds avec leur indices. Notamment avec l'outil matriciel $sparse$ de matlab qui permet d'exploiter en temps de calcul et d'espace mémoire le fait que la matrice de rigidité A est creuse, comme pour deux fonction $\varphi_{i}$ et $\varphi_{j}$ l'intersection de leurs supports se réduit à deux triangles.
 \\
 \\
 Ainsi pour le calcul de A chaque triangle engendre une matrice élémentaire $ 3\times 3$ (car 3 nœuds pour chaque triangle donc 9 termes croisés) symétrique vu le calcul du terme $A_{ij}$ dont on place les terme dans la matrice A à chaque itération sur les triangles.
 \\
-\\Le principe est le même pour le terme source, pour chaque triangle appartenant au bord de l'aimant avec comme noeuds sur le bord les nœuds $\text{p}_{i}$ et  $\text{p}_{j}$ on place deux fois le même terme $\frac{|e|}{2}\begin{pmatrix} 
+\\Le principe est le même pour le terme source, pour chaque triangle appartenant au bord de l'aimant avec comme noeuds sur le bord les nœuds $\text{p}_{i}$ et  $\text{p}_{j}$ on place deux fois le même terme $\frac{1}{2}\begin{pmatrix} 
    									0 & 1\\
 								\end{pmatrix}^{T}.
 								\vec{\text{n}}_{e}$ 
-(que l'on à calculé p.21) aux indices $\text{p}_{i}$ et  $\text{p}_{j}$ dans la matrice du terme source.
+(que l'on a calculé p.21) aux indices $\text{p}_{i}$ et  $\text{p}_{j}$ dans la matrice du terme source.
 \\
 \\
 Et de même également pour le calcul des matrices M et C pour le gradient, dont nous avons explicité les matrices élémentaires.	
 
 Voici une présentation succinte de l'algorithme de résolution, les fonctions utilisés sont détaillé dans l'annexe \ref{annexe_2}.
 
-Pour la génération du maillage, on utilise la fonction meshfaces fournis par la bibliothèque Mesh2D par Darren Engwirda
+Pour la génération du maillage, on utilise la fonction meshfaces fournis par la bibliothèque Mesh2D par Darren Engwirda$^{[2]}$
 \begin{verbatim}
  [v,t,fnum] = meshfaces(node,edge,face,hdata); %construction du maillage
  
@@ -695,7 +685,7 @@ Calcul de la matrice de rigidité A et de la matrice de masse M :
 [A]= matrixP1vect(v,t);
 \end{verbatim}
 
-On enlève les noeuds sur le bord du domaine de résolution comme la condition aux limite impose que $\Delta u = 0$ sur le bord, que nous considerons équivalente à $u = 0$ 
+On enlève les noeuds sur le bord du domaine de résolution comme la condition aux limite impose que $u = 0$ 
 \begin{verbatim}
 A1 = A1(ic2,ic2);	%ic2 sont les noeuds intérieurs du maillage
 sol = A1\M;			%résolution linéaire
@@ -714,12 +704,12 @@ Voici les résultats de la simulation pour un maillage de pas 0.2 et de taille $
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[height = 10cm, keepaspectratio]{graphes/resultat_champ.jpg}
-\caption{affichage $quiver$ du champ magnétique, fenêtre centrée sur [-2, 2]}
+\caption{affichage avec matlab du champ magnétique, fenêtre centrée sur [-2, 2]}
 \label{figure 1}
 \end{center}
 \end{figure}
 On voit que les vecteurs suivent les trajectoires des lignes de champs que l'on peut attendre d'un aimant.
-On peut s'inquiéter de la discontinuité des valeurs au bord de l'aimant mais ce la est en accord avec la formulation du champ d'induction comme la somme d'un champ d'excitation et d'une aimantation, nulle en dehors de l'aimant $\vec{B}=\mu _{0}(\vec{H}+\vec{M})$, d'où cette discontinuité que l'on observe.
+On peut s'inquiéter de la discontinuité des valeurs au bord de l'aimant mais cela est en accord avec la formulation du champ d'induction comme la somme d'un champ d'excitation et d'une aimantation, nulle en dehors de l'aimant $\vec{B}=\mu _{0}(\vec{H}+\vec{M})$, d'où cette discontinuité que l'on observe.
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[height = 8 cm, keepaspectratio]{graphes/norme_du_champ.jpg}
@@ -731,14 +721,14 @@ On peut s'inquiéter de la discontinuité des valeurs au bord de l'aimant mais c
 %												chapitre 2 equations de Navier_Stockes
 %=========================================================================================================================================================
 \newpage
-\chapter{Équations de  Navier Stokes} 
-Nous allons à présent nous intéresser à la modélisation de l'écoulement, qui suit les équations de Navier-Stokes d'après les hypothèses que nous avons émis précédemment. 
+\chapter{Équations de Stokes} 
+Nous allons à présent nous intéresser à la modélisation de l'écoulement, qui suit les équations de Stokes d'après les hypothèses que nous avons émis précédemment. 
 Nous supposons que nous avons à notre disposition deux aimants, qui sont perpendiculaires sur les côtés de la cuve, l'un produit un champ $B_1$, l'autre produit un champ $B_2$
 Le premier aimant va produire un tourbillon dans le fluide, le deuxième va produire deux tourbillons parallèles, qui sont orthogonaux au premier tourbillon . Tout cela dans le but d'obtenir un écoulement tourbillonnaire. 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[height = 8 cm, keepaspectratio]{graphes/3_tourbillons.png}
-\caption{les trois tourbillons que nous souhaitons obtenir avec notre dispositif expérimental}
+\caption{les trois tourbillons que nous souhaitons obtenir avec notre modèle}
 \label{figure 1}
 \end{center}
 \end{figure}
@@ -749,7 +739,7 @@ Le premier aimant va produire un tourbillon dans le fluide, le deuxième va prod
 Le liquide est un conducteur placé dans un champ magnétique et parcouru par un courant supposé uniforme $\vec{j_0}$.
 \normalsize 
 Afin de pouvoir trouver l'équation de la trajectoire d’un point donné, on cherche tout d’abord à trouver la vitesse dans l'écoulement du fluide contenu dans un domaine $\Omega$.
-\\A partir des équations de Navier-Stokes incompressibles, on détermine simultanément la vitesse  $V$ et la pression $P$. 
+\\A partir des équations de Stokes incompressibles, on détermine simultanément la vitesse  $V$ et la pression $P$. 
 \\
 \\
 On émet les hypothèses suivantes :
@@ -783,7 +773,15 @@ La force $\vec{f}$ correspond à la force de Laplace induite par le champ magné
 &\Delta E : \text{la différence de potentiel}
 \end{aligned} \\
 \]
-Ainsi on peut calculer la force magnétique pour un champ magnétique $\vec{B_1}$
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[height = 6 cm, keepaspectratio]{graphes/champvec2.png}
+\includegraphics[height =2cm, keepaspectratio]{graphes/repere.jpg}
+\caption{Géométrie pour un tourbillon}
+\label{figure ty}
+\end{center}
+\end{figure}
+Ainsi on peut calculer la force magnétique pour un champ magnétique $\vec{B_1}$ dans la configuration de la figure \ref{figure ty}. C'est à dire un champ dans le plan $xy$ comme on néglige les effets de bords selon $z$.
 \[
 	\vec{B_1} = 
 	\begin{pmatrix}
@@ -810,25 +808,27 @@ j_0\times \begin{pmatrix}
 
 \subsection{Adimensionnement de l'équation de Stokes}
 
-\normalsize Afin de résoudre un seul système indépendamment des constantes, on adimensionne l'équation de Stokes. Le régime stationnaire sera pris en compte après adimensionnement.
+\normalsize Afin de résoudre un seul système indépendamment des constantes, on adimensionne l'équation de Stokes.
 \\%
 Posons :
 \begin{equation*}
 \vec{V'}(x,t)=\frac{\vec{V}(x,t)}{V_0}\;;\vec{x'}=\frac{\vec{x}}{L_0}\; ; \vec{f'}(\vec{x'})=\frac{\vec{f}(\vec{x})}{j_0M_0}\;;P'=\frac{P}{P_0}\; ;t'=\frac{t}{\frac{L_0^2}{\mu}}\;
 \end{equation*}
-En injectant dans l'équation de Stokes d'évolution :
+En injectant dans l'équation de Stokes stationnaire :
 \begin{equation*}
   \left\{
     \begin{aligned}
-    \rho\frac{\partial \vec{V}}{\partial t}=-\vec{\bigtriangledown} P + \mu \vec{\Delta}\vec{V}+\vec{f}
-        \end{aligned}
+    &\vec{0} = -\vec{\bigtriangledown} P + \mu \vec{\Delta}\vec{V}+\vec{f} \\
+    &\text{div} \ \vec{v} = 0
+  \end{aligned}
   \right.
 \end{equation*}
 il en résulte :
 \begin{equation*}
   \left\{
     \begin{aligned}
-    \frac{\partial \vec{V'}}{\partial t}=-\frac{L_0 P_0}{\rho \mu V_0}\vec{\bigtriangledown} P '+  \vec{\Delta}\vec{V'}+\frac{L_0^2j_0M_0}{\mu V_0}\vec{f'}
+    &\vec{0}=-\frac{L_0 P_0}{\rho \mu V_0}\vec{\bigtriangledown} P '+  \vec{\Delta}\vec{V'}+\frac{L_0^2j_0M_0}{\mu V_0}\vec{f'} \\
+    &\text{div} \ \vec{v} = 0
         \end{aligned}
   \right.
 \end{equation*}
@@ -840,77 +840,82 @@ On adimensionne par rapport à $V_0$ et $P_0$ de sorte que $\frac{L_0 P_0}{\rho 
 %================= Formulation variationnelle =========================================================
 \subsection{Formulation variationnelle}
 
-Afin d'obtenir la formulation variationnelle de l'équation de Stokes, on passe dans l'espace des distribution de sorte que pour toute fonctions test $\varphi$ on a 
-\[
-	\int_\Omega\vec{\bigtriangledown}P'\times \vec \varphi=\int_\Omega-\mu\vec{\Delta}V'\times \vec \varphi +\int_\Omega\vec{f'}\times \vec \varphi 
-\]
-En appliquant la formule de Green, on obtient :
-
-\[
-\forall \varphi \in D(\Omega) \quad  \int_\Omega\vec{\bigtriangledown}P'. \vec \varphi + \int_{\Omega}\bigtriangledown V'. \bigtriangledown \varphi = \int_\Omega\vec{f'}. \vec \varphi
-\]
-Comme précédemment nous nous plaçons dans l'espace $V_{h}$ d'approximation polynomiale.
-Nous pouvons ainsi décomposer les champs de pression $P'$, la vitesse $V'$ et la force $\vec{f'}$ dans la base des $(\varphi_{i})$:
-
+Afin d'obtenir la formulation variationnelle de l'équation de Stokes, on passe dans l'espace des distributions de sorte que pour toute fonctions test $\varphi$ on a 
 \begin{equation*}
-  \left\{
-    \begin{aligned}
- &V '= \sum_{i=1}^{N_{h}}{\ V_{i}\varphi_{i}} \text{ \ \ où } V_{i} = V(P_{i}),\  i= 1,2,...,N_{h}\\
- &P '= \sum_{i=1}^{N_{h}}{\ P_{i}\varphi_{i}} \text{ \ \ où } P_{i} = P(P_{i}),\  i= 1,2,...,N_{h}\\
- &f' = \sum_{i=1}^{N_{h}}{\ f_{i}\varphi_{i}} \text{ \ \ où } f_{i} = f(P_{i}),\  i= 1,2,...,N_{h}\\
+\left\{
+\begin{aligned}
+	&\int_\Omega\vec{\bigtriangledown}P'\cdot \vec \varphi=\int_\Omega-\mu\vec{\Delta}V'\cdot \vec \varphi +\int_\Omega\vec{f'}\cdot \vec \varphi \\
+	&\int_\Omega\vec{\bigtriangledown}\cdot \vec{V'} \cdot \vec \varphi= 0
 \end{aligned}
-  \right.
-\end{equation*}$ $ \\ 
-On prend $\varphi\ =\ \varphi_{i}$ un vecteur de la base
-\begin{equation*}
-  \left\{
-    \begin{aligned}
-	&\int_{\Omega}\bigtriangledown V_{h}.\bigtriangledown \varphi\ 
-	=\ 
-	\sum_{i, j \in [1, N_{h}]^{2}} \int_{\Omega}V_{i}\bigtriangledown\varphi_{i}. \bigtriangledown\varphi_{j} 
-	= 
-	\sum_{i,j \in [1, N_{h}]^{2}} A_{ij} V_{i}\\
-	&\int_{\Omega}\bigtriangledown P_{h}.\varphi\ 
-	=\ 
-	\sum_{i, j \in [1, N_{h}]^{2}} \int_{\Omega}P_{i}\bigtriangledown\varphi_{i}. \varphi_{j} 
-	= 
-	\sum_{i,j \in [1, N_{h}]^{2}}C_{ij} u_{i}\\
-	&\int_{\Omega} f. \varphi\ 
-	=\ 
-	\sum_{i, j \in [1, N_{h}]^{2}} \int_{\Omega}f_{i}\varphi_{i}. \varphi_{j} 
-	= 
-	\sum_{i,j \in [1, N_{h}]^{2}} M_{ij} f_{i}\end{aligned}
-  \right.
+\right.
 \end{equation*}
-On peut donc écrire la formulation variationnelle sous la forme d'un problème linéaire:
+En appliquant la formule de Green, on trouvge que le système est équivalent à :
+
 \begin{equation*}
-  \left\{
-    \begin{aligned}
-	&-A\times V + C \times P = M	\times f \ \text{sur} \ \Omega\\
-	& C\times V = 0 \ \text{sur} \  \partial\Omega\\
-	\end{aligned}
-  \right.
+\left\{
+\begin{aligned}
+	&\text{Trouver } (V',P') \in H_0^1(\Omega)^3 \times L^2(\Omega) tels que \\
+	&\forall \varphi \in H_0^1(\Omega)^3 \quad  \int_\Omega\vec{\bigtriangledown}P'. \vec \varphi + \int_{\Omega}\bigtriangledown V'. \bigtriangledown \varphi = \int_\Omega\vec{f'}. \vec \varphi \\
+	&\int_\Omega\vec{\bigtriangledown}\cdot \vec{V'} \cdot \vec \varphi = 0
+\end{aligned}
+\right.
 \end{equation*}
+Comme précédemment nous utilisons un maillage en nous plaçant dans un espace d'interpolation polynomiale pour les restrictions des fonctions aux éléments qui constituent ce maillage. Pour la vitesse $V'$ on prend des fonctions d'interpolations qui sont des polynômes de degré 2 (éléments $\mathbb{Q}_2$), et pour la pression $P'$ on utlise de fonctions de degré 1 (éléments $\mathbb{Q}_1$).
+
+On se ramène alors de la même manière à un système linéaire à résoudre.
 
 %====================== principe de superposition 
 \subsection{Principe de superposition}
 
-La linéarité de l'équation nous permet d'appliquer le principe de superposition est donc de décomposer la résolution du problème en deux résolutions : une pour chaque terme source et ensuite de les sommer.
-Pratiquement nous allons résoudre le problème en deux temps : d'un coté pour l'aimant centré qui donne deux tourbillons et d'autres part pour l'aimant décentré qui donne un tourbillon pour ensuite sommer les champs de vitesse après transposition du champ pour l'aimant décentré pour se retrouver dans la configuration où les tourbillons sont perpendiculaires.
+La linéarité de l'équation nous permet d'appliquer le principe de superposition et donc de décomposer la résolution du problème en deux résolutions : une pour chaque terme source et ensuite de les sommer.
+
+Nous allons d'abord résoudre le problème pour un aimant centré selon l'axe x dans le plan xy(figure \ref{figure fg}).
 \begin{figure}[!h]
 	\begin{center}
 	\includegraphics[height = 8 cm, keepaspectratio]{graphes/config_centre.png}
+	\includegraphics[height =3cm, keepaspectratio]{graphes/repere_retourne.jpg}
 	\caption{résolution pour un aimant centré}
-	\label{figure 1k}
+	\label{figure fg}
 	\end{center}
 \end{figure}
+la force magnétique est alors $\vec{f_1} = \begin{pmatrix}
+											0 \\
+											0 \\
+											B_{1,y}
+											\end{pmatrix}$
+Après résolution on obtient les champs de vitesse et de pression $(V_1, P_1)$
+											
+\newpage
+Ensuite nous résolvons pour l'aimant décentré selon l'axe x dans le plan xy(figure \ref{figure 1h}).
 \begin{figure}[!h]
 	\begin{center}
 	\includegraphics[height = 8 cm, keepaspectratio]{graphes/champvec2.png}
+	\includegraphics[height =2cm, keepaspectratio]{graphes/repere.jpg}
 	\caption{résolution pour seux aimants decentrés après transposition du champ de vitesse pour que les tourbillons soient perpendiculaires}
 	\label{figure 1h}
 	\end{center}
 \end{figure}
+La force magnétique est alors $\vec{f_2} = \begin{pmatrix}
+											0 \\
+											0 \\
+											B_{2,y}
+											\end{pmatrix}$
+Après résolution on obtient les champs de vitesse et de pression $(V_2, P_2)$.
+\\
+\\
+Pour obtenir le système complet on transpose la configuration pour l'aimant décentré ce qui du point de vue des forces donne pour la configuration totale à trois tourbillons :  $\vec{f}_{total} = \text{transpose(}\vec{f_1}) + \vec{f_2}
+									=		\begin{pmatrix}
+											0 \\
+											- B_{1,y} \\
+											B_{2,y}
+											\end{pmatrix}$
+											
+
+Mais comme nous le voyons avec la formulation variationnelle, le problème est linéaire, nous pouvons donc réaliser cette opérations sur fonctions de sorties au lieu du terme source.
+C'est à dire que au lieu de résoudre le système pour $\vec{f}_{total}$ nous le résolvons pour $\vec{f_1}$ et pour $\vec{f_2}$ indépendamment, pour ensuite 
+transposer les champs de la résolution 1 (aimant centré selon l'axe x) $(V_1, P_1)$ et sommer ensuite les deux champs pour obtenir la 
+résolution totale \\
+$(V_{total}, P_{total}) = (\text{transpose}(V_1), \text{transpose}(P_1))\ +\ (V_2, P_2)$
 %===================== implementation algorithmique =======================================
 \newpage
 \subsection{Implémentation algorithmique}
@@ -944,8 +949,8 @@ Le domaine $\Omega = [0, L_x]\times[0, L_y]\times[0, L_z]$ est ainsi discrétis�
 \newpage
 \subsection{Calcul des matrices du système linéaire en trois dimensions}
 
-Cette partie va reposer sur le même principe que les calculs en deux dimensions et s'appuie sur le cours "Analyse numérique des équations de
-Navier-Stokes" de J.-F Scheid.
+Cette partie va reposer sur le même principe que les calculs en deux dimensions et s'appuie sur le cours \textit{Analyse numérique des équations de
+Navier-Stokes} de J.-F Scheid.
 
 En effet comme précédemment, nous allons nous appuyer sur des matrices élémentaires comprenant les contributions des différents noeuds sur chaque élement en nous ramenant à un élément de référence.  \\
 Nous cherchons à calculer les matrices de rigidité A et de masse M.
@@ -973,12 +978,12 @@ On obtient l'expression des éléments de la matrice élementaire en fonction de
 \[
 W^{k,l} = \frac{1}{|\text{det} \ B_K|}\sum_{m,n=1}^{N} J_{km}\ J_{ln}\ \hat{W}^{m,n}
 \]
-En regardant la construction des éléments avec les tables de connectivité on voit que les matrices élémentaire de réference sont de taille $9\times 9$ que l'on sait calculer explicitement.
+En regardant la construction des éléments avec les tables de connectivité on voit que les matrices élémentaire de référence sont de taille $9\times 9$ que l'on sait calculer explicitement.
 Dans notre algorithme on calcule la matrice de rigidité à l'aide du script $matrix3D$ qui réunit dans des matrice $27\times 27$ les termes croisés des matrices élémentaires ce qui permet de calculer directement en une affectation la matrice de rigidité en utilisant ses propriétés de symétries par blocs.
 
-Pour la matrice élémentaire de masse nous pouvons développer des calculs similaire à ceux menés dans le cas 2D pour trouver une matrice élémentaire $M_{i, j} = |\text{det} J| \times PhiPhi$ où $|\text{det} J|$ est le déterminant du Jacobien et $PhiPhi$ une matrice déterminé qui reste la même à chaque itération.
+Pour la matrice élémentaire de masse nous pouvons développer des calculs similaire à ceux menés dans le cas 2D pour trouver une matrice élémentaire $M_{i, j} = |\text{det} J| \times PhiPhi$ où $|\text{det} J|$ est le déterminant du Jacobien et $PhiPhi$ une matrice déterminée qui reste la même à chaque itération.
 
-On utilise ainsi dans les scripts de calculs une méthodologie similaire consistant à stoker les indices des valeurs comprises dans les matrices élémentaires et à construire la matrice complète à la fin des itérations sur les éléments en assignant les valeurs dans la matrices aux indices justement indiqués par les nœuds que l'on a gardé en mémoire en une seule affectation.
+On utilise ainsi dans les scripts de calculs une méthodologie similaire consistant à stoker les indices des valeurs comprises dans les matrices élémentaires et à construire la matrice complète à la fin des itérations sur les éléments en assignant les valeurs dans la matrices aux indices justement indiqués par les nœuds que l'on a gardés en mémoire en une seule affectation.
 
 \begin{verbatim}
 point=t(k,:);
@@ -1001,17 +1006,17 @@ AddMatElem(A,indice+2*nv2,indice+2*nv2,nu*DxDxval+nu*DyDyval+2*nu*DzDzval);
 %================= implementation algo =============================================================
 \subsection{Raccordement à la modélisation du champ magnétique}
 
-Pour résoudre le système linéaire qui découle des équations de Navier-Stokes, nous devons reprendre notre travail précédent pour former le second terme $f$, matrice colonne regroupant les valeurs scalaires de la force magnétique aux différents point du maillage.
+Pour résoudre le système linéaire qui découle des équations de Stokes, nous devons reprendre notre travail précédent pour former le second terme $f$, matrice colonne regroupant les valeurs scalaires de la force magnétique aux différents point du maillage.
 
-Nous devons donc faire le liens entre le maillage de résolution en trois dimension pour la résolutions des équations régissant l'écoulement et le maillage en deux dimensions sur lequel on calcule le champ magnétique. 
+Nous devons donc faire le liens entre le maillage de résolution en trois dimensions pour la résolutions des équations régissant l'écoulement et le maillage en deux dimensions sur lequel on calcule le champ magnétique. 
 
-Comme nous l'avons énoncé, nous supposons que le champ magnétique est invariant selon le troisième dimensions, il est donc inutile de le recalculer pour chaque 'couche' du maillage 3D, d'autant plus que le maillage 3D est uniforme. 
-La méthodologie que nous allons donc appliquer consiste à calculer une unique fois le champ magnétique sur une seule couche de maillage (la couche z = 0 en partique dans l'algorithme) et reprendre les valeurs du champ sur les autres couches.
+Comme nous l'avons énoncé, nous supposons que le champ magnétique est invariant selon la troisième dimension, il est donc inutile de le recalculer pour chaque 'couche' du maillage 3D, d'autant plus que le maillage 3D est uniforme. 
+La méthodologie que nous allons donc appliquer consiste à calculer une unique fois le champ magnétique sur une seule couche de maillage (la couche z = 0 en pratique dans l'algorithme) et reprendre les valeurs du champ sur les autres couches.
 
 Ce que nous faisons en pratique est de générer un grand maillage de résolutions 2D pour calculer le champ magnétique, ce qui permet d'atténuer les effets de bord subit par le champ magnétique. 
 \newline
-Nous utilisons ensuite la fonction Matlab $delaunay$ qui permet à partir du maillage rectangulaire, de définir un maillage triangulaire (comme nous avons travaillé sur un maillage de type triangulaire quelconque auparavant pour le calcul du champ magnétique).
-Nous identifions ensuite sur ce maillage de résolution 2D un domaine correspondant à la cuve est un domaine correspondant à l'aimant, en fonction de la configuration choisie. Le maillage sur le domaine assigné à la cuve doit bien sur correspondre à une couche du maillage de résolution 3D utilisé pour la résolution des équations de Navier-Stokes.
+Nous utilisons ensuite la fonction Matlab $delaunay$ qui permet à partir du maillage rectangulaire, de définir un maillage triangulaire (cela permet de faire le lien avec notre travaiil sur le champ magnétique où nous avions travaillé avec un maillage triangulaire quelconque).
+Nous identifions ensuite sur ce maillage de résolution 2D un domaine correspondant à la cuve est un domaine correspondant à l'aimant, en fonction de la configuration choisie. Le maillage sur le domaine assigné à la cuve doit bien sur correspondre à une couche du maillage de résolution 3D utilisé pour la résolution des équations de Stokes.
 
 \begin{figure}[!h]
 	\includegraphics[height = 8cm, keepaspectratio]{graphes/maillage_resolution_total_centre.jpg}
@@ -1025,12 +1030,31 @@ Nous identifions ensuite sur ce maillage de résolution 2D un domaine correspond
 \newpage
 Algorithmiquement, pour assigner les différents domaines du maillage de résolution 2D générés, nous utilisons le vecteur label $fnum$ qui prend sur chaque triangle la valeur 1, 2, ou 3 en fonction du domaine qui lui a été assigné.
 \newline
-Maintenant  notre objectif est de pouvoir adapter les données extraites à l'algorithme de Stokes 3D. Le premier obstacle est de réindexer le numéro des triangles pour qu'il y ait une bonne consistance des données lorsque l'algorithme va les utiliser: il faut renuméroter les triangles dans l'ordre. 
+
+
+
+
+Nous utilisons pour la résolutions des équations des Stokes en 3D un algorithme de résolution et de calcul des différentes matrices fourni par nos tuteurs \textit{Stokes3D}.
 \newline  	
 
-Un autre point important est le degré d'interpolation des espace polynomiaux sur lesquels nous travaillons. En effet nous avons résolu les équations du champ magnétique avec des éléments finis de degrés d'interpolation polynomiales 1 (éléments P1), alors que la résolution des équations de Navier-stokes nécessite des éléments finis P2. Il faut donc doubler le nombre de points d'interpolations du champ magnétique avant d'injecter le second membre $f$ dans l'algorithme de résolution des équations de Navier Stokes. Les données prennent alors une nouvelle structure suite à ce dédoublement des point, les matrices ne suivent plus le sens de parcourt des données fixé avec la fonctions de génération de maillage $ngrid$(qui est une généralisation sur la troisième dimension  de $meshgrid$). Ce doublement de point du maillage avec la génération des tables nouvelles tables de descriptions du maillage t et v sont faite par la fonction $mesh_3D$ fournis par M. Scheid que nous utilisons comme une boite noire.
+La seule difficulté à ce stade est l'adaptation de nos données du terme source pour ensuite utiliser l'algorithme de résolution \textit{Stokes3D}. \\
+En effet nous avons résolu les équations du champ magnétique avec des éléments finis de degrés d'interpolation polynomial 1 (éléments P1), alors que la résolution des équations de Stokes nécessite des éléments finis P2. Il faut donc doubler le nombre de points d'interpolations du champ magnétique pour calculer le second membre des équations de Stokes $f$ et l'injecter dans\textit{Stokes3D}.\\
 
-On le voit tout de suite un affiche $triplot$ après avoir appliqué $delaunay$ sur les données de la couche 2D du maillage 3D dont on a doublé les points.
+\begin{figure}[!h]
+	\center
+	\includegraphics[height = 8cm, keepaspectratio]{graphes/affichage_extraction_2D.jpg}
+	\caption{affichage matlab avec la fonction $triplot$ d'une couche 2D extraite du maillage 3D}
+	\label{figure aze}
+\end{figure}
+\begin{figure}[!h]
+	\center
+	\includegraphics[height = 8cm, keepaspectratio]{graphes/affichage_extraction_2D_normal.jpg}
+	\caption{affichage matlab avec la fonction $triplot$ du maillage dont on se sert pour la résolution centré en [4.5 5]}
+	\label{figure 3jj}
+\end{figure}
+\newpage
+Le doublement des points du maillage amène une nouvelle structure de données qu'il faut veiller à respecter comme nous le voyons avec les affichages matlab figures \ref{figure aze} et \ref{figure 3jj}.
+Le code qui a permit d'afficher ces maillages :
 \begin{verbatim}
 z = 0;   % niveau z = 0
 indz = find(v(:,3) == z);		% récupération des indices des nœuds pour le niveau 0
@@ -1038,24 +1062,14 @@ xz = v(indz,1); yz = v(indz,2); vz = [xz, yz];
 tz = delaunay(xz,yz);               % triangulation de Delaunay 
 triplot(tz,xz,yz);   				% affichage
 \end{verbatim}
-
-\begin{figure}[!h]
-	\center
-	\includegraphics[height = 8cm, keepaspectratio]{graphes/affichage_extraction_2D.jpg}
-	\caption{\label{figure 3 } affichage avec $triplot$ du maillage extrait}
-\end{figure}
-Si on compare à une structure de données classique généré avec $meshgrid$ ou $linspace$:
+Pour v$\_$total le le maillage est obtenu à l'aide de la fonction matlab $\textit{meshgrid}$:
 \begin{verbatim}
 t_total_2D = delaunay(v_total_2D(:,1),v_total_2D(:,2)); 
 triplot(t_total_2D ,X_total_2D,Y_total_2D);
 xlim([4.5 5.5]);
 ylim([4.5 5.5]);
 \end{verbatim} 
-\begin{figure}[!h]
-	\center
-	\includegraphics[height = 8cm, keepaspectratio]{graphes/affichage_extraction_2D_normal.jpg}
-	\caption{\label{figure 37 } affichage avec $triplot$ du maillage extrait}
-\end{figure}
+
 \newpage
 Pour comprendre la structure des données il faut alors se rapporter  aux tables de connectivité pour le type de maillage 3D généré.
 \begin{figure}[h]
@@ -1063,8 +1077,7 @@ Pour comprendre la structure des données il faut alors se rapporter  aux tables
 \includegraphics[height = 8cm, keepaspectratio]{graphes/table_de_connectivite.png} 
 \caption{\label{figure 38 } table de connectivité, issu du cours $Analyse$ $numérique$ $des$ $équations$ $de$ $Navier$-$Stokes$, J.-F. Scheid}
 \end{figure}
-On comprend alors que cette structure des données ératique est du à l'arrangement de la tables de coordonnées v. Cela ne pose pas de problème dans la mesure où nous prenons garde à garder la même structure de données tout de long de notre algorithme de résolution et donc d'arranger selon la même structure le second membre $f$.
-Et de même pour pouvoir visualiser graphiquement nos résultat nous devons passer de cette structure particulière des données à une structure compatible à l'affichage avec la fonction matlab $quiver3$.
+Il faut donc bien veiller à garder toujours la même structure de données tout du long, dans l'optique d'obtenir nos résultats dans le bon ordre et de pouvoir les afficher correctement.
  
 %================= résultats ====================================================================
 \newpage
@@ -1072,10 +1085,9 @@ Et de même pour pouvoir visualiser graphiquement nos résultat nous devons pass
 Nous allons étudier graphiquement les différents résultats que nous avons obtenus et évaluer leur justesse en les interprétants physiquement par rapport à ce que nous attendrions avec les paramètres donnés.
 \newline
 \\
-Tout d'abord dans la configuration pour un aimant centré nous observons sur la coupe clairement deux tourbillons symétrique de part et d'autres de l'aimant, ce qui est logique comme la configuration est symétrique selon le même plan de symétrie, ce qui valide le bon placement des données dans la résolution du problème.
+Tout d'abord dans la configuration pour un aimant centré selon l'axe x dans le plan xy nous observons sur la coupe, selon le plan xz pour y petit, clairement deux tourbillons symétriques de part et d'autres de l'aimant, ce qui est logique comme la configuration est symétrique selon le même plan de symétrie, et valide le bon placement des données dans la résolution du problème.
 \\
-Dans un premier temps, on discerne bien pour la première figure les deux tourbillons selon y, avec une forte vorticité au centre, car il s'agit du courant induit par les 2 tourbillons adjacents.
-On utilise l'outil $StreamTracer$ de Paraview pour traver la trajectoire de particules à partir du champ de vitesse que nous avons obtenus en sortie.
+On utilise l'outil $StreamTracer$ de Paraview pour tracer la trajectoire de particules à partir du champ de vitesse que nous avons obtenus en sortie de l'algorithme de résolution.
 
 \begin{figure}[!h]
 \begin{center}
@@ -1089,16 +1101,22 @@ On utilise l'outil $StreamTracer$ de Paraview pour traver la trajectoire de part
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[height = 6cm, keepaspectratio]{graphes/Paraview/flux_aimant_centre_100pt_length4.png} 
-\caption{\label{figure 32 }2 flux de particules dans cuve pour l'aimant centré pour des sphères de rayon 0.05 contenant 100 particules et pour un $max$ $StreamLine$ $FLux$ de 3, Paraview}
+\caption{\label{figure 32 }observation pour 2 sphère de rayon 0.05 contenant 100 particules  placé symetriquement par rapport à l'axe z pour l'aimant centré et pour un $Maximum$ $Streamline$ $Length$ de 3, Paraview}
 \end{center}
 \end{figure}
 
-A présent que nous avons observé de beaux tourbillons près de l'aimant, nous pouvons nous intéresser à ce qui se passe sur les tourbillons au fur et à mesure que l'on s'en éloigne, et voir ainis les conséquences de l'hypothèse d'un champ magnétique uniforme. 
-
-\begin{figure}[!h]
+Ces résultats sont en lien avec nos résultats de champ magnétique : contrairement aux hypothèses du projet 
+précédent, le champ magnétique n'est effectivement pas constant dans la cuve,et s'évase vers les extrémités, on 
+le remarque aussi d'ailleurs pour les autres lignes de flux, qui ont tendance à être courbées vis à vis des 
+lignes 
+de champ magnétique issues de l'aimant. Ensuite pour l'aimant décentré selon l'axe x dans le plan xy (avant la transposition du champ de 
+vitesse) on observe sur le plan de coupe près de l'aimant décentré un tourbillon centré selon z dans la cuve, et 
+respectivement 2 tourbillons selon y pour l'aimant centré.
+ \begin{figure}[!h]
 \begin{center}
 \includegraphics[height = 8cm, keepaspectratio]{graphes/Paraview/differents_flux_centre_100pt_lenght4_rad05.png} 
-\caption{\label{figure 33}différents flux dans le plan XY pour des sphères de rayon 0.02 contenant 100 particules et pour un max $StreamLine$ $FLux$ de 3, avec un aimant centré, Paraview}
+\caption{différents flux dans le plan XY pour des sphères de rayon 0.02 contenant 100 particules et pour un max $Maximum$ $Streamline$ $Length$  de 3, avec un aimant centré, Paraview}
+\label{figure 33}
 \end{center}
 \end{figure}
 
@@ -1107,10 +1125,10 @@ Nous pouvons comparer à la coupe sur le plan XY du champ magnétique pour cette
 \begin{figure}[!h]
 \begin{center} 
 \includegraphics[height = 8cm, keepaspectratio]{graphes/coupe_2D_champ_centre.jpg} 
-\caption{\label{figure 34} champ magnétique selon XY avec un aimant centré}
+\caption{ champ magnétique selon XY avec un aimant centré}
+\label{figure 34}
 \end{center}
 \end{figure}
-Nous apercevons sur la figure \ref{figure 34} que la déformation du tourbillon suit les lignes de champ magnétique, avec un module de vitesse constant sur les lignes de champ, ce qui est logique comme la force magnétique est constante sur les lignes de champ.\\
 
 \begin{figure}[!h]
 \begin{center} 
@@ -1123,7 +1141,7 @@ Nous apercevons sur la figure \ref{figure 34} que la déformation du tourbillon 
 \begin{figure}[!h]
 \begin{center} 
 \includegraphics[height = 10cm, keepaspectratio]{graphes/Paraview/differents_flux_decentre_100pt_lenght4_rad05.png} 
-\caption{\label{figure 36 }  différents flux pour un aimant centré utilisation de $StreamTracer$pour des sphères de rayon 0.05 contenant 100 particules et pour un max $StreamLine$ $FLux$ de 3}
+\caption{\label{figure 36 }  différents flux pour un aimant centré utilisation de $StreamTracer$pour des sphères de rayon 0.05 contenant 100 particules et pour un max $Maximum$ $Streamline$ $Length$  de 3}
 \end{center}
 \end{figure}
 
@@ -1145,13 +1163,15 @@ Enfin pour le champ de vitesse qui est la sommes des deux précedents nous obser
 \begin{figure}[!h]
 \center 
 \includegraphics[height = 8cm, keepaspectratio]{graphes/Paraview/total_coupe_pret_aimant_decentre.png} 
-\caption{\label{figure 322 } coupe selon YZ, proche de l'aimant pour le champ de vitesse complet}
+\caption{coupe selon YZ, proche de l'aimant pour le champ de vitesse complet}
+\label{figure 322}
 \end{figure}
 
 \begin{figure}[!h]
 \center 
 \includegraphics[height = 8cm, keepaspectratio]{graphes/Paraview/total_coupe_pret_aimant_centre.png} 
-\caption{\label{figure 3 } coupe selon XZ, proche de l'aimant pour le champ de vitesse complet}
+\caption{coupe selon XZ, proche de l'aimant pour le champ de vitesse complet}
+\label{figure 3a}
 \end{figure}
 
 \begin{figure}[!h]
@@ -1160,16 +1180,20 @@ Enfin pour le champ de vitesse qui est la sommes des deux précedents nous obser
 \caption{\label{figure 3 }trois flus de particules près des aimants pour le champ de vitesse total}
 \end{figure}
 
+Enfin nous avons ici 2 coupes (une selon YZ, et une selon XZ) (figures \ref{figure 322} et \ref{figure 3a} très 
+proches des extrémités de la cuve. On remarque que effectivement, si l'on se place du côté d'un aimant ou d'un autre, la prédominance de l'effet de l'aimant se fait sentir.
+
+
 %================== sections de Poincarré ==========================================================
 \newpage
 
 \subsection{Les sections de Poincaré}
 Pour caractériser les propriétés chaotiques des trajectoires associées à ce champ de vitesse, nous allons utiliser l'outil classique de la théorie des systèmes dynamiques qu'est la section de Poincaré, dont l'un des atouts est qu'elle permet de diminuer la complexité des problèmes par une réduction du nombre de dimensions. 
 \\
-En mathématiques, particulièrement en système dynamique, une application de Poincaré est une application liée à une orbite périodique dans l’espace des états d’un système dynamique et un certain sous-espace de dimension moindre, appelé la section de Poincaré, transverse au  flot système.\\
+En mathématiques, particulièrement en système dynamique, une application de Poincaré est une application liée à une orbite périodique dans l'espace des états d’un système dynamique et un certain sous-espace de dimension moindre, appelé la section de Poincaré, transverse au  flot système.\\
  Plus précisément, on considère une orbite suffisamment proche d'une orbite périodique, avec une condition initiale sur la section de Poincaré, et on observe le point auquel cette orbite revient à la section pour la première fois, d'où son autre nom, application de récurrence.
 \\
-En fait, les intersections successives avec S notées Pn d’une trajectoire donnée peuvent être vues comme les itérées d’une condition initiale P0 par une application de S dans S:
+En fait, les intersections successives avec S notées Pn d'une trajectoire donnée peuvent être vues comme les itérées d'une condition initiale P0 par une application de S dans S:
 \\
 \[f: P_n \in S \to P_{n+1} = f(P_n) \in S \]
 \\
@@ -1190,7 +1214,7 @@ On a deux cas:
 %====================================================================================================
 \subsection{A la recherche d'un écoulement chaotique}
 
-En nous inspirant des travaux de Valérie Toussaint et du Travail accomplis l'annnée dernière sur le projet, nous allons reprendre le même principe et poser un rapport entre les deux force magnétique $\vec{f_1}$ qui donne un tourbillon et $\vec{f_2}$ qui donne deux tourbillons. Le but est 'd'équilibrer' les deux force pour avoir un mouvement d'advection chaotique à travers le paramètre dz contrôle R tel que :
+En nous inspirant des travaux de Valérie Toussaint$^{[1]}$ et du Travail accomplis l'année dernière sur le projet, nous allons reprendre le même principe et poser un rapport entre les deux forces magnétiques $\vec{f_1}$ donnant un tourbillon, et $\vec{f_2}$ donnant deux tourbillons. Le but est 'd'équilibrer' les deux forces pour avoir un mouvement d'advection chaotique à travers le paramètre de contrôle R tel que :
 \[ R = \frac{||\vec{f_1}||}{||\vec{f_2}||} \]
 
 Nous allons donc exécuter au final le script $Resolution finale$ suivant pour résoudre notre problème en faisant varier R de telle manière à ensuite observer sur Paraview des sections de Poincaré permettant d'identifier des advections chaotiques.
@@ -1222,8 +1246,8 @@ fprintf('   - au format VTK (''VTK STRUCTURED_GRID'') : %s\n',filename2_vtk);
 writevtk3D(X2,Y2,Z2,Uxgd_total,Uygd_total,Uzgd_total,Pgd_total,filename2_vtk);
 \end{verbatim}
 
-Les sections de Poincarré que nous présentons se basent sur un maillage de la cuve en 21 points selon les trois directions de l'espace, et dans Paraview la simulation de la trajectoire de 100 000 particules (ce qui est le maximum compte-tenus de la RAM de la machine sur laquelle nous travaillons, nous pouvions éventuellement aller au-dessus mais le logiciel présentait alors des problèmes de stabilité), placée initialement dans une sphère centré sur la cuve de rayon 0.6 (qui occupe dons toute la cuve qui est un cube de coté 1). 
-Nous utilisons la méthode d'interpolation définies par défaut : Runge Kutta 4-5 dans les deux directions d'intégration et avec un $Maximum$ $StreamLine$ $Length$ de 3. 
+Les sections de Poincarré que nous présentons se basent sur un maillage de la cuve en 21 points selon les trois directions de l'espace, et dans Paraview la simulation de la trajectoire de 100 000 particules (ce qui est le maximum compte-tenus de la RAM de la machine sur laquelle nous travaillons, nous pouvions éventuellement aller au-dessus mais le logiciel présentait alors des problèmes de stabilité), placée initialement dans une sphère centré sur la cuve de rayon 0.6 (qui occupe donc toute la cuve qui est un cube d'arête 1). 
+Nous utilisons la méthode d'interpolation définie par défaut : Runge Kutta 4-5 dans les deux directions d'intégration et avec un $Maximum$ $StreamLine$ $Length$ de 3. 
 
 \begin{figure}[!h]
     \begin{minipage}[c]{.46\linewidth}
@@ -1299,9 +1323,9 @@ Nous utilisons la méthode d'interpolation définies par défaut : Runge Kutta 4
     \hfill%
 \end{figure}
 
-On voit en comparant aux sections de Poincaré réalisées l'année dernière que les zones sombres correspondants à des points dispersé, c'est à dire des zones chaotiques, ont tendance à être courbées alors qu'elles avaient tendance à être droites dans l'hypothèse du champ magnétique uniforme sur une partie de la cuve et nul ailleurs.
+On voit en comparant aux sections de Poincaré réalisées l'année dernière que les zones sombres correspondants à des points dispersés, c'est à dire des zones chaotiques, ont tendance à être courbées alors qu'elles avaient tendance à être droites dans l'hypothèse du champ magnétique uniforme sur une partie de la cuve et nul ailleurs.
 Nous n'observons pas cette "plage du chaos" correspondant à un élargissement de ces zones sombre en fonction de la valeur du coefficient R.
-Malheureusement, malgrès notre tâtonnement sur la valeur de R nous ne sommes pas arrivé à cerner la plage de valeurs pour laquelle l'écoulement est chaotique, malgrés également que nous ayant divisé par deux le pas de maillage. Cela nécessite sans aucun doute des simulations plus poussés mais nous avons malheureusement tardé à avoir ces résultats ce qui ne nous à pas permis d'avoir le temps de lancer une série de simulations plus complètes déja que les simulations actuelles entre la résolution du système linéaire et l'interpolation sous Paraview peuvent prendre un temps non négligeable. Ce que nous aurions du notamment faire est de prendre un paramètre $Maximum$ $StreamLine$ $Length$ beaucoup plus important comme l'année dernière. De manière générales les simulations réalisé l'année dernière en terme de pas de pas de maillage, de nombre de point, et de $Maximum$ $StreamLine$ $Length$ sont beaucoups plus poussées que celle que nous avons réalisés. Nous avons tenté des simulations sous Paraview avec le même paramètrage que l'année dernière mais nous nous confrontons à un problème de stabilité du logiciel.
+Malheureusement, malgrè notre tâtonnement sur la valeur de R nous ne sommes pas arrivé à cerner la plage de valeurs pour laquelle l'écoulement est chaotique, malgré également que nous ayant divisé par deux le pas de maillage. Cela nécessite sans aucun doute des simulations plus poussés mais nous avons malheureusement tardé à avoir ces résultats ce qui ne nous à pas permis d'avoir le temps de lancer une série de simulations plus complètes déjà que les simulations actuelles entre la résolution du système linéaire et l'interpolation sous Paraview peuvent prendre un temps non négligeable. Ce que nous aurions du notamment faire est de prendre un paramètre $Maximum$ $StreamLine$ $Length$ beaucoup plus important comme l'année dernière. De manière générales les simulations réalisé l'année dernière en terme de pas de pas de maillage, de nombre de point, et de $Maximum$ $StreamLine$ $Length$ sont beaucoups plus poussées que celle que nous avons réalisés. Nous avons tenté des simulations sous Paraview avec le même paramètrage que l'année dernière mais nous nous confrontons à un problème de stabilité du logiciel.
 Nous réesayerons néanmoins d'ici la soutenance d'arriver à faire tourner une simulation plus fine qui pourrait être intéressante.\\
 \newpage
 %======================== Conclusion ================================================================
@@ -1310,11 +1334,11 @@ Nous réesayerons néanmoins d'ici la soutenance d'arriver à faire tourner une 
 \normalsize
 \\
 
-L'objectif de ce projet a été, en partant de la thèse de Valérie Toussaint, de pousser l'étude des écoulement chaotiques avec un dispositif expérimental à 3 tourbillons. \\
+L'objectif de ce projet a été, en partant de la thèse de Valérie Toussaint$^{[1]}$, de pousser l'étude des écoulement chaotiques avec un dispositif expérimental à 3 tourbillons. \\
 \\
 La valeur ajouté que nous devions apporter est une simulation se rapprochant plus du réel en ne supposant pas le champ magnétique uniforme sur une moitié de la cuve. Nous avons put voir des modifications intéressantes sur les  tourbillons en supprimant cette hypothèse.\\
 Cependant en utilisant les sections de Poincarré de manière empirique nous n'avons pas identifié "la plage du chaos" qui permet en modulant selon un rapport R les forces des deux aimant d'arriver à un écoulement chaotique sur une portion majoritaire du fluide. \\
-Un autre objectif de ce projet était la caractérisation mathématique de l'advection chaotique en calculant les exposant de Lyapunov et en étudiant l'évolution de la distance entre deux particule se trouvant à une distance $\delta x$ l'une de l'autre à l'instant initial. Le but de cette étude mathématique aurait été la recherche plus précise du rapport R optimal pour générer le choaos face à l'approche des section de Poincaré qui est empirique.
+Un autre objectif de ce projet était la caractérisation mathématique de l'advection chaotique en calculant les exposants de Lyapunov et en étudiant l'évolution de la distance entre deux particules se trouvants à une distance $\delta x$ l'une de l'autre à l'instant initial. Le but de cette étude mathématique aurait été la recherche plus précise du rapport R optimal pour générer le chaos face à l'approche des sections de Poincaré qui est empirique.
 %==========================================================================================================================================================
 %														Annexe
 %==========================================================================================================================================================
@@ -1435,7 +1459,7 @@ J^{-1} =  \frac{1}{|J|}
 \]
 d'où
 \[
-*\begin{aligned}
+\begin{aligned}
 	(J^{-1})^{T} 
 	&=  	
 	\frac{1}{|J|}
@@ -1448,7 +1472,13 @@ d'où
 	\begin{pmatrix}
    		J_{22} & -J_{21} \\
    		-J_{12} & J_{11}	
-	\end{pmatrix} 
+	\end{pmatrix}    \\
+	&=
+	\frac{1}{|J|}
+	\begin{pmatrix}
+   		y_{3}-y_{1} &  	x_{1}-x_{3}\\
+   		y_{1}-y_{2} &  x_{2}-x_{1}
+	\end{pmatrix}
 	\end{aligned}
 \]
 
@@ -1458,24 +1488,15 @@ Et le calcul du terme $A_{ij}$ de la matrice de rigidité, on obtient ainsi avec
 	\text{A}_{ij} 
 	&=
 	\sum_{T \in \text{Supp}(\varphi_{i})\times \text{Supp}(\varphi_{j})} 
-	\iint_{(i,j) \in T}\bigtriangledown_{x}{\varphi_{i}} \bigtriangledown_{x}{\varphi_{j}} \\
+	\iint_{(i,j) \in T}\bigtriangledown_{x}{\varphi_{i}} \cdot \bigtriangledown_{x}{\varphi_{j}} \\
 	&=
 	\sum_{T \in \text{Supp}(\varphi_{i})\times \text{Supp}(\varphi_{j})}
-	\iint_{(i,j) \in T} (J^{-1})^{T}|J|(J^{-1})^{T}|J|
-	\times
-	\bigtriangledown_{\hat{x}} \hat{\varphi_{i}}
-	\times
+	\iint_{(i,j) \in T} |J|(J^{-1})^{T}
+	\cdot
+	\bigtriangledown_{\hat{x}} \hat{\varphi_{i}} \cdot
+	|J| (J^{-1})^{T} 
+	\cdot
 	\bigtriangledown_{\hat{x}} \hat{\varphi_{j}} \\
-	&=
-	\sum_{T \in \text{Supp}(\varphi_{i})\times \text{Supp}(\varphi_{j})}	
-	\frac{\text{aire}(T)^{2}}{4}
-	\begin{pmatrix}
-   		y_{3}-y_{1} &  	x_{1}-x_{3}\\
-   		y_{1}-y_{2} &  x_{2}-x_{1}
-	\end{pmatrix}
-	^{2}
-	\bigtriangledown_{\hat{x}} \hat{\varphi_{i}}
-	\bigtriangledown_{\hat{x}} \hat{\varphi_{j}}
 \end{aligned}
 \]
 
@@ -1519,8 +1540,7 @@ for k = 1:nt				% on boucle sur les triangles du maillage
         		%triangles qui sont sur le bord 
             	NNb = Tk(z);    %on recupere les numeros des triangles sur le bord
            		Ni = vN1(vN1(:,3)==l(compter==1),1:2);  %noeuds interieurs
-           		%on calcule la norme de l'arete
-          	  	norme_e = sqrt((Nb(1,2) - Nb(2,2))^2 + (Nb(1,1) - Nb(2,1))^2);  
+           		%on calcule la norme de l'arête 
            		n_normal = [Nb(2,2)-Nb(1,2); Nb(1,1)-Nb(2,1)];  %vecteur normal a l'arete
             	n_test = [Ni(1,1)-Nb(1,1); Ni(1,2)-Nb(1,2)];
    	        	if n_normal'*n_test < 0       %on teste si le vecteur normal 
@@ -1528,7 +1548,7 @@ for k = 1:nt				% on boucle sur les triangles du maillage
             	n_normal = -n_normal;         %dans ce cas on le prend dans 
             	%l'autre sens pour qu'il soit sortant
          		end
-     			M_inter =  (norme_e / 2).*[0 ; 1]'*n_normal;%[0;1] correspond au vecteur ey
+     			M_inter =  (1 / 2).*[0 ; 1]'*n_normal;%[0;1] correspond au vecteur ey
     			M(NNb,:) =  M(NNb,:) + M_inter;  %on place la valeur corespondant
     			% a l'arete dans la matrice du terme source 
         	end                                                              
@@ -1550,12 +1570,12 @@ for k = 1:nt				% on boucle sur les triangles du maillage
     terme_jacobien = (airek^2)/4 .* ([pk(3,2)-pk(2,1) pk(1,1)-pk(3,1) ;..
     pk(2,1)-pk(2,2) pk(2,1)-pk(1,1)]^2);
     A_inter = zeros(3,3);
-    A_inter(1,1) = (terme_jacobien*grad_elem(:,1))'*grad_elem(:,1);
-    A_inter(2,2) = (terme_jacobien*grad_elem(:,2))'*grad_elem(:,2);
-    A_inter(3,3) = (terme_jacobien*grad_elem(:,3))'*grad_elem(:,3);
-    A_inter(1,2) = (terme_jacobien*grad_elem(:,1))'*grad_elem(:,2);
-    A_inter(1,3) = (terme_jacobien*grad_elem(:,1))'*grad_elem(:,3);
-    A_inter(2,3) = (terme_jacobien*grad_elem(:,2))'*grad_elem(:,3);
+    A_inter(1,1) = (terme_jacobien.*grad_elem(:,1))'.* terme_jacobien .* grad_elem(:,1);
+    A_inter(2,2) = (terme_jacobien.*grad_elem(:,2))'.* terme_jacobien .* grad_elem(:,2);
+    A_inter(3,3) = (terme_jacobien.*grad_elem(:,3))'.* terme_jacobien .* grad_elem(:,3);
+    A_inter(1,2) = (terme_jacobien.*grad_elem(:,1))'.* terme_jacobien .* grad_elem(:,2);
+    A_inter(1,3) = (terme_jacobien.*grad_elem(:,1))'.* terme_jacobien .* grad_elem(:,3);
+    A_inter(2,3) = (terme_jacobien.*grad_elem(:,2))'.* terme_jacobien .* grad_elem(:,3);
     A_inter(2,1) = A_inter(1,2); 
     A_inter(3,1) = A_inter(1,3); 
     A_inter(3,2) = A_inter(2,3);        
@@ -1676,7 +1696,7 @@ end
 \end{verbatim}
 
 
-\subsection{Résolution des Equations de Navier Stokes}
+\subsection{Résolution des équations de Stokes}
 \begin{verbatim}
 %=========================================================================% 
 %  Résolution finale avec superposition des deux tourbillons
@@ -2084,27 +2104,32 @@ Et comme $\vec{M}$ est nul en dehors du domaine $\Omega_{\text{int}}$ de l'aiman
 \end{onehalfspace}
 
 \newpage
-\normalsize \bf Bibliographie
+\normalsize \bf Bibliographie \\
+\par
 
 
-\bibliographystyle{plain}
-\bibliography{bibli}
+%\bibliographystyle{plain}
+%\bibliography{bibli}
 
-"Introduction à l'analyse numérique"(1998), de Jacque Rappaz et Marco Picasso, publié par les Presses polytechniques et universitaires romandes.
+$[1]$V.Toussaint, 1997, \textit{Études des phénomènes de mélange dans des écoulements laminaires chaotiques en configuration tridimensionnelle}, thèse de doctorat, Mécanique. Lyon : l'école Centrale de Lyon.
 \\
+$[2]$\textit{Maillage par mesh2d} -- GNU GPL - Copyright (C) 2007 Darren Engwirda
 \\
- "Méthode des éléments finis : élasticité plane" par Yves Dabard, Institut Universitaire de Technologie du Mans Département Génie Mécanique et Productique
+\textit{Introduction à l'analyse numérique} (1998), de Jacque Rappaz et Marco Picasso, publié par les Presses polytechniques et universitaires romandes.
+\\
+
+\textit{Méthode des éléments finis : élasticité plane} par Yves Dabard, Institut Universitaire de Technologie du Mans Département Génie Mécanique et Productique
 , http://iut.univ-lemans.fr/ydlogi/index.html, 24 mars 2006 – 29 mars 2011
 %
 %" par un écoulement stationnaire de ﬂuide à faible Reynolds", par Ismail Mebsout et Oumaima Hammami, 2017,  Institut ´ Elie Cartan de Lorraine.
 %
 \\
 \\
- "Analyse numérique des équations de Navier-Stokes",de Jean-François Scheid,  Cours de Master 2 Mathématiques (Recherche) - Université de Lorraine, Nancy.
+\textit{Analyse numérique des équations de Navier-Stokes}, Jean-François Scheid,  Cours de Master 2 Mathématiques (Recherche) - Université de Lorraine, Nancy.
 \\
 \\
-"Projet de deuxième Année : Génération de maillages 2D avec Matlab" de Jean-Philippe LEBOUCHER Benjamin PACCOU avec comme chef de Projet Jonas KOKO, Institut
-Supérieur d’ Informatique, de Modélisation et de leurs Applications
+\textit{Projet de deuxième Année : Génération de maillages 2D avec Matlab} de Jean-Philippe LEBOUCHER Benjamin PACCOU avec comme chef de Projet Jonas KOKO, Institut
+Supérieur d’Informatique, de Modélisation et de leurs Applications
 \end{document}
 
 

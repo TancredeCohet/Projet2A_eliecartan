@@ -1,4 +1,4 @@
-function [fx, fy, fz, fxgd, fygd,fzgd,fxy] = f2Dto3D_2(v,t,nv1,nv2,nbquad,X,Y,Z,Nx,Ny,Nz,aimant_centre)
+function [fx, fy, fz, fxgd, fygd,fzgd,fxy] = f2Dto3D_2(v,t,nv1,nv2,nbquad,X,Y,Z,Nx,Ny,Nz,aimant_centre,h)
 %==========================================================================
 %     a partir d'un maillage donnee par les parametres f2Dto3D82 renvoit 
 %   le terme source de l'equation de navier-stokes
@@ -22,9 +22,9 @@ indz = find(v(:,3) == lz);
 xz = v(indz,1); yz = v(indz,2); vz = [xz, yz];
 tz = delaunay(xz,yz);               % triangulation de Delaunay des points du plan 
 
-figure();
-triplot(tz,xz,yz);   % affichage
-title('couche 2D extraite du maillage 3D de la cuve')
+% figure();
+% triplot(tz,xz,yz);   % affichage
+% title('couche 2D extraite du maillage 3D de la cuve')
 %_________________________________________________________________________%
 %         on voit que les point dans v ne sont pas dans l'ordre           %
 %_________________________________________________________________________%
@@ -87,7 +87,7 @@ t_total_2D = delaunay(v_total_2D(:,1),v_total_2D(:,2)); %generation maillage tri
 %               calcul du champ magnétique sur la couche z=0
 %--------------------------------------------------------------------------
 
-[B_X,B_Y] = champ_magnetique_fct_Tancrede_1(v_total_2D,t_total_2D,node_aimant,edge_aimant,node_ensemble,edge_ensemble,aimant_centre);
+[B_X,B_Y] = champ_magnetique_fct_Tancrede_1(v_total_2D,t_total_2D,node_aimant,edge_aimant,node_ensemble,edge_ensemble,aimant_centre,h);
 
 
 f0 = B_Y; %calcul du second menbre sur le plan z=0

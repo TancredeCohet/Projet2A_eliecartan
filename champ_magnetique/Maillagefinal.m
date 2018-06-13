@@ -67,7 +67,7 @@ t = area_triangle(v,t);
 %==========================================================================
 A1 = A1(ic2,ic2);
 
-sol = A1\M;
+sol = A1\((1/pas_h).*M);
 
 
 %--------------------------------------------------------------------------
@@ -121,9 +121,9 @@ Y = v(:,2);
  figure;
  
  %patch('faces',t(:,1:3),'vertices',v(:,1:2),'facecolor','red');
- quiver(X,Y,B_X,B_Y);
+ quiver(X,Y,B_X,B_Y,'Autoscale','off');
  axis equal;
- %xlim([-2 2]);
- %ylim([-2 2]);
+ xlim([-2 2]);
+ ylim([-2 2]);
  
 

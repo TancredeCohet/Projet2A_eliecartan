@@ -79,13 +79,12 @@ function [M, nn, ibint, ic2] = matrixP1final(vz,tz,fnum,node1,edge1,node2,edge2)
                     Nb = vN1(z,1:2);                        %on recupere les coordonnees des noeuds du triangles qui sont sur le bord 
                     NNb = Tk(z);                            %on recupere les numeros des triangles sur le bord
                     Ni = vN1(vN1(:,3)==l(compter==1),1:2);              %noeuds interieurs
-                    norme_e = sqrt((Nb(1,2) - Nb(2,2))^2 + (Nb(1,1) - Nb(2,1))^2);  %on calcule la norme de l'arete
                     n_normal = [Nb(2,2)-Nb(1,2); Nb(1,1)-Nb(2,1)];  %vecteur normal a l'arete
                     n_test = [Ni(1,1)-Nb(1,1); Ni(1,2)-Nb(1,2)];
                     if n_normal'*n_test < 0                         %on teste si le vecteur normal que l'on a calcule est dans le bon sens
                         n_normal = -n_normal;                       %dans ce cas on le prend dans l'autre sens pour qu'il soit sortant
                     end
-                    M_inter =  (norme_e / 2).*[0 ; 1]'*n_normal;      % [0;1] correspond au vecteur ey
+                    M_inter =  (1 / 2).*[0 ; 1]'*n_normal;      % [0;1] correspond au vecteur ey
                     M(NNb,:) =  M(NNb,:) + M_inter;                              %on place la valeur corespondant a l'arette dans la matrice du terme source 
                 end                                                    %aux indices des noeuds sur le bord
             end           
