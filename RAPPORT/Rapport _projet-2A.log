@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.4)  13 JUN 2018 10:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.6.4)  13 JUN 2018 10:46
 entering extended mode
 **"./Rapport _projet-2A.tex"
 ("Rapport _projet-2A.tex"
@@ -777,7 +777,26 @@ Writing nomenclature file "Rapport _projet-2A".nlo
 \openout4 = `"Rapport _projet-2A.idx"'.
 
 Writing index file "Rapport _projet-2A".idx
-("Rapport _projet-2A.aux")
+("Rapport _projet-2A.aux"
+
+LaTeX Warning: Label `figure 1' multiply defined.
+
+
+LaTeX Warning: Label `figure 3 ' multiply defined.
+
+
+LaTeX Warning: Label `figure 1' multiply defined.
+
+
+LaTeX Warning: Label `figure 1' multiply defined.
+
+
+LaTeX Warning: Label `figure 1' multiply defined.
+
+
+LaTeX Warning: Label `figure 3 ' multiply defined.
+
+)
 \openout1 = `"Rapport _projet-2A.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -914,71 +933,66 @@ Overfull \hbox (3.61127pt too wide) in paragraph at lines 39--40
 
 {C:/Users/pierre gauthier/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <.
 /graphes/mines_nancy.png> <./graphes/elie_cartan.png> <./graphes/univ_lorraine.
-png>]
-
-Package hyperref Warning: old toc file detected, not used; run LaTeX again.
-
-\tf@toc=\write6
-\openout6 = `"Rapport _projet-2A.toc"'.
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.63 \newpage
-              [1
-
-]
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 78.
+png>] ("Rapport _projet-2A.toc"
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 3.
 
 ("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ot1lm
 r.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 78.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 3.
 
 ("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omllm
 m.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 78.
-
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 3.
 
 ("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omslm
 sy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 78.
-
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 3.
 
 ("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omxlm
 ex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 78.
+(Font)              <12> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 78.
+(Font)              <8> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 78.
-LaTeX Font Info:    Try loading font information for U+msa on input line 78.
+(Font)              <6> on input line 3.
+LaTeX Font Info:    Try loading font information for U+msa on input line 3.
 
 ("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts
 \umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 78.
+LaTeX Font Info:    Try loading font information for U+msb on input line 3.
 
 ("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts
 \umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 78.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 3.
 
 ("C:\Users\pierre gauthier\AppData\Local\Programs\MiKTeX 2.9\tex\latex\jknappen
 \ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
+)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.30 ...}quations de Stokes}{62}{subsection.B.0.2}
+                                                   [1
+
+])
+\tf@toc=\write6
+\openout6 = `"Rapport _projet-2A.toc"'.
+
+ [2]
 Underfull \hbox (badness 10000) in paragraph at lines 69--79
 
  []
@@ -988,7 +1002,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 69--79
 
  []
 
-[2]
+[3]
 Chapitre 1.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
@@ -1009,16 +1023,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 98--112
 
  []
 
-[3
+[4
 
 ]
-<graphes/blender_cuve_champvec.png, id=151, 1284.8pt x 801.99625pt>
+<graphes/blender_cuve_champvec.png, id=184, 1284.8pt x 801.99625pt>
 File: graphes/blender_cuve_champvec.png Graphic file (type png)
 <use graphes/blender_cuve_champvec.png>
 Package pdftex.def Info: graphes/blender_cuve_champvec.png  used on input line 
 121.
 (pdftex.def)             Requested size: 319.06233pt x 199.16928pt.
-<graphes/blender_cuve_mag2.png, id=152, 1284.8pt x 803.0pt>
+<graphes/blender_cuve_mag2.png, id=185, 1284.8pt x 803.0pt>
 File: graphes/blender_cuve_mag2.png Graphic file (type png)
 <use graphes/blender_cuve_mag2.png>
 Package pdftex.def Info: graphes/blender_cuve_mag2.png  used on input line 132.
@@ -1031,8 +1045,8 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4]
-<graphes/champvec2.png, id=157, 1284.8pt x 801.99625pt>
+[5]
+<graphes/champvec2.png, id=190, 1284.8pt x 801.99625pt>
 File: graphes/champvec2.png Graphic file (type png)
 <use graphes/champvec2.png>
 Package pdftex.def Info: graphes/champvec2.png  used on input line 144.
@@ -1041,12 +1055,12 @@ Package pdftex.def Info: graphes/champvec2.png  used on input line 144.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<graphes/config_centre.png, id=158, 770.88pt x 481.8pt>
+<graphes/config_centre.png, id=191, 770.88pt x 481.8pt>
 File: graphes/config_centre.png Graphic file (type png)
 <use graphes/config_centre.png>
 Package pdftex.def Info: graphes/config_centre.png  used on input line 154.
 (pdftex.def)             Requested size: 364.19568pt x 227.62204pt.
-<graphes/blender_cuve_champvec3.png, id=159, 1284.8pt x 801.99625pt>
+<graphes/blender_cuve_champvec3.png, id=192, 1284.8pt x 801.99625pt>
 File: graphes/blender_cuve_champvec3.png Graphic file (type png)
 <use graphes/blender_cuve_champvec3.png>
 Package pdftex.def Info: graphes/blender_cuve_champvec3.png  used on input line
@@ -1060,31 +1074,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 150--170
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[5 <./graphes/blender_cuve_champvec.png> <./graphes/blender_cuve_mag2.png>]
+[6 <./graphes/blender_cuve_champvec.png> <./graphes/blender_cuve_mag2.png>]
 
-LaTeX Warning: Text page 6 contains only floats.
+LaTeX Warning: Text page 7 contains only floats.
 
-[6 <./graphes/champvec2.png> <./graphes/config_centre.png>] [7 <./graphes/blend
-er_cuve_champvec3.png>] [8]
+[7 <./graphes/champvec2.png> <./graphes/config_centre.png>] [8 <./graphes/blend
+er_cuve_champvec3.png>] [9]
 Chapitre 2.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 182.
 
-<graphes/champ_aimant1.png, id=187, 556.32843pt x 362.10281pt>
+<graphes/champ_aimant1.png, id=220, 556.32843pt x 362.10281pt>
 File: graphes/champ_aimant1.png Graphic file (type png)
 <use graphes/champ_aimant1.png>
 Package pdftex.def Info: graphes/champ_aimant1.png  used on input line 188.
 (pdftex.def)             Requested size: 174.8539pt x 113.81102pt.
-<graphes/axes.png, id=188, 150.5625pt x 130.4875pt>
+<graphes/axes.png, id=221, 150.5625pt x 130.4875pt>
 File: graphes/axes.png Graphic file (type png)
 <use graphes/axes.png>
 Package pdftex.def Info: graphes/axes.png  used on input line 189.
 (pdftex.def)             Requested size: 65.65956pt x 56.9055pt.
-[9
+[10
 
  <./graphes/champ_aimant1.png> <./graphes/axes.png>]
-<graphes/Espacedetravail.png, id=196, 1836.8625pt x 1074.0125pt>
+<graphes/Espacedetravail.png, id=229, 1836.8625pt x 1074.0125pt>
 File: graphes/Espacedetravail.png Graphic file (type png)
 <use graphes/Espacedetravail.png>
 Package pdftex.def Info: graphes/Espacedetravail.png  used on input line 206.
@@ -1093,22 +1107,12 @@ Package pdftex.def Info: graphes/Espacedetravail.png  used on input line 206.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[10] [11 <./graphes/Espacedetravail.png>]
-
-LaTeX Warning: Reference `E' on page 12 undefined on input line 264.
-
-
-LaTeX Warning: Reference `E' on page 12 undefined on input line 271.
-
-[12]
+[11] [12 <./graphes/Espacedetravail.png>] [13]
 Underfull \hbox (badness 10000) in paragraph at lines 283--285
 
  []
 
 
-LaTeX Warning: Reference `A' on page 13 undefined on input line 288.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 288--293
 
  []
@@ -1118,7 +1122,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 288--293
 
  []
 
-<graphes/Maillage_initial.png, id=218, 551.05875pt x 502.87875pt>
+<graphes/Maillage_initial.png, id=254, 551.05875pt x 502.87875pt>
 File: graphes/Maillage_initial.png Graphic file (type png)
 <use graphes/Maillage_initial.png>
 Package pdftex.def Info: graphes/Maillage_initial.png  used on input line 305.
@@ -1131,13 +1135,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 313--318
 
  []
 
-[13] [14 <./graphes/Maillage_initial.png>]
+[14] [15 <./graphes/Maillage_initial.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 379--381
 
  []
 
-[15]
-<graphes/transformation_de_maillage.png, id=235, 810.02625pt x 417.81094pt>
+[16]
+<graphes/transformation_de_maillage.png, id=271, 810.02625pt x 417.81094pt>
 File: graphes/transformation_de_maillage.png Graphic file (type png)
 <use graphes/transformation_de_maillage.png>
 Package pdftex.def Info: graphes/transformation_de_maillage.png  used on input 
@@ -1153,14 +1157,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 425--432
 
  []
 
-[16 <./graphes/transformation_de_maillage.png>]
-<graphes/bord.png, id=242, 791.95876pt x 448.67625pt>
+[17 <./graphes/transformation_de_maillage.png>]
+<graphes/bord.png, id=278, 791.95876pt x 448.67625pt>
 File: graphes/bord.png Graphic file (type png)
 <use graphes/bord.png>
 Package pdftex.def Info: graphes/bord.png  used on input line 447.
 (pdftex.def)             Requested size: 200.87735pt x 113.81102pt.
- [17 <./graphes/bord.png>]
-[18] [19] [20]
+ [18 <./graphes/bord.png>]
+[19] [20] [21]
 Underfull \hbox (badness 10000) in paragraph at lines 612--614
 
  []
@@ -1170,11 +1174,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 616--620
 
  []
 
-
-LaTeX Warning: Reference `prout' on page 21 undefined on input line 633.
-
-[21]
-<graphes/maillage_resolution_champ_magnetique.jpg, id=268, 702.625pt x 526.9687
+[22]
+<graphes/maillage_resolution_champ_magnetique.jpg, id=305, 702.625pt x 526.9687
 5pt>
 File: graphes/maillage_resolution_champ_magnetique.jpg Graphic file (type jpg)
 <use graphes/maillage_resolution_champ_magnetique.jpg>
@@ -1196,10 +1197,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 656--670
 
  []
 
-[22 <./graphes/maillage_resolution_champ_magnetique.jpg>]
-
-LaTeX Warning: Reference `annexe_2' on page 23 undefined on input line 671.
-
+[23 <./graphes/maillage_resolution_champ_magnetique.jpg>]
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 674.
 
 
@@ -1218,8 +1216,8 @@ Overfull \hbox (13.99654pt too wide) in paragraph at lines 684--684
 2,edge2); 
  []
 
-[23]
-<graphes/resultat_champ.jpg, id=279, 2569.6pt x 1351.0475pt>
+[24]
+<graphes/resultat_champ.jpg, id=318, 2569.6pt x 1351.0475pt>
 File: graphes/resultat_champ.jpg Graphic file (type jpg)
 <use graphes/resultat_champ.jpg>
 Package pdftex.def Info: graphes/resultat_champ.jpg  used on input line 706.
@@ -1229,7 +1227,7 @@ Overfull \hbox (122.8682pt too wide) in paragraph at lines 706--707
  [] 
  []
 
-<graphes/norme_du_champ.jpg, id=280, 2569.6pt x 1351.0475pt>
+<graphes/norme_du_champ.jpg, id=319, 2569.6pt x 1351.0475pt>
 File: graphes/norme_du_champ.jpg Graphic file (type jpg)
 <use graphes/norme_du_champ.jpg>
 Package pdftex.def Info: graphes/norme_du_champ.jpg  used on input line 715.
@@ -1242,9 +1240,9 @@ Overfull \hbox (14.65166pt too wide) in paragraph at lines 715--716
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[24 <./graphes/resultat_champ.jpg>] [25 <./graphes/norme_du_champ.jpg>]
+[25 <./graphes/resultat_champ.jpg>] [26 <./graphes/norme_du_champ.jpg>]
 Chapitre 3.
-<graphes/3_tourbillons.png, id=292, 1284.8pt x 801.99625pt>
+<graphes/3_tourbillons.png, id=330, 1284.8pt x 801.99625pt>
 File: graphes/3_tourbillons.png Graphic file (type png)
 <use graphes/3_tourbillons.png>
 Package pdftex.def Info: graphes/3_tourbillons.png  used on input line 730.
@@ -1252,7 +1250,7 @@ Package pdftex.def Info: graphes/3_tourbillons.png  used on input line 730.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[26
+[27
 
 ]
 
@@ -1264,40 +1262,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 739--752
 
  []
 
-[27 <./graphes/3_tourbillons.png>]
+[28 <./graphes/3_tourbillons.png>]
 File: graphes/champvec2.png Graphic file (type png)
 <use graphes/champvec2.png>
 Package pdftex.def Info: graphes/champvec2.png  used on input line 778.
 (pdftex.def)             Requested size: 273.482pt x 170.71652pt.
-<graphes/repere.jpg, id=303, 60.225pt x 91.84312pt>
+<graphes/repere.jpg, id=341, 60.225pt x 91.84312pt>
 File: graphes/repere.jpg Graphic file (type jpg)
 <use graphes/repere.jpg>
 Package pdftex.def Info: graphes/repere.jpg  used on input line 779.
 (pdftex.def)             Requested size: 37.31613pt x 56.9055pt.
-
-
-LaTeX Warning: Reference `figure ty' on page 28 undefined on input line 784.
-
-[28 <./graphes/repere.jpg>] [29]
-
-LaTeX Warning: Reference `figure fg' on page 30 undefined on input line 872.
-
+ [29 <./graphes/repere.jpg>] [30]
 File: graphes/config_centre.png Graphic file (type png)
 <use graphes/config_centre.png>
 Package pdftex.def Info: graphes/config_centre.png  used on input line 875.
 (pdftex.def)             Requested size: 364.19568pt x 227.62204pt.
-<graphes/repere_retourne.jpg, id=313, 310.15875pt x 280.79906pt>
+<graphes/repere_retourne.jpg, id=354, 310.15875pt x 280.79906pt>
 File: graphes/repere_retourne.jpg Graphic file (type jpg)
 <use graphes/repere_retourne.jpg>
 Package pdftex.def Info: graphes/repere_retourne.jpg  used on input line 876.
 (pdftex.def)             Requested size: 94.28355pt x 85.35826pt.
 
+
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[30]
-
-LaTeX Warning: Reference `figure 1h' on page 31 undefined on input line 889.
-
+[31]
 File: graphes/champvec2.png Graphic file (type png)
 <use graphes/champvec2.png>
 Package pdftex.def Info: graphes/champvec2.png  used on input line 892.
@@ -1320,17 +1309,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 889--912
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[31 <./graphes/repere_retourne.jpg>] [32]
+[32 <./graphes/repere_retourne.jpg>] [33]
 Underfull \hbox (badness 10000) in paragraph at lines 923--929
 
  []
 
-<graphes/maillage_droit.png, id=330, 406.51875pt x 391.4625pt>
+<graphes/maillage_droit.png, id=371, 406.51875pt x 391.4625pt>
 File: graphes/maillage_droit.png Graphic file (type png)
 <use graphes/maillage_droit.png>
 Package pdftex.def Info: graphes/maillage_droit.png  used on input line 942.
 (pdftex.def)             Requested size: 236.37651pt x 227.62204pt.
-[33 <./graphes/maillage_droit.png>]
+[34 <./graphes/maillage_droit.png>]
 
 LaTeX Warning: Command \l invalid in math mode on input line 961.
 
@@ -1339,7 +1328,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 966--972
 
  []
 
-[34] [35]
+[35] [36]
 Overfull \hbox (20.17154pt too wide) in paragraph at lines 1003--1003
 []\T1/lmtt/m/n/12 AddMatElem(A,indice+nv2,indice+nv2,nu*DxDxval+2*nu*DyDyval+nu
 *DzDzval);[] 
@@ -1351,7 +1340,7 @@ Overfull \hbox (44.87155pt too wide) in paragraph at lines 1004--1004
 2*nu*DzDzval);[] 
  []
 
-<graphes/maillage_resolution_total_centre.jpg, id=345, 2569.6pt x 1351.0475pt>
+<graphes/maillage_resolution_total_centre.jpg, id=387, 2569.6pt x 1351.0475pt>
 File: graphes/maillage_resolution_total_centre.jpg Graphic file (type jpg)
 <use graphes/maillage_resolution_total_centre.jpg>
 Package pdftex.def Info: graphes/maillage_resolution_total_centre.jpg  used on 
@@ -1365,7 +1354,7 @@ Overfull \hbox (14.65166pt too wide) in paragraph at lines 1022--1023
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<graphes/maillage_resolution_total_decentre.jpg, id=346, 2569.6pt x 1351.0475pt
+<graphes/maillage_resolution_total_decentre.jpg, id=388, 2569.6pt x 1351.0475pt
 >
 File: graphes/maillage_resolution_total_decentre.jpg Graphic file (type jpg)
 <use graphes/maillage_resolution_total_decentre.jpg>
@@ -1380,11 +1369,11 @@ Overfull \hbox (14.65166pt too wide) in paragraph at lines 1026--1027
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[36]
+[37]
 
-LaTeX Warning: Text page 37 contains only floats.
+LaTeX Warning: Text page 38 contains only floats.
 
-[37 <./graphes/maillage_resolution_total_centre.jpg> <./graphes/maillage_resolu
+[38 <./graphes/maillage_resolution_total_centre.jpg> <./graphes/maillage_resolu
 tion_total_decentre.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 1031--1033
 
@@ -1400,13 +1389,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 1040--1042
 
  []
 
-<graphes/affichage_extraction_2D.jpg, id=358, 702.625pt x 526.96875pt>
+<graphes/affichage_extraction_2D.jpg, id=399, 702.625pt x 526.96875pt>
 File: graphes/affichage_extraction_2D.jpg Graphic file (type jpg)
 <use graphes/affichage_extraction_2D.jpg>
 Package pdftex.def Info: graphes/affichage_extraction_2D.jpg  used on input lin
 e 1045.
 (pdftex.def)             Requested size: 303.49516pt x 227.62204pt.
-<graphes/affichage_extraction_2D_normal.jpg, id=359, 702.625pt x 526.96875pt>
+<graphes/affichage_extraction_2D_normal.jpg, id=400, 702.625pt x 526.96875pt>
 File: graphes/affichage_extraction_2D_normal.jpg Graphic file (type jpg)
 <use graphes/affichage_extraction_2D_normal.jpg>
 Package pdftex.def Info: graphes/affichage_extraction_2D_normal.jpg  used on in
@@ -1415,21 +1404,14 @@ put line 1051.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[38 <./graphes/affichage_extraction_2D.jpg>]
-
-LaTeX Warning: Reference `figure aze' on page 39 undefined on input line 1056.
-
-
-LaTeX Warning: Reference `figure 3jj' on page 39 undefined on input line 1056.
-
-
+[39 <./graphes/affichage_extraction_2D.jpg>]
 Overfull \hbox (69.57156pt too wide) in paragraph at lines 1060--1060
 []\T1/lmtt/m/n/12 indz = find(v(:,3) == z); % récupération des indices des n÷ud
 s pour le niveau 0[] 
  []
 
-[39 <./graphes/affichage_extraction_2D_normal.jpg>]
-<graphes/table_de_connectivite.png, id=370, 614.295pt x 441.65pt>
+[40 <./graphes/affichage_extraction_2D_normal.jpg>]
+<graphes/table_de_connectivite.png, id=413, 614.295pt x 441.65pt>
 File: graphes/table_de_connectivite.png Graphic file (type png)
 <use graphes/table_de_connectivite.png>
 Package pdftex.def Info: graphes/table_de_connectivite.png  used on input line 
@@ -1448,18 +1430,18 @@ LaTeX Warning: Command \' invalid in math mode on input line 1078.
 
 LaTeX Warning: Command \' invalid in math mode on input line 1078.
 
-[40 <./graphes/table_de_connectivite.png>]
+[41 <./graphes/table_de_connectivite.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 1085--1091
 
  []
 
-<graphes/Paraview/coupe_aimant_centre.png, id=377, 1619.04875pt x 1186.4325pt>
+<graphes/Paraview/coupe_aimant_centre.png, id=420, 1619.04875pt x 1186.4325pt>
 File: graphes/Paraview/coupe_aimant_centre.png Graphic file (type png)
 <use graphes/Paraview/coupe_aimant_centre.png>
 Package pdftex.def Info: graphes/Paraview/coupe_aimant_centre.png  used on inpu
 t line 1094.
 (pdftex.def)             Requested size: 310.61172pt x 227.62204pt.
-<graphes/Paraview/flux_aimant_centre_100pt_length4.png, id=378, 1870.99pt x 118
+<graphes/Paraview/flux_aimant_centre_100pt_length4.png, id=421, 1870.99pt x 118
 6.4325pt>
 File: graphes/Paraview/flux_aimant_centre_100pt_length4.png Graphic file (type 
 png)
@@ -1470,7 +1452,7 @@ Package pdftex.def Info: graphes/Paraview/flux_aimant_centre_100pt_length4.png
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<graphes/Paraview/differents_flux_centre_100pt_lenght4_rad05.png, id=379, 1870.
+<graphes/Paraview/differents_flux_centre_100pt_lenght4_rad05.png, id=422, 1870.
 99pt x 1186.4325pt>
 File: graphes/Paraview/differents_flux_centre_100pt_lenght4_rad05.png Graphic f
 ile (type png)
@@ -1478,11 +1460,11 @@ ile (type png)
 Package pdftex.def Info: graphes/Paraview/differents_flux_centre_100pt_lenght4_
 rad05.png  used on input line 1117.
 (pdftex.def)             Requested size: 358.94623pt x 227.62204pt.
-[41 <./graphes/Paraview/coupe_aimant_centre.png (PNG copy)>]
+[42 <./graphes/Paraview/coupe_aimant_centre.png (PNG copy)>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<graphes/coupe_2D_champ_centre.jpg, id=385, 2569.6pt x 1351.0475pt>
+<graphes/coupe_2D_champ_centre.jpg, id=429, 2569.6pt x 1351.0475pt>
 File: graphes/coupe_2D_champ_centre.jpg Graphic file (type jpg)
 <use graphes/coupe_2D_champ_centre.jpg>
 Package pdftex.def Info: graphes/coupe_2D_champ_centre.jpg  used on input line 
@@ -1496,7 +1478,7 @@ Overfull \hbox (14.65166pt too wide) in paragraph at lines 1127--1128
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<graphes/Paraview/coupe_aimant_decentre.png, id=386, 1619.04875pt x 1186.4325pt
+<graphes/Paraview/coupe_aimant_decentre.png, id=430, 1619.04875pt x 1186.4325pt
 >
 File: graphes/Paraview/coupe_aimant_decentre.png Graphic file (type png)
 <use graphes/Paraview/coupe_aimant_decentre.png>
@@ -1506,7 +1488,7 @@ put line 1135.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<graphes/Paraview/differents_flux_decentre_100pt_lenght4_rad05.png, id=387, 924
+<graphes/Paraview/differents_flux_decentre_100pt_lenght4_rad05.png, id=431, 924
 .45375pt x 1176.395pt>
 File: graphes/Paraview/differents_flux_decentre_100pt_lenght4_rad05.png Graphic
  file (type png)
@@ -1528,7 +1510,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1148--1150
 
  []
 
-<graphes/coupe_2D_champ_decentre.jpg, id=388, 702.625pt x 526.96875pt>
+<graphes/coupe_2D_champ_decentre.jpg, id=432, 702.625pt x 526.96875pt>
 File: graphes/coupe_2D_champ_decentre.jpg Graphic file (type jpg)
 <use graphes/coupe_2D_champ_decentre.jpg>
 Package pdftex.def Info: graphes/coupe_2D_champ_decentre.jpg  used on input lin
@@ -1537,15 +1519,15 @@ e 1155.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[42 <./graphes/Paraview/flux_aimant_centre_100pt_length4.png (PNG copy)>]
-[43 <./graphes/Paraview/differents_flux_centre_100pt_lenght4_rad05.png (PNG cop
+[43 <./graphes/Paraview/flux_aimant_centre_100pt_length4.png (PNG copy)>]
+[44 <./graphes/Paraview/differents_flux_centre_100pt_lenght4_rad05.png (PNG cop
 y)>]
 
-LaTeX Warning: Text page 44 contains only floats.
+LaTeX Warning: Text page 45 contains only floats.
 
-[44 <./graphes/coupe_2D_champ_centre.jpg> <./graphes/Paraview/coupe_aimant_dece
+[45 <./graphes/coupe_2D_champ_centre.jpg> <./graphes/Paraview/coupe_aimant_dece
 ntre.png (PNG copy)>]
-<graphes/Paraview/total_coupe_pret_aimant_decentre.png, id=406, 1870.99pt x 118
+<graphes/Paraview/total_coupe_pret_aimant_decentre.png, id=449, 1870.99pt x 118
 6.4325pt>
 File: graphes/Paraview/total_coupe_pret_aimant_decentre.png Graphic file (type 
 png)
@@ -1557,7 +1539,7 @@ Package pdftex.def Info: graphes/Paraview/total_coupe_pret_aimant_decentre.png
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<graphes/Paraview/total_coupe_pret_aimant_centre.png, id=407, 1870.99pt x 1186.
+<graphes/Paraview/total_coupe_pret_aimant_centre.png, id=450, 1870.99pt x 1186.
 4325pt>
 File: graphes/Paraview/total_coupe_pret_aimant_centre.png Graphic file (type pn
 g)
@@ -1568,7 +1550,7 @@ sed on input line 1172.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<graphes/Paraview/total_3_flux.png, id=408, 1870.99pt x 1186.4325pt>
+<graphes/Paraview/total_3_flux.png, id=451, 1870.99pt x 1186.4325pt>
 File: graphes/Paraview/total_3_flux.png Graphic file (type png)
 <use graphes/Paraview/total_3_flux.png>
 Package pdftex.def Info: graphes/Paraview/total_3_flux.png  used on input line 
@@ -1577,24 +1559,18 @@ Package pdftex.def Info: graphes/Paraview/total_3_flux.png  used on input line
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Reference `figure 322' on page 45 undefined on input line 1183.
-
-
-LaTeX Warning: Reference `figure 3a' on page 45 undefined on input line 1183.
-
-[45 <./graphes/Paraview/differents_flux_decentre_100pt_lenght4_rad05.png (PNG c
+[46 <./graphes/Paraview/differents_flux_decentre_100pt_lenght4_rad05.png (PNG c
 opy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 1191--1198
 
  []
 
-[46 <./graphes/coupe_2D_champ_decentre.jpg> <./graphes/Paraview/total_coupe_pre
+[47 <./graphes/coupe_2D_champ_decentre.jpg> <./graphes/Paraview/total_coupe_pre
 t_aimant_decentre.png (PNG copy)>]
 
-LaTeX Warning: Text page 47 contains only floats.
+LaTeX Warning: Text page 48 contains only floats.
 
-[47 <./graphes/Paraview/total_coupe_pret_aimant_centre.png (PNG copy)> <./graph
+[48 <./graphes/Paraview/total_coupe_pret_aimant_centre.png (PNG copy)> <./graph
 es/Paraview/total_3_flux.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 1198--1204
 
@@ -1605,7 +1581,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1204--1211
 
  []
 
-[48]
+[49]
 Overfull \hbox (63.39656pt too wide) in paragraph at lines 1225--1225
 []\T1/lmtt/m/n/12 [X2,Y2,Z2,Uxgd_centre,Uygd_centre,Uzgd_centre,Pgd_centre] = s
 tokes_3D(true,R);[] 
@@ -1629,7 +1605,7 @@ Overfull \hbox (149.8466pt too wide) in paragraph at lines 1234--1234
 ire cela revient à appliquer le[] 
  []
 
-[49]
+[50]
 Overfull \hbox (57.22156pt too wide) in paragraph at lines 1245--1245
 []\T1/lmtt/m/n/12 fprintf('   - au format VTK (''VTK STRUCTURED_GRID'') : %s\n'
 ,filename2_vtk);[] 
@@ -1641,7 +1617,7 @@ Overfull \hbox (63.39656pt too wide) in paragraph at lines 1246--1246
 l,filename2_vtk);[] 
  []
 
-<graphes/Paraview/section_pioncarre_R_15.png, id=435, 1870.99pt x 1186.4325pt>
+<graphes/Paraview/section_pioncarre_R_15.png, id=480, 1870.99pt x 1186.4325pt>
 File: graphes/Paraview/section_pioncarre_R_15.png Graphic file (type png)
 <use graphes/Paraview/section_pioncarre_R_15.png>
 Package pdftex.def Info: graphes/Paraview/section_pioncarre_R_15.png  used on i
@@ -1652,7 +1628,7 @@ Overfull \hbox (31.93832pt too wide) in paragraph at lines 1255--1256
  [][] 
  []
 
-<graphes/Paraview/section_pioncarre_R_20.png, id=436, 1870.99pt x 1186.4325pt>
+<graphes/Paraview/section_pioncarre_R_20.png, id=481, 1870.99pt x 1186.4325pt>
 File: graphes/Paraview/section_pioncarre_R_20.png Graphic file (type png)
 <use graphes/Paraview/section_pioncarre_R_20.png>
 Package pdftex.def Info: graphes/Paraview/section_pioncarre_R_20.png  used on i
@@ -1663,7 +1639,7 @@ Overfull \hbox (31.93832pt too wide) in paragraph at lines 1261--1262
  [][] 
  []
 
-<graphes/Paraview/section_pioncarre_R_10.png, id=437, 1870.99pt x 1186.4325pt>
+<graphes/Paraview/section_pioncarre_R_10.png, id=482, 1870.99pt x 1186.4325pt>
 File: graphes/Paraview/section_pioncarre_R_10.png Graphic file (type png)
 <use graphes/Paraview/section_pioncarre_R_10.png>
 Package pdftex.def Info: graphes/Paraview/section_pioncarre_R_10.png  used on i
@@ -1674,7 +1650,7 @@ Overfull \hbox (31.93832pt too wide) in paragraph at lines 1268--1269
  [][] 
  []
 
-<graphes/Paraview/section_pioncarre_R_8_maillage_double.png, id=438, 1870.99pt 
+<graphes/Paraview/section_pioncarre_R_8_maillage_double.png, id=483, 1870.99pt 
 x 1186.4325pt>
 File: graphes/Paraview/section_pioncarre_R_8_maillage_double.png Graphic file (
 type png)
@@ -1690,7 +1666,7 @@ Overfull \hbox (31.93832pt too wide) in paragraph at lines 1274--1275
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<graphes/Paraview/section_pioncarre_R_5.png, id=439, 1870.99pt x 1186.4325pt>
+<graphes/Paraview/section_pioncarre_R_5.png, id=484, 1870.99pt x 1186.4325pt>
 File: graphes/Paraview/section_pioncarre_R_5.png Graphic file (type png)
 <use graphes/Paraview/section_pioncarre_R_5.png>
 Package pdftex.def Info: graphes/Paraview/section_pioncarre_R_5.png  used on in
@@ -1701,7 +1677,7 @@ Overfull \hbox (31.93832pt too wide) in paragraph at lines 1281--1282
  [][] 
  []
 
-<graphes/Paraview/section_pioncarre_R_2_double.png, id=440, 1870.99pt x 1186.43
+<graphes/Paraview/section_pioncarre_R_2_double.png, id=485, 1870.99pt x 1186.43
 25pt>
 File: graphes/Paraview/section_pioncarre_R_2_double.png Graphic file (type png)
 
@@ -1717,7 +1693,7 @@ Overfull \hbox (31.93832pt too wide) in paragraph at lines 1287--1288
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<graphes/Paraview/section_pioncarre_R_01.png, id=441, 1870.99pt x 1186.4325pt>
+<graphes/Paraview/section_pioncarre_R_01.png, id=486, 1870.99pt x 1186.4325pt>
 File: graphes/Paraview/section_pioncarre_R_01.png Graphic file (type png)
 <use graphes/Paraview/section_pioncarre_R_01.png>
 Package pdftex.def Info: graphes/Paraview/section_pioncarre_R_01.png  used on i
@@ -1741,7 +1717,7 @@ Overfull \hbox (31.93832pt too wide) in paragraph at lines 1300--1301
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<graphes/Paraview/section_pioncarre_R_001_double.png, id=442, 1870.99pt x 1186.
+<graphes/Paraview/section_pioncarre_R_001_double.png, id=487, 1870.99pt x 1186.
 4325pt>
 File: graphes/Paraview/section_pioncarre_R_001_double.png Graphic file (type pn
 g)
@@ -1754,7 +1730,7 @@ Overfull \hbox (31.93832pt too wide) in paragraph at lines 1307--1308
  [][] 
  []
 
-<graphes/Paraview/section_pioncarre_R_005_double.png, id=443, 1870.99pt x 1186.
+<graphes/Paraview/section_pioncarre_R_005_double.png, id=488, 1870.99pt x 1186.
 4325pt>
 File: graphes/Paraview/section_pioncarre_R_005_double.png Graphic file (type pn
 g)
@@ -1770,7 +1746,7 @@ Overfull \hbox (31.93832pt too wide) in paragraph at lines 1313--1314
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<graphes/Paraview/section_pioncarre_R_0005_double.png, id=444, 1870.99pt x 1186
+<graphes/Paraview/section_pioncarre_R_0005_double.png, id=489, 1870.99pt x 1186
 .4325pt>
 File: graphes/Paraview/section_pioncarre_R_0005_double.png Graphic file (type p
 ng)
@@ -1791,15 +1767,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 1326--1330
 
  []
 
-[50 <./graphes/Paraview/section_pioncarre_R_15.png (PNG copy)> <./graphes/Parav
-iew/section_pioncarre_R_20.png (PNG copy)>] [51 <./graphes/Paraview/section_pio
+[51 <./graphes/Paraview/section_pioncarre_R_15.png (PNG copy)> <./graphes/Parav
+iew/section_pioncarre_R_20.png (PNG copy)>] [52 <./graphes/Paraview/section_pio
 ncarre_R_10.png (PNG copy)> <./graphes/Paraview/section_pioncarre_R_8_maillage_
 double.png (PNG copy)> <./graphes/Paraview/section_pioncarre_R_5.png (PNG copy)
 > <./graphes/Paraview/section_pioncarre_R_2_double.png (PNG copy)> <./graphes/P
-araview/section_pioncarre_R_01.png (PNG copy)>] [52 <./graphes/Paraview/section
+araview/section_pioncarre_R_01.png (PNG copy)>] [53 <./graphes/Paraview/section
 _pioncarre_R_001_double.png (PNG copy)> <./graphes/Paraview/section_pioncarre_R
 _005_double.png (PNG copy)> <./graphes/Paraview/section_pioncarre_R_0005_double
-.png (PNG copy)>] [53]
+.png (PNG copy)>] [54]
 Underfull \hbox (badness 10000) in paragraph at lines 1333--1336
 
  []
@@ -1809,11 +1785,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 1337--1345
 
  []
 
-[54]
+[55]
 Annexe A.
-[55
+[56
 
-] [56]
+] [57]
 Annexe B.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
@@ -1873,7 +1849,7 @@ Overfull \hbox (47.39374pt too wide) in paragraph at lines 1531--1531
 le maillage de l'aimant[] 
  []
 
-[57
+[58
 
 ]
 Overfull \hbox (18.65007pt too wide) in paragraph at lines 1534--1534
@@ -1935,7 +1911,7 @@ Overfull \hbox (24.3988pt too wide) in paragraph at lines 1566--1566
 ;n2;n2;n2;n3;n3;n3][] 
  []
 
-[58]
+[59]
 Overfull \hbox (1.40387pt too wide) in paragraph at lines 1570--1570
 []    \T1/lmtt/m/n/10.95 terme_jacobien = (airek^2)/4 .* ([pk(3,2)-pk(2,1) pk(1
 ,1)-pk(3,1) ;..[] 
@@ -2001,7 +1977,7 @@ Overfull \hbox (7.1526pt too wide) in paragraph at lines 1602--1602
 ================[] 
  []
 
-[59]
+[60]
 Overfull \hbox (53.14247pt too wide) in paragraph at lines 1608--1608
 []\T1/lmtt/m/n/10.95 %---------------- initialisation -------------------------
 ------------------------[] 
@@ -2037,7 +2013,7 @@ Overfull \hbox (18.65007pt too wide) in paragraph at lines 1629--1629
 n2;n2;n2;n3;n3;n3][] 
  []
 
-[60]
+[61]
 Overfull \hbox (93.3836pt too wide) in paragraph at lines 1649--1649
 []\T1/lmtt/m/n/10.95 C_x1 = sparse(ligne,colonne,C_val_x1);     %on place les v
 aleurs avec les nums des noeuds[] 
@@ -2085,7 +2061,7 @@ Overfull \hbox (58.8912pt too wide) in paragraph at lines 1673--1673
 noeuds mises dans l'ordre[] 
  []
 
-[61]
+[62]
 Overfull \hbox (1.40387pt too wide) in paragraph at lines 1682--1682
 []\T1/lmtt/m/n/10.95 [A, M, nn, ibint, ic2] = matrixP1final(v,t,fnum,node1,edge
 1,node2,edge2);[] 
@@ -2133,7 +2109,7 @@ Overfull \hbox (7.1526pt too wide) in paragraph at lines 1715--1715
 ----------------[] 
  []
 
-[62]
+[63]
 Overfull \hbox (12.90134pt too wide) in paragraph at lines 1726--1726
 []\T1/lmtt/m/n/10.95 %=========================================================
 ================% 
@@ -2182,13 +2158,13 @@ Overfull \hbox (12.90134pt too wide) in paragraph at lines 1753--1753
 -----------------[] 
  []
 
-[63]
+[64]
 Overfull \hbox (12.90134pt too wide) in paragraph at lines 1770--1770
 []\T1/lmtt/m/n/10.95 % Traitement de la pression a moyenne nulle par multiplica
 teur de Lagrange.[] 
  []
 
-[64]
+[65]
 Overfull \hbox (24.3988pt too wide) in paragraph at lines 1792--1792
 []\T1/lmtt/m/n/10.95 [X2,Y2,Z2,Uxgd,Uygd,Uzgd,Pgd] = gridformat(Lx,Ly,Lz,Nx,Ny,
 Nz,v,Ux,Uy,Uz,Pr2);[] 
@@ -2230,7 +2206,7 @@ Overfull \hbox (12.90134pt too wide) in paragraph at lines 1819--1819
 -----------------[] 
  []
 
-[65]
+[66]
 Overfull \hbox (24.3988pt too wide) in paragraph at lines 1830--1830
 []\T1/lmtt/m/n/10.95 %-------- generation maillage total de resolution du probl
 eme 2D ------------[] 
@@ -2284,7 +2260,7 @@ Overfull \hbox (12.90134pt too wide) in paragraph at lines 1861--1861
 t(ti,7))) && ....[] 
  []
 
-[66]
+[67]
 Overfull \hbox (12.90134pt too wide) in paragraph at lines 1862--1862
 []\T1/lmtt/m/n/10.95 %         (fz(t(ti,9))==fz(t(ti,22))) && (fz(t(ti,9))==fz(
 t(ti,17))) && ...[] 
@@ -2320,7 +2296,7 @@ Overfull \hbox (1.40387pt too wide) in paragraph at lines 1895--1895
 iver ----------[] 
  []
 
-[67]
+[68]
 Overfull \hbox (35.89627pt too wide) in paragraph at lines 1909--1909
 []\T1/lmtt/m/n/10.95 %=========================================================
 ===================== 
@@ -2374,7 +2350,7 @@ Overfull \hbox (70.38867pt too wide) in paragraph at lines 1932--1932
 l_2D(k,2),int_aimant) &&...[] 
  []
 
-[68]
+[69]
 Overfull \hbox (70.38867pt too wide) in paragraph at lines 1936--1936
 []    \T1/lmtt/m/n/10.95 if ismember(t_total_2D(k,1),int_cuve) && ismember(t_to
 tal_2D(k,2),int_cuve) &&...[] 
@@ -2416,7 +2392,7 @@ Overfull \hbox (12.90134pt too wide) in paragraph at lines 1972--1972
 -----------------[] 
  []
 
-[69]
+[70]
 Overfull \hbox (12.90134pt too wide) in paragraph at lines 1976--1976
 []\T1/lmtt/m/n/10.95 %------------ pour Uz ------------------------------------
 -----------------[] 
@@ -2434,7 +2410,7 @@ Overfull \hbox (12.90134pt too wide) in paragraph at lines 1988--1988
 -----------------[] 
  []
 
-[70]
+[71]
 Underfull \hbox (badness 10000) in paragraph at lines 2107--2108
 
  []
@@ -2467,34 +2443,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 2121--2133
 
  []
 
-[71]
+[72]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 2133.
  ("Rapport _projet-2A.aux")
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2133.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2133.
 
-Package rerunfilecheck Info: File `"Rapport _projet-2A".out' has not changed.
-(rerunfilecheck)             Checksum: 1F1A8FD3A39D2EF5452B671935C3D3A3;2447.
 
+
+Package rerunfilecheck Warning: File `"Rapport _projet-2A".out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"Rapport _projet-2A".out':
+(rerunfilecheck)             Before: 1F1A8FD3A39D2EF5452B671935C3D3A3;2447
+(rerunfilecheck)             After:  43F4EA9C630ABD22342C935AF0C88FC6;2447.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2133.
  ) 
 Here is how much of TeX's memory you used:
- 10032 strings out of 493305
- 157366 string characters out of 3125451
- 244229 words of memory out of 3000000
+ 10035 strings out of 493305
+ 157490 string characters out of 3125451
+ 247315 words of memory out of 3000000
  13214 multiletter control sequences out of 15000+200000
  78454 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,15n,40p,1198b,681s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,15n,40p,1198b,674s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/l
 m/lm-ec.enc}{C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/e
 nc/dvips/lm/lm-rm.enc}{C:/Users/pierre gauthier/AppData/Local/Programs/MiKTeX 2
@@ -2523,9 +2502,9 @@ Programs/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb><C:/Users/pierre gauthier/
 AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb><C:/Users/pi
 erre gauthier/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/sym
 bols/msbm10.pfb>
-Output written on "Rapport _projet-2A.pdf" (72 pages, 24134038 bytes).
+Output written on "Rapport _projet-2A.pdf" (73 pages, 24143208 bytes).
 PDF statistics:
- 643 PDF objects out of 1000 (max. 8388607)
- 144 named destinations out of 1000 (max. 500000)
+ 692 PDF objects out of 1000 (max. 8388607)
+ 145 named destinations out of 1000 (max. 500000)
  463 words of extra memory for PDF output out of 10000 (max. 10000000)
 

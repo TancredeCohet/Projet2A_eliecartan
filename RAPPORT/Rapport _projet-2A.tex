@@ -70,14 +70,14 @@
 \\
 \\
 \begin{onehalfspace}
-La résolution d'équations à dérivées partielles sont la clé de voûte de la modélisation de systèmes physiques et financiers avec des conditions aux limites des systèmes. Cette problématique est particulièrement vraie en mécanique des fluides avec l'utilisation prépondérante de l'équation de Navier Stokes. Il est donc primordial d'avoir des moyens de résolution/simulation numérique de ce genre d'équation, qui respecte les différentes contraintes que posent la théorie des équations à dérivées partielles ( fonctions modélisées respectant les espaces de Sobolev). Une des méthodes numériques de résolution de Navier-Stokes est par exemple la méthode des éléments finis, sur maillage triangulaire. 
+La résolution d'équations à dérivées partielles est la clé de voûte de la modélisation de systèmes physiques et financiers avec des conditions aux limites des systèmes. Cette problématique est particulièrement vraie en mécanique des fluides avec l'utilisation prépondérante de l'équation de Navier Stokes. Il est donc primordial d'avoir des moyens de résolution/simulation numérique de ce genre d'équations, qui respecte les différentes contraintes que posent la théorie des équations à dérivées partielles ( fonctions modélisées respectant les espaces de Sobolev). Une des méthodes numériques de résolution de Navier-Stokes est par exemple la méthode des éléments finis, sur maillage triangulaire. 
 \newline
-Le but de ce projet est d'étudier des écoulement chaotiques à faible nombre de Reynolds, c'est à dire des écoulements dont les forces visqueuses sont prépondérantes, qui sont présents typiquement dans l'industrie métallurgique ou dans l'industrie hydro-électrique. Cette problématique de résolution d'équations numériques à dérivées partielles est au cœur des enjeux du projet.
+Le but de ce projet est d'étudier des écoulements chaotiques à faible nombre de Reynolds, c'est-à-dire des écoulements dont les forces visqueuses sont prépondérantes, qui sont présents typiquement dans l'industrie métallurgique ou dans l'industrie hydro-électrique. Cette problématique de résolution d'équations numériques à dérivées partielles est au cœur des enjeux du projet.
 \newline
 \newline
 Une approche possible de ce problème est l'approche numérique eulérienne, dont le modèle académique analytique a été étudié dans le cadre de la thèse de Valérie Toussaint$^{[1]}$, que nous allons reprendre avec deux tourbillons d'axes parallèles et un tourbillon qui leur est perpendiculaire.
 
-Cette étude se fait dans la continuité d'un travail effectué par Ismail Mebsout et Oumaima Hammami durant l'année scolaire 2016-2017 où le but sera d'étudier les écoulements en s'affranchissant de certaines simplifications.
+Cette étude se fait dans la continuité d'un travail effectué par Ismail Mebsout et Oumaima Hammami durant l'année scolaire 2016-2017, le but sera d'étudier les écoulements en s'affranchissant de certaines simplifications.
 Dans la première partie de notre étude, nous allons présenter le problème, puis le mettre en équation et calculer la force magnétique composant le terme source de l'équation de Navier-Stokes, pour résoudre numériquement le problème et étudier les résultats.
 
 %\end{onehalfspace}
@@ -106,11 +106,11 @@ Dans le cas d'une advection chaotique la trajectoire du système n'est pas inté
 \\
 \\
 Ainsi on peut se trouver dans la situation d'un écoulement régulier dans la représentation eulérienne conduisant à une réponse essentiellement erratique si l'on considère l'advection d'un traceur d'un point de vue lagrangien : cette situation est appelée advection chaotique, ou chaos lagrangien.\\
-L' écoulement chaotique va s'illustrer par une instabilité, notamment dans le cas de deux particules séparées par un écart $\delta x$, cet écart va croitre exponentiellement selon la théorie des exposants de Lyapunov. 
+L' écoulement chaotique va s'illustrer par une instabilité, notamment dans le cas de deux particules séparées par un écart $\delta x$, cet écart va croître exponentiellement selon la théorie des exposants de Lyapunov. 
 \\
-Le chaos lagrangien est particulièrement intéressant lors de mélange laminaire, car il est bien plus intéressant que l'écoulement turbulent, il permet d'effectuer des mélanges pour un moindre cout d'énergie. En théorie à partir d'un temps infini, chaque particule aura parcouru l'intégralité des points de l'espace de référence.  On mettra en exergue cette assertion avec les sections de Poincaré, dont l'on explicitera les propriétés plus tard dans le rapport. 
+Le chaos lagrangien est particulièrement intéressant lors de mélange laminaire, car il est bien plus intéressant que l'écoulement turbulent, il permet d'effectuer des mélanges pour un moindre coût d'énergie. En théorie à partir d'un temps infini, chaque particule aura parcouru l'intégralité des points de l'espace de référence.  On mettra en exergue cette assertion avec les sections de Poincaré, dont on explicitera les propriétés plus tard dans le rapport. 
 
-\subsection{dispositif expérimental} 
+\subsection{Dispositif expérimental} 
 
 Pour générer l'écoulement que l'on souhaite étudier, on utilise un système composé d'un parallélépipède, d'aimants permanents et d’électrodes pour générer un vecteur densité de courant. Le parallélépipède est un mélangeur dans lequel se trouve un liquide faiblement ionisé.
 On place deux aimants l’un en face de l’autre sur une moitié du parallélépipède pour créer un champ $\vec{B}$ plus intense sur la moitié du parallélépipède où se trouve l'aimant. On place deux électrodes sur les deux autres faces opposées du parallélépipède pour créer un courant uniforme de densité $\vec{j}$.
@@ -147,7 +147,7 @@ On place deux aimants l’un en face de l’autre sur une moitié du parallélé
 %		\end{subfigure}
 	\end{center}
 \end{figure}
-Une force de Laplace est générée, due à la densité de courant en présence d’un champ magnétique $\vec{B}$. Comme cette force de Laplace est plus forte sur une partie du fluide par la position des aimants, un tourbillon est créé
+Une force de Laplace est générée, due à la densité de courant en présence d’un champ magnétique $\vec{B}$. Comme cette force de Laplace est plus forte sur une partie du fluide par la position des aimants, un tourbillon est créé.
 \begin{figure}[!h]
 	\begin{center}
 	\centering
@@ -156,7 +156,7 @@ Une force de Laplace est générée, due à la densité de courant en présence 
 		\caption{configuration avec 2 tourbillons pour un aimant}
 	\end{center}
 \end{figure}
-On ajoute ensuite un autre aimant centré sur la cuve qui va lui induire des forces de Laplace de part et d'autres du parallélépipède de telle manière à générer deux tourbillons symétriques.\\
+On ajoute ensuite un autre aimant centré sur la cuve qui va induire des forces de Laplace de part et d'autres du parallélépipède de manière à générer deux tourbillons symétriques.\\
 Puis en sommant les deux configurations, on arrive à un dispositif expérimental à trois tourbillons. \\
 \begin{figure}[!h]
 	\begin{center}
@@ -180,9 +180,9 @@ Notre système \{fluide\} sera modélisé par un fluide à faible nombre de Reyn
 \newpage
 \chapter{Modélisation du champ Magnétique de l'aimant}
 \subsection{Introduction}
-Nous allons nous intéresser en premier lieu à modéliser le champ magnétique d'un aimant pour pouvoir obtenir ensuite les forces de Laplace s'exerçant sur le fluide pour caractériser l'écoulement.
+Nous allons nous intéresser en premier lieu à la modélisation le champ magnétique d'un aimant pour pouvoir obtenir ensuite les forces de Laplace s'exerçant sur le fluide pour caractériser l'écoulement.
 
-Nous cherchons ainsi à modéliser le champ d'induction magnétique $\vec{B}(x,y,z)$ induit par un aimant (Figure 1). L'objectif sera d'abord de déterminer le champ magnétique dans une configuration quelconque, pour ensuite exploiter ces résultats et les employer dans la résolution numérique des équations de Stokes. \\
+Nous cherchons ainsi à modéliser le champ d'induction magnétique $\vec{B}(x,y,z)$ induit par un aimant (Figure 1). L'objectif sera d'abord de déterminer le champ magnétique dans une configuration quelconque, pour ensuite exploiter ces résultats dans la résolution numérique des équations de Stokes. \\
 \begin{figure}[h]
 \begin{center}
 \includegraphics[height =4 cm, keepaspectratio]{graphes/champ_aimant1.png} %on affiche figure aimant
@@ -213,7 +213,7 @@ On définit $\Omega_{int}$ le domaine de l'aimant, et $\Omega_{e}$ le domaine ex
 
 \newpage
 On se place en régime stationnaire comme il n'y a pas de mouvements de l'aimant. \\
-Le champ d'induction magnétique $\vec{B}$ est la somme du champs magnétique $\vec{H}$ et de l'aimantation $\vec{M}$.
+Le champ d'induction magnétique $\vec{B}$ est la somme du champ magnétique $\vec{H}$ et de l'aimantation $\vec{M}$.
 
 \[\vec{B}=\mu _{0}(\vec{H}+\vec{M})\]
 $\mu _{0}$ est la perméabilité magnétique du vide. \\
